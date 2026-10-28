@@ -3,9 +3,7 @@
   "defaultTarget": "all",
   "githubAccount": "sweven-nik",
   "hosting": {
-    "provider": "cloudflare-workers",
-    "accountId": "95bffcd1aea0510b6c4e281bd189b7dd",
-    "project": "sweven-nik"
+    "provider": "none"
   },
   "buildScript": "build",
   "beforePublish": [],
