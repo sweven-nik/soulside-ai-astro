@@ -1,0 +1,93 @@
+---
+import __lumosAsset27 from '@/assets/placeholder-2.svg?url';
+import { text } from '@/lib/values';
+import { imageUrl } from '@/lib/urls';
+import ElementContentCard from '@/components/4-elements/ElementContentCard.astro';
+import GlobalDemoButton from '@/components/1-globals/GlobalDemoButton.astro';
+
+interface Props {
+  /** Button Group/Visibility */
+  buttonGroupVisibility?: boolean;
+  /** Button Group/Text */
+  buttonGroupText?: string;
+  /** Button Group/Link */
+  buttonGroupLink?: string;
+  buttonGroupLinkTarget?: string;
+  /** Heading/Heading Max Width */
+  headingHeadingMaxWidth?: "none" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall";
+  /** Tagline/Visibility */
+  taglineVisibility?: boolean;
+  /** Image */
+  image?: string | { url?: string; alt?: string; id?: string };
+  /** Visibility */
+  visibility?: boolean;
+  /** Variant */
+  variant?: "dark-mode" | "light-mode";
+}
+const collectionData = {};
+const defaults = {"a71a8601-16c0-c3ab-d3df-943fb13fcf85": [], "aa3a776a-136b-6059-b1be-c970ffcf693d": {"id": "plugins/Basic/assets/placeholder.svg"}, "de2d3d42-436d-057f-3646-46ba72ee0a73": [{"children": "Tagline"}], "59938ec3-507a-4ae5-b0dc-5aa4100b1566": [false], "b1ed8e81-67bd-c786-5eeb-5260dad64919": "base", "3d495f96-6415-a042-fbca-6ff80795f2e3": [{"children": "The record becomes the case for getting paid."}], "4bf262a5-7b73-4646-55ed-c569d5d6a579": [{"children": {"devlink": {"runtimeProps": {}, "slot": ""}, "displayName": "", "attr": {"id": ""}, "xattr": [], "styleBlockIds": [], "search": {"exclude": false}, "visibility": {"conditions": [], "keepInHtml": false}, "children": [{"children": "Soulside turns every session into the evidence you need for level-of-care justification, peer review, and faster reimbursement."}]}}, {"children": {"tag": "ul", "list": {"type": "list"}, "children": [{"children": {"list": {"type": "item"}, "children": [{"children": "Concurrent review and level-of-care justification"}]}}, {"children": {"list": {"type": "item"}, "children": [{"children": "Peer review support and automated denial appeals"}]}}, {"children": {"list": {"type": "item"}, "children": [{"children": "Built on what was actually said in the room, not a reconstructed summary"}]}}, {"children": {"list": {"type": "item"}, "children": [{"children": "More authorized days, higher claim acceptance, higher claim value"}]}}]}}], "0e3ea81a-2677-3306-a094-64eda63da72b": {"mode": "external", "url": "#"}, "44a30add-d369-1544-4b7e-a667938830c5": [{"children": "Book a Demo"}], "5047e166-41a0-7269-9a1c-94e5135db42a": [], "e2fb7e81-7d0c-42c7-536b-000ea94a5851": "base"};
+const {
+  buttonGroupVisibility: propButtonGroupVisibility = true,
+  buttonGroupText: propButtonGroupText = "Book a Demo",
+  buttonGroupLink: propButtonGroupLink = "#",
+  buttonGroupLinkTarget: propButtonGroupLinkTarget = "",
+  headingHeadingMaxWidth: propHeadingHeadingMaxWidth = "none",
+  taglineVisibility: propTaglineVisibility = false,
+  image: propImage = {"id": "plugins/Basic/assets/placeholder.svg"},
+  visibility: propVisibility = true,
+  variant: propVariant = "dark-mode"
+} = Astro.props;
+const propBodyRichText = undefined;
+const propHeadingText = "The record becomes the case for getting paid.";
+if (!["none", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall"].includes(propHeadingHeadingMaxWidth)) throw new Error("ElementAutoTabPane.headingHeadingMaxWidth must be one of: none, xxlarge, xlarge, large, medium, small, xsmall, xxsmall");
+const propTaglineText = "Tagline";
+if (!["dark-mode", "light-mode"].includes(propVariant)) throw new Error("ElementAutoTabPane.variant must be one of: dark-mode, light-mode");
+const data = {
+  ...defaults,
+  "5047e166-41a0-7269-9a1c-94e5135db42a": [propButtonGroupVisibility],
+  "44a30add-d369-1544-4b7e-a667938830c5": propButtonGroupText,
+  "0e3ea81a-2677-3306-a094-64eda63da72b": {mode: 'external', url: propButtonGroupLink, target: propButtonGroupLinkTarget || undefined},
+  "4bf262a5-7b73-4646-55ed-c569d5d6a579": propBodyRichText === undefined ? defaults["4bf262a5-7b73-4646-55ed-c569d5d6a579"] : propBodyRichText,
+  "3d495f96-6415-a042-fbca-6ff80795f2e3": propHeadingText,
+  "b1ed8e81-67bd-c786-5eeb-5260dad64919": {"none": "base", "xxlarge": "b2a03215-0672-55ee-1c6b-c510251f580e", "xlarge": "16557577-1f97-62a2-c120-b70a4b4f045d", "large": "a30b9f7c-4e29-741f-a24b-1547c73bedf7", "medium": "591cc907-fbd9-f17d-05b9-d6b3b67f8c01", "small": "a2c38ad7-5daa-7dbf-2151-78b98feec20c", "xsmall": "b949cde6-6013-e48d-2d5a-4100b2847829", "xxsmall": "6ceebe5a-118f-f17a-b9df-3ed3a88e7694"}[propHeadingHeadingMaxWidth],
+  "59938ec3-507a-4ae5-b0dc-5aa4100b1566": [propTaglineVisibility],
+  "de2d3d42-436d-057f-3646-46ba72ee0a73": propTaglineText,
+  "aa3a776a-136b-6059-b1be-c970ffcf693d": propImage,
+  "a71a8601-16c0-c3ab-d3df-943fb13fcf85": [propVisibility],
+  "e2fb7e81-7d0c-42c7-536b-000ea94a5851": {"dark-mode": "base", "light-mode": "c09a88c1-bfd4-686f-c37d-878d83d4fafb"}[propVariant]
+};
+for (const [key, name] of Object.entries({})) if (Astro.slots.has(name)) data[key] = [{__slot: name}];
+
+
+---
+{propVisibility && (<div sw-auto-tab="pane" data-wf-id="ea0c5b29-40ba-8f38-6b4a-6165dd91d2ae" data-w-id="ea0c5b29-40ba-8f38-6b4a-6165dd91d2ae" data-wf--element-auto-tab-pane--variant={{"dark-mode": "dark-mode", "light-mode": "light-mode"}[propVariant]} class:list={[{"light-mode": "w-variant-c09a88c1-bfd4-686f-c37d-878d83d4fafb"}[propVariant], "auto-tab_pane"]} data-wf-variant={["e2fb7e81-7d0c-42c7-536b-000ea94a5851=" + ({"dark-mode": "base", "light-mode": "c09a88c1-bfd4-686f-c37d-878d83d4fafb"}[propVariant])].join(" ")}>
+<div data-wf-id="7984e822-3e64-6eec-848a-e6dee9c8657d" data-w-id="7984e822-3e64-6eec-848a-e6dee9c8657d" class="auto-tab_pane-grid">
+<div data-wf-id="67186472-3737-bb99-4bd8-30af876824ca" data-w-id="67186472-3737-bb99-4bd8-30af876824ca" class="auto-tab_pane-card">
+<ElementContentCard buttonGroupVisibility={propButtonGroupVisibility} headingHeadingMaxWidth={propHeadingHeadingMaxWidth} taglineVisibility={propTaglineVisibility}>
+<GlobalDemoButton />
+<slot name="bodyrichtext" slot="bodyrichtext">{typeof data["4bf262a5-7b73-4646-55ed-c569d5d6a579"] === 'string' ? text(data["4bf262a5-7b73-4646-55ed-c569d5d6a579"]) : (<><p data-wf-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb2" data-w-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb2">
+Soulside turns every session into the evidence you need for level-of-care justification, peer review, and faster reimbursement.
+</p>
+<ul data-wf-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb4" data-w-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb4">
+<li data-wf-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb5" data-w-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb5">
+Concurrent review and level-of-care justification
+</li>
+<li data-wf-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb7" data-w-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb7">
+Peer review support and automated denial appeals
+</li>
+<li data-wf-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb9" data-w-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb9">
+Built on what was actually said in the room, not a reconstructed summary
+</li>
+<li data-wf-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfbb" data-w-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfbb">
+More authorized days, higher claim acceptance, higher claim value
+</li>
+</ul></>)}</slot>
+<slot name="headingtext" slot="headingtext">{propHeadingText}</slot>
+<slot name="taglinetext" slot="taglinetext">{propTaglineText}</slot>
+</ElementContentCard>
+</div>
+<div data-wf-id="269105b4-cfd3-7968-64d4-fd93af528f83" data-w-id="269105b4-cfd3-7968-64d4-fd93af528f83" class="auto-tab_pane-visual">
+<img src={imageUrl(propImage) || (__lumosAsset27)} loading="lazy" alt={((propImage)?.alt || '') || ''} data-wf-id="a3b99548-e622-ff30-bb58-789e21b379d3" data-w-id="a3b99548-e622-ff30-bb58-789e21b379d3" class="cover-image" />
+</div>
+</div>
+</div>)}

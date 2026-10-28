@@ -1,0 +1,24 @@
+---
+import { resolveAssetUrls } from '@/lib/asset-urls';
+import Layout from '@/layouts/Layout.astro';
+
+
+import { getCollection } from 'astro:content';
+export async function getStaticPaths() {
+  const entries = await getCollection("resource-categories");
+  const slugs = new Set();
+  return entries.filter(e => !e.data.isDraft && !e.data.isArchived).map(entry => {
+    const slug = entry.id;
+    if (!slug || /[\/\\]|^\.{1,2}$/.test(slug) || slugs.has(slug)) throw new Error('Invalid or duplicate CMS slug: ' + slug);
+    slugs.add(slug);
+    return { params: { slug }, props: { entry } };
+  });
+}
+const data = {};
+const collectionData = resolveAssetUrls({ ...Astro.props.entry.data, slug: Astro.props.entry.id, fullSlug: "/resource-categories/" + Astro.props.entry.id, ...Object.fromEntries(Object.entries(Astro.props.entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: Astro.props.entry.data[key], alt }])) });
+
+
+---
+<Layout webflowPageId="6ac68e84463dcf2d642c2fa0" pageTitle="Resource Categories Template" pageDescription="" data-wf-id="6ac68e84463dcf2d642c2fa8" data-w-id="6ac68e84463dcf2d642c2fa8">
+
+</Layout>

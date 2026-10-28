@@ -1,0 +1,22 @@
+---
+import ButtonGlobal from '@/components/5-buttons/ButtonGlobal.astro';
+import IconButtonFlipArrow from '@/components/7-icons/IconButtonFlipArrow.astro';
+
+interface Props {
+  /** Size */
+  size?: "normal" | "small";
+}
+const collectionData = {};
+const {
+  size: propSize = "normal"
+} = Astro.props;
+if (!["normal", "small"].includes(propSize)) throw new Error("GlobalDemoButton.size must be one of: normal, small");
+
+
+---
+<div data-wf-id="3a11c8d2-8e6b-990e-5d60-76a9309f50fc" data-w-id="3a11c8d2-8e6b-990e-5d60-76a9309f50fc" class="global-cta">
+<ButtonGlobal trailingIconVisibility={true} leadingIconVisibility={false} link="/book-a-demo" text="Book a Demo" size={propSize} style="primary">
+<IconButtonFlipArrow />
+<IconButtonFlipArrow slot="icon" />
+</ButtonGlobal>
+</div>

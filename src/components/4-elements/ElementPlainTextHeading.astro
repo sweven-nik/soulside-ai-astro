@@ -1,0 +1,22 @@
+---
+
+
+interface Props {
+  /** Visibility */
+  visibility?: boolean;
+  /** Heading Style */
+  headingStyle?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+}
+const collectionData = {};
+const {
+  visibility: propVisibility = true,
+  headingStyle: propHeadingStyle = "h2"
+} = Astro.props;
+const propText = "This is a plain text styled heading";
+if (!["h1", "h2", "h3", "h4", "h5", "h6"].includes(propHeadingStyle)) throw new Error("ElementPlainTextHeading.headingStyle must be one of: h1, h2, h3, h4, h5, h6");
+
+
+---
+{propVisibility && (<div data-wf-id="7dece6ad-8a4c-33d1-6054-524811dd967b" data-w-id="7dece6ad-8a4c-33d1-6054-524811dd967b" data-wf--element-plain-text-heading--heading-style={{"h1": "h1", "h2": "h2", "h3": "h3", "h4": "h4", "h5": "h5", "h6": "h6"}[propHeadingStyle]} class:list={[{"h1": "w-variant-0b25f756-e368-4705-2385-bcad1cf3ef32", "h3": "w-variant-c6cf0190-0d21-3b9f-759d-9edf9be82c9e", "h4": "w-variant-7b478d2a-5847-a7cf-556c-00bf7c7da64b", "h5": "w-variant-2c65401c-e405-4d99-75b6-8b5999ffc1bd", "h6": "w-variant-a12bd0df-6b30-57ee-d28d-3351426e01dd"}[propHeadingStyle], "heading-style-plain-text"]} data-wf-variant={["6fb09b07-b84d-a803-824e-ab6b69d51ec3=" + ({"h1": "0b25f756-e368-4705-2385-bcad1cf3ef32", "h2": "base", "h3": "c6cf0190-0d21-3b9f-759d-9edf9be82c9e", "h4": "7b478d2a-5847-a7cf-556c-00bf7c7da64b", "h5": "2c65401c-e405-4d99-75b6-8b5999ffc1bd", "h6": "a12bd0df-6b30-57ee-d28d-3351426e01dd"}[propHeadingStyle])].join(" ")}>
+<slot>{propText}</slot>
+</div>)}

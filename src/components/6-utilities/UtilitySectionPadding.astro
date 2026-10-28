@@ -1,0 +1,19 @@
+---
+
+
+interface Props {
+  /** Visibility */
+  visibility?: boolean;
+  /** Padding Size */
+  paddingSize?: "xlarge" | "large" | "medium" | "small" | "tiny" | "none";
+}
+const collectionData = {};
+const {
+  visibility: propVisibility = true,
+  paddingSize: propPaddingSize = "large"
+} = Astro.props;
+if (!["xlarge", "large", "medium", "small", "tiny", "none"].includes(propPaddingSize)) throw new Error("UtilitySectionPadding.paddingSize must be one of: xlarge, large, medium, small, tiny, none");
+
+
+---
+{propVisibility && (<div data-wf-id="26b822d7-7243-3b0f-1864-67e2032217af" data-w-id="26b822d7-7243-3b0f-1864-67e2032217af" data-wf--utility-section-padding--padding-size={{"xlarge": "xlarge", "large": "large", "medium": "medium", "small": "small", "tiny": "tiny", "none": "none"}[propPaddingSize]} class:list={[{"xlarge": "w-variant-f436a701-7833-853a-a4dd-c0130897596c", "medium": "w-variant-53334a5f-c603-8b18-a4ae-24a521882aae", "small": "w-variant-f4ada232-1a39-576a-4dfd-cc6d5c970e44", "tiny": "w-variant-39d35300-f6c1-c9ed-2af5-a9018a8f776e", "none": "w-variant-39f4dbb3-bae5-4052-0617-d1f8168857af"}[propPaddingSize], "padding-section-dynamic"]} data-wf-variant={["53966ba1-c5ad-ac51-be6e-9e619c098248=" + ({"xlarge": "f436a701-7833-853a-a4dd-c0130897596c", "large": "base", "medium": "53334a5f-c603-8b18-a4ae-24a521882aae", "small": "f4ada232-1a39-576a-4dfd-cc6d5c970e44", "tiny": "39d35300-f6c1-c9ed-2af5-a9018a8f776e", "none": "39f4dbb3-bae5-4052-0617-d1f8168857af"}[propPaddingSize])].join(" ")}></div>)}

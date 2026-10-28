@@ -1,0 +1,23 @@
+---
+import __lumosAsset27 from '@/assets/placeholder-2.svg?url';
+import { imageUrl } from '@/lib/urls';
+
+
+interface Props {
+  /** Alt Text */
+  altText?: string;
+  /** Image */
+  image?: string | { url?: string; alt?: string; id?: string };
+}
+const collectionData = {};
+const {
+  altText: propAltText = "__wf_reserved_inherit",
+  image: propImage = {"id": "plugins/Basic/assets/placeholder.svg"}
+} = Astro.props;
+
+
+
+---
+<div data-wf-id="30919cd6-4f54-1ba3-e662-0168cf59e74f" data-w-id="30919cd6-4f54-1ba3-e662-0168cf59e74f" class="marquee-logo_component">
+<img src={imageUrl(propImage) || (__lumosAsset27)} loading="eager" alt={((propAltText === '__wf_reserved_inherit' ? ((propImage)?.alt || '') : propAltText)) || ''} data-wf-id="f332fca2-5bdf-e7ca-315d-751b2ca8e92e" data-w-id="f332fca2-5bdf-e7ca-315d-751b2ca8e92e" class="marquee-logo_img" />
+</div>

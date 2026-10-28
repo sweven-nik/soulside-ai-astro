@@ -1,0 +1,60 @@
+---
+import __lumosAsset22 from '@/assets/sweven-s.-webclip.png?url';
+import { imageUrl } from '@/lib/urls';
+import ElementTagline from '@/components/4-elements/ElementTagline.astro';
+import ElementDynamicHeading from '@/components/4-elements/ElementDynamicHeading.astro';
+import UtilitySpacer from '@/components/6-utilities/UtilitySpacer.astro';
+
+interface Props {
+  /** Content Spacer/Size */
+  contentSpacerSize?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none" | "medium-flex-grow";
+  /** Content Spacer/Visibility */
+  contentSpacerVisibility?: boolean;
+  /** Heading/Style */
+  headingStyle?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "h0";
+  /** Heading/Tag */
+  headingTag?: string;
+  /** Tagline/Visibility */
+  taglineVisibility?: boolean;
+  /** Image */
+  image?: string | { url?: string; alt?: string; id?: string };
+  /** Variant */
+  variant?: "base" | "no-image" | "reversed";
+}
+const collectionData = {};
+const {
+  contentSpacerSize: propContentSpacerSize = "huge",
+  contentSpacerVisibility: propContentSpacerVisibility = true,
+  headingStyle: propHeadingStyle = "h2",
+  headingTag: propHeadingTag = "h2",
+  taglineVisibility: propTaglineVisibility = true,
+  image: propImage = {"id": "6abe9af376a33690663b8d89"},
+  variant: propVariant = "base"
+} = Astro.props;
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none", "medium-flex-grow"].includes(propContentSpacerSize)) throw new Error("ElementFullWidthFeature.contentSpacerSize must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none, medium-flex-grow");
+const propHeadingText = "Behavioral Health infrastructure was never built for this level of complexity";
+if (!["h1", "h2", "h3", "h4", "h5", "h6", "h0"].includes(propHeadingStyle)) throw new Error("ElementFullWidthFeature.headingStyle must be one of: h1, h2, h3, h4, h5, h6, h0");
+const propTaglineText = "The Problem";
+if (!["base", "no-image", "reversed"].includes(propVariant)) throw new Error("ElementFullWidthFeature.variant must be one of: base, no-image, reversed");
+
+
+---
+<div data-wf-id="4ab317e2-5627-9738-247d-200849911f10" data-w-id="4ab317e2-5627-9738-247d-200849911f10" data-wf--element-full-width-feature--variant={{"base": "base", "no-image": "no-image", "reversed": "reversed"}[propVariant]} class:list={[{"no-image": "w-variant-5b5edb28-e105-322e-29d3-ed44204c9bf1", "reversed": "w-variant-bc129b66-05a6-0283-ebf7-110e680fbd0a"}[propVariant], "fullwidth-feature"]} data-wf-variant={["424d387f-70d3-dbee-7fd6-17d422c17b98=" + ({"base": "base", "no-image": "5b5edb28-e105-322e-29d3-ed44204c9bf1", "reversed": "bc129b66-05a6-0283-ebf7-110e680fbd0a"}[propVariant])].join(" ")}>
+<div data-wf-id="4ab317e2-5627-9738-247d-200849911f11" data-w-id="4ab317e2-5627-9738-247d-200849911f11" class="fullwidth-feature_visual">
+<img alt={((propImage)?.alt || '') || ''} src={imageUrl(propImage) || (__lumosAsset22)} loading="lazy" data-wf-id="4ab317e2-5627-9738-247d-200849911f12" data-w-id="4ab317e2-5627-9738-247d-200849911f12" class="cover-image" />
+</div>
+<div data-wf-id="4ab317e2-5627-9738-247d-200849911f13" data-w-id="4ab317e2-5627-9738-247d-200849911f13" class="fullwidth-feature_content">
+<ElementTagline visibility={propTaglineVisibility}>
+<slot name="taglinetext">{propTaglineText}</slot>
+</ElementTagline>
+<ElementDynamicHeading style={propHeadingStyle} tag={propHeadingTag} visibility={true}>
+<slot name="headingtext">{propHeadingText}</slot>
+</ElementDynamicHeading>
+<div data-wf-id="f3474609-ff85-b9cf-e799-2f9209bec26c" data-w-id="f3474609-ff85-b9cf-e799-2f9209bec26c" class="hide-tablet">
+<UtilitySpacer size={propContentSpacerSize} visibility={propContentSpacerVisibility} />
+</div>
+<div data-wf-id="7bf16a1a-476c-413a-2a69-980787462fe6" data-w-id="7bf16a1a-476c-413a-2a69-980787462fe6" class="button-group" name="">
+<slot />
+</div>
+</div>
+</div>

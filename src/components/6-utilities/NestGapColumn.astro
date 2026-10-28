@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Gap */
+  gap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+}
+const collectionData = {};
+const {
+  gap: propGap = "small"
+} = Astro.props;
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propGap)) throw new Error("NestGapColumn.gap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+
+
+---
+<div data-wf-id="0c4113d1-ca3d-1b57-e339-9dec1239e714" data-w-id="0c4113d1-ca3d-1b57-e339-9dec1239e714" data-wf--nest-gap-column--gap={{"xxhuge": "xxhuge", "xhuge": "xhuge", "huge": "huge", "xxlarge": "xxlarge", "xlarge": "xlarge", "large": "large", "medium": "medium", "small": "small", "xsmall": "xsmall", "xxsmall": "xxsmall", "tiny": "tiny", "none": "none"}[propGap]} class:list={[{"xxhuge": "w-variant-29abd01b-4153-ce71-94d8-dddbc6d4c6ae", "xhuge": "w-variant-29abd01b-4153-ce71-94d8-dddbc6d4c6af", "huge": "w-variant-29abd01b-4153-ce71-94d8-dddbc6d4c6b0", "xxlarge": "w-variant-29abd01b-4153-ce71-94d8-dddbc6d4c6b1", "xlarge": "w-variant-29abd01b-4153-ce71-94d8-dddbc6d4c6b2", "large": "w-variant-29abd01b-4153-ce71-94d8-dddbc6d4c6b3", "medium": "w-variant-29abd01b-4153-ce71-94d8-dddbc6d4c6b4", "xsmall": "w-variant-29abd01b-4153-ce71-94d8-dddbc6d4c6b5", "xxsmall": "w-variant-29abd01b-4153-ce71-94d8-dddbc6d4c6b6", "tiny": "w-variant-29abd01b-4153-ce71-94d8-dddbc6d4c6b7", "none": "w-variant-a85b99c6-0f44-7085-1f2a-7b5f7cf433cf"}[propGap], "gap-nest"]} data-wf-variant={["29abd01b-4153-ce71-94d8-dddbc6d4c6ad=" + ({"xxhuge": "29abd01b-4153-ce71-94d8-dddbc6d4c6ae", "xhuge": "29abd01b-4153-ce71-94d8-dddbc6d4c6af", "huge": "29abd01b-4153-ce71-94d8-dddbc6d4c6b0", "xxlarge": "29abd01b-4153-ce71-94d8-dddbc6d4c6b1", "xlarge": "29abd01b-4153-ce71-94d8-dddbc6d4c6b2", "large": "29abd01b-4153-ce71-94d8-dddbc6d4c6b3", "medium": "29abd01b-4153-ce71-94d8-dddbc6d4c6b4", "small": "base", "xsmall": "29abd01b-4153-ce71-94d8-dddbc6d4c6b5", "xxsmall": "29abd01b-4153-ce71-94d8-dddbc6d4c6b6", "tiny": "29abd01b-4153-ce71-94d8-dddbc6d4c6b7", "none": "a85b99c6-0f44-7085-1f2a-7b5f7cf433cf"}[propGap])].join(" ")}></div>

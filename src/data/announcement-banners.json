@@ -1,0 +1,22 @@
+[
+  {
+    "_cid": "6ad1219a0e6084e647681767",
+    "_id": "6ad121ab1d5440f73a895a2e",
+    "_locale": "6abe9af376a33690663b8d58",
+    "message": "Testing the announcement banner",
+    "link": "https://google.com",
+    "name": "Test",
+    "_archived": false,
+    "_draft": false,
+    "created-on": "2026-10-15T18:55:39.205Z",
+    "updated-on": "2026-10-15T19:04:56.073Z",
+    "published-on": "2026-10-15T19:15:34.963Z",
+    "created-by": "Person_69dd1084d624168fc380151e",
+    "updated-by": "Person_69dd1084d624168fc380151e",
+    "published-by": "Person_69dd1084d624168fc380151e",
+    "_noSearch": false,
+    "id": "test",
+    "isDraft": false,
+    "isArchived": false
+  }
+]

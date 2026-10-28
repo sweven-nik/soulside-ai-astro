@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Container */
+  container?: "large" | "medium" | "small" | "none" | "xlarge";
+}
+const collectionData = {};
+const {
+  container: propContainer = "large"
+} = Astro.props;
+if (!["large", "medium", "small", "none", "xlarge"].includes(propContainer)) throw new Error("NestContainer.container must be one of: large, medium, small, none, xlarge");
+
+
+---
+<div data-wf-id="a3d67a4e-093c-f9c5-5c06-5a946a0178d9" data-w-id="a3d67a4e-093c-f9c5-5c06-5a946a0178d9" data-wf--nest-container--container={{"large": "large", "medium": "medium", "small": "small", "none": "none", "xlarge": "xlarge"}[propContainer]} class:list={[{"medium": "w-variant-2bf269d9-d7aa-562d-0625-e7f094445a31", "small": "w-variant-48c0cd1c-cacf-5da2-5023-e700de87e22c", "none": "w-variant-05abf97b-9c06-9f70-3e5b-81ebc6a9d155", "xlarge": "w-variant-6a41fa7e-68ad-da5c-9374-02bb8057c8fd"}[propContainer], "container_nest"]} data-wf-variant={["a1080c39-256a-6482-d229-11870456b178=" + ({"large": "base", "medium": "2bf269d9-d7aa-562d-0625-e7f094445a31", "small": "48c0cd1c-cacf-5da2-5023-e700de87e22c", "none": "05abf97b-9c06-9f70-3e5b-81ebc6a9d155", "xlarge": "6a41fa7e-68ad-da5c-9374-02bb8057c8fd"}[propContainer])].join(" ")}></div>

@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Gap */
+  gap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+}
+const collectionData = {};
+const {
+  gap: propGap = "small"
+} = Astro.props;
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propGap)) throw new Error("NestGap.gap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+
+
+---
+<div data-wf-id="998a3590-4640-b7a2-76ef-45ae30635bcc" data-w-id="998a3590-4640-b7a2-76ef-45ae30635bcc" data-wf--nest-gap--gap={{"xxhuge": "xxhuge", "xhuge": "xhuge", "huge": "huge", "xxlarge": "xxlarge", "xlarge": "xlarge", "large": "large", "medium": "medium", "small": "small", "xsmall": "xsmall", "xxsmall": "xxsmall", "tiny": "tiny", "none": "none"}[propGap]} class:list={[{"xxhuge": "w-variant-57d8543e-e778-eadb-164e-e9ce4be0822b", "xhuge": "w-variant-eff38122-bc5d-ab39-6373-9c352453a712", "huge": "w-variant-5d0c2066-26f2-d236-51b3-afcba6152ec1", "xxlarge": "w-variant-80289dd5-9853-c81b-ecfc-8da1f2ab11ee", "xlarge": "w-variant-deccd08e-d54a-e402-2e59-91c9993f1798", "large": "w-variant-a7e7c569-ac42-3a9a-a93f-f157cb56d5d4", "medium": "w-variant-d75ff46c-25f3-0882-45d8-a00e5e23c256", "xsmall": "w-variant-1528db6d-3a6f-1503-1514-3db14cc9a33a", "xxsmall": "w-variant-0ecf5774-259b-d0a9-1abe-a7bafac50b33", "tiny": "w-variant-0e764ef3-dd28-e7de-a3dd-cd71e75c650c", "none": "w-variant-fee848f4-52a3-ca97-a4d8-6605125daf0f"}[propGap], "gap-nest"]} data-wf-variant={["cb5383d5-0830-a761-41c4-0c3dd9046c2e=" + ({"xxhuge": "57d8543e-e778-eadb-164e-e9ce4be0822b", "xhuge": "eff38122-bc5d-ab39-6373-9c352453a712", "huge": "5d0c2066-26f2-d236-51b3-afcba6152ec1", "xxlarge": "80289dd5-9853-c81b-ecfc-8da1f2ab11ee", "xlarge": "deccd08e-d54a-e402-2e59-91c9993f1798", "large": "a7e7c569-ac42-3a9a-a93f-f157cb56d5d4", "medium": "d75ff46c-25f3-0882-45d8-a00e5e23c256", "small": "base", "xsmall": "1528db6d-3a6f-1503-1514-3db14cc9a33a", "xxsmall": "0ecf5774-259b-d0a9-1abe-a7bafac50b33", "tiny": "0e764ef3-dd28-e7de-a3dd-cd71e75c650c", "none": "fee848f4-52a3-ca97-a4d8-6605125daf0f"}[propGap])].join(" ")}></div>

@@ -1,0 +1,30 @@
+---
+import UtilitySpacer from '@/components/6-utilities/UtilitySpacer.astro';
+
+interface Props {
+  /** Grid Slot/Gap | Tablet Down */
+  gridSlotGapTabletDown?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none" | "medium-flex-grow";
+  /** Grid Slot/Gap | Desktop */
+  gridSlotGapDesktop?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none" | "medium-flex-grow";
+}
+const collectionData = {};
+const {
+  gridSlotGapTabletDown: propGridSlotGapTabletDown = "small",
+  gridSlotGapDesktop: propGridSlotGapDesktop = "small"
+} = Astro.props;
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none", "medium-flex-grow"].includes(propGridSlotGapTabletDown)) throw new Error("LayoutStaggeredGrid.gridSlotGapTabletDown must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none, medium-flex-grow");
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none", "medium-flex-grow"].includes(propGridSlotGapDesktop)) throw new Error("LayoutStaggeredGrid.gridSlotGapDesktop must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none, medium-flex-grow");
+
+
+---
+<div data-wf-id="25400fdb-3e3c-261f-03aa-f4bcfdb79681" data-w-id="25400fdb-3e3c-261f-03aa-f4bcfdb79681" class="element-staggered_grid">
+<div sw-slot="" data-tablet-behavior="False" sw-grid-slot="" data-wf-id="25400fdb-3e3c-261f-03aa-f4bcfdb79682" data-w-id="25400fdb-3e3c-261f-03aa-f4bcfdb79682" class="grid-slot_staggered" name="">
+<slot />
+</div>
+<div sw-grid-gap="desktop" data-wf-id="25400fdb-3e3c-261f-03aa-f4bcfdb79683" data-w-id="25400fdb-3e3c-261f-03aa-f4bcfdb79683" class="grid-slot-gap">
+<UtilitySpacer size={propGridSlotGapDesktop} />
+</div>
+<div sw-grid-gap="tablet-down" data-wf-id="25400fdb-3e3c-261f-03aa-f4bcfdb79685" data-w-id="25400fdb-3e3c-261f-03aa-f4bcfdb79685" class="grid-slot-gap">
+<UtilitySpacer size={propGridSlotGapTabletDown} />
+</div>
+</div>

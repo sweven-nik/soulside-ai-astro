@@ -1,0 +1,44 @@
+---
+import __lumosAsset27 from '@/assets/placeholder-2.svg?url';
+import { resolveAssetUrls } from '@/lib/asset-urls';
+import { getCollection } from 'astro:content';
+import { imageUrl } from '@/lib/urls';
+
+
+interface Props {
+
+}
+const collectionData = {};
+const {
+
+} = Astro.props;
+
+const collections = {
+  "ehr-logos": (await getCollection("ehr-logos")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/ehr-logos/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
+};
+const items1 = [...collections["ehr-logos"]];
+---
+<div data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb14157" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb14157" class="trusted-marquee">
+<div data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb14158" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb14158" class="w-dyn-list trusted-marquee_wrapper">
+<div data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb14159" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb14159" class="w-dyn-items trusted-marquee_track">
+{items1.map((item0) => (<div data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb1415a" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb1415a" class="w-dyn-item trusted-marquee_logo"><img alt={((item0.fields.logo)?.alt || '') || ''} src={imageUrl(item0.fields.logo) || (__lumosAsset27)} loading="eager" data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb1415b" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb1415b" class="trusted-marquee_img" /></div>))}
+</div>
+{!items1.length && (<div data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb1415c" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb1415c" class="w-dyn-empty">
+<div data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb1415d" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb1415d">
+No items found.
+</div>
+</div>)}
+</div>
+<div data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb1415f" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb1415f" class="w-dyn-list trusted-marquee_wrapper">
+<div data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb14160" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb14160" class="w-dyn-items trusted-marquee_track">
+{items1.map((item2) => (<div data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb14161" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb14161" class="w-dyn-item trusted-marquee_logo"><img alt={((item2.fields.logo)?.alt || '') || ''} src={imageUrl(item2.fields.logo) || (__lumosAsset27)} loading="eager" data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb14162" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb14162" class="trusted-marquee_img" /></div>))}
+</div>
+{!items1.length && (<div data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb14163" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb14163" class="w-dyn-empty">
+<div data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb14164" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb14164">
+No items found.
+</div>
+</div>)}
+</div>
+<div data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb14166" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb14166" class="marquee-fade"></div>
+<div data-wf-id="1ed90228-1ea4-53e7-1772-4c47cbb14167" data-w-id="1ed90228-1ea4-53e7-1772-4c47cbb14167" class="marquee-fade flipped"></div>
+</div>

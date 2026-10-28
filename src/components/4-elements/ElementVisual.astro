@@ -1,0 +1,81 @@
+---
+import ElementImage from '@/components/4-elements/ElementImage.astro';
+import ElementVideo from '@/components/4-elements/ElementVideo.astro';
+
+interface Props {
+  /** Video/Aspect Ratio */
+  videoAspectRatio?: "auto" | "square-1x1" | "landscape-3x2" | "widescreen-16x9";
+  /** Visual/Parallax */
+  visualParallax?: boolean;
+  /** Visual/Border Radius */
+  visualBorderRadius?: "rounded" | "large" | "medium" | "small" | "tiny" | "none";
+  /** BG Video/Muted */
+  bgVideoMuted?: string;
+  /** BG Video/Loop */
+  bgVideoLoop?: string;
+  /** BG Video/Autoplay */
+  bgVideoAutoplay?: string;
+  /** BG Video/Source URL */
+  bgVideoSourceUrl?: string;
+  /** Overlay/Opacity */
+  overlayOpacity?: string;
+  /** Overlay/Overlay Visibility */
+  overlayOverlayVisibility?: boolean;
+  /** BG Video/Visibility */
+  bgVideoVisibility?: boolean;
+  /** Playback Video/Link */
+  playbackVideoLink?: unknown;
+  /** Playback Video/Visibility */
+  playbackVideoVisibility?: boolean;
+  /** Video/Visibility */
+  videoVisibility?: boolean;
+  /** Image/Loading */
+  imageLoading?: string;
+  /** Image/Aspect Ratio */
+  imageAspectRatio?: "auto" | "auto-3x2-mobile" | "fill" | "square-1x1" | "landscape-3x2" | "widescreen-16x9" | "xwide-2x1";
+  /** Image/Alt Text */
+  imageAltText?: string;
+  /** Image/File */
+  imageFile?: string | { url?: string; alt?: string; id?: string };
+  /** Image/Visibility */
+  imageVisibility?: boolean;
+  /** Visual/Visibility */
+  visualVisibility?: boolean;
+}
+const collectionData = {};
+const defaults = {"f6df5120-3259-62a0-b213-817be76ade13": [], "8b3f985e-780c-39d8-6e76-08844e2d4ff2": [true], "1e0fbaf6-fb13-9c7c-faa5-ce70658f7024": {"id": "6abe9af376a33690663b8d84"}, "b4ae9ae9-fca7-d3e1-8368-a98b838daa48": "__wf_reserved_inherit", "f714b827-14a0-5091-b053-5adb23b37d04": "base", "859407d6-1789-136c-888e-1f4a55658c70": "lazy", "0276f5b7-4d1a-1d55-52f9-d2eab7271496": [false], "db607595-6a25-a829-5b48-a5f6ea1a4138": [true], "9654b2e3-9618-ca5a-fde5-92b262a6b324": {"embed": {"type": "video", "url": "", "title": ""}}, "ba6e69a9-c32a-f1aa-07a1-792239c3fead": [false], "62e8c41b-70fb-88e6-549f-550525f1e147": [false], "ac1d7e15-5263-5d39-c470-a445699ead89": "opacity: 40%;", "22fe2c34-03c5-63e3-04fd-b4e7b1c2b740": "", "dc683484-4113-0e82-8b16-879236424838": "autoplay", "6ea72e4e-a291-8120-705c-b49db75d0b3e": "loop", "7d575f6e-dc28-4f19-7431-79507ed07799": "muted", "c186646b-668c-1dcb-d363-73f150e789a2": "aaa1fb25-b0d1-11b5-6e1b-a8d49630ed23", "c7e36c44-06f3-5d07-8dc8-b3ff57ede152": false, "d7b216c7-fc14-d859-bd8c-01f9e1e985bc": "base"};
+const {
+  videoAspectRatio: propVideoAspectRatio = "auto",
+  visualParallax: propVisualParallax = false,
+  visualBorderRadius: propVisualBorderRadius = "none",
+  bgVideoMuted: propBgVideoMuted = "muted",
+  bgVideoLoop: propBgVideoLoop = "loop",
+  bgVideoAutoplay: propBgVideoAutoplay = "autoplay",
+  bgVideoSourceUrl: propBgVideoSourceUrl = "",
+  overlayOpacity: propOverlayOpacity = "opacity: 40%;",
+  overlayOverlayVisibility: propOverlayOverlayVisibility = false,
+  bgVideoVisibility: propBgVideoVisibility = false,
+  playbackVideoLink: propPlaybackVideoLink = defaults["9654b2e3-9618-ca5a-fde5-92b262a6b324"],
+  playbackVideoVisibility: propPlaybackVideoVisibility = true,
+  videoVisibility: propVideoVisibility = false,
+  imageLoading: propImageLoading = "lazy",
+  imageAspectRatio: propImageAspectRatio = "auto",
+  imageAltText: propImageAltText = "__wf_reserved_inherit",
+  imageFile: propImageFile = {"id": "6abe9af376a33690663b8d84"},
+  imageVisibility: propImageVisibility = true,
+  visualVisibility: propVisualVisibility = true
+} = Astro.props;
+if (!["auto", "square-1x1", "landscape-3x2", "widescreen-16x9"].includes(propVideoAspectRatio)) throw new Error("ElementVisual.videoAspectRatio must be one of: auto, square-1x1, landscape-3x2, widescreen-16x9");
+if (!["rounded", "large", "medium", "small", "tiny", "none"].includes(propVisualBorderRadius)) throw new Error("ElementVisual.visualBorderRadius must be one of: rounded, large, medium, small, tiny, none");
+if (!["auto", "auto-3x2-mobile", "fill", "square-1x1", "landscape-3x2", "widescreen-16x9", "xwide-2x1"].includes(propImageAspectRatio)) throw new Error("ElementVisual.imageAspectRatio must be one of: auto, auto-3x2-mobile, fill, square-1x1, landscape-3x2, widescreen-16x9, xwide-2x1");
+
+
+---
+{propVisualVisibility && (<div class="visual_component" data-wf-id="f234a476-c22e-e74f-728e-54ab924600dc" data-w-id="f234a476-c22e-e74f-728e-54ab924600dc">
+<ElementImage imageParallax={propVisualParallax} overlayOpacity={propOverlayOpacity} overlayVisibility={propOverlayOverlayVisibility} imageBorderRadius={propVisualBorderRadius} imageAspectRatio={propImageAspectRatio} imageAltText={propImageAltText} imageFile={propImageFile} imageVisibility={propImageVisibility} />
+<ElementVideo bgVideoMuted={propBgVideoMuted} bgVideoLoop={propBgVideoLoop} bgVideoAutoplay={propBgVideoAutoplay} bgVideoSourceUrl={propBgVideoSourceUrl} overlayOpacity={propOverlayOpacity} overlayOverlayVisibility={propOverlayOverlayVisibility} bgVideoVisibility={propBgVideoVisibility} playbackVideoLink={propPlaybackVideoLink} playbackVideoVisibility={propPlaybackVideoVisibility} videoParallax={propVisualParallax} videoBorderRadius={propVisualBorderRadius} videoAspectRatio={propVideoAspectRatio} videoVisibility={propVideoVisibility} />
+{false && (<div data-wf-id="573c4cfe-60e7-bf3f-1c93-9cb53cefd877" data-w-id="573c4cfe-60e7-bf3f-1c93-9cb53cefd877" class="classes">
+<div data-wf-id="8dd34c40-56ad-95bd-c84b-9c90e2e4618d" data-w-id="8dd34c40-56ad-95bd-c84b-9c90e2e4618d" class="visual_image parallax"></div>
+<div data-wf-id="12ba9f04-51d9-6c21-a084-b7a66ad52604" data-w-id="12ba9f04-51d9-6c21-a084-b7a66ad52604" class="visual_video parallax"></div>
+</div>)}
+</div>)}

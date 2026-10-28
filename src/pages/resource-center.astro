@@ -1,0 +1,117 @@
+---
+import { resolveAssetUrls } from '@/lib/asset-urls';
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import { evaluate } from '@/lib/bindings';
+import { text } from '@/lib/values';
+import { linkUrl, linkTarget } from '@/lib/urls';
+import GlobalEmbeds from '@/components/1-globals/GlobalEmbeds.astro';
+import GlobalAnnouncementBar from '@/components/1-globals/GlobalAnnouncementBar.astro';
+import GlobalNavbar from '@/components/1-globals/GlobalNavbar.astro';
+import Section from '@/components/2-sections/Section.astro';
+import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
+import UtilitySectionPadding from '@/components/6-utilities/UtilitySectionPadding.astro';
+import NestContainer from '@/components/6-utilities/NestContainer.astro';
+import ElementBlogCard from '@/components/4-elements/ElementBlogCard.astro';
+import NestPaddingGlobal from '@/components/6-utilities/NestPaddingGlobal.astro';
+import NestColorScheme from '@/components/6-utilities/NestColorScheme.astro';
+import GlobalBackgroundLines from '@/components/1-globals/GlobalBackgroundLines.astro';
+import GlobalFooter from '@/components/1-globals/GlobalFooter.astro';
+const bindings: any[] = [
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoFullSlugToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "fullSlug"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoFullSlugToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "fullSlug"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoFullSlugToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "fullSlug"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoFullSlugToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "fullSlug"}}}}
+];
+
+const data = {};
+const collectionData = {};
+const collections = {
+  "resource-categories": (await getCollection("resource-categories")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/resource-categories/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })})),
+  "resource": (await getCollection("resource")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/resource/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
+};
+const items1 = [...collections["resource-categories"]];
+const items3 = [...collections["resource"]];
+---
+<Layout webflowPageId="6ac68d331c342211e8d462c6" pageTitle="Behavioral Health AI Resources &amp; Insights | Soulside AI" pageDescription="Articles, guides, and webinars on behavioral health AI, clinical documentation, compliance, and revenue cycle best practices from the Soulside AI team." data-wf-id="60d3f7b8b0e86c28630fc6d6" data-w-id="60d3f7b8b0e86c28630fc6d6">
+<div data-wf-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" data-w-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" class="page-wrapper">
+<GlobalEmbeds />
+<GlobalAnnouncementBar />
+<GlobalNavbar />
+<div data-wf-id="34184fc4-bd7c-2241-6cfe-4752e033923d" data-w-id="34184fc4-bd7c-2241-6cfe-4752e033923d" class="main-wrapper">
+<Section>
+<ElementContentGroup contentTextWrap="balance" buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyRichTextTag="p" headingStyle="h1" headingTag="h1" taglineVisibility={false} contentMaxWidth="large" contentAlignment="left">
+<Fragment slot="bodyrichtext">Stay on top of the latest behavioral health AI news, trends, and best practices with our library of educational articles, guides, webinars, and more.</Fragment>
+<Fragment slot="headingtext">Resource Center</Fragment>
+<Fragment slot="taglinetext">Templates</Fragment>
+</ElementContentGroup>
+</Section>
+<section class="section_component" data-wf-id="8afb6215-61d4-37af-68cb-79f8a50ba404" data-w-id="8afb6215-61d4-37af-68cb-79f8a50ba404">
+<div data-fade-in={text(true)} class="padding-global" data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fb4" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fb4">
+<div class="container-large" data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fb5" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fb5">
+<UtilitySectionPadding paddingSize="none" />
+<NestContainer container="large" />
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fb8" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fb8" class="component_slot">
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fb9" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fb9" class="blog-wrapper">
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fba" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fba" class="w-form">
+<form id="email-form" name="email-form" data-name="Email Form" redirect="" data-redirect="" action="" method="get" data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fbb" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fbb" class="filters-form">
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fc5" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fc5" class="w-radio text-style-tagline white">
+<input type="radio" data-name="Radio 2" id="radio-2" name="radio-2" value="Radio 2" required={false} data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fc6" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fc6" class="w-radio-input hide" />
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fc7" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fc7">
+All Resources
+</div>
+</div>
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fbc" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fbc" class="w-dyn-list filters-wrapper">
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fbd" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fbd" class="w-dyn-items filters-list">
+{items1.map((item0) => (<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fbe" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fbe" class="w-dyn-item filters-item"><div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fbf" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fbf" class="w-radio text-style-tagline white">
+<input type="radio" data-name="Radio" id="radio" name="radio" value="Radio" required={false} data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fc0" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fc0" class="w-radio-input hide" />
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fc1" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fc1">
+{item0.fields.name ?? ""}
+</div>
+</div></div>))}
+</div>
+{!items1.length && (<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fc2" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fc2" class="w-dyn-empty">
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fc3" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fc3">
+No items found.
+</div>
+</div>)}
+</div>
+</form>
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fc9" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fc9" class="w-form-done">
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fca" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fca">
+Thank you! Your submission has been received!
+</div>
+</div>
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fcc" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fcc" class="w-form-fail">
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fcd" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fcd">
+Oops! Something went wrong while submitting the form.
+</div>
+</div>
+</div>
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fcf" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fcf" class="w-dyn-list resources-wrapper">
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fd0" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fd0" class="w-dyn-items resources-list">
+{items3.map((item2) => (<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fd1" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fd1" class="w-dyn-item resources-item"><ElementBlogCard mainImage={item2.fields["main-image"]} linkTarget={linkTarget(evaluate(bindings[3], { data, Dynamo: item2.fields }))} link={linkUrl(evaluate(bindings[2], { data, Dynamo: item2.fields }))}>
+<Fragment slot="resourcetypename">{item2.fields["resource-type-2.name"] ?? ""}</Fragment>
+<Fragment slot="name">{item2.fields.name ?? ""}</Fragment>
+</ElementBlogCard></div>))}
+</div>
+{!items3.length && (<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fd5" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fd5" class="w-dyn-empty">
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fd6" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fd6">
+No items found.
+</div>
+</div>)}
+</div>
+</div>
+</div>
+<UtilitySectionPadding paddingSize="large" />
+</div>
+<NestPaddingGlobal sidePadding="global" />
+</div>
+<div data-wf-id="9450370c-0cf9-c3e5-5045-a507fa891fda" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fda" class="section_background"></div>
+<NestColorScheme colorScheme="lightest" />
+<GlobalBackgroundLines />
+</section>
+</div>
+<GlobalFooter />
+</div>
+</Layout>

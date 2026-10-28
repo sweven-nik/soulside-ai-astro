@@ -1,0 +1,41 @@
+---
+
+
+interface Props {
+  /** Good */
+  good?: string;
+  /** Variant */
+  variant?: "x" | "check" | "check---text-size-medium";
+}
+const collectionData = {};
+const {
+  good: propGood = "This is some text inside of a div block.",
+  variant: propVariant = "x"
+} = Astro.props;
+const propBad = "This is some text inside of a div block.";
+if (!["x", "check", "check---text-size-medium"].includes(propVariant)) throw new Error("ElementComparisonItem.variant must be one of: x, check, check---text-size-medium");
+
+
+---
+<div data-wf-id="981ac141-cb19-c0ed-a50f-a4de90996c00" data-w-id="981ac141-cb19-c0ed-a50f-a4de90996c00" data-wf--element-comparison-item--variant={{"x": "x", "check": "check", "check---text-size-medium": "check---text-size-medium"}[propVariant]} class:list={[{"check": "w-variant-d06c3a7d-1e3f-676b-25d7-eac56989e903", "check---text-size-medium": "w-variant-4034bf33-20ff-ebb7-9e5d-9b73c4ab9974"}[propVariant], "comparison-item-wrapper"]} data-wf-variant={["1f8e048d-35e9-91be-4f99-f02048d3d4f5=" + ({"x": "base", "check": "d06c3a7d-1e3f-676b-25d7-eac56989e903", "check---text-size-medium": "4034bf33-20ff-ebb7-9e5d-9b73c4ab9974"}[propVariant])].join(" ")}>
+<div data-wf-id="981ac141-cb19-c0ed-a50f-a4de90996c01" data-w-id="981ac141-cb19-c0ed-a50f-a4de90996c01" class="comparison-item">
+{propVariant === "x" && (<div data-wf-id="981ac141-cb19-c0ed-a50f-a4de90996c02" data-w-id="981ac141-cb19-c0ed-a50f-a4de90996c02" class="w-embed icon-embed x">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="16" cy="16" r="14" fill="#DB453C" fill-opacity="0.2" />
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.0898 19.666L12.332 20.9082L20.9062 12.334L19.6641 11.0918L11.0898 19.666Z" fill="#DB453C" />
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.332 11.0918L11.0898 12.334L19.6641 20.9082L20.9062 19.666L12.332 11.0918Z" fill="#DB453C" />
+</svg>
+
+</div>)}
+{["check", "check---text-size-medium"].includes(propVariant) && (<div data-wf-id="61128dd8-0c2e-ff17-3d90-3fd971c80571" data-w-id="61128dd8-0c2e-ff17-3d90-3fd971c80571" class="w-embed icon-embed x">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="16" cy="16" r="14" fill="#F5D471" />
+<path d="M14.1234 18.6182L21.4385 11.3031L22.6813 12.5459L15.3662 19.862L14.1234 21.1058L12.8767 19.863L9.3174 16.2978L10.5602 15.055L14.1234 18.6182Z" fill="#1D4B4A" />
+</svg>
+
+</div>)}
+<div data-wf-id="981ac141-cb19-c0ed-a50f-a4de90996c03" data-w-id="981ac141-cb19-c0ed-a50f-a4de90996c03" class="text-size-large">
+<slot>{propBad}</slot>
+</div>
+</div>
+</div>

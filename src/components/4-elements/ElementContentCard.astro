@@ -1,0 +1,116 @@
+---
+import { text } from '@/lib/values';
+import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
+
+interface Props {
+  /** Button Group/Visibility */
+  buttonGroupVisibility?: boolean;
+  /** Body/Plain Text Font Size */
+  bodyPlainTextFontSize?: "large" | "medium" | "regular" | "small" | "tiny";
+  /** Body/Rich Text Font Size */
+  bodyRichTextFontSize?: "large" | "medium" | "regular" | "small" | "tiny";
+  /** Body/Content Type */
+  bodyContentType?: boolean;
+  /** Body/Visibility */
+  bodyVisibility?: boolean;
+  /** Heading/Tag */
+  headingTag?: string;
+  /** Heading/Heading Max Width */
+  headingHeadingMaxWidth?: "none" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall";
+  /** Heading/Style */
+  headingStyle?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "h0";
+  /** Heading/Visibility */
+  headingVisibility?: boolean;
+  /** Tagline/Visibility */
+  taglineVisibility?: boolean;
+  /** Content/Gap */
+  contentGap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+  /** Content/Text Wrap */
+  contentTextWrap?: "normal" | "pretty" | "balance";
+  /** Content/Max Width */
+  contentMaxWidth?: "none" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall";
+  /** Content/Alignment */
+  contentAlignment?: "left" | "center" | "right" | "stretch";
+}
+const collectionData = {};
+const defaults = {"f0611bef-5e78-d5b9-9091-3c36d52ffd1d": "base", "f854cd8a-da68-252c-ac30-34fe2c8c35f2": "base", "092e9111-fec3-ca67-96ec-4a00af17e1c5": "736563eb-2fd3-6778-a9f9-0b9e089c3ab1", "30589911-d43f-64b4-dca1-9f0938e7a0dc": "base", "127cce33-ad4a-227b-fc98-4aa7022006fa": [{"children": "Tagline"}], "fd1d413a-0272-a322-8356-3fa611f6a7b7": [false], "0c864950-1086-47ef-fc8b-849fe06d5b0b": [], "98117000-1949-73d5-5436-2cc9504c34bf": "5f594023-8afe-9c4e-aa59-6db291e42e27", "ec5181f3-fea1-6630-6f93-b432a246a882": "base", "84646acb-3a3d-83c9-53f0-373edb3babde": "h3", "4700e6a6-de35-2cb9-ca3e-ea9e482d1d4e": [{"children": "The record becomes the case for getting paid."}], "34a2a0e4-c346-9fcb-28e4-9db60082191e": true, "4e4088ed-81ba-d2ed-1836-d9b68fe3466f": true, "88dc4d53-c062-3cc8-351d-147866907967": "f715fe02-a8e1-aa74-7df4-3b2b97406317", "5fbe33a1-1c3d-2f94-f238-bd0ef7dbe0bf": [{"children": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere."}], "2eb19146-cdca-f959-2f31-582afc1b52cd": "base", "5227e5c2-06b8-a0c8-e352-b392443e0859": [{"children": {"devlink": {"runtimeProps": {}, "slot": ""}, "displayName": "", "attr": {"id": ""}, "xattr": [], "styleBlockIds": [], "search": {"exclude": false}, "visibility": {"conditions": [], "keepInHtml": false}, "children": [{"children": "Soulside turns every session into the evidence you need for level-of-care justification, peer review, and faster reimbursement."}]}}, {"children": {"tag": "ul", "list": {"type": "list"}, "children": [{"children": {"list": {"type": "item"}, "children": [{"children": "Concurrent review and level-of-care justification"}]}}, {"children": {"list": {"type": "item"}, "children": [{"children": "Peer review support and automated denial appeals"}]}}, {"children": {"list": {"type": "item"}, "children": [{"children": "Built on what was actually said in the room, not a reconstructed summary"}]}}, {"children": {"list": {"type": "item"}, "children": [{"children": "More authorized days, higher claim acceptance, higher claim value"}]}}]}}], "e1a3ae46-9643-8c46-ffa1-ff28797ef85f": [], "8be55435-e4fb-6a7d-6e95-0b2438d70d02": []};
+const {
+  buttonGroupVisibility: propButtonGroupVisibility = true,
+  bodyPlainTextFontSize: propBodyPlainTextFontSize = "regular",
+  bodyRichTextFontSize: propBodyRichTextFontSize = "medium",
+  bodyContentType: propBodyContentType = true,
+  bodyVisibility: propBodyVisibility = true,
+  headingTag: propHeadingTag = "h3",
+  headingHeadingMaxWidth: propHeadingHeadingMaxWidth = "none",
+  headingStyle: propHeadingStyle = "h3",
+  headingVisibility: propHeadingVisibility = true,
+  taglineVisibility: propTaglineVisibility = false,
+  contentGap: propContentGap = "small",
+  contentTextWrap: propContentTextWrap = "pretty",
+  contentMaxWidth: propContentMaxWidth = "none",
+  contentAlignment: propContentAlignment = "left"
+} = Astro.props;
+const propBodyRichText = undefined;
+if (!["large", "medium", "regular", "small", "tiny"].includes(propBodyPlainTextFontSize)) throw new Error("ElementContentCard.bodyPlainTextFontSize must be one of: large, medium, regular, small, tiny");
+const propBodyPlainText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.";
+if (!["large", "medium", "regular", "small", "tiny"].includes(propBodyRichTextFontSize)) throw new Error("ElementContentCard.bodyRichTextFontSize must be one of: large, medium, regular, small, tiny");
+const propHeadingText = "The record becomes the case for getting paid.";
+if (!["none", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall"].includes(propHeadingHeadingMaxWidth)) throw new Error("ElementContentCard.headingHeadingMaxWidth must be one of: none, xxlarge, xlarge, large, medium, small, xsmall, xxsmall");
+if (!["h1", "h2", "h3", "h4", "h5", "h6", "h0"].includes(propHeadingStyle)) throw new Error("ElementContentCard.headingStyle must be one of: h1, h2, h3, h4, h5, h6, h0");
+const propTaglineText = "Tagline";
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propContentGap)) throw new Error("ElementContentCard.contentGap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+if (!["normal", "pretty", "balance"].includes(propContentTextWrap)) throw new Error("ElementContentCard.contentTextWrap must be one of: normal, pretty, balance");
+if (!["none", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall"].includes(propContentMaxWidth)) throw new Error("ElementContentCard.contentMaxWidth must be one of: none, xxlarge, xlarge, large, medium, small, xsmall, xxsmall");
+if (!["left", "center", "right", "stretch"].includes(propContentAlignment)) throw new Error("ElementContentCard.contentAlignment must be one of: left, center, right, stretch");
+const data = {
+  ...defaults,
+  "e1a3ae46-9643-8c46-ffa1-ff28797ef85f": [propButtonGroupVisibility],
+  "5227e5c2-06b8-a0c8-e352-b392443e0859": propBodyRichText === undefined ? defaults["5227e5c2-06b8-a0c8-e352-b392443e0859"] : propBodyRichText,
+  "2eb19146-cdca-f959-2f31-582afc1b52cd": {"large": "1fb7c0af-4d81-dacf-32e6-a4a88bdfd5a2", "medium": "e96fa29f-8aac-4aaa-049e-03b64a1041b4", "regular": "base", "small": "1d48e824-ef00-96db-9be3-3a0f16075af7", "tiny": "ebdb4e8c-8e63-f237-dec6-95d6ad6f6fd5"}[propBodyPlainTextFontSize],
+  "5fbe33a1-1c3d-2f94-f238-bd0ef7dbe0bf": propBodyPlainText,
+  "88dc4d53-c062-3cc8-351d-147866907967": {"large": "86c1e6b5-2b7e-b4e9-9a04-7f5ffb7660a3", "medium": "f715fe02-a8e1-aa74-7df4-3b2b97406317", "regular": "base", "small": "f027f572-f0b7-d340-5be2-6c37bce1db4f", "tiny": "2683f45e-e555-7690-e958-53ca072aad1a"}[propBodyRichTextFontSize],
+  "4e4088ed-81ba-d2ed-1836-d9b68fe3466f": propBodyContentType,
+  "34a2a0e4-c346-9fcb-28e4-9db60082191e": propBodyVisibility,
+  "4700e6a6-de35-2cb9-ca3e-ea9e482d1d4e": propHeadingText,
+  "84646acb-3a3d-83c9-53f0-373edb3babde": propHeadingTag,
+  "ec5181f3-fea1-6630-6f93-b432a246a882": {"none": "base", "xxlarge": "b2a03215-0672-55ee-1c6b-c510251f580e", "xlarge": "16557577-1f97-62a2-c120-b70a4b4f045d", "large": "a30b9f7c-4e29-741f-a24b-1547c73bedf7", "medium": "591cc907-fbd9-f17d-05b9-d6b3b67f8c01", "small": "a2c38ad7-5daa-7dbf-2151-78b98feec20c", "xsmall": "b949cde6-6013-e48d-2d5a-4100b2847829", "xxsmall": "6ceebe5a-118f-f17a-b9df-3ed3a88e7694"}[propHeadingHeadingMaxWidth],
+  "98117000-1949-73d5-5436-2cc9504c34bf": {"h1": "5f594023-8afe-9c4e-aa59-6db291e42e26", "h2": "base", "h3": "5f594023-8afe-9c4e-aa59-6db291e42e27", "h4": "5f594023-8afe-9c4e-aa59-6db291e42e28", "h5": "5f594023-8afe-9c4e-aa59-6db291e42e29", "h6": "5f594023-8afe-9c4e-aa59-6db291e42e2a", "h0": "05ad9414-f4d7-5d3a-fab4-f07255cbf584"}[propHeadingStyle],
+  "0c864950-1086-47ef-fc8b-849fe06d5b0b": [propHeadingVisibility],
+  "fd1d413a-0272-a322-8356-3fa611f6a7b7": [propTaglineVisibility],
+  "127cce33-ad4a-227b-fc98-4aa7022006fa": propTaglineText,
+  "30589911-d43f-64b4-dca1-9f0938e7a0dc": {"xxhuge": "57d8543e-e778-eadb-164e-e9ce4be0822b", "xhuge": "eff38122-bc5d-ab39-6373-9c352453a712", "huge": "5d0c2066-26f2-d236-51b3-afcba6152ec1", "xxlarge": "80289dd5-9853-c81b-ecfc-8da1f2ab11ee", "xlarge": "deccd08e-d54a-e402-2e59-91c9993f1798", "large": "a7e7c569-ac42-3a9a-a93f-f157cb56d5d4", "medium": "d75ff46c-25f3-0882-45d8-a00e5e23c256", "small": "base", "xsmall": "1528db6d-3a6f-1503-1514-3db14cc9a33a", "xxsmall": "0ecf5774-259b-d0a9-1abe-a7bafac50b33", "tiny": "0e764ef3-dd28-e7de-a3dd-cd71e75c650c", "none": "fee848f4-52a3-ca97-a4d8-6605125daf0f"}[propContentGap],
+  "092e9111-fec3-ca67-96ec-4a00af17e1c5": {"normal": "base", "pretty": "736563eb-2fd3-6778-a9f9-0b9e089c3ab1", "balance": "dc0a571a-0d57-078f-b7c9-8b502704ab1b"}[propContentTextWrap],
+  "f854cd8a-da68-252c-ac30-34fe2c8c35f2": {"none": "base", "xxlarge": "b2a03215-0672-55ee-1c6b-c510251f580e", "xlarge": "16557577-1f97-62a2-c120-b70a4b4f045d", "large": "a30b9f7c-4e29-741f-a24b-1547c73bedf7", "medium": "591cc907-fbd9-f17d-05b9-d6b3b67f8c01", "small": "a2c38ad7-5daa-7dbf-2151-78b98feec20c", "xsmall": "b949cde6-6013-e48d-2d5a-4100b2847829", "xxsmall": "6ceebe5a-118f-f17a-b9df-3ed3a88e7694"}[propContentMaxWidth],
+  "f0611bef-5e78-d5b9-9091-3c36d52ffd1d": {"left": "base", "center": "d7672b1b-f553-7e46-4c3a-9653f0384514", "right": "679b8083-6418-83c2-aea2-95f14bec7ed1", "stretch": "11299426-bb02-bc4c-a093-111b46d2ae47"}[propContentAlignment]
+};
+for (const [key, name] of Object.entries({"8be55435-e4fb-6a7d-6e95-0b2438d70d02": "default"})) if (Astro.slots.has(name)) data[key] = [{__slot: name}];
+
+
+---
+<div data-wf-id="f20aae79-2f0c-3412-8139-3436d7890bc7" data-w-id="f20aae79-2f0c-3412-8139-3436d7890bc7" class="element-content_card">
+<ElementContentGroup contentGap={propContentGap} bodyPlainTextFontSize={propBodyPlainTextFontSize} contentTextWrap={propContentTextWrap} buttonGroupVisibility={propButtonGroupVisibility} bodyRichTextFontSize={propBodyRichTextFontSize} bodyContentType={propBodyContentType} bodyVisibility={propBodyVisibility} headingHeadingMaxWidth={propHeadingHeadingMaxWidth} headingStyle={propHeadingStyle} headingTag={propHeadingTag} headingVisibility={propHeadingVisibility} taglineVisibility={propTaglineVisibility} contentMaxWidth={propContentMaxWidth} contentAlignment={propContentAlignment}>
+<div data-wf-id="e55b839f-1be2-9e61-44f6-9b8d19225243" data-w-id="e55b839f-1be2-9e61-44f6-9b8d19225243" class="button-group" name="">
+<slot />
+</div>
+<slot name="bodyplaintext" slot="bodyplaintext">{propBodyPlainText}</slot>
+<slot name="bodyrichtext" slot="bodyrichtext-blocks">{typeof data["5227e5c2-06b8-a0c8-e352-b392443e0859"] === 'string' ? text(data["5227e5c2-06b8-a0c8-e352-b392443e0859"]) : (<><p data-wf-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb2" data-w-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb2">
+Soulside turns every session into the evidence you need for level-of-care justification, peer review, and faster reimbursement.
+</p>
+<ul data-wf-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb4" data-w-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb4">
+<li data-wf-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb5" data-w-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb5">
+Concurrent review and level-of-care justification
+</li>
+<li data-wf-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb7" data-w-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb7">
+Peer review support and automated denial appeals
+</li>
+<li data-wf-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb9" data-w-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfb9">
+Built on what was actually said in the room, not a reconstructed summary
+</li>
+<li data-wf-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfbb" data-w-id="9001d1e6-73df-51d1-a1bc-9eba6f49cfbb">
+More authorized days, higher claim acceptance, higher claim value
+</li>
+</ul></>)}</slot>
+<slot name="headingtext" slot="headingtext">{propHeadingText}</slot>
+<slot name="taglinetext" slot="taglinetext">{propTaglineText}</slot>
+</ElementContentGroup>
+</div>

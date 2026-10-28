@@ -1,0 +1,80 @@
+---
+import { evaluate } from '@/lib/bindings';
+import { text } from '@/lib/values';
+import UtilitySectionPadding from '@/components/6-utilities/UtilitySectionPadding.astro';
+import NestContainer from '@/components/6-utilities/NestContainer.astro';
+import NestPaddingGlobal from '@/components/6-utilities/NestPaddingGlobal.astro';
+import NestColorScheme from '@/components/6-utilities/NestColorScheme.astro';
+import GlobalBackgroundLines from '@/components/1-globals/GlobalBackgroundLines.astro';
+const bindings: any[] = [
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["Conditions", "Apply predicate"]}, "arg": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["Slots", "SlotCondition"]}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "data"}, "prop": "ef270a65-2ef2-ae6d-a45b-ac13521e9e67"}}}}}}, "arg": {"type": "Variable", "val": ["Slots", "SlotIsNotEmpty"]}}}
+];
+
+interface Props {
+  /** Section/Fade In Animation */
+  sectionFadeInAnimation?: boolean;
+  /** Section/Color Scheme */
+  sectionColorScheme?: "lightest" | "lighter" | "light" | "dark";
+  /** Section/Container */
+  sectionContainer?: "large" | "medium" | "small" | "none" | "xlarge";
+  /** Section/Side Padding */
+  sectionSidePadding?: "global" | "small" | "none";
+  /** Section/Bottom Padding */
+  sectionBottomPadding?: "xlarge" | "large" | "medium" | "small" | "tiny" | "none";
+  /** Section/Top Padding */
+  sectionTopPadding?: "xlarge" | "large" | "medium" | "small" | "tiny" | "none";
+  /** Section/Visibility */
+  sectionVisibility?: boolean;
+  /** Section/ID */
+  sectionId?: string;
+}
+const collectionData = {};
+const defaults = {"e30d8b2b-f1b8-48a0-a781-566256046335": "", "206a3d26-93af-0db6-18a4-1433bdfed3ca": [], "4d6e14e4-472a-2b1c-80bf-aacefc0dbf80": "base", "03af3673-52df-6d66-7161-6d95f38727b9": "base", "6bbf5907-0c47-0181-8675-792f6469e4b9": "base", "4619c05a-defd-42cd-2bfd-766da37706fd": "base", "e9ceea61-43db-6362-c0e9-ed0e8cdabc44": "base", "71b65eac-c0a2-591f-5f73-7ebec418907f": true, "c117a0e6-4ca8-126f-7300-b7f0614fca1c": [], "ef270a65-2ef2-ae6d-a45b-ac13521e9e67": []};
+const {
+  sectionFadeInAnimation: propSectionFadeInAnimation = true,
+  sectionColorScheme: propSectionColorScheme = "lightest",
+  sectionContainer: propSectionContainer = "large",
+  sectionSidePadding: propSectionSidePadding = "global",
+  sectionBottomPadding: propSectionBottomPadding = "large",
+  sectionTopPadding: propSectionTopPadding = "large",
+  sectionVisibility: propSectionVisibility = true,
+  sectionId: propSectionId = ""
+} = Astro.props;
+if (!["lightest", "lighter", "light", "dark"].includes(propSectionColorScheme)) throw new Error("Section.sectionColorScheme must be one of: lightest, lighter, light, dark");
+if (!["large", "medium", "small", "none", "xlarge"].includes(propSectionContainer)) throw new Error("Section.sectionContainer must be one of: large, medium, small, none, xlarge");
+if (!["global", "small", "none"].includes(propSectionSidePadding)) throw new Error("Section.sectionSidePadding must be one of: global, small, none");
+if (!["xlarge", "large", "medium", "small", "tiny", "none"].includes(propSectionBottomPadding)) throw new Error("Section.sectionBottomPadding must be one of: xlarge, large, medium, small, tiny, none");
+if (!["xlarge", "large", "medium", "small", "tiny", "none"].includes(propSectionTopPadding)) throw new Error("Section.sectionTopPadding must be one of: xlarge, large, medium, small, tiny, none");
+const data = {
+  ...defaults,
+  "71b65eac-c0a2-591f-5f73-7ebec418907f": propSectionFadeInAnimation,
+  "e9ceea61-43db-6362-c0e9-ed0e8cdabc44": {"lightest": "base", "lighter": "dead52b7-6ddb-ca58-d6d5-4e3b0d1beeb3", "light": "18552ad9-f18b-c4f6-b463-2b6b69a2e7b3", "dark": "1243e9fa-db50-fdac-771b-0373fc18ec35"}[propSectionColorScheme],
+  "4619c05a-defd-42cd-2bfd-766da37706fd": {"large": "base", "medium": "2bf269d9-d7aa-562d-0625-e7f094445a31", "small": "48c0cd1c-cacf-5da2-5023-e700de87e22c", "none": "05abf97b-9c06-9f70-3e5b-81ebc6a9d155", "xlarge": "6a41fa7e-68ad-da5c-9374-02bb8057c8fd"}[propSectionContainer],
+  "6bbf5907-0c47-0181-8675-792f6469e4b9": {"global": "base", "small": "85802dc8-6f13-9cd1-802d-2f734c7df4ca", "none": "bdb5ce8b-6e72-05a3-3de0-857af65a9aec"}[propSectionSidePadding],
+  "03af3673-52df-6d66-7161-6d95f38727b9": {"xlarge": "f436a701-7833-853a-a4dd-c0130897596c", "large": "base", "medium": "53334a5f-c603-8b18-a4ae-24a521882aae", "small": "f4ada232-1a39-576a-4dfd-cc6d5c970e44", "tiny": "39d35300-f6c1-c9ed-2af5-a9018a8f776e", "none": "39f4dbb3-bae5-4052-0617-d1f8168857af"}[propSectionBottomPadding],
+  "4d6e14e4-472a-2b1c-80bf-aacefc0dbf80": {"xlarge": "f436a701-7833-853a-a4dd-c0130897596c", "large": "base", "medium": "53334a5f-c603-8b18-a4ae-24a521882aae", "small": "f4ada232-1a39-576a-4dfd-cc6d5c970e44", "tiny": "39d35300-f6c1-c9ed-2af5-a9018a8f776e", "none": "39f4dbb3-bae5-4052-0617-d1f8168857af"}[propSectionTopPadding],
+  "206a3d26-93af-0db6-18a4-1433bdfed3ca": [propSectionVisibility],
+  "e30d8b2b-f1b8-48a0-a781-566256046335": propSectionId
+};
+for (const [key, name] of Object.entries({"ef270a65-2ef2-ae6d-a45b-ac13521e9e67": "background", "c117a0e6-4ca8-126f-7300-b7f0614fca1c": "default"})) if (Astro.slots.has(name)) data[key] = [{__slot: name}];
+
+
+---
+{propSectionVisibility && (<section id={(propSectionId) || undefined} class:list={["section_component", (propSectionColorScheme === "lightest" ? "color-scheme-light" : (propSectionColorScheme === "lighter" ? "color-scheme-light-alt" : (propSectionColorScheme === "light" ? "color-scheme-dark" : (propSectionColorScheme === "dark" ? "color-scheme-dark-alt" : ""))))]} data-wf-id="03461eb6-3a70-738e-78ab-54d2e0256e5e" data-w-id="03461eb6-3a70-738e-78ab-54d2e0256e5e">
+<div data-fade-in={text(propSectionFadeInAnimation)} class:list={["padding-global-dynamic", (propSectionSidePadding === "global" ? "padding-global" : (propSectionSidePadding === "small" ? "padding-global is-small" : (propSectionSidePadding === "none" ? "padding-global is-none" : "")))]} data-wf-id="03461eb6-3a70-738e-78ab-54d2e0256e5f" data-w-id="03461eb6-3a70-738e-78ab-54d2e0256e5f">
+<div class:list={["container-dynamic", (propSectionContainer === "large" ? "container-large" : (propSectionContainer === "medium" ? "container-medium" : (propSectionContainer === "small" ? "container-small" : (propSectionContainer === "xlarge" ? "container-xlarge" : ""))))]} data-wf-id="03461eb6-3a70-738e-78ab-54d2e0256e60" data-w-id="03461eb6-3a70-738e-78ab-54d2e0256e60">
+<UtilitySectionPadding paddingSize={propSectionTopPadding} />
+<NestContainer container={propSectionContainer} />
+<div data-wf-id="2ff9b7a4-bfcf-5123-d53c-41874df4ed7c" data-w-id="2ff9b7a4-bfcf-5123-d53c-41874df4ed7c" class="component_slot" name="">
+<slot />
+</div>
+<UtilitySectionPadding paddingSize={propSectionBottomPadding} />
+</div>
+<NestPaddingGlobal sidePadding={propSectionSidePadding} />
+</div>
+{Boolean(evaluate(bindings[0], { data, Dynamo: collectionData })) && (<div sw-slot="" data-wf-id="219703d4-55f9-4289-0f64-a8f3f2640ecb" data-w-id="219703d4-55f9-4289-0f64-a8f3f2640ecb" class="section_background" name="">
+<slot name="background" />
+</div>)}
+<NestColorScheme colorScheme={propSectionColorScheme} />
+<GlobalBackgroundLines />
+</section>)}

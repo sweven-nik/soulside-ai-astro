@@ -1,0 +1,38 @@
+---
+import { text } from '@/lib/values';
+
+
+interface Props {
+  /** Count up animation? */
+  countUpAnimation?: boolean;
+  /** Use icon? */
+  useIcon?: boolean;
+  /** Small Stat Size */
+  smallStatSize?: boolean;
+  /** Variant */
+  variant?: "foreground" | "white" | "dark" | "darker";
+}
+const collectionData = {};
+const {
+  countUpAnimation: propCountUpAnimation = false,
+  useIcon: propUseIcon = false,
+  smallStatSize: propSmallStatSize = false,
+  variant: propVariant = "foreground"
+} = Astro.props;
+const propDescription = "Less Documentation Time";
+const propStat = "80%";
+if (!["foreground", "white", "dark", "darker"].includes(propVariant)) throw new Error("ElementStatCard.variant must be one of: foreground, white, dark, darker");
+
+
+---
+<div data-wf-id="aca6a4b7-3113-a344-2285-894dd220a12f" data-w-id="aca6a4b7-3113-a344-2285-894dd220a12f" data-wf--element-stat-card--variant={{"foreground": "foreground", "white": "white", "dark": "dark", "darker": "darker"}[propVariant]} class:list={[{"white": "w-variant-37c89063-5bf4-4c09-fcc2-97b618bf68fd", "dark": "w-variant-9923dd93-3518-686e-146b-3d99e025eadd", "darker": "w-variant-d81da806-6775-b51f-2fdf-15ead5e11785"}[propVariant], "stat-card"]} data-wf-variant={["f41e67e7-3bd3-fe41-8070-cda139551f7d=" + ({"foreground": "base", "white": "37c89063-5bf4-4c09-fcc2-97b618bf68fd", "dark": "9923dd93-3518-686e-146b-3d99e025eadd", "darker": "d81da806-6775-b51f-2fdf-15ead5e11785"}[propVariant])].join(" ")}>
+{!(propUseIcon === true) && (<div small-stat-size={text(propSmallStatSize)} data-counter={text(propCountUpAnimation)} data-wf-id="aca6a4b7-3113-a344-2285-894dd220a130" data-w-id="aca6a4b7-3113-a344-2285-894dd220a130" class="stat-card_stat">
+<slot name="stat">{propStat}</slot>
+</div>)}
+{propUseIcon === true && (<div data-wf-id="3ce36c9c-5659-affb-4add-287fc9cd6143" data-w-id="3ce36c9c-5659-affb-4add-287fc9cd6143" class="stat-card_icon" name="">
+<slot />
+</div>)}
+<p data-wf-id="aca6a4b7-3113-a344-2285-894dd220a132" data-w-id="aca6a4b7-3113-a344-2285-894dd220a132" class="text-size-medium">
+<slot name="description">{propDescription}</slot>
+</p>
+</div>

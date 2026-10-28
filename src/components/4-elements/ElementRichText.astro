@@ -1,0 +1,27 @@
+---
+import { safeTag } from '@/lib/attributes';
+
+
+interface Props {
+  /** Body Font Size */
+  bodyFontSize?: "large" | "medium" | "regular" | "small" | "tiny";
+  richTextTag?: string;
+  /** Visibility */
+  visibility?: boolean;
+}
+const collectionData = {};
+const {
+  bodyFontSize: propBodyFontSize = "regular",
+  richTextTag: propRichTextTag = "p",
+  visibility: propVisibility = true
+} = Astro.props;
+if (!["large", "medium", "regular", "small", "tiny"].includes(propBodyFontSize)) throw new Error("ElementRichText.bodyFontSize must be one of: large, medium, regular, small, tiny");
+const propRichText = "Lorem ipsum diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis.";
+
+const Tag = safeTag(propRichTextTag, "p");
+---
+{propVisibility && (<div data-wf-id="76cac959-5b30-bec6-9387-f8803fac9e43" data-w-id="76cac959-5b30-bec6-9387-f8803fac9e43" data-wf--element-rich-text--body-font-size={{"large": "large", "medium": "medium", "regular": "regular", "small": "small", "tiny": "tiny"}[propBodyFontSize]} class:list={["w-richtext", {"large": "w-variant-86c1e6b5-2b7e-b4e9-9a04-7f5ffb7660a3", "medium": "w-variant-f715fe02-a8e1-aa74-7df4-3b2b97406317", "small": "w-variant-f027f572-f0b7-d340-5be2-6c37bce1db4f", "tiny": "w-variant-2683f45e-e555-7690-e958-53ca072aad1a"}[propBodyFontSize], "text-rich-text"]} data-wf-variant={["86f92db1-2709-a5c3-2532-c6d61279da24=" + ({"large": "86c1e6b5-2b7e-b4e9-9a04-7f5ffb7660a3", "medium": "f715fe02-a8e1-aa74-7df4-3b2b97406317", "regular": "base", "small": "f027f572-f0b7-d340-5be2-6c37bce1db4f", "tiny": "2683f45e-e555-7690-e958-53ca072aad1a"}[propBodyFontSize])].join(" ")}>
+{Astro.slots.has("richtext-blocks") ? (<slot name="richtext-blocks" />) : (<Tag data-wf-id="76cac959-5b30-bec6-9387-f8803fac9e46" data-w-id="76cac959-5b30-bec6-9387-f8803fac9e46">
+<slot>{propRichText}</slot>
+</Tag>)}
+</div>)}

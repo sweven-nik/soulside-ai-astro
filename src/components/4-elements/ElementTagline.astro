@@ -1,0 +1,22 @@
+---
+
+
+interface Props {
+  /** Visibility */
+  visibility?: boolean;
+  /** Variant */
+  variant?: "base" | "small" | "white";
+}
+const collectionData = {};
+const {
+  visibility: propVisibility = true,
+  variant: propVariant = "base"
+} = Astro.props;
+const propText = "Tagline";
+if (!["base", "small", "white"].includes(propVariant)) throw new Error("ElementTagline.variant must be one of: base, small, white");
+
+
+---
+{propVisibility && (<div data-wf-id="ce1daefc-567a-8d93-5b06-b833055cffb5" data-w-id="ce1daefc-567a-8d93-5b06-b833055cffb5" data-wf--element-tagline--variant={{"base": "base", "small": "small", "white": "white"}[propVariant]} class:list={[{"small": "w-variant-52dcf959-6c51-b51e-6cb7-d53aac101dbd", "white": "w-variant-27ff51a7-d94a-1aaf-5f5d-6406e1e14344"}[propVariant], "text-style-tagline", "text-style-tagline"]} data-wf-variant={["27eb9e8f-205c-18d5-9625-a85cb0a4e7cd=" + ({"base": "base", "small": "52dcf959-6c51-b51e-6cb7-d53aac101dbd", "white": "27ff51a7-d94a-1aaf-5f5d-6406e1e14344"}[propVariant])].join(" ")}>
+<slot>{propText}</slot>
+</div>)}

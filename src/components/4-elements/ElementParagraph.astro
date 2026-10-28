@@ -1,0 +1,22 @@
+---
+
+
+interface Props {
+  /** Font Size */
+  fontSize?: "large" | "medium" | "regular" | "small" | "tiny";
+  /** Visibility */
+  visibility?: boolean;
+}
+const collectionData = {};
+const {
+  fontSize: propFontSize = "regular",
+  visibility: propVisibility = true
+} = Astro.props;
+const propText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.";
+if (!["large", "medium", "regular", "small", "tiny"].includes(propFontSize)) throw new Error("ElementParagraph.fontSize must be one of: large, medium, regular, small, tiny");
+
+
+---
+{propVisibility && (<p data-wf-id="4f223e65-64b6-8396-d7af-0c9dc41aef69" data-w-id="4f223e65-64b6-8396-d7af-0c9dc41aef69" data-wf--element-paragraph--font-size={{"large": "large", "medium": "medium", "regular": "regular", "small": "small", "tiny": "tiny"}[propFontSize]} class:list={[{"large": "w-variant-1fb7c0af-4d81-dacf-32e6-a4a88bdfd5a2", "medium": "w-variant-e96fa29f-8aac-4aaa-049e-03b64a1041b4", "small": "w-variant-1d48e824-ef00-96db-9be3-3a0f16075af7", "tiny": "w-variant-ebdb4e8c-8e63-f237-dec6-95d6ad6f6fd5"}[propFontSize], "paragraph-dynamic"]} data-wf-variant={["6a9832c5-5f87-a05c-8746-b54ad3504f2a=" + ({"large": "1fb7c0af-4d81-dacf-32e6-a4a88bdfd5a2", "medium": "e96fa29f-8aac-4aaa-049e-03b64a1041b4", "regular": "base", "small": "1d48e824-ef00-96db-9be3-3a0f16075af7", "tiny": "ebdb4e8c-8e63-f237-dec6-95d6ad6f6fd5"}[propFontSize])].join(" ")}>
+<slot>{propText}</slot>
+</p>)}

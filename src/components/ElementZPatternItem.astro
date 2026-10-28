@@ -1,0 +1,23 @@
+---
+
+
+interface Props {
+  /** Variant */
+  variant?: "base" | "reversed";
+}
+const collectionData = {};
+const {
+  variant: propVariant = "base"
+} = Astro.props;
+if (!["base", "reversed"].includes(propVariant)) throw new Error("ElementZPatternItem.variant must be one of: base, reversed");
+
+
+---
+<div data-wf-id="1798ec19-71da-29ce-70d7-ccd5cf5dabb8" data-w-id="1798ec19-71da-29ce-70d7-ccd5cf5dabb8" data-wf--element-z-pattern-item--variant={{"base": "base", "reversed": "reversed"}[propVariant]} class:list={[{"reversed": "w-variant-5dd0cb22-0423-c8c8-5247-7640cfc452cc"}[propVariant], "z-pattern_item"]} data-wf-variant={["c4c1e490-f5bb-fe7f-108f-d194581b3b2d=" + ({"base": "base", "reversed": "5dd0cb22-0423-c8c8-5247-7640cfc452cc"}[propVariant])].join(" ")}>
+<div data-wf-id="2ff133e9-7c80-6084-9d6d-856a859184c5" data-w-id="2ff133e9-7c80-6084-9d6d-856a859184c5" class="flex-center" name="">
+<slot name="content" />
+</div>
+<div data-wf-id="b660ddd9-7154-4896-9431-b9d77f8facb7" data-w-id="b660ddd9-7154-4896-9431-b9d77f8facb7" name="">
+<slot />
+</div>
+</div>

@@ -1,0 +1,53 @@
+---
+import __lumosAsset19 from '@/assets/placeholder.svg?url';
+import { imageUrl } from '@/lib/urls';
+import NestBorderRadius from '@/components/6-utilities/NestBorderRadius.astro';
+
+interface Props {
+  /** Image/Fetch Priority */
+  imageFetchPriority?: boolean;
+  /** Image/Loading */
+  imageLoading?: boolean;
+  /** Image/Parallax */
+  imageParallax?: boolean;
+  /** Overlay/Opacity */
+  overlayOpacity?: string;
+  /** Overlay/Visibility */
+  overlayVisibility?: boolean;
+  /** Image/Border Radius */
+  imageBorderRadius?: "rounded" | "large" | "medium" | "small" | "tiny" | "none";
+  /** Image/Aspect Ratio */
+  imageAspectRatio?: "auto" | "auto-3x2-mobile" | "fill" | "square-1x1" | "landscape-3x2" | "widescreen-16x9" | "xwide-2x1";
+  /** Image/Alt Text */
+  imageAltText?: string;
+  /** Image/File */
+  imageFile?: string | { url?: string; alt?: string; id?: string };
+  /** Image/Visibility */
+  imageVisibility?: boolean;
+}
+const collectionData = {};
+const {
+  imageFetchPriority: propImageFetchPriority = true,
+  imageLoading: propImageLoading = true,
+  imageParallax: propImageParallax = false,
+  overlayOpacity: propOverlayOpacity = "opacity: 40%;",
+  overlayVisibility: propOverlayVisibility = false,
+  imageBorderRadius: propImageBorderRadius = "none",
+  imageAspectRatio: propImageAspectRatio = "auto",
+  imageAltText: propImageAltText = "__wf_reserved_inherit",
+  imageFile: propImageFile = {"id": "6abe9af376a33690663b8d84"},
+  imageVisibility: propImageVisibility = true
+} = Astro.props;
+if (!["rounded", "large", "medium", "small", "tiny", "none"].includes(propImageBorderRadius)) throw new Error("ElementImage.imageBorderRadius must be one of: rounded, large, medium, small, tiny, none");
+if (!["auto", "auto-3x2-mobile", "fill", "square-1x1", "landscape-3x2", "widescreen-16x9", "xwide-2x1"].includes(propImageAspectRatio)) throw new Error("ElementImage.imageAspectRatio must be one of: auto, auto-3x2-mobile, fill, square-1x1, landscape-3x2, widescreen-16x9, xwide-2x1");
+
+
+---
+{propImageVisibility && (<div class:list={[{"auto-3x2-mobile": "w-variant-a3aef2ec-3089-e386-0371-a80af33d46a8", "fill": "w-variant-01069368-f601-e8dc-31f4-03927dc8247e", "square-1x1": "w-variant-54c9a817-dc6a-64fb-e851-bfe22748d831", "landscape-3x2": "w-variant-54c9a817-dc6a-64fb-e851-bfe22748d832", "widescreen-16x9": "w-variant-54c9a817-dc6a-64fb-e851-bfe22748d833", "xwide-2x1": "w-variant-cbdb2e2f-322a-2ae1-ea1b-bcba29f93620"}[propImageAspectRatio], "visual_wrapper", ""]} data-wf-id="54c9a817-dc6a-64fb-e851-bfe22748d826" data-w-id="54c9a817-dc6a-64fb-e851-bfe22748d826" data-wf--element-image--image-aspect-ratio={{"auto": "auto", "auto-3x2-mobile": "auto-3x2-mobile", "fill": "fill", "square-1x1": "square-1x1", "landscape-3x2": "landscape-3x2", "widescreen-16x9": "widescreen-16x9", "xwide-2x1": "xwide-2x1"}[propImageAspectRatio]} data-wf-variant={["54c9a817-dc6a-64fb-e851-bfe22748d830=" + ({"auto": "base", "auto-3x2-mobile": "a3aef2ec-3089-e386-0371-a80af33d46a8", "fill": "01069368-f601-e8dc-31f4-03927dc8247e", "square-1x1": "54c9a817-dc6a-64fb-e851-bfe22748d831", "landscape-3x2": "54c9a817-dc6a-64fb-e851-bfe22748d832", "widescreen-16x9": "54c9a817-dc6a-64fb-e851-bfe22748d833", "xwide-2x1": "cbdb2e2f-322a-2ae1-ea1b-bcba29f93620"}[propImageAspectRatio])].join(" ")}>
+<img loading={(propImageLoading === true ? "lazy" : "eager")} src={imageUrl(propImageFile) || (__lumosAsset19)} alt={((propImageAltText === '__wf_reserved_inherit' ? ((propImageFile)?.alt || '') : propImageAltText)) || ''} class:list={["visual_image", (propImageParallax === true ? "parallax" : "")]} fetchpriority={(propImageFetchPriority === true ? "auto" : "high")} data-wf-id="54c9a817-dc6a-64fb-e851-bfe22748d827" data-w-id="54c9a817-dc6a-64fb-e851-bfe22748d827" />
+{propOverlayVisibility && (<div style={propOverlayOpacity} data-wf-id="54c9a817-dc6a-64fb-e851-bfe22748d82a" data-w-id="54c9a817-dc6a-64fb-e851-bfe22748d82a" class="visual_overlay"></div>)}
+{false && (<div data-wf-id="54c9a817-dc6a-64fb-e851-bfe22748d82b" data-w-id="54c9a817-dc6a-64fb-e851-bfe22748d82b" class="classes">
+<div data-wf-id="54c9a817-dc6a-64fb-e851-bfe22748d82c" data-w-id="54c9a817-dc6a-64fb-e851-bfe22748d82c" class="visual_image parallax"></div>
+</div>)}
+<NestBorderRadius borderRadius={propImageBorderRadius} />
+</div>)}

@@ -1,0 +1,73 @@
+---
+import { evaluate } from '@/lib/bindings';
+import { formatNumber } from '@/lib/format';
+import { embedHtml } from '@/lib/values';
+import NestGap from '@/components/6-utilities/NestGap.astro';
+const bindings: any[] = [
+  {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["Text", "Concat"]}, "arg": {"type": "List", "val": [{"type": "Text", "val": "\u003cstyle>\n  #"}, {"type": "Select", "val": {"from": {"type": "Variable", "val": "data"}, "prop": "ba13c184-7d96-ed68-7548-e6d225a8867d"}}, {"type": "Text", "val": ".marquee_component {\n    --mq-item-width: "}, {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["Builtin", "numberToText"]}, "arg": {"type": "Number", "val": -1}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "data"}, "prop": "a935ed59-d1f9-4b22-be8f-4891dab07448"}}}}, {"type": "Text", "val": ";\n    --mq-seconds: "}, {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["Builtin", "numberToText"]}, "arg": {"type": "Number", "val": -1}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "data"}, "prop": "121513f1-5fab-be17-7a51-11581128f6c5"}}}}, {"type": "Text", "val": ";\n    --mq-copies: "}, {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["Builtin", "numberToText"]}, "arg": {"type": "Number", "val": -1}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "data"}, "prop": "17c18352-831a-6af8-1d12-36ab2cd9f718"}}}}, {"type": "Text", "val": ";\n  }\n\n  @media (max-width: 991px) {\n    #"}, {"type": "Select", "val": {"from": {"type": "Variable", "val": "data"}, "prop": "ba13c184-7d96-ed68-7548-e6d225a8867d"}}, {"type": "Text", "val": ".marquee_component {\n      --mq-item-width: "}, {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["Builtin", "numberToText"]}, "arg": {"type": "Number", "val": -1}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "data"}, "prop": "7828123b-3f9c-a661-80ea-9d2a645b8dea"}}}}, {"type": "Text", "val": ";\n    }\n  }\n\n  @media (max-width: 767px) {\n    #"}, {"type": "Select", "val": {"from": {"type": "Variable", "val": "data"}, "prop": "ba13c184-7d96-ed68-7548-e6d225a8867d"}}, {"type": "Text", "val": ".marquee_component {\n      --mq-item-width: "}, {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["Builtin", "numberToText"]}, "arg": {"type": "Number", "val": -1}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "data"}, "prop": "1b365b94-a88a-b370-5906-6b265a043ce2"}}}}, {"type": "Text", "val": ";\n    }\n  }\n\n  @media (max-width: 479px) {\n    #"}, {"type": "Select", "val": {"from": {"type": "Variable", "val": "data"}, "prop": "ba13c184-7d96-ed68-7548-e6d225a8867d"}}, {"type": "Text", "val": ".marquee_component {\n      --mq-item-width: "}, {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["Builtin", "numberToText"]}, "arg": {"type": "Number", "val": -1}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "data"}, "prop": "3efcdb9f-39ae-0f81-1050-fd12d8787d55"}}}}, {"type": "Text", "val": ";\n    }\n  }\n\n  .marquee_component {\n    --mq-w: calc(var(--mq-item-width) * 1rem);\n    --mq-gap: 0rem;\n    --mq-stride: calc(var(--mq-w) + var(--mq-gap));\n    --mq-duration: calc(var(--mq-seconds) * 1s);\n    --mq-start: -0.5;\n    --mq-fade: 6rem;\n\n    position: relative;\n  }\n\n  .marquee_component:has(> [data-wf--nest-gap--gap='none' i]) { --mq-gap: 0rem; }\n  .marquee_component:has(> [data-wf--nest-gap--gap='xxhuge' i]) { --mq-gap: var(--_spacing-sizing---gap-size--xxhuge); }\n  .marquee_component:has(> [data-wf--nest-gap--gap='xhuge' i]) { --mq-gap: var(--_spacing-sizing---gap-size--xhuge); }\n  .marquee_component:has(> [data-wf--nest-gap--gap='huge' i]) { --mq-gap: var(--_spacing-sizing---gap-size--huge); }\n  .marquee_component:has(> [data-wf--nest-gap--gap='xxlarge' i]) { --mq-gap: var(--_spacing-sizing---gap-size--xxlarge); }\n  .marquee_component:has(> [data-wf--nest-gap--gap='xlarge' i]) { --mq-gap: var(--_spacing-sizing---gap-size--xlarge); }\n  .marquee_component:has(> [data-wf--nest-gap--gap='large' i]) { --mq-gap: var(--_spacing-sizing---gap-size--large); }\n  .marquee_component:has(> [data-wf--nest-gap--gap='medium' i]) { --mq-gap: var(--_spacing-sizing---gap-size--medium); }\n  .marquee_component:has(> [data-wf--nest-gap--gap='small' i]) { --mq-gap: var(--_spacing-sizing---gap-size--small); }\n  .marquee_component:has(> [data-wf--nest-gap--gap='xsmall' i]) { --mq-gap: var(--_spacing-sizing---gap-size--xsmall); }\n  .marquee_component:has(> [data-wf--nest-gap--gap='xxsmall' i]) { --mq-gap: var(--_spacing-sizing---gap-size--xxsmall); }\n  .marquee_component:has(> [data-wf--nest-gap--gap='tiny' i]) { --mq-gap: var(--_spacing-sizing---gap-size--tiny); }\n\n  .marquee_component[data-fade='true' i] {\n    -webkit-mask-image: linear-gradient(\n      to right,\n      transparent 0,\n      black var(--mq-fade),\n      black calc(100% - var(--mq-fade)),\n      transparent 100%\n    );\n    mask-image: linear-gradient(\n      to right,\n      transparent 0,\n      black var(--mq-fade),\n      black calc(100% - var(--mq-fade)),\n      transparent 100%\n    );\n  }\n\n  .marquee_component[data-fade='false' i] {\n    -webkit-mask-image: none;\n    mask-image: none;\n  }\n\n  .marquee_component [data-marquee-element='slot'] {\n    display: flex;\n    flex-direction: row;\n    width: max-content;\n    animation: mq-scroll var(--mq-duration) linear infinite;\n    animation-delay: calc(var(--mq-duration) * var(--mq-start));\n    will-change: transform;\n    gap: 0;\n  }\n\n  .marquee_component[data-direction='forwards' i] [data-marquee-element='slot'] {\n    animation-direction: normal;\n  }\n\n  .marquee_component[data-direction='reverse' i] [data-marquee-element='slot'] {\n    animation-direction: reverse;\n  }\n\n  .marquee_component [data-marquee-element='slot'] > .w-dyn-list {\n    display: contents;\n  }\n\n  .marquee_component [data-marquee-element='slot'] > .w-dyn-list > .w-dyn-items {\n    display: flex;\n    flex-direction: row;\n    flex: 0 0 auto;\n    gap: 0;\n  }\n\n  .marquee_component [data-marquee-element='slot'] > *:not(.w-dyn-list):not([data-wf--nest-gap--gap]),\n  .marquee_component [data-marquee-element='slot'] .w-dyn-item {\n    box-sizing: border-box;\n    flex: 0 0 var(--mq-stride);\n    width: var(--mq-stride);\n    min-width: var(--mq-stride);\n    padding-right: var(--mq-gap);\n  }\n\n\n  @keyframes mq-scroll {\n    from { transform: translateX(0); }\n    to { transform: translateX(calc(-100% / var(--mq-copies))); }\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    .marquee_component [data-marquee-element='slot'] {\n      animation: none;\n      transform: translateX(0);\n    }\n  }\n\u003c/style>"}]}}}
+];
+
+interface Props {
+  /** Copies (#) */
+  copies?: number;
+  /** Duration (s) */
+  durationS?: number;
+  /** Item width Mobile P. (rem) */
+  itemWidthMobilePRem?: number;
+  /** Item width Mobile L. (rem) */
+  itemWidthMobileLRem?: number;
+  /** Item width Tablet (rem) */
+  itemWidthTabletRem?: number;
+  /** Item width Desktop (rem) */
+  itemWidthDesktopRem?: number;
+  /** Gap */
+  gap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+  /** Direction */
+  direction?: boolean;
+  /** ID (required) */
+  idRequired?: string;
+  /** Variant */
+  variant?: "edge-fade" | "infinite" | "edge-clipped" | "card";
+}
+const collectionData = {};
+const defaults = {"3315988f-bcf6-5659-ed5b-9de256f05119": "base", "ba13c184-7d96-ed68-7548-e6d225a8867d": "", "5a402050-488c-148e-8077-edbe7a40e166": [], "6bf258fe-8938-7d46-a5a8-6cde32cc7ada": true, "4a9715ae-07d6-ed2e-5881-0c2006cbb338": "base", "a935ed59-d1f9-4b22-be8f-4891dab07448": 7, "7828123b-3f9c-a661-80ea-9d2a645b8dea": 6, "1b365b94-a88a-b370-5906-6b265a043ce2": 5, "3efcdb9f-39ae-0f81-1050-fd12d8787d55": 5, "121513f1-5fab-be17-7a51-11581128f6c5": 40, "17c18352-831a-6af8-1d12-36ab2cd9f718": 2};
+const {
+  copies: propCopies = 2,
+  durationS: propDurationS = 40,
+  itemWidthMobilePRem: propItemWidthMobilePRem = 5,
+  itemWidthMobileLRem: propItemWidthMobileLRem = 5,
+  itemWidthTabletRem: propItemWidthTabletRem = 6,
+  itemWidthDesktopRem: propItemWidthDesktopRem = 7,
+  gap: propGap = "small",
+  direction: propDirection = true,
+  idRequired: propIdRequired = "",
+  variant: propVariant = "edge-fade"
+} = Astro.props;
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propGap)) throw new Error("Marquee.gap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+if (!["edge-fade", "infinite", "edge-clipped", "card"].includes(propVariant)) throw new Error("Marquee.variant must be one of: edge-fade, infinite, edge-clipped, card");
+const data = {
+  ...defaults,
+  "17c18352-831a-6af8-1d12-36ab2cd9f718": propCopies,
+  "121513f1-5fab-be17-7a51-11581128f6c5": propDurationS,
+  "3efcdb9f-39ae-0f81-1050-fd12d8787d55": propItemWidthMobilePRem,
+  "1b365b94-a88a-b370-5906-6b265a043ce2": propItemWidthMobileLRem,
+  "7828123b-3f9c-a661-80ea-9d2a645b8dea": propItemWidthTabletRem,
+  "a935ed59-d1f9-4b22-be8f-4891dab07448": propItemWidthDesktopRem,
+  "4a9715ae-07d6-ed2e-5881-0c2006cbb338": {"xxhuge": "57d8543e-e778-eadb-164e-e9ce4be0822b", "xhuge": "eff38122-bc5d-ab39-6373-9c352453a712", "huge": "5d0c2066-26f2-d236-51b3-afcba6152ec1", "xxlarge": "80289dd5-9853-c81b-ecfc-8da1f2ab11ee", "xlarge": "deccd08e-d54a-e402-2e59-91c9993f1798", "large": "a7e7c569-ac42-3a9a-a93f-f157cb56d5d4", "medium": "d75ff46c-25f3-0882-45d8-a00e5e23c256", "small": "base", "xsmall": "1528db6d-3a6f-1503-1514-3db14cc9a33a", "xxsmall": "0ecf5774-259b-d0a9-1abe-a7bafac50b33", "tiny": "0e764ef3-dd28-e7de-a3dd-cd71e75c650c", "none": "fee848f4-52a3-ca97-a4d8-6605125daf0f"}[propGap],
+  "6bf258fe-8938-7d46-a5a8-6cde32cc7ada": propDirection,
+  "ba13c184-7d96-ed68-7548-e6d225a8867d": propIdRequired,
+  "3315988f-bcf6-5659-ed5b-9de256f05119": {"edge-fade": "base", "infinite": "3b5d6399-3abf-d35c-5fdd-653606272426", "edge-clipped": "ba7564c2-97b9-cad5-cbaf-216e6649bea0", "card": "33f77d95-6d33-6864-d9f7-c8682fe69288"}[propVariant]
+};
+for (const [key, name] of Object.entries({"5a402050-488c-148e-8077-edbe7a40e166": "default"})) if (Astro.slots.has(name)) data[key] = [{__slot: name}];
+
+
+---
+<div id={(propIdRequired) || undefined} data-copies={formatNumber(propCopies, -1)} data-direction={(propDirection === true ? "forwards" : "reverse")} data-fade={(propVariant === "edge-fade" ? "true" : "false")} data-wf-id="f610e143-19fe-a14e-ca05-9d64a1d65d30" data-w-id="f610e143-19fe-a14e-ca05-9d64a1d65d30" data-wf--marquee--variant={{"edge-fade": "edge-fade", "infinite": "infinite", "edge-clipped": "edge-clipped", "card": "card"}[propVariant]} class:list={[{"infinite": "w-variant-3b5d6399-3abf-d35c-5fdd-653606272426", "edge-clipped": "w-variant-ba7564c2-97b9-cad5-cbaf-216e6649bea0", "card": "w-variant-33f77d95-6d33-6864-d9f7-c8682fe69288"}[propVariant], "marquee_component"]} data-wf-variant={["3315988f-bcf6-5659-ed5b-9de256f05119=" + ({"edge-fade": "base", "infinite": "3b5d6399-3abf-d35c-5fdd-653606272426", "edge-clipped": "ba7564c2-97b9-cad5-cbaf-216e6649bea0", "card": "33f77d95-6d33-6864-d9f7-c8682fe69288"}[propVariant])].join(" ")}>
+<div data-marquee-element="slot" data-wf-id="d9681349-fd3a-56f5-fd07-a6882f07933b" data-w-id="d9681349-fd3a-56f5-fd07-a6882f07933b" class="marquee_slot" name="">
+<slot />
+</div>
+<NestGap gap={propGap} />
+<div data-wf-id="9708fdb8-4f16-db82-4717-fb765cab6ed6" data-w-id="9708fdb8-4f16-db82-4717-fb765cab6ed6" class="w-embed marquee-css">
+<Fragment set:html={embedHtml(({"search": {"exclude": true}, "embed": {"type": "html", "meta": {"html": "", "div": false, "script": false, "compilable": false, "iframe": false}}, "insideRTE": false, "styleBlockIds": ["aad2258f-ef26-d25f-907f-d05e308397f0"], "value": "", "content": evaluate(bindings[0], { data, Dynamo: collectionData }), "devlink": {"runtimeProps": {}, "slot": ""}, "displayName": "", "attr": {"id": ""}, "xattr": [], "visibility": {"conditions": [], "keepInHtml": false}}))} />
+</div>
+</div>

@@ -1,0 +1,152 @@
+---
+import Section from '@/components/2-sections/Section.astro';
+import Layout2 from '@/components/3-layouts/Layout2.astro';
+import ElementImage from '@/components/4-elements/ElementImage.astro';
+import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
+
+interface Props {
+  /** Section/Fade In Animation */
+  sectionFadeInAnimation?: boolean;
+  /** Section/Color Scheme */
+  sectionColorScheme?: "lightest" | "lighter" | "light" | "dark";
+  /** Overlay/Opacity */
+  overlayOpacity?: string;
+  /** Overlay/Visibility */
+  overlayVisibility?: boolean;
+  /** Image/Loading */
+  imageLoading?: string;
+  /** Image/Parallax */
+  imageParallax?: boolean;
+  /** Image/Border Radius */
+  imageBorderRadius?: "rounded" | "large" | "medium" | "small" | "tiny" | "none";
+  /** Image/Aspect Ratio */
+  imageAspectRatio?: "auto" | "auto-3x2-mobile" | "fill" | "square-1x1" | "landscape-3x2" | "widescreen-16x9" | "xwide-2x1";
+  /** Image/Alt Text */
+  imageAltText?: string;
+  /** Image/File */
+  imageFile?: string | { url?: string; alt?: string; id?: string };
+  /** Image/Visibility */
+  imageVisibility?: boolean;
+  /** Button Group/Visibility */
+  buttonGroupVisibility?: boolean;
+  /** Body/Plain Text Font Size */
+  bodyPlainTextFontSize?: "large" | "medium" | "regular" | "small" | "tiny";
+  /** Body/Rich Text Font Size */
+  bodyRichTextFontSize?: "large" | "medium" | "regular" | "small" | "tiny";
+  bodyRichTextTag?: string;
+  /** Body/Content Type */
+  bodyContentType?: boolean;
+  /** Body/Visibility */
+  bodyVisibility?: boolean;
+  /** Heading/Style */
+  headingStyle?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "h0";
+  /** Heading/Tag */
+  headingTag?: string;
+  /** Heading/Visibility */
+  headingVisibility?: boolean;
+  /** Tagline/Visibility */
+  taglineVisibility?: boolean;
+  /** Content/Text Wrap */
+  contentTextWrap?: "normal" | "pretty" | "balance";
+  /** Content/Max Width */
+  contentMaxWidth?: "none" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall";
+  /** Content/Text Alignment */
+  contentTextAlignment?: "left" | "center" | "right" | "stretch";
+  /** Content/Vertical Alignment */
+  contentVerticalAlignment?: "top" | "center" | "bottom";
+  /** Content/Row Gap */
+  contentRowGap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+  /** Content/Column Gap */
+  contentColumnGap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+  /** Content/Layout */
+  contentLayout?: "columns" | "columns-reversed" | "columns-large" | "columns-large-reversed" | "columns-breakout" | "columns-breakout-reversed" | "stack" | "stack-reversed" | "card-columns" | "card-columns-reversed" | "single-column";
+  /** Section/Container */
+  sectionContainer?: "large" | "medium" | "small" | "none" | "xlarge";
+  /** Section/Side Padding */
+  sectionSidePadding?: "global" | "small" | "none";
+  /** Section/Bottom Padding */
+  sectionBottomPadding?: "xlarge" | "large" | "medium" | "small" | "tiny" | "none";
+  /** Section/Top Padding */
+  sectionTopPadding?: "xlarge" | "large" | "medium" | "small" | "tiny" | "none";
+  /** Section/Visibility */
+  sectionVisibility?: boolean;
+  /** Section/ID */
+  sectionId?: string;
+}
+const collectionData = {};
+const {
+  sectionFadeInAnimation: propSectionFadeInAnimation = true,
+  sectionColorScheme: propSectionColorScheme = "lightest",
+  overlayOpacity: propOverlayOpacity = "opacity: 40%;",
+  overlayVisibility: propOverlayVisibility = false,
+  imageLoading: propImageLoading = "lazy",
+  imageParallax: propImageParallax = true,
+  imageBorderRadius: propImageBorderRadius = "none",
+  imageAspectRatio: propImageAspectRatio = "auto",
+  imageAltText: propImageAltText = "__wf_reserved_inherit",
+  imageFile: propImageFile = {"id": "6abe9af376a33690663b8d84"},
+  imageVisibility: propImageVisibility = true,
+  buttonGroupVisibility: propButtonGroupVisibility = true,
+  bodyPlainTextFontSize: propBodyPlainTextFontSize = "regular",
+  bodyRichTextFontSize: propBodyRichTextFontSize = "regular",
+  bodyRichTextTag: propBodyRichTextTag = "p",
+  bodyContentType: propBodyContentType = true,
+  bodyVisibility: propBodyVisibility = true,
+  headingStyle: propHeadingStyle = "h2",
+  headingTag: propHeadingTag = "h2",
+  headingVisibility: propHeadingVisibility = true,
+  taglineVisibility: propTaglineVisibility = true,
+  contentTextWrap: propContentTextWrap = "normal",
+  contentMaxWidth: propContentMaxWidth = "none",
+  contentTextAlignment: propContentTextAlignment = "left",
+  contentVerticalAlignment: propContentVerticalAlignment = "center",
+  contentRowGap: propContentRowGap = "xlarge",
+  contentColumnGap: propContentColumnGap = "xlarge",
+  contentLayout: propContentLayout = "columns",
+  sectionContainer: propSectionContainer = "large",
+  sectionSidePadding: propSectionSidePadding = "global",
+  sectionBottomPadding: propSectionBottomPadding = "large",
+  sectionTopPadding: propSectionTopPadding = "large",
+  sectionVisibility: propSectionVisibility = true,
+  sectionId: propSectionId = ""
+} = Astro.props;
+if (!["lightest", "lighter", "light", "dark"].includes(propSectionColorScheme)) throw new Error("SectionFlexFeature.sectionColorScheme must be one of: lightest, lighter, light, dark");
+if (!["rounded", "large", "medium", "small", "tiny", "none"].includes(propImageBorderRadius)) throw new Error("SectionFlexFeature.imageBorderRadius must be one of: rounded, large, medium, small, tiny, none");
+if (!["auto", "auto-3x2-mobile", "fill", "square-1x1", "landscape-3x2", "widescreen-16x9", "xwide-2x1"].includes(propImageAspectRatio)) throw new Error("SectionFlexFeature.imageAspectRatio must be one of: auto, auto-3x2-mobile, fill, square-1x1, landscape-3x2, widescreen-16x9, xwide-2x1");
+if (!["large", "medium", "regular", "small", "tiny"].includes(propBodyPlainTextFontSize)) throw new Error("SectionFlexFeature.bodyPlainTextFontSize must be one of: large, medium, regular, small, tiny");
+const propBodyPlainText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.";
+if (!["large", "medium", "regular", "small", "tiny"].includes(propBodyRichTextFontSize)) throw new Error("SectionFlexFeature.bodyRichTextFontSize must be one of: large, medium, regular, small, tiny");
+const propBodyRichText = "Lorem ipsum diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis.";
+const propHeadingText = "This is a dynamic heading with tag and style options";
+if (!["h1", "h2", "h3", "h4", "h5", "h6", "h0"].includes(propHeadingStyle)) throw new Error("SectionFlexFeature.headingStyle must be one of: h1, h2, h3, h4, h5, h6, h0");
+const propTaglineText = "Tagline";
+if (!["normal", "pretty", "balance"].includes(propContentTextWrap)) throw new Error("SectionFlexFeature.contentTextWrap must be one of: normal, pretty, balance");
+if (!["none", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall"].includes(propContentMaxWidth)) throw new Error("SectionFlexFeature.contentMaxWidth must be one of: none, xxlarge, xlarge, large, medium, small, xsmall, xxsmall");
+if (!["left", "center", "right", "stretch"].includes(propContentTextAlignment)) throw new Error("SectionFlexFeature.contentTextAlignment must be one of: left, center, right, stretch");
+if (!["top", "center", "bottom"].includes(propContentVerticalAlignment)) throw new Error("SectionFlexFeature.contentVerticalAlignment must be one of: top, center, bottom");
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propContentRowGap)) throw new Error("SectionFlexFeature.contentRowGap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propContentColumnGap)) throw new Error("SectionFlexFeature.contentColumnGap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+if (!["columns", "columns-reversed", "columns-large", "columns-large-reversed", "columns-breakout", "columns-breakout-reversed", "stack", "stack-reversed", "card-columns", "card-columns-reversed", "single-column"].includes(propContentLayout)) throw new Error("SectionFlexFeature.contentLayout must be one of: columns, columns-reversed, columns-large, columns-large-reversed, columns-breakout, columns-breakout-reversed, stack, stack-reversed, card-columns, card-columns-reversed, single-column");
+if (!["large", "medium", "small", "none", "xlarge"].includes(propSectionContainer)) throw new Error("SectionFlexFeature.sectionContainer must be one of: large, medium, small, none, xlarge");
+if (!["global", "small", "none"].includes(propSectionSidePadding)) throw new Error("SectionFlexFeature.sectionSidePadding must be one of: global, small, none");
+if (!["xlarge", "large", "medium", "small", "tiny", "none"].includes(propSectionBottomPadding)) throw new Error("SectionFlexFeature.sectionBottomPadding must be one of: xlarge, large, medium, small, tiny, none");
+if (!["xlarge", "large", "medium", "small", "tiny", "none"].includes(propSectionTopPadding)) throw new Error("SectionFlexFeature.sectionTopPadding must be one of: xlarge, large, medium, small, tiny, none");
+
+
+---
+<div data-wf-id="ceba954a-f9e4-a25c-3a14-1b6818cc4c9c" data-w-id="ceba954a-f9e4-a25c-3a14-1b6818cc4c9c" class="section_feature">
+<Section sectionFadeInAnimation={propSectionFadeInAnimation} sectionColorScheme={propSectionColorScheme} sectionContainer={propSectionContainer} sectionSidePadding={propSectionSidePadding} sectionBottomPadding={propSectionBottomPadding} sectionTopPadding={propSectionTopPadding} sectionVisibility={propSectionVisibility} sectionId={propSectionId}>
+<Layout2 verticalAlignment={propContentVerticalAlignment} rowGap={propContentRowGap} columnGap={propContentColumnGap} layout={propContentLayout}>
+<ElementImage imageParallax={propImageParallax} overlayOpacity={propOverlayOpacity} overlayVisibility={propOverlayVisibility} imageBorderRadius={propImageBorderRadius} imageAspectRatio={propImageAspectRatio} imageAltText={propImageAltText} imageFile={propImageFile} imageVisibility={propImageVisibility} />
+<ElementContentGroup slot="content-first" bodyPlainTextFontSize={propBodyPlainTextFontSize} contentTextWrap={propContentTextWrap} buttonGroupVisibility={propButtonGroupVisibility} bodyRichTextFontSize={propBodyRichTextFontSize} bodyContentType={propBodyContentType} bodyVisibility={propBodyVisibility} headingStyle={propHeadingStyle} headingTag={propHeadingTag} headingVisibility={propHeadingVisibility} taglineVisibility={propTaglineVisibility} contentMaxWidth={propContentMaxWidth} contentAlignment={propContentTextAlignment}>
+<div data-wf-id="97eb743a-02ca-8a74-37ba-1ce29daa7fb7" data-w-id="97eb743a-02ca-8a74-37ba-1ce29daa7fb7" class="button-group" name="">
+<slot />
+</div>
+<slot name="bodyplaintext" slot="bodyplaintext">{propBodyPlainText}</slot>
+<slot name="bodyrichtext" slot="bodyrichtext">{propBodyRichText}</slot>
+<slot name="headingtext" slot="headingtext">{propHeadingText}</slot>
+<slot name="taglinetext" slot="taglinetext">{propTaglineText}</slot>
+</ElementContentGroup>
+</Layout2>
+</Section>
+</div>

@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Max Width */
+  maxWidth?: "none" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall";
+}
+const collectionData = {};
+const {
+  maxWidth: propMaxWidth = "none"
+} = Astro.props;
+if (!["none", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall"].includes(propMaxWidth)) throw new Error("NestMaxWidth.maxWidth must be one of: none, xxlarge, xlarge, large, medium, small, xsmall, xxsmall");
+
+
+---
+<div data-wf-id="7ebe6044-9745-8f4c-8b5e-184937b61aa3" data-w-id="7ebe6044-9745-8f4c-8b5e-184937b61aa3" data-wf--nest-max-width--max-width={{"none": "none", "xxlarge": "xxlarge", "xlarge": "xlarge", "large": "large", "medium": "medium", "small": "small", "xsmall": "xsmall", "xxsmall": "xxsmall"}[propMaxWidth]} class:list={[{"xxlarge": "w-variant-b2a03215-0672-55ee-1c6b-c510251f580e", "xlarge": "w-variant-16557577-1f97-62a2-c120-b70a4b4f045d", "large": "w-variant-a30b9f7c-4e29-741f-a24b-1547c73bedf7", "medium": "w-variant-591cc907-fbd9-f17d-05b9-d6b3b67f8c01", "small": "w-variant-a2c38ad7-5daa-7dbf-2151-78b98feec20c", "xsmall": "w-variant-b949cde6-6013-e48d-2d5a-4100b2847829", "xxsmall": "w-variant-6ceebe5a-118f-f17a-b9df-3ed3a88e7694"}[propMaxWidth], "max-width-component"]} data-wf-variant={["c4a2bf7e-bcd3-5930-398f-3c16ed01df9b=" + ({"none": "base", "xxlarge": "b2a03215-0672-55ee-1c6b-c510251f580e", "xlarge": "16557577-1f97-62a2-c120-b70a4b4f045d", "large": "a30b9f7c-4e29-741f-a24b-1547c73bedf7", "medium": "591cc907-fbd9-f17d-05b9-d6b3b67f8c01", "small": "a2c38ad7-5daa-7dbf-2151-78b98feec20c", "xsmall": "b949cde6-6013-e48d-2d5a-4100b2847829", "xxsmall": "6ceebe5a-118f-f17a-b9df-3ed3a88e7694"}[propMaxWidth])].join(" ")}></div>

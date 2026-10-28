@@ -1,0 +1,48 @@
+---
+import { text } from '@/lib/values';
+import UtilitySpacer from '@/components/6-utilities/UtilitySpacer.astro';
+
+interface Props {
+  /** Spacer/Visibility */
+  spacerVisibility?: boolean;
+  /** Variant */
+  variant?: "with-stat" | "no-stat";
+}
+const collectionData = {};
+const {
+  spacerVisibility: propSpacerVisibility = true,
+  variant: propVariant = "with-stat"
+} = Astro.props;
+const propTestimonialAttribution = "CEO & Clinical Director, SagePoint Behavioral Health";
+const propTestimonialName = "Keith Lichtie";
+const propTestimonialTestimonial = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.";
+const propStatDescription = "Less Documentation Time";
+const propStatStat = "80%";
+if (!["with-stat", "no-stat"].includes(propVariant)) throw new Error("ElementInlineTestimonial.variant must be one of: with-stat, no-stat");
+
+
+---
+<div data-wf-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213e2" data-w-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213e2" data-wf--element-inline-testimonial--variant={{"with-stat": "with-stat", "no-stat": "no-stat"}[propVariant]} class:list={[{"no-stat": "w-variant-bac3ff10-7113-fd13-fde5-912fbd16e9bb"}[propVariant], "inline-testimonial"]} data-wf-variant={["344f0dae-893b-de40-3a29-d498da1a2663=" + ({"with-stat": "base", "no-stat": "bac3ff10-7113-fd13-fde5-912fbd16e9bb"}[propVariant])].join(" ")}>
+<div data-wf-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213e3" data-w-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213e3" class="testi-stat-card is-inline-testi">
+<div small-stat-size={text(false)} data-wf-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213e4" data-w-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213e4" class="inline-stat-card_stat">
+<slot name="statstat">{propStatStat}</slot>
+</div>
+<div data-wf-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213e6" data-w-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213e6" class="text-size-regular">
+<slot name="statdescription">{propStatDescription}</slot>
+</div>
+</div>
+<div data-wf-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213e8" data-w-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213e8" class="inline-testi-content">
+<div data-wf-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213e9" data-w-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213e9" class="heading-style-h5">
+<slot name="testimonialtestimonial">{propTestimonialTestimonial}</slot>
+</div>
+<UtilitySpacer size="small" visibility={true} />
+<div data-wf-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213ec" data-w-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213ec" class="bento-testi-attr">
+<div data-wf-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213ed" data-w-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213ed" class="heading-style-h5">
+<slot name="testimonialname">{propTestimonialName}</slot>
+</div>
+<div data-wf-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213ef" data-w-id="0aea3e57-9e27-d31e-e95a-6bbcb9f213ef" class="text-size-small">
+<slot name="testimonialattribution">{propTestimonialAttribution}</slot>
+</div>
+</div>
+</div>
+</div>

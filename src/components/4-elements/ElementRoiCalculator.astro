@@ -1,0 +1,447 @@
+---
+
+
+interface Props {
+
+}
+const collectionData = {};
+const {
+
+} = Astro.props;
+
+
+
+---
+<div data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d70" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d70" class="roi-calculator">
+<div data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d71" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d71" class="calculator-card">
+<div data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d72" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d72" class="calculator-field">
+<label for="clinician-count" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d73" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d73" class="calculator-label">
+Clinician count
+</label>
+<input id="clinician-count" type="number" placeholder="Required*" required="required" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d75" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d75" class="form_input background" />
+</div>
+<div data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d76" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d76" class="calculator-field">
+<label for="average-salary" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d77" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d77" class="calculator-label">
+Average salary (annual)
+</label>
+<input id="average-salary" type="number" placeholder="Required*" required="required" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d79" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d79" class="form_input background" />
+</div>
+<div data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d7a" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d7a" class="calculator-field">
+<label for="hours-spend-on-docs" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d7b" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d7b" class="calculator-label">
+Hours spent on documentation (per day)
+</label>
+<input id="hours-spend-on-docs" type="number" placeholder="Required*" required="required" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d7d" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d7d" class="form_input background" />
+</div>
+<div data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d7e" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d7e" class="calculator-result">
+<label data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d7f" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d7f" class="calculator-label">
+Est hours saved with Soulside AI
+</label>
+<div id="est-hours-saved-with-ai" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d81" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d81" class="heading-style-h1">
+0
+</div>
+</div>
+</div>
+<div data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d83" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d83" class="calculator-column">
+<div data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d84" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d84" class="calculator-card">
+<p data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d85" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d85">
+Estimated annual savings with Soulside AI
+</p>
+<div data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d87" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d87" class="saving-annual heading-style-h1">
+$0
+</div>
+<div data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d89" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d89">
+0 clinician hours returned to patient care each year
+</div>
+</div>
+<div data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d8d" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d8d" class="calculator-card">
+<table class="expense-table expense-table" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d8e" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d8e">
+<thead data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d8f" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d8f">
+<tr data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d90" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d90">
+<th class="table-head-cell table-head-cell" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d91" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d91">
+Time
+</th>
+<th class="table-head-cell table-head-cell" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d93" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d93">
+Hours Today
+</th>
+<th class="table-head-cell table-head-cell" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d95" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d95">
+Hours Saved
+</th>
+<th class="table-head-cell table-head-cell" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d97" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d97">
+Cost Today
+</th>
+<th class="table-head-cell table-head-cell" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d99" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d99">
+Savings
+</th>
+</tr>
+</thead>
+<tbody data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d9b" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d9b">
+<tr data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d9c" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d9c" class="table-row alt">
+<th class="table-row-label table-row-label" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d9d" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d9d">
+Annual
+</th>
+<td class="table-cell hrs-annual table-cell hrs-annual" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82d9f" data-w-id="b78f703c-8345-e125-20a3-71cee0e82d9f">
+0
+</td>
+<td class="table-cell hrs-saved-annual table-cell hrs-saved-annual" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82da1" data-w-id="b78f703c-8345-e125-20a3-71cee0e82da1">
+0
+</td>
+<td class="table-cell cost-annual table-cell cost-annual" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82da3" data-w-id="b78f703c-8345-e125-20a3-71cee0e82da3">
+$0
+</td>
+<td class="table-cell saving-annual table-cell saving-annual" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82da5" data-w-id="b78f703c-8345-e125-20a3-71cee0e82da5">
+$0
+</td>
+</tr>
+<tr data-wf-id="b78f703c-8345-e125-20a3-71cee0e82da7" data-w-id="b78f703c-8345-e125-20a3-71cee0e82da7" class="table-row">
+<th class="table-row-label table-row-label" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82da8" data-w-id="b78f703c-8345-e125-20a3-71cee0e82da8">
+Quarterly
+</th>
+<td class="table-cell hrs-quarterly table-cell hrs-quarterly" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82daa" data-w-id="b78f703c-8345-e125-20a3-71cee0e82daa">
+0
+</td>
+<td class="table-cell hrs-saved-quarterly table-cell hrs-saved-quarterly" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dac" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dac">
+0
+</td>
+<td class="table-cell cost-quarterly table-cell cost-quarterly" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dae" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dae">
+$0
+</td>
+<td class="table-cell saving-quarterly table-cell saving-quarterly" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82db0" data-w-id="b78f703c-8345-e125-20a3-71cee0e82db0">
+$0
+</td>
+</tr>
+<tr data-wf-id="b78f703c-8345-e125-20a3-71cee0e82db2" data-w-id="b78f703c-8345-e125-20a3-71cee0e82db2" class="table-row alt">
+<th class="table-row-label table-row-label" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82db3" data-w-id="b78f703c-8345-e125-20a3-71cee0e82db3">
+Monthly
+</th>
+<td class="table-cell hrs-monthly table-cell hrs-monthly" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82db5" data-w-id="b78f703c-8345-e125-20a3-71cee0e82db5">
+0
+</td>
+<td class="table-cell hrs-saved-monthly table-cell hrs-saved-monthly" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82db7" data-w-id="b78f703c-8345-e125-20a3-71cee0e82db7">
+0
+</td>
+<td class="table-cell cost-monthly table-cell cost-monthly" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82db9" data-w-id="b78f703c-8345-e125-20a3-71cee0e82db9">
+$0
+</td>
+<td class="table-cell saving-monthly table-cell saving-monthly" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dbb" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dbb">
+$0
+</td>
+</tr>
+<tr data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dbd" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dbd" class="table-row">
+<th class="table-row-label table-row-label" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dbe" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dbe">
+Weekly
+</th>
+<td class="table-cell hrs-weekly table-cell hrs-weekly" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dc0" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dc0">
+0
+</td>
+<td class="table-cell hrs-saved-weekly table-cell hrs-saved-weekly" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dc2" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dc2">
+0
+</td>
+<td class="table-cell cost-weekly table-cell cost-weekly" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dc4" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dc4">
+$0
+</td>
+<td class="table-cell saving-weekly table-cell saving-weekly" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dc6" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dc6">
+$0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<table class="roi-table hide roi-table" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dc8" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dc8">
+<tbody data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dc9" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dc9">
+<tr data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dca" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dca">
+<th data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dcb" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dcb">
+Cost Per License
+</th>
+<td class="cost-per-license cost-per-license" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dcd" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dcd">
+$82
+</td>
+</tr>
+<tr data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dcf" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dcf">
+<th data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dd0" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dd0">
+Total Product Cost
+</th>
+<td class="total-product-cost total-product-cost" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dd2" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dd2">
+$0
+</td>
+</tr>
+<tr data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dd4" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dd4">
+<th data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dd5" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dd5">
+Rate of Return
+</th>
+<td class="rate-of-return rate-of-return" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dd7" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dd7">
+0%
+</td>
+</tr>
+<tr data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dd9" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dd9">
+<th data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dda" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dda">
+Total Annual Savings
+</th>
+<td class="total-annual-saving total-annual-saving" data-wf-id="b78f703c-8345-e125-20a3-71cee0e82ddc" data-w-id="b78f703c-8345-e125-20a3-71cee0e82ddc">
+$0
+</td>
+</tr>
+</tbody>
+</table>
+<div data-wf-id="b78f703c-8345-e125-20a3-71cee0e82dde" data-w-id="b78f703c-8345-e125-20a3-71cee0e82dde" class="w-embed hide">
+
+<script is:inline>
+  const totalHour = 40 * 52; // 40 hours/week × 52 weeks
+  const costPerLicense = 82;
+  const DEBOUNCE_MS = 500;
+  const estTimeReductionWithAi = 80;
+
+  let clinicianCount = 0;
+  let averageSalary = 0;
+  let hoursSpentOnDocs = 0;
+
+  const formatCurrency = (value) => {
+  return `$${new Intl.NumberFormat('en-US', {
+    notation: 'compact',
+    maximumFractionDigits: 1,
+  }).format(value)}`;
+};
+
+  const getValueMap = (
+    clinicianCount,
+    averageSalary,
+    hoursSpentOnDocs
+  ) => {
+    const percentTimeSpentOnDocs = Math.floor(
+      (hoursSpentOnDocs * 100) / 8
+    );
+
+    const annualDocHours =
+      (totalHour * percentTimeSpentOnDocs) / 100;
+
+    const annualSavedHours =
+      (annualDocHours * estTimeReductionWithAi) / 100;
+
+    const annualDocCost =
+      (percentTimeSpentOnDocs * averageSalary) / 100;
+
+    // Annual saving for one clinician
+    const annualSaving =
+      (annualSavedHours * averageSalary) / totalHour;
+
+    // Total saving for all clinicians
+    const totalAnnualSaving =
+      annualSaving * clinicianCount;
+
+    const totalProductCost =
+      clinicianCount * costPerLicense;
+
+
+    return {
+      perHour: {
+        selector: '#per-hour',
+        value: `${Math.floor(averageSalary / totalHour)}`
+      },
+
+      estTimeSavedWithAi: {
+        selector: '#est-hours-saved-with-ai',
+        value: `${Math.floor(
+          (hoursSpentOnDocs * estTimeReductionWithAi) / 100
+        )}`
+      },
+
+      hrsAnnual: {
+        selector: '.hrs-annual',
+        value: `${Math.floor(annualDocHours)}`
+      },
+
+      hrsQuarterly: {
+        selector: '.hrs-quarterly',
+        value: `${Math.floor(annualDocHours / 4)}`
+      },
+
+      hrsMonthly: {
+        selector: '.hrs-monthly',
+        value: `${Math.floor(annualDocHours / 12)}`
+      },
+
+      hrsWeekly: {
+        selector: '.hrs-weekly',
+        value: `${Math.floor(annualDocHours / 52)}`
+      },
+
+      hrsSavedAnnual: {
+        selector: '.hrs-saved-annual',
+        value: `${Math.floor(annualSavedHours)}`
+      },
+
+      hrsSavedQuarterly: {
+        selector: '.hrs-saved-quarterly',
+        value: `${Math.floor(annualSavedHours / 4)}`
+      },
+
+      hrsSavedMonthly: {
+        selector: '.hrs-saved-monthly',
+        value: `${Math.floor(annualSavedHours / 12)}`
+      },
+
+      hrsSavedWeekly: {
+        selector: '.hrs-saved-weekly',
+        value: `${Math.floor(annualSavedHours / 52)}`
+      },
+costAnnual: {
+  selector: '.cost-annual',
+  value: formatCurrency(annualDocCost),
+},
+
+costQuarterly: {
+  selector: '.cost-quarterly',
+  value: formatCurrency(annualDocCost / 4),
+},
+
+costMonthly: {
+  selector: '.cost-monthly',
+  value: formatCurrency(annualDocCost / 12),
+},
+
+costWeekly: {
+  selector: '.cost-weekly',
+  value: formatCurrency(annualDocCost / 52),
+},
+
+savingAnnual: {
+  selector: '.saving-annual',
+  value: formatCurrency(totalAnnualSaving),
+},
+
+savingQuarterly: {
+  selector: '.saving-quarterly',
+  value: formatCurrency(totalAnnualSaving / 4),
+},
+
+savingMonthly: {
+  selector: '.saving-monthly',
+  value: formatCurrency(totalAnnualSaving / 12),
+},
+
+savingWeekly: {
+  selector: '.saving-weekly',
+  value: formatCurrency(totalAnnualSaving / 52),
+},
+
+      costPerLicense: {
+        selector: '.cost-per-license',
+        value: `$${costPerLicense}`
+      },
+
+      totalProductCost: {
+        selector: '.total-product-cost',
+        value: `$${Math.floor(totalProductCost)}`
+      },
+
+      rateOfReturn: {
+        selector: '.rate-of-return',
+        value: totalProductCost
+          ? `${Math.floor(
+              (totalAnnualSaving / totalProductCost) * 100
+            )}%`
+          : '0%'
+      },
+
+      totalAnnualSaving: {
+        selector: '.total-annual-saving',
+        value: `$${Math.floor(
+          totalAnnualSaving - totalProductCost
+        )}`
+      }
+    };
+  };
+
+  function updateAll(
+    clinicianCount,
+    averageSalary,
+    hoursSpentOnDocs
+  ) {
+    const valueMap = getValueMap(
+      Number(clinicianCount),
+      Number(averageSalary),
+      Number(hoursSpentOnDocs)
+    );
+
+    Object.values(valueMap).forEach(({ selector, value, input }) => {
+      insertText(selector, value, input);
+    });
+  }
+
+  function debounce(fn, delay = 300) {
+    let timeout;
+
+    return (...args) => {
+      clearTimeout(timeout);
+
+      timeout = setTimeout(() => {
+        fn(...args);
+      }, delay);
+    };
+  }
+
+  const debouncedUpdateAll = debounce(
+    updateAll,
+    DEBOUNCE_MS
+  );
+
+  function insertText(selector, text, input) {
+    const elements = document.querySelectorAll(selector);
+
+    elements.forEach((element) => {
+      if (input) {
+        element.value = text;
+      } else {
+        element.textContent = text;
+      }
+    });
+  }
+
+  const clinicianCountInput =
+    document.querySelector('#clinician-count');
+
+  const averageSalaryInput =
+    document.querySelector('#average-salary');
+
+  const hoursSpendOnDocsInput =
+    document.querySelector('#hours-spend-on-docs');
+
+  clinicianCountInput?.addEventListener('input', (event) => {
+    clinicianCount = Number(event.target.value) || 0;
+
+    debouncedUpdateAll(
+      clinicianCount,
+      averageSalary,
+      hoursSpentOnDocs
+    );
+  });
+
+  averageSalaryInput?.addEventListener('input', (event) => {
+    averageSalary = Number(event.target.value) || 0;
+
+    debouncedUpdateAll(
+      clinicianCount,
+      averageSalary,
+      hoursSpentOnDocs
+    );
+  });
+
+  hoursSpendOnDocsInput?.addEventListener('input', (event) => {
+    hoursSpentOnDocs = Number(event.target.value) || 0;
+
+    debouncedUpdateAll(
+      clinicianCount,
+      averageSalary,
+      hoursSpentOnDocs
+    );
+  });
+
+  // Initial calculation
+  updateAll(
+    clinicianCount,
+    averageSalary,
+    hoursSpentOnDocs
+  );
+</script>
+</div>
+</div>

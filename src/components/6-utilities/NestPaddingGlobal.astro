@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Side Padding */
+  sidePadding?: "global" | "small" | "none";
+}
+const collectionData = {};
+const {
+  sidePadding: propSidePadding = "global"
+} = Astro.props;
+if (!["global", "small", "none"].includes(propSidePadding)) throw new Error("NestPaddingGlobal.sidePadding must be one of: global, small, none");
+
+
+---
+<div data-wf-id="d9d79569-47d9-9603-daf1-cdd551d7454f" data-w-id="d9d79569-47d9-9603-daf1-cdd551d7454f" data-wf--nest-padding-global--side-padding={{"global": "global", "small": "small", "none": "none"}[propSidePadding]} class:list={[{"small": "w-variant-85802dc8-6f13-9cd1-802d-2f734c7df4ca", "none": "w-variant-bdb5ce8b-6e72-05a3-3de0-857af65a9aec"}[propSidePadding], "padding-global-nest"]} data-wf-variant={["14e4e5a9-5aa3-5023-215e-157e15e7a63b=" + ({"global": "base", "small": "85802dc8-6f13-9cd1-802d-2f734c7df4ca", "none": "bdb5ce8b-6e72-05a3-3de0-857af65a9aec"}[propSidePadding])].join(" ")}></div>

@@ -1,0 +1,131 @@
+---
+import { resolveAssetUrls } from '@/lib/asset-urls';
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import { evaluate } from '@/lib/bindings';
+import { linkUrl, linkTarget } from '@/lib/urls';
+import { hasValue } from '@/lib/values';
+import GlobalEmbeds from '@/components/1-globals/GlobalEmbeds.astro';
+import GlobalAnnouncementBar from '@/components/1-globals/GlobalAnnouncementBar.astro';
+import GlobalNavbar from '@/components/1-globals/GlobalNavbar.astro';
+import Section from '@/components/2-sections/Section.astro';
+import Layout2 from '@/components/3-layouts/Layout2.astro';
+import ElementImage from '@/components/4-elements/ElementImage.astro';
+import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
+import GlobalDemoButton from '@/components/1-globals/GlobalDemoButton.astro';
+import ButtonGlobal from '@/components/5-buttons/ButtonGlobal.astro';
+import IconButtonFlipArrow from '@/components/7-icons/IconButtonFlipArrow.astro';
+import ElementCard from '@/components/4-elements/ElementCard.astro';
+import ElementAbsoluteLink from '@/components/4-elements/ElementAbsoluteLink.astro';
+import GlobalFooter from '@/components/1-globals/GlobalFooter.astro';
+const bindings: any[] = [
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoLinkToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "linkedin-url"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoLinkToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "linkedin-url"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoLinkToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "linkedin-url"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoLinkToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "linkedin-url"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoLinkToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "linkedin-url"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoLinkToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "linkedin-url"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoLinkToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "linkedin-url"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoLinkToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "linkedin-url"}}}}
+];
+
+const data = {};
+const collectionData = {};
+const collections = {
+  "team": (await getCollection("team")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/team/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
+};
+const items1 = [...collections["team"]].filter(entry => { const value0 = entry.fields?.["is-advisor"]; let expected0 = "true"; if (typeof value0 === 'boolean' && ['true', 'false'].includes(expected0)) expected0 = expected0 === 'true'; if (typeof value0 === 'number' && typeof expected0 === 'string' && expected0.trim() !== '' && Number.isFinite(Number(expected0))) expected0 = Number(expected0); return (value0 !== expected0); }).sort((a, b) => { const x = a.fields["sort-order"], y = b.fields["sort-order"]; return (x === y ? 0 : x == null ? -1 : y == null ? 1 : typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y))) * 1; });
+const items3 = [...collections["team"]].filter(entry => { const value0 = entry.fields?.["is-advisor"]; let expected0 = "true"; if (typeof value0 === 'boolean' && ['true', 'false'].includes(expected0)) expected0 = expected0 === 'true'; if (typeof value0 === 'number' && typeof expected0 === 'string' && expected0.trim() !== '' && Number.isFinite(Number(expected0))) expected0 = Number(expected0); return (value0 === expected0); }).sort((a, b) => { const x = a.fields["sort-order"], y = b.fields["sort-order"]; return (x === y ? 0 : x == null ? -1 : y == null ? 1 : typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y))) * 1; });
+---
+<Layout webflowPageId="6ac68aa6b0e631582d38c953" pageTitle="About Soulside AI | Our Team &amp; Mission" pageDescription="Meet the technologists, psychiatrists, and therapists building Soulside AI: clinically grounded AI that helps behavioral health teams deliver better care." data-wf-id="60d3f7b8b0e86c28630fc6d6" data-w-id="60d3f7b8b0e86c28630fc6d6">
+<div data-wf-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" data-w-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" class="page-wrapper">
+<GlobalEmbeds />
+<GlobalAnnouncementBar />
+<GlobalNavbar />
+<main data-wf-id="dcf94f42-feae-15fa-9712-17acf0a0a835" data-w-id="dcf94f42-feae-15fa-9712-17acf0a0a835" class="main-wrapper">
+<Section sectionBottomPadding="none">
+<Layout2 layout="stack">
+<ElementImage imageBorderRadius="medium" imageAspectRatio="xwide-2x1" imageFile={{"id": "6ad2417e0bb74580c2b5d892"}} />
+<ElementContentGroup slot="content-first" contentTextWrap="balance" buttonGroupVisibility={true} bodyRichTextFontSize="medium" bodyRichTextTag="p" headingStyle="h1" headingTag="h1" taglineVisibility={false} contentMaxWidth="large" contentAlignment="left">
+<GlobalDemoButton />
+<Fragment slot="bodyrichtext">We are redefining behavioral healthcare by empowering clinicians with AI-driven tools that unlock new precision, insight, and impact levels.</Fragment>
+<Fragment slot="headingtext">Who we are</Fragment>
+<Fragment slot="taglinetext">Templates</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+<Section>
+<ElementContentGroup contentTextWrap="balance" bodyRichTextFontSize="large" bodyRichTextTag="p" headingStyle="h3" headingTag="h3" taglineVisibility={false} contentMaxWidth="xlarge" contentAlignment="center">
+<ButtonGlobal trailingIconVisibility={true} link="/careers" text="Join our Team">
+<IconButtonFlipArrow />
+</ButtonGlobal>
+<Fragment slot="bodyrichtext">By streamlining workflows, enhancing outcomes, and providing real-time insights, we are transforming behavioral health to create a brighter, healthier future for all.</Fragment>
+<Fragment slot="headingtext">Our vision is a world where AI and human expertise work seamlessly together to deliver more personalized, compassionate care.</Fragment>
+</ElementContentGroup>
+</Section>
+<Section sectionTopPadding="none">
+<Layout2 layout="stack">
+<div data-wf-id="e8186a82-e05e-18ab-66ac-07884ad26122" data-w-id="e8186a82-e05e-18ab-66ac-07884ad26122" class="w-dyn-list team-wrapper">
+<div data-wf-id="e8186a82-e05e-18ab-66ac-07884ad26123" data-w-id="e8186a82-e05e-18ab-66ac-07884ad26123" class="w-dyn-items team-list">
+{items1.map((item0) => (<div data-wf-id="e8186a82-e05e-18ab-66ac-07884ad26124" data-w-id="e8186a82-e05e-18ab-66ac-07884ad26124" class="w-dyn-item team-item"><ElementCard contentGap="tiny" bodyVisibility={false} taglineVisibility={false} variant="no-fill">
+<div slot="cta" data-wf-id="18b06f1b-1ff9-36a7-86fd-e4550ee89cfc" data-w-id="18b06f1b-1ff9-36a7-86fd-e4550ee89cfc" class="team-card_title">
+{item0.fields.title ?? ""}
+</div>
+<Fragment slot="cta">{hasValue(item0.fields["short-bio"]) && (<div data-wf-id="395755da-5503-e774-2028-5a5ae48ab6aa" data-w-id="395755da-5503-e774-2028-5a5ae48ab6aa" class="team-card_bio">
+{hasValue(item0.fields["short-bio"]) && (<p data-wf-id="0cd44272-6a96-98ac-a0e1-3c1ee58ac88b" data-w-id="0cd44272-6a96-98ac-a0e1-3c1ee58ac88b" class="team-card_bio">
+{item0.fields["short-bio"] ?? ""}
+</p>)}
+</div>)}</Fragment>
+<ElementImage imageBorderRadius="small" imageAspectRatio="square-1x1" imageFile={item0.fields.headshot} />
+<Fragment slot="headingtext">{item0.fields.name ?? ""}</Fragment>
+</ElementCard>
+<ElementAbsoluteLink target="_blank" linkText={item0.fields.name ?? ""} linkTarget={linkTarget(evaluate(bindings[3], { data, Dynamo: item0.fields }))} link={linkUrl(evaluate(bindings[2], { data, Dynamo: item0.fields }))} /></div>))}
+</div>
+{!items1.length && (<div data-wf-id="e8186a82-e05e-18ab-66ac-07884ad26125" data-w-id="e8186a82-e05e-18ab-66ac-07884ad26125" class="w-dyn-empty">
+<div data-wf-id="e8186a82-e05e-18ab-66ac-07884ad26126" data-w-id="e8186a82-e05e-18ab-66ac-07884ad26126">
+No items found.
+</div>
+</div>)}
+</div>
+<ElementContentGroup slot="content-first" contentTextWrap="balance" buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyRichTextTag="p" bodyVisibility={false} headingStyle="h2" headingTag="h2" taglineVisibility={false} contentMaxWidth="large" contentAlignment="left">
+<Fragment slot="bodyrichtext">We are redefining behavioral healthcare by empowering clinicians with AI-driven tools that unlock new precision, insight, and impact levels.</Fragment>
+<Fragment slot="headingtext">Meet our Leadership</Fragment>
+<Fragment slot="taglinetext">Templates</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+<Section sectionTopPadding="none">
+<Layout2 layout="stack">
+<div data-wf-id="f9b14bd1-70ac-71cc-7ba4-1f488bc30313" data-w-id="f9b14bd1-70ac-71cc-7ba4-1f488bc30313" class="w-dyn-list team-wrapper">
+<div data-wf-id="f9b14bd1-70ac-71cc-7ba4-1f488bc30314" data-w-id="f9b14bd1-70ac-71cc-7ba4-1f488bc30314" class="w-dyn-items team-list">
+{items3.map((item2) => (<div data-wf-id="f9b14bd1-70ac-71cc-7ba4-1f488bc30315" data-w-id="f9b14bd1-70ac-71cc-7ba4-1f488bc30315" class="w-dyn-item team-item"><ElementCard contentGap="tiny" bodyVisibility={false} variant="no-fill">
+<div slot="cta" data-wf-id="f9b14bd1-70ac-71cc-7ba4-1f488bc30318" data-w-id="f9b14bd1-70ac-71cc-7ba4-1f488bc30318" class="team-card_title">
+{item2.fields.title ?? ""}
+</div>
+<Fragment slot="cta">{hasValue(item2.fields["short-bio"]) && (<div data-wf-id="e6f59830-af51-2345-b031-f2783f7d236e" data-w-id="e6f59830-af51-2345-b031-f2783f7d236e" class="team-card_bio">
+{hasValue(item2.fields["short-bio"]) && (<p data-wf-id="e6f59830-af51-2345-b031-f2783f7d236f" data-w-id="e6f59830-af51-2345-b031-f2783f7d236f" class="team-card_bio">
+{item2.fields["short-bio"] ?? ""}
+</p>)}
+</div>)}</Fragment>
+<ElementImage imageBorderRadius="small" imageAspectRatio="square-1x1" imageFile={item2.fields.headshot} />
+<Fragment slot="headingtext">{item2.fields.name ?? ""}</Fragment>
+</ElementCard>
+<ElementAbsoluteLink target="_blank" linkText={item2.fields.name ?? ""} linkTarget={linkTarget(evaluate(bindings[7], { data, Dynamo: item2.fields }))} link={linkUrl(evaluate(bindings[6], { data, Dynamo: item2.fields }))} /></div>))}
+</div>
+{!items3.length && (<div data-wf-id="f9b14bd1-70ac-71cc-7ba4-1f488bc3031a" data-w-id="f9b14bd1-70ac-71cc-7ba4-1f488bc3031a" class="w-dyn-empty">
+<div data-wf-id="f9b14bd1-70ac-71cc-7ba4-1f488bc3031b" data-w-id="f9b14bd1-70ac-71cc-7ba4-1f488bc3031b">
+No items found.
+</div>
+</div>)}
+</div>
+<ElementContentGroup slot="content-first" contentTextWrap="balance" buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyRichTextTag="p" bodyVisibility={false} headingStyle="h3" headingTag="h2" taglineVisibility={false} contentMaxWidth="large" contentAlignment="left">
+<Fragment slot="bodyrichtext">We are redefining behavioral healthcare by empowering clinicians with AI-driven tools that unlock new precision, insight, and impact levels.</Fragment>
+<Fragment slot="headingtext">Advisors</Fragment>
+<Fragment slot="taglinetext">Templates</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+</main>
+<GlobalFooter />
+</div>
+</Layout>

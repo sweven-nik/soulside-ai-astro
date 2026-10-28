@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Color */
+  color?: "inherit" | "accent";
+}
+const collectionData = {};
+const {
+  color: propColor = "inherit"
+} = Astro.props;
+if (!["inherit", "accent"].includes(propColor)) throw new Error("NestColor.color must be one of: inherit, accent");
+
+
+---
+<div data-wf-id="4accacef-347f-f09b-4b3b-990ff36e5193" data-w-id="4accacef-347f-f09b-4b3b-990ff36e5193" data-wf--nest-color--color={{"inherit": "inherit", "accent": "accent"}[propColor]} class:list={[{"accent": "w-variant-18451064-e2bd-8cce-13df-6b5086afe7d1"}[propColor], "text-color-nest"]} data-wf-variant={["a2201c5e-f191-75bb-2269-4229608187d3=" + ({"inherit": "base", "accent": "18451064-e2bd-8cce-13df-6b5086afe7d1"}[propColor])].join(" ")}></div>

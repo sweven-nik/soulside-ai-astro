@@ -1,0 +1,17 @@
+{
+  "name": "soulside-ai",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.16.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

@@ -1,0 +1,19 @@
+---
+
+
+interface Props {
+  /** Size */
+  size?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none" | "medium-flex-grow";
+  /** Visibility */
+  visibility?: boolean;
+}
+const collectionData = {};
+const {
+  size: propSize = "medium",
+  visibility: propVisibility = true
+} = Astro.props;
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none", "medium-flex-grow"].includes(propSize)) throw new Error("UtilitySpacer.size must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none, medium-flex-grow");
+
+
+---
+{propVisibility && (<div data-wf-id="0515af27-8999-12ba-2645-39d0e27ceaef" data-w-id="0515af27-8999-12ba-2645-39d0e27ceaef" data-wf--utility-spacer--size={{"xxhuge": "xxhuge", "xhuge": "xhuge", "huge": "huge", "xxlarge": "xxlarge", "xlarge": "xlarge", "large": "large", "medium": "medium", "small": "small", "xsmall": "xsmall", "xxsmall": "xxsmall", "tiny": "tiny", "none": "none", "medium-flex-grow": "medium-flex-grow"}[propSize]} class:list={[{"xxhuge": "w-variant-2ee8e73a-2199-3452-e6bb-95c669989b58", "xhuge": "w-variant-1521b719-2386-0f8b-871a-320b4f48cd5d", "huge": "w-variant-96f3d4ff-8b2a-dd42-42a4-50813256d566", "xxlarge": "w-variant-bbb76ebc-924a-971a-a19f-d9c580290865", "xlarge": "w-variant-fb63aa77-ee34-fa0c-5463-2a1746764d48", "large": "w-variant-f44e7471-d846-1ded-bbd3-d97edbe89235", "small": "w-variant-756983cd-04b8-2858-5dd2-cc399314497c", "xsmall": "w-variant-be062671-9589-de9c-312d-8475f46b4bb4", "xxsmall": "w-variant-9248e38a-2640-9e1d-ec48-26514c9c13b1", "tiny": "w-variant-8710231b-6187-b2fd-76b4-801c2269fa8b", "none": "w-variant-43c41a96-a536-a47e-d544-645b7e24a732", "medium-flex-grow": "w-variant-20077e78-c214-19c9-6b89-4609e8cde503"}[propSize], "spacer-dynamic"]} data-wf-variant={["bd3c01de-88bf-650c-ee1a-196f8da3bbd7=" + ({"xxhuge": "2ee8e73a-2199-3452-e6bb-95c669989b58", "xhuge": "1521b719-2386-0f8b-871a-320b4f48cd5d", "huge": "96f3d4ff-8b2a-dd42-42a4-50813256d566", "xxlarge": "bbb76ebc-924a-971a-a19f-d9c580290865", "xlarge": "fb63aa77-ee34-fa0c-5463-2a1746764d48", "large": "f44e7471-d846-1ded-bbd3-d97edbe89235", "medium": "base", "small": "756983cd-04b8-2858-5dd2-cc399314497c", "xsmall": "be062671-9589-de9c-312d-8475f46b4bb4", "xxsmall": "9248e38a-2640-9e1d-ec48-26514c9c13b1", "tiny": "8710231b-6187-b2fd-76b4-801c2269fa8b", "none": "43c41a96-a536-a47e-d544-645b7e24a732", "medium-flex-grow": "20077e78-c214-19c9-6b89-4609e8cde503"}[propSize])].join(" ")}></div>)}

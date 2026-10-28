@@ -1,0 +1,45 @@
+---
+import UtilitySpacer from '@/components/6-utilities/UtilitySpacer.astro';
+import ElementRichText from '@/components/4-elements/ElementRichText.astro';
+
+interface Props {
+  /** Element / Rich Text/Body Font Size */
+  elementRichTextBodyFontSize?: "large" | "medium" | "regular" | "small" | "tiny";
+  elementRichTextRichTextTag?: string;
+  /** Visibility */
+  visibility?: boolean;
+}
+const collectionData = {};
+const {
+  elementRichTextBodyFontSize: propElementRichTextBodyFontSize = "regular",
+  elementRichTextRichTextTag: propElementRichTextRichTextTag = "p",
+  visibility: propVisibility = true
+} = Astro.props;
+if (!["large", "medium", "regular", "small", "tiny"].includes(propElementRichTextBodyFontSize)) throw new Error("ElementAutoAccordion.elementRichTextBodyFontSize must be one of: large, medium, regular, small, tiny");
+const propElementRichTextRichText = "Lorem ipsum diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis.";
+const propText = "Question text goes here";
+
+
+---
+{propVisibility && (<div sw-accordion="component" data-wf-id="7c21ef9a-e67f-70cd-4a93-41d5c6a8f5bb" data-w-id="7c21ef9a-e67f-70cd-4a93-41d5c6a8f5bb" class="accordion_component">
+<a sw-accordion="toggle" data-wf-id="1b29f35b-357a-3685-2850-f5b3e1780440" data-w-id="1b29f35b-357a-3685-2850-f5b3e1780440" class="accordion_toggle" href="#">
+<div fs-list-field="question" data-wf-id="1b29f35b-357a-3685-2850-f5b3e1780441" data-w-id="1b29f35b-357a-3685-2850-f5b3e1780441" class="accordion_heading">
+<slot name="text">{propText}</slot>
+</div>
+<div data-wf-id="1b29f35b-357a-3685-2850-f5b3e1780445" data-w-id="1b29f35b-357a-3685-2850-f5b3e1780445" class="accordion_icon-wrapper">
+<div sw-accordion="icon" data-wf-id="1b29f35b-357a-3685-2850-f5b3e1780446" data-w-id="1b29f35b-357a-3685-2850-f5b3e1780446" class="w-embed icon-embed-xsmall">
+<svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.08691 9.02344C7.18774 9.02344 7.26471 9.05385 7.34277 9.13184L11.6455 13.459L11.999 13.8145L16.6816 9.13184C16.7593 9.05424 16.8257 9.03227 16.9062 9.03516C17.0005 9.0386 17.0819 9.07117 17.168 9.15723C17.246 9.23531 17.2764 9.31223 17.2764 9.41309C17.2763 9.51371 17.2458 9.59001 17.168 9.66797L12.249 14.5869C12.1949 14.6411 12.1522 14.667 12.124 14.6787C12.0885 14.6935 12.0486 14.7021 12 14.7021C11.9755 14.7021 11.9532 14.6993 11.9326 14.6953L11.875 14.6787L11.8223 14.6484C11.8015 14.634 11.7779 14.6138 11.751 14.5869L6.80664 9.64355C6.7328 9.56972 6.70662 9.50009 6.70996 9.40527C6.71375 9.29797 6.74977 9.2141 6.83203 9.13184C6.90996 9.05403 6.98632 9.02351 7.08691 9.02344Z" fill="#2095F2" stroke="currentColor" />
+</svg>
+</div>
+</div>
+</a>
+<div fs-list-field="answer" sw-accordion="menu" data-wf-id="1b29f35b-357a-3685-2850-f5b3e1780447" data-w-id="1b29f35b-357a-3685-2850-f5b3e1780447" class="accordion_menu">
+<div data-wf-id="1b29f35b-357a-3685-2850-f5b3e1780448" data-w-id="1b29f35b-357a-3685-2850-f5b3e1780448" class="accordion_menu-mask">
+<UtilitySpacer size="xsmall" />
+<ElementRichText bodyFontSize={propElementRichTextBodyFontSize}>
+<slot name="elementrichtextrichtext">{propElementRichTextRichText}</slot>
+</ElementRichText>
+</div>
+</div>
+</div>)}

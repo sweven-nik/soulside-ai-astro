@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Border Radius */
+  borderRadius?: "rounded" | "large" | "medium" | "small" | "tiny" | "none";
+}
+const collectionData = {};
+const {
+  borderRadius: propBorderRadius = "small"
+} = Astro.props;
+if (!["rounded", "large", "medium", "small", "tiny", "none"].includes(propBorderRadius)) throw new Error("NestBorderRadius.borderRadius must be one of: rounded, large, medium, small, tiny, none");
+
+
+---
+<div data-wf-id="aef8a422-42de-4035-4af7-171d7f2decd4" data-w-id="aef8a422-42de-4035-4af7-171d7f2decd4" data-wf--nest-border-radius--border-radius={{"rounded": "rounded", "large": "large", "medium": "medium", "small": "small", "tiny": "tiny", "none": "none"}[propBorderRadius]} class:list={[{"rounded": "w-variant-ee6fc533-85eb-f4cf-a5bb-1cf10af3d209", "large": "w-variant-62e1acba-cbf4-13a6-41cd-5183cfc8062d", "medium": "w-variant-fa222ed3-bb21-71ec-ff93-cdc8e0b430ce", "tiny": "w-variant-76b155f0-d159-d261-3dd6-7205cb69dd65", "none": "w-variant-aaa1fb25-b0d1-11b5-6e1b-a8d49630ed23"}[propBorderRadius], "border-radius-nest"]} data-wf-variant={["3037a8f9-0cf8-ae79-eebe-44f6803779ca=" + ({"rounded": "ee6fc533-85eb-f4cf-a5bb-1cf10af3d209", "large": "62e1acba-cbf4-13a6-41cd-5183cfc8062d", "medium": "fa222ed3-bb21-71ec-ff93-cdc8e0b430ce", "small": "base", "tiny": "76b155f0-d159-d261-3dd6-7205cb69dd65", "none": "aaa1fb25-b0d1-11b5-6e1b-a8d49630ed23"}[propBorderRadius])].join(" ")}></div>

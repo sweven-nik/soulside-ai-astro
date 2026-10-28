@@ -1,0 +1,105 @@
+---
+import { safeTag } from '@/lib/attributes';
+import ElementTagline from '@/components/4-elements/ElementTagline.astro';
+import ElementDynamicHeading from '@/components/4-elements/ElementDynamicHeading.astro';
+import NestMaxWidth from '@/components/6-utilities/NestMaxWidth.astro';
+import ElementRichText from '@/components/4-elements/ElementRichText.astro';
+import ElementParagraph from '@/components/4-elements/ElementParagraph.astro';
+import NestAlignment from '@/components/6-utilities/NestAlignment.astro';
+import NestGap from '@/components/6-utilities/NestGap.astro';
+import NestTextWrap from '@/components/6-utilities/NestTextWrap.astro';
+
+interface Props {
+  /** Content/Gap */
+  contentGap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+  /** Body/Plain Text Font Size */
+  bodyPlainTextFontSize?: "large" | "medium" | "regular" | "small" | "tiny";
+  /** Content/Text Wrap */
+  contentTextWrap?: "normal" | "pretty" | "balance";
+  /** Button Group/Visibility */
+  buttonGroupVisibility?: boolean;
+  /** Body/Rich Text Font Size */
+  bodyRichTextFontSize?: "large" | "medium" | "regular" | "small" | "tiny";
+  bodyRichTextTag?: string;
+  /** Body/Content Type */
+  bodyContentType?: boolean;
+  /** Body/Visibility */
+  bodyVisibility?: boolean;
+  /** Heading/Heading Max Width */
+  headingHeadingMaxWidth?: "none" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall";
+  /** Heading/Style */
+  headingStyle?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "h0";
+  /** Heading/Tag */
+  headingTag?: string;
+  /** Heading/Visibility */
+  headingVisibility?: boolean;
+  /** Tagline/Visibility */
+  taglineVisibility?: boolean;
+  /** Content/Max Width */
+  contentMaxWidth?: "none" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall";
+  /** Content/Alignment */
+  contentAlignment?: "left" | "center" | "right" | "stretch";
+}
+const collectionData = {};
+const {
+  contentGap: propContentGap = "small",
+  bodyPlainTextFontSize: propBodyPlainTextFontSize = "regular",
+  contentTextWrap: propContentTextWrap = "normal",
+  buttonGroupVisibility: propButtonGroupVisibility = true,
+  bodyRichTextFontSize: propBodyRichTextFontSize = "regular",
+  bodyRichTextTag: propBodyRichTextTag = "p",
+  bodyContentType: propBodyContentType = true,
+  bodyVisibility: propBodyVisibility = true,
+  headingHeadingMaxWidth: propHeadingHeadingMaxWidth = "none",
+  headingStyle: propHeadingStyle = "h2",
+  headingTag: propHeadingTag = "h2",
+  headingVisibility: propHeadingVisibility = true,
+  taglineVisibility: propTaglineVisibility = true,
+  contentMaxWidth: propContentMaxWidth = "none",
+  contentAlignment: propContentAlignment = "left"
+} = Astro.props;
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propContentGap)) throw new Error("ElementContentGroup.contentGap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+if (!["large", "medium", "regular", "small", "tiny"].includes(propBodyPlainTextFontSize)) throw new Error("ElementContentGroup.bodyPlainTextFontSize must be one of: large, medium, regular, small, tiny");
+const propBodyPlainText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.";
+if (!["normal", "pretty", "balance"].includes(propContentTextWrap)) throw new Error("ElementContentGroup.contentTextWrap must be one of: normal, pretty, balance");
+if (!["large", "medium", "regular", "small", "tiny"].includes(propBodyRichTextFontSize)) throw new Error("ElementContentGroup.bodyRichTextFontSize must be one of: large, medium, regular, small, tiny");
+const propBodyRichText = "Lorem ipsum diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis.";
+if (!["none", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall"].includes(propHeadingHeadingMaxWidth)) throw new Error("ElementContentGroup.headingHeadingMaxWidth must be one of: none, xxlarge, xlarge, large, medium, small, xsmall, xxsmall");
+const propHeadingText = "This is a dynamic heading with tag and style options";
+if (!["h1", "h2", "h3", "h4", "h5", "h6", "h0"].includes(propHeadingStyle)) throw new Error("ElementContentGroup.headingStyle must be one of: h1, h2, h3, h4, h5, h6, h0");
+const propTaglineText = "Tagline";
+if (!["none", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall"].includes(propContentMaxWidth)) throw new Error("ElementContentGroup.contentMaxWidth must be one of: none, xxlarge, xlarge, large, medium, small, xsmall, xxsmall");
+if (!["left", "center", "right", "stretch"].includes(propContentAlignment)) throw new Error("ElementContentGroup.contentAlignment must be one of: left, center, right, stretch");
+
+const Tag = safeTag(propBodyRichTextTag, "p");
+---
+<div data-wf-id="519f2dbe-73c5-2886-4550-84995262fca2" data-w-id="519f2dbe-73c5-2886-4550-84995262fca2" class="content-group">
+<div data-wf-id="5375175e-67bc-50d7-94ae-5be9927980d0" data-w-id="5375175e-67bc-50d7-94ae-5be9927980d0" class="content-group_wrapper">
+<ElementTagline visibility={propTaglineVisibility}>
+<slot name="taglinetext">{propTaglineText}</slot>
+</ElementTagline>
+<div data-wf-id="bc7ce8f5-5edf-c64b-357b-7c3a5ac4832c" data-w-id="bc7ce8f5-5edf-c64b-357b-7c3a5ac4832c">
+<ElementDynamicHeading style={propHeadingStyle} tag={propHeadingTag} visibility={propHeadingVisibility}>
+<slot name="headingtext">{propHeadingText}</slot>
+</ElementDynamicHeading>
+<NestMaxWidth maxWidth={propHeadingHeadingMaxWidth} />
+</div>
+<ElementRichText bodyFontSize={propBodyRichTextFontSize} visibility={((propBodyVisibility === true) && (propBodyContentType === true))}>
+<Fragment slot="richtext-blocks">{Astro.slots.has("bodyrichtext-blocks") ? (<slot name="bodyrichtext-blocks" />) : (<Tag data-wf-id="76cac959-5b30-bec6-9387-f8803fac9e46" data-w-id="76cac959-5b30-bec6-9387-f8803fac9e46">
+<slot name="bodyrichtext">{propBodyRichText}</slot>
+</Tag>)}</Fragment>
+</ElementRichText>
+<ElementParagraph fontSize={propBodyPlainTextFontSize} visibility={((propBodyVisibility === true) && (propBodyContentType === false))}>
+<slot name="bodyplaintext">{propBodyPlainText}</slot>
+</ElementParagraph>
+<NestAlignment alignment={propContentAlignment} />
+<NestGap gap={propContentGap} />
+<NestMaxWidth maxWidth={propContentMaxWidth} />
+</div>
+{propButtonGroupVisibility && (<div data-wf-id="789f3080-3e58-7765-3b6f-f456c2242c72" data-w-id="789f3080-3e58-7765-3b6f-f456c2242c72" class="button-group" name="">
+<slot />
+</div>)}
+<NestAlignment alignment={propContentAlignment} />
+<NestTextWrap textWrap={propContentTextWrap} />
+<NestGap gap={propContentGap} />
+</div>

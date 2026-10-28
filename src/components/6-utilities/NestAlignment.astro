@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Alignment */
+  alignment?: "left" | "center" | "right" | "stretch";
+}
+const collectionData = {};
+const {
+  alignment: propAlignment = "left"
+} = Astro.props;
+if (!["left", "center", "right", "stretch"].includes(propAlignment)) throw new Error("NestAlignment.alignment must be one of: left, center, right, stretch");
+
+
+---
+<div data-wf-id="e239c5f5-9df6-79af-55ef-3f9341e2d19c" data-w-id="e239c5f5-9df6-79af-55ef-3f9341e2d19c" data-wf--nest-alignment--alignment={{"left": "left", "center": "center", "right": "right", "stretch": "stretch"}[propAlignment]} class:list={[{"center": "w-variant-d7672b1b-f553-7e46-4c3a-9653f0384514", "right": "w-variant-679b8083-6418-83c2-aea2-95f14bec7ed1", "stretch": "w-variant-11299426-bb02-bc4c-a093-111b46d2ae47"}[propAlignment], "alignment-component"]} data-wf-variant={["2d08b9ea-7e50-bf94-9d5f-ff140c35992c=" + ({"left": "base", "center": "d7672b1b-f553-7e46-4c3a-9653f0384514", "right": "679b8083-6418-83c2-aea2-95f14bec7ed1", "stretch": "11299426-bb02-bc4c-a093-111b46d2ae47"}[propAlignment])].join(" ")}></div>

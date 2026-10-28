@@ -1,0 +1,40 @@
+---
+import NestSize from '@/components/6-utilities/NestSize.astro';
+import NestColor from '@/components/6-utilities/NestColor.astro';
+
+interface Props {
+  /** Color */
+  color?: "inherit" | "accent";
+  /** Size */
+  size?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny";
+  /** Icon */
+  icon?: "template" | "example";
+}
+const collectionData = {};
+const {
+  color: propColor = "inherit",
+  size: propSize = "medium",
+  icon: propIcon = "template"
+} = Astro.props;
+if (!["inherit", "accent"].includes(propColor)) throw new Error("IconGlobal.color must be one of: inherit, accent");
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny"].includes(propSize)) throw new Error("IconGlobal.size must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny");
+if (!["template", "example"].includes(propIcon)) throw new Error("IconGlobal.icon must be one of: template, example");
+
+
+---
+<div data-wf-id="5e82012e-7fb2-1aab-84b3-3b16a4047f3f" data-w-id="5e82012e-7fb2-1aab-84b3-3b16a4047f3f" data-wf--icon-global--icon={{"template": "template", "example": "example"}[propIcon]} class:list={[{"example": "w-variant-1d85ada2-a5d1-5057-f9e7-46471ff5cf27"}[propIcon], "icon-global_component"]} data-wf-variant={["ace6bb3e-efe4-3b20-d104-c07ace5d477b=" + ({"template": "base", "example": "1d85ada2-a5d1-5057-f9e7-46471ff5cf27"}[propIcon])].join(" ")}>
+<div data-wf-id="87a10ef1-ede2-697a-009d-cedf20754bb1" data-w-id="87a10ef1-ede2-697a-009d-cedf20754bb1" class="icon-global_options">
+{propIcon === "template" && (<div data-wf-id="4882a796-f367-c9a8-bcc9-3844e5b4f00a" data-w-id="4882a796-f367-c9a8-bcc9-3844e5b4f00a" class="w-embed icon-global_embed">
+<svg width="100%" height="100%" viewBox="0 0 36 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M35.46 10.24L35.18 9.74C34.8188 9.13538 34.3094 8.63286 33.7 8.28L20.28 0.54C19.6724 0.1875 18.9826 0.00124 18.28 0H17.7C16.9974 0.00124 16.3076 0.1875 15.7 0.54L2.28 8.3C1.67394 8.65052 1.17052 9.15394 0.82 9.76L0.54 10.26C0.1875 10.8677 0.00124 11.5575 0 12.26V27.76C0.00124 28.4626 0.1875 29.1524 0.54 29.76L0.82 30.26C1.17958 30.859 1.68098 31.3604 2.28 31.72L15.72 39.46C16.3246 39.8198 17.0164 40.0066 17.72 40H18.28C18.9826 39.9988 19.6724 39.8126 20.28 39.46L33.7 31.7C34.312 31.3574 34.8174 30.852 35.16 30.24L35.46 29.74C35.8082 29.1306 35.9942 28.442 36 27.74V12.24C35.9988 11.5375 35.8126 10.8477 35.46 10.24ZM17.7 4H18.28L30 10.76L18 17.68L6 10.76L17.7 4ZM20 35L31.7 28.24L32 27.74V14.22L20 21.16V35Z" fill="currentColor" />
+</svg>
+</div>)}
+{propIcon === "example" && (<div data-wf-id="d25ceb8e-8bb3-46bc-e0a0-f5fd09d3c67d" data-w-id="d25ceb8e-8bb3-46bc-e0a0-f5fd09d3c67d" class="w-embed icon-global_embed">
+<svg width="100%" height="100%" viewBox="0 0 36 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M35.46 10.24L35.18 9.74C34.8188 9.13538 34.3094 8.63286 33.7 8.28L20.28 0.54C19.6724 0.1875 18.9826 0.00124 18.28 0H17.7C16.9974 0.00124 16.3076 0.1875 15.7 0.54L2.28 8.3C1.67394 8.65052 1.17052 9.15394 0.82 9.76L0.54 10.26C0.1875 10.8677 0.00124 11.5575 0 12.26V27.76C0.00124 28.4626 0.1875 29.1524 0.54 29.76L0.82 30.26C1.17958 30.859 1.68098 31.3604 2.28 31.72L15.72 39.46C16.3246 39.8198 17.0164 40.0066 17.72 40H18.28C18.9826 39.9988 19.6724 39.8126 20.28 39.46L33.7 31.7C34.312 31.3574 34.8174 30.852 35.16 30.24L35.46 29.74C35.8082 29.1306 35.9942 28.442 36 27.74V12.24C35.9988 11.5375 35.8126 10.8477 35.46 10.24ZM17.7 4H18.28L30 10.76L18 17.68L6 10.76L17.7 4ZM20 35L31.7 28.24L32 27.74V14.22L20 21.16V35Z" fill="currentColor" />
+</svg>
+</div>)}
+</div>
+<NestSize size={propSize} />
+<NestColor color={propColor} />
+</div>

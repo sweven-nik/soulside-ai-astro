@@ -1,0 +1,27 @@
+---
+
+
+interface Props {
+  /** Visibility */
+  visibility?: boolean;
+  /** Variant */
+  variant?: "dark-mode" | "light-mode";
+}
+const collectionData = {};
+const {
+  visibility: propVisibility = true,
+  variant: propVariant = "dark-mode"
+} = Astro.props;
+const propText = "Auto tab link";
+if (!["dark-mode", "light-mode"].includes(propVariant)) throw new Error("ElementAutoTabLink.variant must be one of: dark-mode, light-mode");
+
+
+---
+{propVisibility && (<a sw-auto-tab="link" role="button" data-wf-id="b3bf378e-9a19-fd34-ee3a-13a56090cdf9" data-w-id="b3bf378e-9a19-fd34-ee3a-13a56090cdf9" data-wf--element-auto-tab-link--variant={{"dark-mode": "dark-mode", "light-mode": "light-mode"}[propVariant]} class:list={[{"light-mode": "w-variant-03886612-ea45-68f2-316c-afe5c1129649"}[propVariant], "auto-tab_link"]} href="#" data-wf-variant={["94e167ff-a6ee-8c16-48d7-37dcb68ab764=" + ({"dark-mode": "base", "light-mode": "03886612-ea45-68f2-316c-afe5c1129649"}[propVariant])].join(" ")}>
+<div sw-slot="" data-wf-id="1cf62062-bbdf-6097-8a80-270f5a806d55" data-w-id="1cf62062-bbdf-6097-8a80-270f5a806d55" class="auto-tab-link_wrapper">
+<div data-wf-id="1cf62062-bbdf-6097-8a80-270f5a806d56" data-w-id="1cf62062-bbdf-6097-8a80-270f5a806d56" class="auto-tab-link_text">
+<slot>{propText}</slot>
+</div>
+<div sw-auto-tab="progress" data-wf-id="1cf62062-bbdf-6097-8a80-270f5a806d58" data-w-id="1cf62062-bbdf-6097-8a80-270f5a806d58" class="auto-tab-link_progress"></div>
+</div>
+</a>)}

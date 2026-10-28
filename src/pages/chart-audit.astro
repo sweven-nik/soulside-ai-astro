@@ -1,0 +1,240 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import GlobalEmbeds from '@/components/1-globals/GlobalEmbeds.astro';
+import GlobalAnnouncementBar from '@/components/1-globals/GlobalAnnouncementBar.astro';
+import GlobalNavbar from '@/components/1-globals/GlobalNavbar.astro';
+import Section from '@/components/2-sections/Section.astro';
+import Layout2 from '@/components/3-layouts/Layout2.astro';
+import ElementImage from '@/components/4-elements/ElementImage.astro';
+import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
+import GlobalDemoButton from '@/components/1-globals/GlobalDemoButton.astro';
+import ButtonGlobal from '@/components/5-buttons/ButtonGlobal.astro';
+import ElementComparisonTable from '@/components/4-elements/ElementComparisonTable.astro';
+import ElementComparisonItem from '@/components/4-elements/ElementComparisonItem.astro';
+import ElementAccordionCardGrid from '@/components/4-elements/ElementAccordionCardGrid.astro';
+import ElementAccordionCard from '@/components/4-elements/ElementAccordionCard.astro';
+import LayoutGridSlot from '@/components/3-layouts/LayoutGridSlot.astro';
+import ElementStatCard from '@/components/4-elements/ElementStatCard.astro';
+import ElementCard from '@/components/4-elements/ElementCard.astro';
+import ElementTagline from '@/components/4-elements/ElementTagline.astro';
+import UtilitySpacer from '@/components/6-utilities/UtilitySpacer.astro';
+import NestAlignment from '@/components/6-utilities/NestAlignment.astro';
+import IconButtonFlipArrow from '@/components/7-icons/IconButtonFlipArrow.astro';
+import GlobalFooter from '@/components/1-globals/GlobalFooter.astro';
+
+const data = {};
+const collectionData = {};
+
+
+---
+<Layout webflowPageId="6ac7be1fef73d50c81babb9e" pageTitle="AI Chart Audit for Behavioral Health | Soulside AI" pageDescription="Audit 100% of charts in near real time against your payer, state, and clinical rules. Catch documentation gaps before claims go out and stay audit-ready." data-wf-id="60d3f7b8b0e86c28630fc6d6" data-w-id="60d3f7b8b0e86c28630fc6d6">
+<div data-wf-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" data-w-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" class="page-wrapper">
+<GlobalEmbeds />
+<GlobalAnnouncementBar />
+<GlobalNavbar />
+<div data-wf-id="57c8289c-1017-c6e6-597f-ea69c47d1030" data-w-id="57c8289c-1017-c6e6-597f-ea69c47d1030" class="container-xlarge"></div>
+<main data-wf-id="dcf94f42-feae-15fa-9712-17acf0a0a835" data-w-id="dcf94f42-feae-15fa-9712-17acf0a0a835" class="main-wrapper">
+<Section sectionFadeInAnimation={true} sectionColorScheme="lightest" sectionSidePadding="global" sectionBottomPadding="large" sectionTopPadding="small">
+<Layout2 verticalAlignment="center" rowGap="xxlarge" columnGap="medium" layout="columns">
+<ElementImage imageParallax={false} imageBorderRadius="medium" imageFile={{"id": "6acfbaef5e15ec5c27d364a2"}} />
+<ElementContentGroup slot="content-first" contentGap="small" contentTextWrap="balance" bodyRichTextFontSize="large" bodyRichTextTag="p" headingHeadingMaxWidth="large" headingStyle="h1" headingTag="h1" contentMaxWidth="xlarge" contentAlignment="left">
+<GlobalDemoButton />
+<ButtonGlobal trailingIconVisibility={false} link="#helps" text="How Soulside AI Helps" style="secondary" />
+<Fragment slot="bodyrichtext">Soulside audits 100% of charts in real time, flagging gaps against your payor rules, clinical standards, and regulatory requirements before claims go out.</Fragment>
+<Fragment slot="headingtext">Every chart audited. Before it costs you.</Fragment>
+<Fragment slot="taglinetext">Chart Audit</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+<Section sectionColorScheme="lighter">
+<Layout2 layout="stack">
+<ElementComparisonTable>
+<ElementComparisonItem variant="check">
+Documentation completed. Soulside audits in near real time
+</ElementComparisonItem>
+<ElementComparisonItem variant="check">
+Deficiency flagged immediately with clear resolution instructions
+</ElementComparisonItem>
+<ElementComparisonItem variant="check">
+Clinician corrects the record before the claim goes out
+</ElementComparisonItem>
+<ElementComparisonItem variant="check">
+Clean claim submitted, aligned to payor requirements
+</ElementComparisonItem>
+<ElementComparisonItem variant="check">
+Revenue protected. Audit risk eliminated.
+</ElementComparisonItem>
+<ElementComparisonItem slot="content">
+Documentation completed with no compliance check performed
+</ElementComparisonItem>
+<ElementComparisonItem slot="content">
+Claims go out with incomplete or misaligned documentation
+</ElementComparisonItem>
+<ElementComparisonItem slot="content">
+Payor denies authorization weeks later
+</ElementComparisonItem>
+<ElementComparisonItem slot="content">
+Compliance team discovers deficiency post-claim
+</ElementComparisonItem>
+<ElementComparisonItem slot="content">
+Revenue at risk: appeals, clawbacks, write-offs
+</ElementComparisonItem>
+</ElementComparisonTable>
+<ElementContentGroup slot="content-first" contentTextWrap="balance" buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyRichTextTag="p" contentMaxWidth="large" contentAlignment="center">
+<Fragment slot="bodyrichtext">Most programs audit retrospectively, reviewing charts weeks after the fact. By then, claims have already gone out. Revenue is already at risk. Soulside audits continuously.</Fragment>
+<Fragment slot="headingtext">Manual audits catch problems after it's too late.</Fragment>
+<Fragment slot="taglinetext">The Problem</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+<Section sectionContainer="large" sectionId="helps">
+<Layout2 layout="stack">
+<ElementAccordionCardGrid>
+<ElementAccordionCard descriptionTag="p">
+<Fragment slot="description">100% of charts reviewed as documentation is completed. Not in batches, not on a schedule</Fragment>
+<Fragment slot="heading">Near real-time auditing</Fragment>
+<svg slot="svgicon" width="100%" height="100%" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.59 35.5556C2.56704 35.5556 1.71296 35.213 1.02778 34.5278C0.342593 33.8426 0 32.9885 0 31.9656V3.59C0 2.56704 0.342593 1.71296 1.02778 1.02778C1.71296 0.342593 2.56704 0 3.59 0H36.41C37.433 0 38.287 0.342593 38.9722 1.02778C39.6574 1.71296 40 2.56704 40 3.59V31.9656C40 32.9885 39.6574 33.8426 38.9722 34.5278C38.287 35.213 37.433 35.5556 36.41 35.5556H3.59ZM3.59 33.3333H36.41C36.7522 33.3333 37.0657 33.1909 37.3506 32.9061C37.6354 32.6213 37.7778 32.3078 37.7778 31.9656V3.59C37.7778 3.24778 37.6354 2.93426 37.3506 2.64944C37.0657 2.36463 36.7522 2.22222 36.41 2.22222H3.59C3.24778 2.22222 2.93426 2.36463 2.64944 2.64944C2.36463 2.93426 2.22222 3.24778 2.22222 3.59V31.9656C2.22222 32.3078 2.36463 32.6213 2.64944 32.9061C2.93426 33.1909 3.24778 33.3333 3.59 33.3333ZM5.55556 27.7778H14.4444V25.5556H5.55556V27.7778ZM25.6667 22.8633L35.0856 13.4444L33.5 11.8589L25.6667 19.7478L22.5 16.5811L20.97 18.1667L25.6667 22.8633ZM5.55556 18.8889H14.4444V16.6667H5.55556V18.8889ZM5.55556 10H14.4444V7.77778H5.55556V10Z" fill="var(--brand--tertiary)"></path>
+</svg>
+</ElementAccordionCard>
+<ElementAccordionCard descriptionTag="p">
+<Fragment slot="description">Audit criteria built around your specific payors, state requirements, and authorization standards, not generic checklists</Fragment>
+<Fragment slot="heading">Payor-specific rules</Fragment>
+<svg slot="svgicon" width="100%" height="100%" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.6658 31.0307L23.1375 29.5023L28.9091 23.7307L23.1375 17.9591L24.6658 16.4308L30.4375 22.2024L36.2091 16.4308L37.7374 17.9591L31.9658 23.7307L37.7374 29.5023L36.2091 31.0307L30.4375 25.2591L24.6658 31.0307ZM29.0928 12.546L22.7917 6.24499L24.3201 4.71718L29.0373 9.43435L38.4716 0L40 1.58331L29.0928 12.546ZM0 24.6276V22.4077H17.7588V24.6276H0ZM0 8.57583V6.35598H17.7588V8.57583H0Z" fill="var(--brand--tertiary)"></path>
+</svg>
+</ElementAccordionCard>
+<ElementAccordionCard descriptionTag="p">
+<Fragment slot="description">Every flag comes with what's wrong and exactly what needs to change so clinicians act immediately.</Fragment>
+<Fragment slot="heading">Clear resolution instructions</Fragment>
+<svg slot="svgicon" width="100%" height="100%" viewBox="0 0 40 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.87855 33.639V1.87855V28.121V23.5631V33.639ZM3.24431 35.5176C2.33491 35.5176 1.56684 35.2042 0.940106 34.5775C0.313369 33.9507 0 33.1827 0 32.2733V3.24431C0 2.33491 0.313369 1.56684 0.940106 0.940106C1.56684 0.313369 2.33491 0 3.24431 0H32.2733C33.1827 0 33.9507 0.313369 34.5775 0.940106C35.2042 1.56684 35.5176 2.33491 35.5176 3.24431V22.113H33.639V3.24431C33.639 2.90282 33.4968 2.58982 33.2123 2.30531C32.9278 2.0208 32.6147 1.87855 32.2733 1.87855H3.24431C2.90282 1.87855 2.58982 2.0208 2.30531 2.30531C2.0208 2.58982 1.87855 2.90282 1.87855 3.24431V32.2733C1.87855 32.6147 2.0208 32.9278 2.30531 33.2123C2.58982 33.4968 2.90282 33.639 3.24431 33.639H18.3565V35.5176H3.24431ZM29.5467 37.7374L23.6758 31.9087L25.0171 30.5346L29.5467 35.0919L38.6537 26.0133L40 27.3269L29.5467 37.7374ZM9.89164 18.8565C10.1843 18.5639 10.3306 18.1979 10.3306 17.7588C10.3306 17.3196 10.1843 16.9537 9.89164 16.6611C9.59899 16.3684 9.23309 16.2221 8.79393 16.2221C8.35477 16.2221 7.98886 16.3684 7.69621 16.6611C7.40356 16.9537 7.25724 17.3196 7.25724 17.7588C7.25724 18.1979 7.40356 18.5639 7.69621 18.8565C7.98886 19.1492 8.35477 19.2955 8.79393 19.2955C9.23309 19.2955 9.59899 19.1492 9.89164 18.8565ZM9.89164 10.4266C10.1843 10.134 10.3306 9.76807 10.3306 9.32891C10.3306 8.88975 10.1843 8.52385 9.89164 8.2312C9.59899 7.93855 9.23309 7.79222 8.79393 7.79222C8.35477 7.79222 7.98886 7.93855 7.69621 8.2312C7.40356 8.52385 7.25724 8.88975 7.25724 9.32891C7.25724 9.76807 7.40356 10.134 7.69621 10.4266C7.98886 10.7193 8.35477 10.8656 8.79393 10.8656C9.23309 10.8656 9.59899 10.7193 9.89164 10.4266ZM15.8408 18.6978H27.8563V16.8198H15.8408V18.6978ZM15.8408 10.2685H27.8563V8.38992H15.8408V10.2685Z" fill="var(--brand--tertiary)"></path>
+</svg>
+</ElementAccordionCard>
+<ElementAccordionCard descriptionTag="p">
+<Fragment slot="description">Real-time compliance status across all providers, programs, and payers, in one place, at all times</Fragment>
+<Fragment slot="heading">Organization-wide dashboard</Fragment>
+<svg slot="svgicon" width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.65375 40C2.62958 40 1.76458 39.6471 1.05875 38.9412C0.352917 38.2354 0 37.3704 0 36.3462V3.65375C0 2.62958 0.352917 1.76458 1.05875 1.05875C1.76458 0.352917 2.62958 0 3.65375 0H36.3462C37.3704 0 38.2354 0.352917 38.9412 1.05875C39.6471 1.76458 40 2.62958 40 3.65375V36.3462C40 37.3704 39.6471 38.2354 38.9412 38.9412C38.2354 39.6471 37.3704 40 36.3462 40H3.65375ZM3.65375 37.8844H18.9425V2.11562H3.65375C3.26917 2.11562 2.91667 2.27583 2.59625 2.59625C2.27583 2.91667 2.11563 3.26917 2.11563 3.65375V36.3462C2.11563 36.7308 2.27583 37.0833 2.59625 37.4038C2.91667 37.7242 3.26917 37.8844 3.65375 37.8844ZM21.0575 37.8844H36.3462C36.7308 37.8844 37.0833 37.7242 37.4038 37.4038C37.7242 37.0833 37.8844 36.7308 37.8844 36.3462V19.9906H21.0575V37.8844ZM21.0575 17.875H37.8844V3.65375C37.8844 3.26917 37.7242 2.91667 37.4038 2.59625C37.0833 2.27583 36.7308 2.11562 36.3462 2.11562H21.0575V17.875Z" fill="var(--brand--tertiary)"></path>
+</svg>
+</ElementAccordionCard>
+<ElementAccordionCard descriptionTag="p">
+<Fragment slot="description">Documentation quality tracked at the individual clinician level so issues get addressed at the source.</Fragment>
+<Fragment slot="heading">Clinician quality coaching</Fragment>
+<svg slot="svgicon" width="100%" height="100%" viewBox="0 0 48 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.1513 13.1325L29.8353 6.77808L31.211 5.42212L36.1513 10.3624L46.0319 0.481823L47.4326 1.89591L36.1513 13.1325ZM11.4278 11.6422C10.1282 10.3426 9.47839 8.72223 9.47839 6.78099C9.47839 4.83974 10.1282 3.22436 11.4278 1.93485C12.727 0.644949 14.3423 0 16.2739 0C18.2055 0 19.8208 0.644949 21.12 1.93485C22.4196 3.22436 23.0694 4.83974 23.0694 6.78099C23.0694 8.72223 22.4196 10.3426 21.12 11.6422C19.8208 12.9418 18.2055 13.5916 16.2739 13.5916C14.3423 13.5916 12.727 12.9418 11.4278 11.6422ZM0 30.4113V26.8938C0 25.9282 0.279369 25.0273 0.838106 24.1912C1.39723 23.3554 2.17102 22.7095 3.15946 22.2534C5.51027 21.189 7.75258 20.4048 9.8864 19.9007C12.0206 19.3966 14.1498 19.1445 16.2739 19.1445C18.398 19.1445 20.5257 19.3966 22.6568 19.9007C24.7879 20.4048 27.0288 21.189 29.3796 22.2534C30.3681 22.735 31.1432 23.3875 31.7051 24.2109C32.2669 25.0339 32.5478 25.9282 32.5478 26.8938V30.4113H0ZM1.9674 28.4439H30.5804V26.8938C30.5804 26.3285 30.394 25.7881 30.0213 25.2728C29.6481 24.7571 29.1303 24.3268 28.4677 23.9819C26.3533 22.9795 24.3204 22.2505 22.3691 21.7948C20.4177 21.3395 18.386 21.1119 16.2739 21.1119C14.1618 21.1119 12.1235 21.3395 10.159 21.7948C8.19488 22.2505 6.16568 22.9795 4.07138 23.9819C3.38904 24.3268 2.86769 24.7571 2.50734 25.2728C2.14738 25.7881 1.9674 26.3285 1.9674 26.8938V28.4439ZM19.7036 10.2258C20.6363 9.29356 21.1026 8.15032 21.1026 6.7961C21.1026 5.44188 20.6363 4.29844 19.7036 3.36579C18.7714 2.43353 17.6281 1.9674 16.2739 1.9674C14.9197 1.9674 13.7764 2.43353 12.8442 3.36579C11.9115 4.29844 11.4452 5.44188 11.4452 6.7961C11.4452 8.15032 11.9115 9.29356 12.8442 10.2258C13.7764 11.1581 14.9197 11.6242 16.2739 11.6242C17.6281 11.6242 18.7714 11.1581 19.7036 10.2258Z" fill="var(--brand--tertiary)"></path>
+</svg>
+</ElementAccordionCard>
+<ElementAccordionCard descriptionTag="p">
+<Fragment slot="description">Compliance teams spend time on flagged, high-risk charts, not routine manual review of everything.</Fragment>
+<Fragment slot="heading">Focus on high-risk charts</Fragment>
+<svg slot="svgicon" width="100%" height="100%" viewBox="0 0 34 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 40V0H18.2265L19.3219 5.2871H33.5484V25.3368H20.6187L19.5284 20.0594H2.18387V40H0ZM22.511 23.1529H31.3645V7.47032H17.429L16.3342 2.18387H2.18387V17.8761H21.4161L22.511 23.1529Z" fill="var(--brand--tertiary)"></path>
+</svg>
+</ElementAccordionCard>
+</ElementAccordionCardGrid>
+<ElementContentGroup slot="content-first" contentTextWrap="balance" buttonGroupVisibility={true} bodyRichTextFontSize="medium" bodyRichTextTag="p" contentMaxWidth="large" contentAlignment="center">
+<GlobalDemoButton />
+<Fragment slot="bodyrichtext">100% of charts reviewed automatically against your specific payor and state requirements with clear resolution steps before anything goes wrong.</Fragment>
+<Fragment slot="headingtext">Continuous compliance. Not periodic reviews.</Fragment>
+<Fragment slot="taglinetext">Product Features</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+<Section sectionColorScheme="lighter">
+<Layout2 columnGap="huge">
+<LayoutGridSlot gridSlotColumnsMobileP={1} gridSlotColumnsTablet={2} gridSlotColumnsDesktop={2} gridSlotGapTabletDown="xsmall" gridSlotGapDesktop="xsmall">
+<ElementStatCard smallStatSize={true} variant="dark">
+<Fragment slot="description">Clinical lockout window while managing active care</Fragment>
+<Fragment slot="stat">24-48 hrs</Fragment>
+</ElementStatCard>
+<ElementStatCard smallStatSize={true}>
+<Fragment slot="description">Submission lag waiting on signed notes</Fragment>
+<Fragment slot="stat">30 days </Fragment>
+</ElementStatCard>
+<ElementStatCard smallStatSize={true}>
+<Fragment slot="description">Unbilled A/R per $320K/day facility</Fragment>
+<Fragment slot="stat">$9.17M </Fragment>
+</ElementStatCard>
+<ElementStatCard smallStatSize={true} variant="darker">
+<Fragment slot="description">Daily revenue lost to concurrent denials</Fragment>
+<Fragment slot="stat">4.5%</Fragment>
+</ElementStatCard>
+</LayoutGridSlot>
+<ElementContentGroup slot="content-first" bodyRichTextFontSize="medium">
+<GlobalDemoButton />
+<p slot="bodyrichtext-blocks" data-wf-id="aded7fce-c8d9-5c5e-b407-147467c07714" data-w-id="aded7fce-c8d9-5c5e-b407-147467c07714">
+One record for documentation, utilization review, and RCM. When a claim fails, Soulside traces it to the session that caused it, because it was there for both the care and the claim.
+</p>
+<ul slot="bodyrichtext-blocks" data-wf-id="5dca0127-c65b-92c6-5c17-07ac47594520" data-w-id="5dca0127-c65b-92c6-5c17-07ac47594520">
+<li data-wf-id="5dca0127-c65b-92c6-5c17-07ac47594521" data-w-id="5dca0127-c65b-92c6-5c17-07ac47594521">
+Average days from date of service to claim submission minimized.
+</li>
+<li data-wf-id="d75cca93-0fa1-0407-2eda-6593f5550ba8" data-w-id="d75cca93-0fa1-0407-2eda-6593f5550ba8">
+Potential denials flagged and corrected before claim submission.
+</li>
+<li data-wf-id="6778589c-e47d-d66e-22c4-39ce1f1ded06" data-w-id="6778589c-e47d-d66e-22c4-39ce1f1ded06">
+Noncompliant records successfully detected prior to signature.
+</li>
+<li data-wf-id="7b9c79c4-26a5-c074-8cdd-0ad41d619fde" data-w-id="7b9c79c4-26a5-c074-8cdd-0ad41d619fde">
+Daily revenue and reimbursement dollars maximized
+</li>
+</ul>
+<Fragment slot="headingtext">Protect Revenue and Reimbursement</Fragment>
+<Fragment slot="taglinetext">Revenue Protection</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+<Section sectionBottomPadding="none" sectionTopPadding="large">
+<ElementImage imageBorderRadius="small" imageAspectRatio="xwide-2x1" imageFile={{"id": "6ad23f7156db02b15c36702f"}} />
+</Section>
+<Section sectionColorScheme="lightest">
+<Layout2 columnGap="huge" layout="stack">
+<LayoutGridSlot gridSlotColumnsMobileP={1} gridSlotColumnsMobileL={1} gridSlotColumnsTablet={1} gridSlotColumnsDesktop={3} gridSlotGapTabletDown="xsmall" gridSlotGapDesktop="medium">
+<ElementCard buttonVisibility={false} bodyParagraphFontSize="medium" bodyRichTextTag="p" taglineVisibility={false} contentAlignment="left" visualVisibility={true} variant="dark">
+<ElementTagline variant="small">
+Compliance Officer
+</ElementTagline>
+<UtilitySpacer />
+<Fragment slot="bodyrichtext">Organization-wide compliance status at a glance. No last-minute scrambles before payor audits or accreditation reviews.</Fragment>
+<Fragment slot="headingtext">Always audit-ready</Fragment>
+<Fragment slot="taglinetext">Compliance Officer</Fragment>
+</ElementCard>
+<ElementCard buttonVisibility={false} bodyParagraphFontSize="medium" bodyRichTextTag="p" taglineVisibility={false} visualVisibility={true}>
+<ElementTagline variant="small">
+Revenue Cycle Leadership
+</ElementTagline>
+<UtilitySpacer />
+<Fragment slot="bodyrichtext">Documentation deficiencies caught before submission. Fewer denials, faster reimbursement, stronger authorization support.</Fragment>
+<Fragment slot="headingtext">Cleaner claims, fewer denials</Fragment>
+<Fragment slot="taglinetext">Revenue Cycle Leadership</Fragment>
+</ElementCard>
+<ElementCard buttonVisibility={false} bodyParagraphFontSize="medium" bodyRichTextTag="p" taglineVisibility={false} visualVisibility={true} variant="white">
+<ElementTagline variant="small">
+Clinical Director
+</ElementTagline>
+<UtilitySpacer />
+<Fragment slot="bodyrichtext">Every note scanned for clinical logic and session accuracy, so clinicians focus on care.</Fragment>
+<Fragment slot="headingtext">A safety net, not a checklist</Fragment>
+<Fragment slot="taglinetext">Clinical Director</Fragment>
+</ElementCard>
+</LayoutGridSlot>
+<UtilitySpacer size="xlarge" />
+<div data-wf-id="eea46073-86b6-a9ed-04a6-f8f0175269f7" data-w-id="eea46073-86b6-a9ed-04a6-f8f0175269f7">
+<GlobalDemoButton />
+<NestAlignment alignment="center" />
+</div>
+<ElementContentGroup slot="content-first" buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyRichTextTag="p" bodyVisibility={false} contentMaxWidth="xlarge" contentAlignment="center">
+<ButtonGlobal trailingIconVisibility={true} text="Book a Demo">
+<IconButtonFlipArrow />
+</ButtonGlobal>
+<Fragment slot="bodyrichtext" />
+<Fragment slot="headingtext">Built for the whole team not just compliance.</Fragment>
+<Fragment slot="taglinetext">Who Benefits</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+</main>
+<GlobalFooter />
+</div>
+</Layout>

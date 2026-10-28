@@ -1,0 +1,230 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import GlobalEmbeds from '@/components/1-globals/GlobalEmbeds.astro';
+import GlobalAnnouncementBar from '@/components/1-globals/GlobalAnnouncementBar.astro';
+import GlobalNavbar from '@/components/1-globals/GlobalNavbar.astro';
+import Section from '@/components/2-sections/Section.astro';
+import Layout2 from '@/components/3-layouts/Layout2.astro';
+import ElementImage from '@/components/4-elements/ElementImage.astro';
+import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
+import ButtonGlobal from '@/components/5-buttons/ButtonGlobal.astro';
+import IconButtonFlipArrow from '@/components/7-icons/IconButtonFlipArrow.astro';
+import GlobalFooter from '@/components/1-globals/GlobalFooter.astro';
+
+const data = {};
+const collectionData = {};
+
+
+---
+<Layout webflowPageId="6ac7d51a38cc68eca7abc42c" pageTitle="Careers at Soulside AI | Join Our Team" pageDescription="Build AI that reduces clinician burnout and improves behavioral health care. Explore open engineering, sales, and client success roles at Soulside AI." data-wf-id="60d3f7b8b0e86c28630fc6d6" data-w-id="60d3f7b8b0e86c28630fc6d6">
+<div data-wf-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" data-w-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" class="page-wrapper">
+<GlobalEmbeds />
+<GlobalAnnouncementBar />
+<GlobalNavbar />
+<main data-wf-id="dcf94f42-feae-15fa-9712-17acf0a0a835" data-w-id="dcf94f42-feae-15fa-9712-17acf0a0a835" class="main-wrapper">
+<Section>
+<Layout2 layout="stack">
+<ElementImage imageBorderRadius="medium" imageAspectRatio="xwide-2x1" imageFile={{"id": "6ad23f702a8dbae1f7f382f4"}} />
+<ElementContentGroup slot="content-first" buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyRichTextTag="p" headingStyle="h1" headingTag="h1" taglineVisibility={false} contentMaxWidth="large" contentAlignment="left" contentTextWrap="balance">
+<ButtonGlobal trailingIconVisibility={true} text="Book a Demo">
+<IconButtonFlipArrow />
+</ButtonGlobal>
+<Fragment slot="bodyrichtext">We’re technologists, psychiatrists, and therapists building AI that gives clinicians their time back. Join us in reducing burnout and improving behavioral health care.</Fragment>
+<Fragment slot="headingtext">Careers</Fragment>
+<Fragment slot="taglinetext">Templates</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+<Section sectionTopPadding="none">
+<div data-wf-id="1388847c-ac5d-ad6f-dd2d-5864176d78b0" data-w-id="1388847c-ac5d-ad6f-dd2d-5864176d78b0" class="w-embed">
+<!-- Ashby job list embed. Set ASHBY_ORG to the slug from jobs.ashbyhq.com/YOUR-SLUG -->
+<div id="ashby-jobs" class="aj" aria-live="polite">
+  <p class="aj-status">Loading open roles…</p>
+</div>
+
+<style is:inline>
+  .aj {
+    font: inherit;
+    color: inherit;
+  }
+  .aj-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 3rem;
+  }
+  .aj-filter {
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    cursor: pointer;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 6px 14px;
+    opacity: 0.6;
+  }
+  .aj-filter[aria-pressed='true'] {
+    opacity: 1;
+    background: currentColor;
+  }
+  .aj-filter[aria-pressed='true'] span {
+    color: white;
+  }
+  .aj-filter:focus-visible,
+  .aj-job:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+  .aj-group + .aj-group {
+    margin-top: 40px;
+  }
+  .aj-group h3 {
+    margin-bottom: 1rem;
+    font-size: var(--_typography---h4--font-size);
+  }
+  .aj-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .aj-list li {
+    padding: 0px;
+  }
+  .aj-job {
+    font-size: 1.125rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    background: var(--_color-schemes---foreground--foreground-color);
+    gap: 16px;
+    padding: 1rem;
+    color: var(--_color-schemes---foreground--foreground-text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 300ms ease;
+  }
+  .aj-job:hover{
+    background: var(--neutral--neutral-dark);
+    color: var(--neutral--white);
+  }
+  .aj-meta {
+    opacity: 0.65;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .aj-pay {
+    display: block;
+    font-size: 0.9em;
+  }
+  @media (max-width: 600px) {
+    .aj-job {
+      flex-direction: column;
+      gap: 4px;
+    }
+    .aj-meta {
+      text-align: left;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var ASHBY_ORG = 'Soulside AI'; // <-- change this
+    var GROUP_BY = 'department'; // "department", "team", or "" for one flat list
+    var root = document.getElementById('ashby-jobs');
+    var url = 'https://api.ashbyhq.com/posting-api/job-board/' + encodeURIComponent(ASHBY_ORG) + '?includeCompensation=true';
+
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    function render(jobs, active) {
+      var shown = active
+        ? jobs.filter(function (j) {
+            return (j[GROUP_BY] || 'Other') === active;
+          })
+        : jobs;
+      var groups = {};
+      shown.forEach(function (j) {
+        var key = GROUP_BY ? j[GROUP_BY] || 'Other' : '';
+        (groups[key] = groups[key] || []).push(j);
+      });
+
+      var html = Object.keys(groups)
+        .sort()
+        .map(function (g) {
+          var items = groups[g]
+            .map(function (j) {
+              var where = j.isRemote ? (j.location ? j.location + ' · Remote' : 'Remote') : j.location || '';
+              var pay = j.compensation && j.compensation.compensationTierSummary;
+              return '<li><a class="aj-job" href="' + esc(j.jobUrl) + '" target="_blank" rel="noopener">' + '<span class="aj-title">' + esc(j.title) + '</span>' + '<span class="aj-meta">' + esc(where) + (pay ? '<span class="aj-pay">' + esc(pay) + '</span>' : '') + '</span>' + '</a></li>';
+            })
+            .join('');
+          return '<div class="aj-group">' + (g ? '<h3>' + esc(g) + '</h3>' : '') + '<ul class="aj-list">' + items + '</ul></div>';
+        })
+        .join('');
+
+      root.querySelector('.aj-results').innerHTML = html;
+    }
+
+    fetch(url)
+      .then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        var jobs = (data.jobs || []).filter(function (j) {
+          return j.isListed !== false;
+        });
+        if (!jobs.length) {
+          root.innerHTML = '<p class="aj-status">No open roles right now. Check back soon.</p>';
+          return;
+        }
+
+        var cats = GROUP_BY
+          ? Array.from(
+              new Set(
+                jobs.map(function (j) {
+                  return j[GROUP_BY] || 'Other';
+                }),
+              ),
+            ).sort()
+          : [];
+        var filters =
+          cats.length > 1
+            ? '<div class="aj-filters" role="group" aria-label="Filter roles">' +
+              '<button class="aj-filter" aria-pressed="true" data-v=""><span>All</span></button>' +
+              cats
+                .map(function (c) {
+                  return '<button class="aj-filter" aria-pressed="false" data-v="' + esc(c) + '"><span>' + esc(c) + '</span></button>';
+                })
+                .join('') +
+              '</div>'
+            : '';
+
+        root.innerHTML = filters + '<div class="aj-results"></div>';
+        render(jobs, '');
+
+        root.querySelectorAll('.aj-filter').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            root.querySelectorAll('.aj-filter').forEach(function (b) {
+              b.setAttribute('aria-pressed', 'false');
+            });
+            btn.setAttribute('aria-pressed', 'true');
+            render(jobs, btn.getAttribute('data-v'));
+          });
+        });
+      })
+      .catch(function () {
+        root.innerHTML = '<p class="aj-status">Couldn\'t load open roles. <a href="https://jobs.ashbyhq.com/' + esc(ASHBY_ORG) + '" target="_blank" rel="noopener">See all jobs on Ashby</a>.</p>';
+      });
+  })();
+</script>
+</div>
+</Section>
+</main>
+<GlobalFooter />
+</div>
+</Layout>

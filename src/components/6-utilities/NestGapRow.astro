@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Gap */
+  gap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+}
+const collectionData = {};
+const {
+  gap: propGap = "small"
+} = Astro.props;
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propGap)) throw new Error("NestGapRow.gap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+
+
+---
+<div data-wf-id="23f979fb-f418-fd09-e478-c2fdbbc4f7aa" data-w-id="23f979fb-f418-fd09-e478-c2fdbbc4f7aa" data-wf--nest-gap-row--gap={{"xxhuge": "xxhuge", "xhuge": "xhuge", "huge": "huge", "xxlarge": "xxlarge", "xlarge": "xlarge", "large": "large", "medium": "medium", "small": "small", "xsmall": "xsmall", "xxsmall": "xxsmall", "tiny": "tiny", "none": "none"}[propGap]} class:list={[{"xxhuge": "w-variant-8b69bd46-0777-bf49-9e2e-8b73e0b5b674", "xhuge": "w-variant-8b69bd46-0777-bf49-9e2e-8b73e0b5b675", "huge": "w-variant-8b69bd46-0777-bf49-9e2e-8b73e0b5b676", "xxlarge": "w-variant-8b69bd46-0777-bf49-9e2e-8b73e0b5b677", "xlarge": "w-variant-8b69bd46-0777-bf49-9e2e-8b73e0b5b678", "large": "w-variant-8b69bd46-0777-bf49-9e2e-8b73e0b5b679", "medium": "w-variant-8b69bd46-0777-bf49-9e2e-8b73e0b5b67a", "xsmall": "w-variant-8b69bd46-0777-bf49-9e2e-8b73e0b5b67b", "xxsmall": "w-variant-8b69bd46-0777-bf49-9e2e-8b73e0b5b67c", "tiny": "w-variant-8b69bd46-0777-bf49-9e2e-8b73e0b5b67d", "none": "w-variant-3866910c-b521-5f47-440e-b3c7d86d1260"}[propGap], "gap-nest"]} data-wf-variant={["8b69bd46-0777-bf49-9e2e-8b73e0b5b673=" + ({"xxhuge": "8b69bd46-0777-bf49-9e2e-8b73e0b5b674", "xhuge": "8b69bd46-0777-bf49-9e2e-8b73e0b5b675", "huge": "8b69bd46-0777-bf49-9e2e-8b73e0b5b676", "xxlarge": "8b69bd46-0777-bf49-9e2e-8b73e0b5b677", "xlarge": "8b69bd46-0777-bf49-9e2e-8b73e0b5b678", "large": "8b69bd46-0777-bf49-9e2e-8b73e0b5b679", "medium": "8b69bd46-0777-bf49-9e2e-8b73e0b5b67a", "small": "base", "xsmall": "8b69bd46-0777-bf49-9e2e-8b73e0b5b67b", "xxsmall": "8b69bd46-0777-bf49-9e2e-8b73e0b5b67c", "tiny": "8b69bd46-0777-bf49-9e2e-8b73e0b5b67d", "none": "3866910c-b521-5f47-440e-b3c7d86d1260"}[propGap])].join(" ")}></div>

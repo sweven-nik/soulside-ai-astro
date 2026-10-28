@@ -1,0 +1,49 @@
+---
+import __lumosAsset27 from '@/assets/placeholder-2.svg?url';
+import { resolveAssetUrls } from '@/lib/asset-urls';
+import { getCollection } from 'astro:content';
+import { imageUrl } from '@/lib/urls';
+
+
+interface Props {
+
+}
+const collectionData = {};
+const {
+
+} = Astro.props;
+
+const collections = {
+  "trusted-by-logos": (await getCollection("trusted-by-logos")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/trusted-by-logos/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
+};
+const items1 = [...collections["trusted-by-logos"]];
+---
+<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57cd" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57cd" class="trusted-marquee_wrap">
+<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57ce" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57ce" class="trusted-by-text">
+Trusted By
+</div>
+<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57d0" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57d0" class="trusted-marquee">
+<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57d1" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57d1" class="w-dyn-list trusted-marquee_wrapper">
+<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57d2" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57d2" class="w-dyn-items trusted-marquee_track">
+{items1.map((item0) => (<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57d3" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57d3" class="w-dyn-item trusted-marquee_logo"><img alt={((item0.fields.logo)?.alt || '') || ''} src={imageUrl(item0.fields.logo) || (__lumosAsset27)} loading="eager" data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57d4" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57d4" class="trusted-marquee_img" /></div>))}
+</div>
+{!items1.length && (<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57d5" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57d5" class="w-dyn-empty">
+<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57d6" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57d6">
+No items found.
+</div>
+</div>)}
+</div>
+<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57d8" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57d8" class="w-dyn-list trusted-marquee_wrapper">
+<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57d9" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57d9" class="w-dyn-items trusted-marquee_track">
+{items1.map((item2) => (<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57da" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57da" class="w-dyn-item trusted-marquee_logo"><img alt={((item2.fields.logo)?.alt || '') || ''} src={imageUrl(item2.fields.logo) || (__lumosAsset27)} loading="eager" data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57db" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57db" class="trusted-marquee_img" /></div>))}
+</div>
+{!items1.length && (<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57dc" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57dc" class="w-dyn-empty">
+<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57dd" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57dd">
+No items found.
+</div>
+</div>)}
+</div>
+<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57df" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57df" class="marquee-fade"></div>
+<div data-wf-id="0b3b585c-d93e-8fdd-970d-c072e28d57e0" data-w-id="0b3b585c-d93e-8fdd-970d-c072e28d57e0" class="marquee-fade flipped"></div>
+</div>
+</div>

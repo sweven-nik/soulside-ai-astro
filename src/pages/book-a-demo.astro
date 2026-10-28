@@ -1,0 +1,40 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import GlobalEmbeds from '@/components/1-globals/GlobalEmbeds.astro';
+import GlobalAnnouncementBar from '@/components/1-globals/GlobalAnnouncementBar.astro';
+import GlobalNavbar from '@/components/1-globals/GlobalNavbar.astro';
+import Section from '@/components/2-sections/Section.astro';
+import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
+import ButtonGlobal from '@/components/5-buttons/ButtonGlobal.astro';
+import IconButtonFlipArrow from '@/components/7-icons/IconButtonFlipArrow.astro';
+import GlobalFooter from '@/components/1-globals/GlobalFooter.astro';
+
+const data = {};
+const collectionData = {};
+
+
+---
+<Layout webflowPageId="6acce83401a7023f48d4cf10" pageTitle="Book a Demo | Soulside AI" pageDescription="Schedule a demo of Soulside AI and see automated documentation, chart audits, and group notes running on your own templates and workflows." data-wf-id="60d3f7b8b0e86c28630fc6d6" data-w-id="60d3f7b8b0e86c28630fc6d6">
+<div data-wf-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" data-w-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" class="page-wrapper">
+<GlobalEmbeds />
+<GlobalAnnouncementBar />
+<GlobalNavbar enableDemoPopup={false} />
+<main data-wf-id="dcf94f42-feae-15fa-9712-17acf0a0a835" data-w-id="dcf94f42-feae-15fa-9712-17acf0a0a835" class="main-wrapper">
+<Section sectionTopPadding="large">
+<ElementContentGroup buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyVisibility={false} headingStyle="h1" headingTag="h1" taglineVisibility={true} contentMaxWidth="medium" contentAlignment="center">
+<ButtonGlobal trailingIconVisibility={true} text="Book a Demo">
+<IconButtonFlipArrow />
+</ButtonGlobal>
+<Fragment slot="headingtext">Schedule a Demo</Fragment>
+<Fragment slot="taglinetext">Get Started</Fragment>
+</ElementContentGroup>
+</Section>
+<Section sectionBottomPadding="large" sectionTopPadding="none">
+<div data-wf-id="e6df6eee-09c7-2f75-30e8-25c1168b5b11" data-w-id="e6df6eee-09c7-2f75-30e8-25c1168b5b11" class="w-embed book-demo-embed">
+<iframe src="https://app.usemotion.com/meet/surabhi-bhandari/demosoulside" title="Soulside Book Demo" width="100%" height="100%" frameborder="0"></iframe>
+</div>
+</Section>
+</main>
+<GlobalFooter />
+</div>
+</Layout>

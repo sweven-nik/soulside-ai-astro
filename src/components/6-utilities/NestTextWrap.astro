@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Text Wrap */
+  textWrap?: "normal" | "pretty" | "balance";
+}
+const collectionData = {};
+const {
+  textWrap: propTextWrap = "normal"
+} = Astro.props;
+if (!["normal", "pretty", "balance"].includes(propTextWrap)) throw new Error("NestTextWrap.textWrap must be one of: normal, pretty, balance");
+
+
+---
+<div data-wf-id="974a1830-fe58-a87a-6823-41a2ceaffe0d" data-w-id="974a1830-fe58-a87a-6823-41a2ceaffe0d" data-wf--nest-text-wrap--text-wrap={{"normal": "normal", "pretty": "pretty", "balance": "balance"}[propTextWrap]} class:list={[{"pretty": "w-variant-736563eb-2fd3-6778-a9f9-0b9e089c3ab1", "balance": "w-variant-dc0a571a-0d57-078f-b7c9-8b502704ab1b"}[propTextWrap], "text-wrap-nest"]} data-wf-variant={["e6e74ae9-cb44-e8fd-fb69-83a43a043d92=" + ({"normal": "base", "pretty": "736563eb-2fd3-6778-a9f9-0b9e089c3ab1", "balance": "dc0a571a-0d57-078f-b7c9-8b502704ab1b"}[propTextWrap])].join(" ")}></div>

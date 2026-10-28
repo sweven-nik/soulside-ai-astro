@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Vertical Alignment */
+  verticalAlignment?: "top" | "center" | "bottom";
+}
+const collectionData = {};
+const {
+  verticalAlignment: propVerticalAlignment = "center"
+} = Astro.props;
+if (!["top", "center", "bottom"].includes(propVerticalAlignment)) throw new Error("NestVerticalAlignment.verticalAlignment must be one of: top, center, bottom");
+
+
+---
+<div data-wf-id="cd26d8d7-1dc4-be32-fba6-3600a08c092b" data-w-id="cd26d8d7-1dc4-be32-fba6-3600a08c092b" data-wf--nest-vertical-alignment--vertical-alignment={{"top": "top", "center": "center", "bottom": "bottom"}[propVerticalAlignment]} class:list={[{"top": "w-variant-b62c53f9-dace-896c-b144-fec16bcf5b77", "bottom": "w-variant-b62c53f9-dace-896c-b144-fec16bcf5b78"}[propVerticalAlignment], "vertical-alignment-component"]} data-wf-variant={["b62c53f9-dace-896c-b144-fec16bcf5b76=" + ({"top": "b62c53f9-dace-896c-b144-fec16bcf5b77", "center": "base", "bottom": "b62c53f9-dace-896c-b144-fec16bcf5b78"}[propVerticalAlignment])].join(" ")}></div>

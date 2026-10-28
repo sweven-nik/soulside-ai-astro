@@ -1,0 +1,116 @@
+---
+import { resolveAssetUrls } from '@/lib/asset-urls';
+import { getCollection } from 'astro:content';
+import { evaluate } from '@/lib/bindings';
+import { linkUrl, linkTarget } from '@/lib/urls';
+
+const bindings: any[] = [
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoLinkToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "link"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoLinkToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "link"}}}}
+];
+
+interface Props {
+
+}
+const collectionData = {};
+const defaults = {};
+const {
+
+} = Astro.props;
+
+const data = {
+  ...defaults,
+
+};
+for (const [key, name] of Object.entries({})) if (Astro.slots.has(name)) data[key] = [{__slot: name}];
+const collections = {
+  "announcement-banners": (await getCollection("announcement-banners")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/announcement-banners/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
+};
+const items1 = [...collections["announcement-banners"]].sort((a, b) => { const x = a.fields["updated-on"], y = b.fields["updated-on"]; return (x === y ? 0 : x == null ? -1 : y == null ? 1 : typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y))) * -1; }).slice(0, 1);
+---
+<div sw-banner="element" data-wf-id="1074de19-420d-6aee-c606-4c02a023fc11" data-w-id="1074de19-420d-6aee-c606-4c02a023fc11" class="annc-banner-component">
+<div data-wf-id="80af3ad0-93ba-0178-5267-fe0a6d97bda5" data-w-id="80af3ad0-93ba-0178-5267-fe0a6d97bda5" class="w-dyn-list annc-banner-wrapper">
+<div data-wf-id="80af3ad0-93ba-0178-5267-fe0a6d97bda6" data-w-id="80af3ad0-93ba-0178-5267-fe0a6d97bda6" class="w-dyn-items annc-banner-list">
+{items1.map((item0) => (<div data-wf-id="80af3ad0-93ba-0178-5267-fe0a6d97bda7" data-w-id="80af3ad0-93ba-0178-5267-fe0a6d97bda7" class="w-dyn-item annc-banner-item"><div data-wf-id="c14f99f0-25cb-d2c6-060a-65f6e9242736" data-w-id="c14f99f0-25cb-d2c6-060a-65f6e9242736" class="annc-banner">
+<a data-wf-id="053db23f-16b4-f4c3-70e9-1ec137409cf3" data-w-id="053db23f-16b4-f4c3-70e9-1ec137409cf3" class="annc-banner-content" href={(evaluate(bindings[1], { data, Dynamo: item0.fields })) ? linkUrl(evaluate(bindings[1], { data, Dynamo: item0.fields })) : undefined} target={linkTarget(evaluate(bindings[1], { data, Dynamo: item0.fields })) || (undefined)}>
+<div data-wf-id="053db23f-16b4-f4c3-70e9-1ec137409cf4" data-w-id="053db23f-16b4-f4c3-70e9-1ec137409cf4" class="annc-banner-text">
+{item0.fields.message ?? ""}
+</div>
+<div data-wf-id="053db23f-16b4-f4c3-70e9-1ec137409cf6" data-w-id="053db23f-16b4-f4c3-70e9-1ec137409cf6" class="w-embed annc-bar-arrow">
+<svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.78336e-07 5.41016L12.2571 5.41016" stroke="#F5D471" />
+<path d="M7.33855 0.353516L11.9319 4.94663L11.9319 5.875L7.33855 10.4683" stroke="#F5D471" />
+</svg>
+
+</div>
+</a>
+<div sw-banner="close" data-wf-id="99b45c15-67e1-eed6-cf46-800394f70aad" data-w-id="99b45c15-67e1-eed6-cf46-800394f70aad" class="annc-banner-close">
+<div data-wf-id="99b45c15-67e1-eed6-cf46-800394f70aae" data-w-id="99b45c15-67e1-eed6-cf46-800394f70aae" class="w-embed annc-banner-close_icon">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.353516 0.353516L11.398 11.3981" stroke="#F5D471" />
+<path d="M11.4004 0.353516L0.35583 11.398" stroke="#F5D471" />
+</svg>
+
+</div>
+</div>
+</div></div>))}
+</div>
+{!items1.length && (<div data-wf-id="80af3ad0-93ba-0178-5267-fe0a6d97bda8" data-w-id="80af3ad0-93ba-0178-5267-fe0a6d97bda8" class="w-dyn-empty hide">
+<div data-wf-id="80af3ad0-93ba-0178-5267-fe0a6d97bda9" data-w-id="80af3ad0-93ba-0178-5267-fe0a6d97bda9">
+No items found.
+</div>
+</div>)}
+</div>
+<div data-wf-id="a878b5e8-830c-65de-bf8f-c79b904c6f9c" data-w-id="a878b5e8-830c-65de-bf8f-c79b904c6f9c" class="w-embed hide">
+<style is:inline>
+  [sw-banner="element"] {
+    display: none !important;
+  }
+</style>
+
+<script is:inline>
+(function () {
+  var COOKIE_NAME = 'banner_closed';
+  var HOURS = 24;
+
+  function setCookie(name, value, hours) {
+    document.cookie = name + '=' + value +
+      '; max-age=' + (hours * 60 * 60) +
+      '; path=/; SameSite=Lax';
+  }
+
+  function getCookie(name) {
+    return document.cookie.split('; ').some(function (c) {
+      return c.indexOf(name + '=') === 0;
+    });
+  }
+
+  function initBanner() {
+    var banner = document.querySelector('[sw-banner="element"]');
+    if (!banner) return;
+
+    // Closed within the expiry window: leave it hidden
+    if (getCookie(COOKIE_NAME)) return;
+
+    // Not closed: show it
+    banner.style.setProperty('display', 'flex', 'important');
+
+    var close = banner.querySelector('[sw-banner="close"]');
+    if (!close) return;
+
+    close.addEventListener('click', function (e) {
+      e.preventDefault();
+      banner.style.setProperty('display', 'none', 'important');
+      setCookie(COOKIE_NAME, '1', HOURS);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBanner);
+  } else {
+    initBanner();
+  }
+})();
+</script>
+</div>
+</div>

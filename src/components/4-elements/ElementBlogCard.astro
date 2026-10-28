@@ -1,0 +1,37 @@
+---
+import __lumosAsset27 from '@/assets/placeholder-2.svg?url';
+import { imageUrl } from '@/lib/urls';
+import ElementTagline from '@/components/4-elements/ElementTagline.astro';
+import ElementPlainTextHeading from '@/components/4-elements/ElementPlainTextHeading.astro';
+
+interface Props {
+  /** Main Image */
+  mainImage?: string | { url?: string; alt?: string; id?: string };
+  /** Link */
+  link?: string;
+  linkTarget?: string;
+}
+const collectionData = {};
+const {
+  mainImage: propMainImage = {"id": "plugins/Basic/assets/placeholder.svg"},
+  link: propLink = "#",
+  linkTarget: propLinkTarget = ""
+} = Astro.props;
+const propResourceTypeName = "Tagline";
+const propName = "This is a plain text styled heading";
+
+
+---
+<a data-wf-id="07a1e142-e9d8-dc6a-3e4b-c4759fb68a31" data-w-id="07a1e142-e9d8-dc6a-3e4b-c4759fb68a31" class="blog-card" href={propLink} target={propLinkTarget || (undefined)}>
+<div data-wf-id="07a1e142-e9d8-dc6a-3e4b-c4759fb68a32" data-w-id="07a1e142-e9d8-dc6a-3e4b-c4759fb68a32" class="blog-card_visual">
+<img alt={((propMainImage)?.alt || '') || ''} src={imageUrl(propMainImage) || (__lumosAsset27)} loading="lazy" data-wf-id="07a1e142-e9d8-dc6a-3e4b-c4759fb68a33" data-w-id="07a1e142-e9d8-dc6a-3e4b-c4759fb68a33" class="cover-image" />
+<ElementTagline visibility={true} variant="small">
+<slot name="resourcetypename">{propResourceTypeName}</slot>
+</ElementTagline>
+</div>
+<div data-wf-id="07a1e142-e9d8-dc6a-3e4b-c4759fb68a35" data-w-id="07a1e142-e9d8-dc6a-3e4b-c4759fb68a35" class="blog-card_content">
+<ElementPlainTextHeading visibility={true} headingStyle="h5">
+<slot name="name">{propName}</slot>
+</ElementPlainTextHeading>
+</div>
+</a>

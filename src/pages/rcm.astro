@@ -1,0 +1,266 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import GlobalEmbeds from '@/components/1-globals/GlobalEmbeds.astro';
+import GlobalAnnouncementBar from '@/components/1-globals/GlobalAnnouncementBar.astro';
+import GlobalNavbar from '@/components/1-globals/GlobalNavbar.astro';
+import Section from '@/components/2-sections/Section.astro';
+import Layout2 from '@/components/3-layouts/Layout2.astro';
+import ElementImage from '@/components/4-elements/ElementImage.astro';
+import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
+import GlobalDemoButton from '@/components/1-globals/GlobalDemoButton.astro';
+import ButtonGlobal from '@/components/5-buttons/ButtonGlobal.astro';
+import LayoutGridSlot from '@/components/3-layouts/LayoutGridSlot.astro';
+import ElementCard from '@/components/4-elements/ElementCard.astro';
+import ElementPlainTextHeading from '@/components/4-elements/ElementPlainTextHeading.astro';
+import ElementComparisonTable from '@/components/4-elements/ElementComparisonTable.astro';
+import ElementComparisonItem from '@/components/4-elements/ElementComparisonItem.astro';
+import ElementAccordionCardGrid from '@/components/4-elements/ElementAccordionCardGrid.astro';
+import ElementAccordionCard from '@/components/4-elements/ElementAccordionCard.astro';
+import ElementProcessGrid from '@/components/4-elements/ElementProcessGrid.astro';
+import UtilitySpacer from '@/components/6-utilities/UtilitySpacer.astro';
+import ElementTagline from '@/components/4-elements/ElementTagline.astro';
+import GlobalFooter from '@/components/1-globals/GlobalFooter.astro';
+
+const data = {};
+const collectionData = {};
+
+
+---
+<Layout webflowPageId="6ac7be6439d3a0a2291f2554" pageTitle="Behavioral Health RCM &amp; Utilization Review AI | Soulside" pageDescription="Turn every session into evidence for level-of-care justification. Soulside supports concurrent review, denial prevention, and appeals to speed reimbursement." data-wf-id="60d3f7b8b0e86c28630fc6d6" data-w-id="60d3f7b8b0e86c28630fc6d6">
+<div data-wf-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" data-w-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" class="page-wrapper">
+<GlobalEmbeds />
+<GlobalAnnouncementBar />
+<GlobalNavbar />
+<main data-wf-id="dcf94f42-feae-15fa-9712-17acf0a0a835" data-w-id="dcf94f42-feae-15fa-9712-17acf0a0a835" class="main-wrapper">
+<Section sectionFadeInAnimation={true} sectionColorScheme="lightest" sectionSidePadding="global" sectionBottomPadding="large" sectionTopPadding="small">
+<Layout2 verticalAlignment="center" rowGap="xxlarge" columnGap="medium" layout="columns">
+<ElementImage imageBorderRadius="medium" imageFile={{"id": "6acfbb6db42a526fd40454ff"}} />
+<ElementContentGroup slot="content-first" contentGap="small" contentTextWrap="balance" bodyRichTextFontSize="large" bodyRichTextTag="p" headingHeadingMaxWidth="large" headingStyle="h1" headingTag="h1" contentMaxWidth="xlarge" contentAlignment="left">
+<GlobalDemoButton />
+<ButtonGlobal trailingIconVisibility={false} link="#helps" text="How Soulside AI Helps" style="secondary" />
+<Fragment slot="bodyrichtext">Documentation, utilization review, and RCM run on the same record here. Not three tools guessing at each other's data.</Fragment>
+<Fragment slot="headingtext">The record becomes the case for getting paid.</Fragment>
+<Fragment slot="taglinetext">RCM</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+<Section sectionColorScheme="lighter">
+<Layout2 layout="stack">
+<LayoutGridSlot gridSlotColumnsMobileL={1} gridSlotColumnsTablet={1} gridSlotGapTabletDown="small" gridSlotGapDesktop="medium">
+<ElementCard buttonVisibility={false} bodyParagraphFontSize="large" bodyRichTextTag="p">
+<ElementPlainTextHeading>
+01
+</ElementPlainTextHeading>
+<Fragment slot="bodyrichtext">Every denial delays cash you have already earned.</Fragment>
+<Fragment slot="headingtext">{" "}</Fragment>
+</ElementCard>
+<ElementCard buttonVisibility={false} bodyParagraphFontSize="large" bodyRichTextTag="p">
+<ElementPlainTextHeading>
+02
+</ElementPlainTextHeading>
+<Fragment slot="bodyrichtext">Clinicians are still buried in documentation.</Fragment>
+<Fragment slot="headingtext">{" "}</Fragment>
+</ElementCard>
+<ElementCard buttonVisibility={false} bodyParagraphFontSize="large" bodyRichTextTag="p">
+<ElementPlainTextHeading>
+03
+</ElementPlainTextHeading>
+<Fragment slot="bodyrichtext">One documentation gap away from a clawback.</Fragment>
+<Fragment slot="headingtext">{" "}</Fragment>
+</ElementCard>
+</LayoutGridSlot>
+<div data-wf-id="ef442262-08b3-57af-a378-38a0f5fd3413" data-w-id="ef442262-08b3-57af-a378-38a0f5fd3413" class="rcm-fullwidth_stat">
+<div data-wf-id="77e29433-5533-6ea1-39ab-5928f73d1763" data-w-id="77e29433-5533-6ea1-39ab-5928f73d1763" class="text-color-accent heading-style-h0">
+2-3x
+</div>
+<p data-wf-id="298b15a8-5f9a-39e2-8082-f1a82ce0e788" data-w-id="298b15a8-5f9a-39e2-8082-f1a82ce0e788" class="rcm-fullwidth_stat-p">
+Behavioral health denies claims at two to three times the rate of general medicine. Not because the care is weaker. Because the evidence moves slower.
+</p>
+</div>
+<ElementContentGroup slot="content-first" contentTextWrap="balance" buttonGroupVisibility={false} bodyVisibility={false} contentMaxWidth="xlarge" contentAlignment="center">
+<Fragment slot="headingtext">Behavioral health infrastructure was never built for this level of complexity</Fragment>
+<Fragment slot="taglinetext">The Problem</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+<Section sectionColorScheme="lightest" sectionBottomPadding="large">
+<Layout2 layout="stack">
+<ElementComparisonTable>
+<ElementComparisonItem variant="check">
+Medical necessity is scored against payor criteria the moment the note is written
+</ElementComparisonItem>
+<ElementComparisonItem variant="check">
+Level-of-care justification is built from the actual session, while it is still fresh
+</ElementComparisonItem>
+<ElementComparisonItem variant="check">
+Peer review talking points exist before the call, not the morning of
+</ElementComparisonItem>
+<ElementComparisonItem variant="check">
+Client approved for an additional week of continued stay at current level of care.
+</ElementComparisonItem>
+<ElementComparisonItem slot="content">
+UR Specialist panics to find clinical documentation day of concurrent review
+</ElementComparisonItem>
+<ElementComparisonItem slot="content">
+Level-of-care justification gets rebuilt from memory, days after the session ended
+</ElementComparisonItem>
+<ElementComparisonItem slot="content">
+Peer reviews occur once medical necessity is denied due to insufficient documentation
+</ElementComparisonItem>
+<ElementComparisonItem slot="content">
+Client denied care and abruptly forced to step-down to lower level of care or discharge immediately
+</ElementComparisonItem>
+<Fragment slot="label2">With Soulside</Fragment>
+</ElementComparisonTable>
+<ElementContentGroup slot="content-first" contentTextWrap="balance" buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyRichTextTag="p" taglineVisibility={false} contentMaxWidth="large" contentAlignment="center">
+<Fragment slot="bodyrichtext">Soulside reads every session in real time and builds the case for medical necessity as it happens. Level-of-care justification, peer review prep, denial appeals, all grounded in what was actually said in the room, not reconstructed from memory days later.</Fragment>
+<Fragment slot="headingtext">Medical necessity gets argued for the first time during a concurrent review.</Fragment>
+<Fragment slot="taglinetext">The Problem</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+<Section sectionColorScheme="lighter" sectionContainer="xlarge" sectionId="helps">
+<Layout2 layout="stack">
+<ElementAccordionCardGrid>
+<ElementAccordionCard descriptionTag="p" iconVisibility={false}>
+<Fragment slot="description">Every note scored against payor criteria, with 5-point analysis: Met Criteria, Weakness and Gaps, Risks if Stepped Down, Measurable Progress, Recommended Action</Fragment>
+<Fragment slot="heading">Real-time medical necessity scoring</Fragment>
+<svg slot="svgicon" width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.2653 24.3441H23.6171V22.3529H14.2653V24.3441ZM14.2653 17.8282H31.9882V15.8371H14.2653V17.8282ZM14.2653 11.3124H31.9882V9.32118H14.2653V11.3124ZM9.77353 33.6653C8.81 33.6653 7.99588 33.3331 7.33118 32.6688C6.66686 32.0041 6.33471 31.19 6.33471 30.2265V3.43882C6.33471 2.4749 6.66686 1.66078 7.33118 0.996471C7.99588 0.332157 8.81 0 9.77353 0H36.5612C37.5251 0 38.3392 0.332157 39.0035 0.996471C39.6678 1.66078 40 2.4749 40 3.43882V30.2265C40 31.19 39.6678 32.0041 39.0035 32.6688C38.3392 33.3331 37.5251 33.6653 36.5612 33.6653H9.77353ZM9.77353 31.6741H36.5612C36.9231 31.6741 37.2549 31.5233 37.5565 31.2218C37.858 30.9202 38.0088 30.5884 38.0088 30.2265V3.43882C38.0088 3.07686 37.858 2.7451 37.5565 2.44353C37.2549 2.14196 36.9231 1.99118 36.5612 1.99118H9.77353C9.41157 1.99118 9.0798 2.14196 8.77824 2.44353C8.47667 2.7451 8.32588 3.07686 8.32588 3.43882V30.2265C8.32588 30.5884 8.47667 30.9202 8.77824 31.2218C9.0798 31.5233 9.41157 31.6741 9.77353 31.6741ZM3.43882 40C2.4749 40 1.66078 39.6678 0.996471 39.0035C0.332157 38.3392 0 37.5251 0 36.5612V7.78294H1.99118V36.5612C1.99118 36.9231 2.14196 37.2549 2.44353 37.5565C2.7451 37.858 3.07686 38.0088 3.43882 38.0088H32.2171V40H3.43882Z" fill="#1D4B4A"></path>
+</svg>
+</ElementAccordionCard>
+<ElementAccordionCard descriptionTag="p" iconVisibility={false}>
+<Fragment slot="description">Upload a payor contract and Soulside builds the criteria set from it, by payor, population, and accreditation standard.</Fragment>
+<Fragment slot="heading">Criteria built from your actual contracts</Fragment>
+<svg slot="svgicon" width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.42 28.5863L32.5419 12.465L31.0256 10.9487L16.42 25.5544L9.1825 18.3494L7.66688 19.8656L16.42 28.5863ZM3.65375 40C2.62958 40 1.76458 39.6471 1.05875 38.9412C0.352917 38.2354 0 37.3704 0 36.3462V3.65375C0 2.62958 0.352917 1.76458 1.05875 1.05875C1.76458 0.352917 2.62958 0 3.65375 0H36.3462C37.3704 0 38.2354 0.352917 38.9412 1.05875C39.6471 1.76458 40 2.62958 40 3.65375V36.3462C40 37.3704 39.6471 38.2354 38.9412 38.9412C38.2354 39.6471 37.3704 40 36.3462 40H3.65375ZM3.65375 37.8844H36.3462C36.7308 37.8844 37.0833 37.7242 37.4038 37.4038C37.7242 37.0833 37.8844 36.7308 37.8844 36.3462V3.65375C37.8844 3.26917 37.7242 2.91667 37.4038 2.59625C37.0833 2.27583 36.7308 2.11562 36.3462 2.11562H3.65375C3.26917 2.11562 2.91667 2.27583 2.59625 2.59625C2.27583 2.91667 2.11563 3.26917 2.11563 3.65375V36.3462C2.11563 36.7308 2.27583 37.0833 2.59625 37.4038C2.91667 37.7242 3.26917 37.8844 3.65375 37.8844Z" fill="#1D4B4A"></path>
+</svg>
+</ElementAccordionCard>
+<ElementAccordionCard descriptionTag="p" iconVisibility={false}>
+<Fragment slot="description">Criteria attach directly to the programs and templates they apply to, so every note is measured against the right standard automatically.</Fragment>
+<Fragment slot="heading">Template-level precision</Fragment>
+<svg slot="svgicon" width="100%" height="100%" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M34.8395 35.7895C33.5504 35.7895 32.4239 35.3849 31.46 34.5758C30.4965 33.7663 29.9275 32.7475 29.7532 31.5195H17.9458C15.9002 31.5195 14.1791 30.8214 12.7826 29.4253C11.3865 28.0288 10.6884 26.3075 10.6884 24.2616C10.6884 22.216 11.3865 20.4949 12.7826 19.0984C14.1791 17.7023 15.9002 17.0042 17.9458 17.0042H22.1053C23.6393 17.0042 24.9354 16.4749 25.9937 15.4163C27.0523 14.3577 27.5816 13.0616 27.5816 11.5279C27.5816 9.99386 27.0523 8.69755 25.9937 7.63895C24.9354 6.58035 23.6393 6.05105 22.1053 6.05105H10.2468C10.0644 7.27912 9.48877 8.29789 8.52 9.10737C7.55158 9.91649 6.43175 10.3211 5.16053 10.3211C3.73175 10.3211 2.51456 9.82263 1.50895 8.82579C0.502982 7.82895 0 6.61175 0 5.17421C0 3.73632 0.502982 2.51456 1.50895 1.50895C2.51456 0.502982 3.73175 0 5.16053 0C6.43175 0 7.55158 0.404561 8.52 1.21368C9.48877 2.02316 10.0644 3.04193 10.2468 4.27H22.1053C24.1512 4.27 25.8723 4.96807 27.2684 6.36421C28.6649 7.7607 29.3632 9.48193 29.3632 11.5279C29.3632 13.5735 28.6649 15.2946 27.2684 16.6911C25.8723 18.0872 24.1512 18.7853 22.1053 18.7853H17.9458C16.4121 18.7853 15.116 19.3146 14.0574 20.3732C12.9988 21.4318 12.4695 22.7279 12.4695 24.2616C12.4695 25.7956 12.9988 27.0919 14.0574 28.1505C15.116 29.2091 16.4121 29.7384 17.9458 29.7384H29.7532C29.9539 28.5104 30.5295 27.4916 31.48 26.6821C32.4305 25.873 33.5504 25.4684 34.8395 25.4684C36.2682 25.4684 37.4854 25.9668 38.4911 26.9637C39.497 27.9605 40 29.1777 40 30.6153C40 32.0532 39.497 33.2749 38.4911 34.2805C37.4854 35.2865 36.2682 35.7895 34.8395 35.7895ZM7.55105 7.55105C8.21035 6.8921 8.54 6.09526 8.54 5.16053C8.54 4.22579 8.21035 3.42895 7.55105 2.77C6.89211 2.11105 6.09526 1.78158 5.16053 1.78158C4.22579 1.78158 3.42895 2.11105 2.77 2.77C2.11105 3.42895 1.78158 4.22579 1.78158 5.16053C1.78158 6.09526 2.11105 6.8921 2.77 7.55105C3.42895 8.21035 4.22579 8.54 5.16053 8.54C6.09526 8.54 6.89211 8.21035 7.55105 7.55105Z" fill="#1D4B4A"></path>
+</svg>
+</ElementAccordionCard>
+<ElementAccordionCard descriptionTag="p" iconVisibility={false}>
+<Fragment slot="description">Peer review document detailed with medical necessity talking points and rationale for continued stay.</Fragment>
+<Fragment slot="heading">Peer review prep, ready before the call</Fragment>
+<svg slot="svgicon" width="100%" height="100%" viewBox="0 0 36 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.1788 32.5373L8.97056 26.3659L10.2728 25.0631L15.1788 29.9242L24.7258 20.3486L26.0565 21.6596L15.1788 32.5373ZM3.20667 40C2.30782 40 1.54867 39.6903 0.9292 39.0708C0.309733 38.4513 0 37.6922 0 36.7933V7.7638C0 6.86496 0.309733 6.1058 0.9292 5.48633C1.54867 4.86687 2.30782 4.55713 3.20667 4.55713H7.52465V0H9.62001V4.55713H25.6539V0H27.6089V4.55713H31.8989C32.7977 4.55713 33.5569 4.86687 34.1763 5.48633C34.7958 6.1058 35.1055 6.86496 35.1055 7.7638V36.7933C35.1055 37.6922 34.7958 38.4513 34.1763 39.0708C33.5569 39.6903 32.7977 40 31.8989 40H3.20667ZM3.20667 38.1432H31.8989C32.2364 38.1432 32.5457 38.0026 32.827 37.7214C33.1082 37.4402 33.2488 37.1309 33.2488 36.7933V17.0465H1.85675V36.7933C1.85675 37.1309 1.99736 37.4402 2.27857 37.7214C2.55978 38.0026 2.86915 38.1432 3.20667 38.1432ZM1.85675 15.1897H33.2488V7.7638C33.2488 7.42628 33.1082 7.11673 32.827 6.83515C32.5457 6.55394 32.2364 6.41334 31.8989 6.41334H3.20667C2.86915 6.41334 2.55978 6.55394 2.27857 6.83515C1.99736 7.11673 1.85675 7.42628 1.85675 7.7638V15.1897Z" fill="#1D4B4A"></path>
+</svg>
+</ElementAccordionCard>
+<ElementAccordionCard descriptionTag="p" iconVisibility={false}>
+<Fragment slot="description">Appeal letter generated immediately post denial, while the window is still open.</Fragment>
+<Fragment slot="heading">Appeals that write themselves</Fragment>
+<svg slot="svgicon" width="100%" height="100%" viewBox="0 0 38 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.86843 38.1161H30.7814C31.0667 38.1161 31.3021 38.0161 31.4876 37.8161C31.6732 37.6165 31.7659 37.374 31.7659 37.0887V27.579L33.3087 27.0653C34.1097 26.8539 34.7611 26.36 35.2627 25.5838C35.7647 24.8076 36.0157 23.9342 36.0157 22.9636C36.0157 21.9347 35.7634 21.0419 35.2588 20.285C34.7542 19.528 34.1041 19.0301 33.3087 18.7912L31.7659 18.2814V8.74777C31.7659 8.43388 31.6732 8.18418 31.4876 7.99866C31.3021 7.81315 31.0667 7.72039 30.7814 7.72039H21.4314L21.2116 6.10752C21.0316 4.93915 20.5322 3.94312 19.7134 3.11943C18.8941 2.29538 17.9337 1.88335 16.8321 1.88335C15.679 1.88335 14.6984 2.29538 13.8902 3.11943C13.0818 3.94312 12.5877 4.93915 12.4082 6.10752L12.16 7.72039H2.83393C2.57717 7.72039 2.35604 7.81315 2.17053 7.99866C1.98501 8.18418 1.89225 8.43388 1.89225 8.74777V14.5386C3.65019 15.0265 5.14767 16.0611 6.38468 17.6425C7.62133 19.2242 8.23965 21.0014 8.23965 22.9742C8.23965 24.9748 7.62838 26.7746 6.40583 28.3738C5.18329 29.9729 3.67598 30.9574 1.88391 31.3274V37.0887C1.88391 37.374 1.97666 37.6165 2.16218 37.8161C2.34769 38.0161 2.58311 38.1161 2.86843 38.1161ZM3.0482 40C2.23267 40 1.52085 39.6885 0.912733 39.0656C0.304244 38.443 0 37.7117 0 36.8717V29.9649C1.82287 29.8336 3.33797 29.1103 4.5453 27.795C5.75226 26.4797 6.35574 24.8696 6.35574 22.9647C6.35574 21.2135 5.74503 19.6462 4.5236 18.263C3.30217 16.8798 1.79708 16.0906 0.00834783 15.8955V8.92754C0.00834783 8.04411 0.298493 7.30799 0.878784 6.71917C1.4587 6.13071 2.17999 5.83649 3.04263 5.83649H10.5371C10.7593 4.20618 11.4543 2.82576 12.6219 1.69523C13.7895 0.565076 15.1844 0 16.8065 0C18.4016 0 19.7909 0.565076 20.9745 1.69523C22.1577 2.82576 22.8645 4.20618 23.0949 5.83649H30.6016C31.4561 5.83649 32.1778 6.13071 32.7666 6.71917C33.3554 7.30799 33.6498 8.04411 33.6498 8.92754V16.9101C34.9321 17.3085 35.961 18.0514 36.7364 19.1385C37.5115 20.2256 37.899 21.5006 37.899 22.9636C37.899 24.3728 37.5115 25.6124 36.7364 26.6824C35.961 27.7529 34.9321 28.5216 33.6498 28.9888V36.8717C33.6498 37.7117 33.3554 38.443 32.7666 39.0656C32.1778 39.6885 31.4561 40 30.6016 40H3.0482Z" fill="#1D4B4A"></path>
+</svg>
+</ElementAccordionCard>
+<ElementAccordionCard descriptionTag="p" iconVisibility={false}>
+<Fragment slot="description">Authorized days, denial risk, and review status, visible in real time across your whole organization.</Fragment>
+<Fragment slot="heading">One dashboard, every payor</Fragment>
+<svg slot="svgicon" width="100%" height="100%" viewBox="0 0 39 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.5328 40L14.6667 33.6183C13.8852 33.3743 13.0311 32.9944 12.1044 32.4789C11.1781 31.963 10.3926 31.4096 9.74778 30.8189L3.85722 33.4317L0 26.6311L5.195 22.7594C5.12389 22.3272 5.06556 21.8744 5.02 21.4011C4.97444 20.9278 4.95167 20.475 4.95167 20.0428C4.95167 19.6391 4.97444 19.203 5.02 18.7344C5.06556 18.2656 5.12389 17.7676 5.195 17.2406L0 13.3406L3.85722 6.65389L9.705 9.195C10.4354 8.595 11.2359 8.04426 12.1067 7.54278C12.9774 7.0413 13.8165 6.66667 14.6239 6.41889L15.5328 0H23.2306L24.0967 6.42445C25.0019 6.75408 25.8431 7.13963 26.6206 7.58111C27.3976 8.02259 28.1531 8.56056 28.8872 9.195L34.9344 6.65389L38.7633 13.3406L33.3972 17.3233C33.5254 17.8181 33.6028 18.2856 33.6294 18.7256C33.6561 19.1659 33.6694 19.5907 33.6694 20C33.6694 20.3807 33.6491 20.7898 33.6083 21.2272C33.5672 21.6646 33.4956 22.1639 33.3933 22.725L38.7022 26.6311L34.8444 33.4317L28.8872 30.7761C28.1287 31.4239 27.3509 31.9904 26.5539 32.4756C25.7572 32.9611 24.9381 33.3278 24.0967 33.5756L23.2306 40H15.5328ZM17.0967 38.1194H21.6056L22.4256 31.9944C23.5567 31.6982 24.5883 31.2824 25.5206 30.7472C26.4528 30.212 27.3983 29.4885 28.3572 28.5767L34.0172 31.0117L36.235 27.1711L31.2461 23.4544C31.4069 22.7859 31.5233 22.1783 31.5956 21.6317C31.6678 21.0854 31.7039 20.5415 31.7039 20C31.7039 19.4111 31.6691 18.8578 31.5994 18.34C31.5302 17.8219 31.4124 17.2522 31.2461 16.6311L36.3206 12.8289L34.1022 8.98833L28.315 11.4272C27.6176 10.6531 26.7094 9.92833 25.5906 9.25278C24.4713 8.57722 23.4022 8.16148 22.3833 8.00555L21.6667 1.88055H17.1011L16.4089 7.96278C15.2341 8.19648 14.1639 8.58796 13.1983 9.13722C12.2331 9.68685 11.2833 10.4346 10.3489 11.3806L4.66111 8.98833L2.44278 12.8289L7.41722 16.4983C7.23759 17.0276 7.10944 17.5885 7.03278 18.1811C6.95574 18.7737 6.91722 19.3943 6.91722 20.0428C6.91722 20.6317 6.95574 21.2081 7.03278 21.7722C7.10944 22.3363 7.22333 22.897 7.37444 23.4544L2.44278 27.1711L4.66111 31.0117L10.3061 28.6156C11.1894 29.5204 12.1185 30.2428 13.0933 30.7828C14.0681 31.3228 15.1591 31.7409 16.3661 32.0372L17.0967 38.1194ZM19.2761 25.3844C20.7843 25.3844 22.0587 24.8641 23.0994 23.8233C24.1406 22.7826 24.6611 21.5081 24.6611 20C24.6611 18.4919 24.1406 17.2174 23.0994 16.1767C22.0587 15.1359 20.7843 14.6156 19.2761 14.6156C17.7843 14.6156 16.5139 15.1359 15.465 16.1767C14.4161 17.2174 13.8917 18.4919 13.8917 20C13.8917 21.5081 14.4161 22.7826 15.465 23.8233C16.5139 24.8641 17.7843 25.3844 19.2761 25.3844Z" fill="#1D4B4A"></path>
+</svg>
+</ElementAccordionCard>
+</ElementAccordionCardGrid>
+<ElementContentGroup slot="content-first" contentTextWrap="balance" buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyRichTextTag="p" contentMaxWidth="large" contentAlignment="center">
+<Fragment slot="bodyrichtext">Criteria built from your own contracts, scored on every note, surfaced where your team already works.</Fragment>
+<Fragment slot="headingtext">Everything a payor could ask for, ready before they ask.</Fragment>
+<Fragment slot="taglinetext">The Platform</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+<Section sectionColorScheme="dark" sectionContainer="large">
+<Layout2 layout="stack">
+<ElementImage imageParallax={false} imageBorderRadius="small" imageFile={{"id": "6acfbca67c3a9d41144103d8"}} />
+<ElementContentGroup slot="content-first" contentTextWrap="balance" buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyRichTextTag="p" contentMaxWidth="xlarge" contentAlignment="center">
+<Fragment slot="bodyrichtext">Documentation deficiencies don't just create audit exposure. They create denial risk, authorization gaps, and clawback liability. Soulside catches these before any of that happens.</Fragment>
+<Fragment slot="headingtext">Chart audit isn't just compliance. It's revenue.</Fragment>
+<Fragment slot="taglinetext">Revenue Protection</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+<Section sectionColorScheme="light" sectionContainer="large">
+<Layout2 layout="stack">
+<ElementProcessGrid variant="4-column">
+<div slot="content" data-wf-id="f6256508-8cb5-8599-693d-567416c050e2" data-w-id="f6256508-8cb5-8599-693d-567416c050e2" class="why-process-card">
+Reimbursement
+</div>
+<div data-wf-id="b4b06fdc-c36e-681c-353a-414d5e3096c8" data-w-id="b4b06fdc-c36e-681c-353a-414d5e3096c8" class="why-process-card">
+UR &amp; RCM
+</div>
+<div slot="content-2" data-wf-id="15b1c087-215a-56d2-dcde-db913ad3f1d5" data-w-id="15b1c087-215a-56d2-dcde-db913ad3f1d5" class="why-process-card">
+Documentation
+</div>
+<div slot="content-3" data-wf-id="54930475-252d-bf88-664c-80d180f8d972" data-w-id="54930475-252d-bf88-664c-80d180f8d972" class="why-process-card">
+Session
+</div>
+</ElementProcessGrid>
+<UtilitySpacer size="large" />
+<p data-wf-id="e6b9a55d-0185-cd00-2b5a-0ea83bf2f6d3" data-w-id="e6b9a55d-0185-cd00-2b5a-0ea83bf2f6d3" class="text-align-center text-size-large margin-0auto max-width-large">
+Every RCM tool only ever sees the claim. Every compliance tool only ever sees the chart. Soulside runs on the same record as your documentation and your UR: the actual session. Not a summary handed off from another system.
+</p>
+<ElementContentGroup contentTextWrap="balance" bodyRichTextFontSize="medium" bodyRichTextTag="p" headingVisibility={false} taglineVisibility={false} contentMaxWidth="xlarge" contentAlignment="center">
+<GlobalDemoButton />
+<Fragment slot="bodyrichtext">So when a claim fails, Soulside does not just flag it. It traces the failure back to the session or template that caused it, because it is the only platform that was there for both the care and the claim.</Fragment>
+</ElementContentGroup>
+<ElementContentGroup slot="content-first" contentTextWrap="balance" buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyRichTextTag="p" bodyVisibility={false} contentMaxWidth="xlarge" contentAlignment="center">
+<Fragment slot="bodyrichtext">Documentation deficiencies don't just create audit exposure. They create denial risk, authorization gaps, and clawback liability. Soulside catches these before any of that happens.</Fragment>
+<Fragment slot="headingtext">One evidence chain. From session to reimbursement.</Fragment>
+<Fragment slot="taglinetext">Why Soulside</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+<Section sectionColorScheme="lightest" sectionContainer="large">
+<Layout2 layout="stack">
+<LayoutGridSlot gridSlotColumnsMobileL={1} gridSlotColumnsTablet={2} gridSlotColumnsDesktop={2}>
+<ElementCard buttonVisibility={false} bodyRichTextTag="p" headingStyle="h4" taglineVisibility={false} visualVisibility={true}>
+<ElementTagline variant="white">
+Revenue Cycle Leadership
+</ElementTagline>
+<UtilitySpacer size="medium-flex-grow" />
+<Fragment slot="bodyrichtext">Speed changes which pile a claim lands in. Every hour off the documentation lockout is an hour your appeal team gets back before the window closes.</Fragment>
+<Fragment slot="headingtext">The leak is not your overturn rate. It is the appeals you never file.</Fragment>
+<Fragment slot="taglinetext">Revenue Cycle Leadership</Fragment>
+</ElementCard>
+<ElementCard buttonVisibility={false} bodyRichTextTag="p" headingStyle="h4" taglineVisibility={false} visualVisibility={true}>
+<ElementTagline variant="white">
+Executive Leadership and CFOs
+</ElementTagline>
+<UtilitySpacer size="medium-flex-grow" />
+<Fragment slot="bodyrichtext">When medical necessity cannot be justified in time, patients stay uncovered on your dime. Soulside proves it before submission, not after the denial.</Fragment>
+<Fragment slot="headingtext">Every uncovered day hits your bottom line.</Fragment>
+<Fragment slot="taglinetext">Executive Leadership and CFOs</Fragment>
+</ElementCard>
+<ElementCard buttonVisibility={false} bodyRichTextTag="p" headingStyle="h4" taglineVisibility={false} visualVisibility={true}>
+<ElementTagline variant="white">
+Clinical Directors and Managers
+</ElementTagline>
+<UtilitySpacer size="medium" />
+<Fragment slot="bodyrichtext">Checking off a signature does not prove medical necessity to an auditor. Soulside scans every note for clinical logic and session accuracy, so clinicians focus on care.</Fragment>
+<Fragment slot="headingtext">A safety net, not a checklist.</Fragment>
+<Fragment slot="taglinetext">Clinical Directors and Managers</Fragment>
+</ElementCard>
+<ElementCard buttonVisibility={false} bodyRichTextTag="p" headingStyle="h4" taglineVisibility={false} visualVisibility={true}>
+<ElementTagline variant="white">
+Compliance and Legal
+</ElementTagline>
+<UtilitySpacer size="medium-flex-grow" />
+<Fragment slot="bodyrichtext">Every note is still clinician-reviewed and signed. Soulside compresses the time to a compliant signature, it does not change who signs or what is required. Contemporaneous documentation is also easier to defend in an audit than notes reconstructed under time pressure.</Fragment>
+<Fragment slot="headingtext">Faster signatures, same signer.</Fragment>
+<Fragment slot="taglinetext">Compliance and Legal</Fragment>
+</ElementCard>
+</LayoutGridSlot>
+<ElementContentGroup slot="content-first" contentTextWrap="balance" buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyRichTextTag="p" bodyVisibility={false} contentMaxWidth="xlarge" contentAlignment="center">
+<Fragment slot="bodyrichtext">Documentation deficiencies don't just create audit exposure. They create denial risk, authorization gaps, and clawback liability. Soulside catches these before any of that happens.</Fragment>
+<Fragment slot="headingtext">Built for the whole organization, not just UR.</Fragment>
+<Fragment slot="taglinetext">Who Benefits</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+</main>
+<GlobalFooter />
+</div>
+</Layout>

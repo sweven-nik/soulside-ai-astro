@@ -1,0 +1,503 @@
+---
+import { formatNumber } from '@/lib/format';
+import NestGap from '@/components/6-utilities/NestGap.astro';
+import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
+import NestSlideWidth from '@/components/6-utilities/NestSlideWidth.astro';
+
+interface Props {
+  /** Button Group/Visibility */
+  buttonGroupVisibility?: boolean;
+  /** Body/Plain Text Font Size */
+  bodyPlainTextFontSize?: "large" | "medium" | "regular" | "small" | "tiny";
+  /** Body/Rich Text Font Size */
+  bodyRichTextFontSize?: "large" | "medium" | "regular" | "small" | "tiny";
+  bodyRichTextTag?: string;
+  /** Body/Content Type */
+  bodyContentType?: boolean;
+  /** Body/Visibility */
+  bodyVisibility?: boolean;
+  /** Heading/Heading Max Width */
+  headingHeadingMaxWidth?: "none" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall";
+  /** Heading/Style */
+  headingStyle?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "h0";
+  /** Heading/Tag */
+  headingTag?: string;
+  /** Heading/Visibility */
+  headingVisibility?: boolean;
+  /** Tagline/Visibility */
+  taglineVisibility?: boolean;
+  /** Content/Text Wrap */
+  contentTextWrap?: "normal" | "pretty" | "balance";
+  /** Content/Max Width */
+  contentMaxWidth?: "none" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall";
+  /** Config/Mousewheel */
+  configMousewheel?: boolean;
+  /** Config/Follow Finger */
+  configFollowFinger?: boolean;
+  /** Config/Free Mode */
+  configFreeMode?: boolean;
+  /** Config/Slide to Clicked Slide */
+  configSlideToClickedSlide?: boolean;
+  /** Config/Rewind */
+  configRewind?: boolean;
+  /** Config/Loop */
+  configLoop?: boolean;
+  /** Config/Autoplay Delay (ms) */
+  configAutoplayDelayMs?: number;
+  /** Config/Autoplay */
+  configAutoplay?: boolean;
+  /** Config/Effect */
+  configEffect?: boolean;
+  /** Config/Speed (ms) */
+  configSpeedMs?: number;
+  /** Style/Slides (Mobile P.) */
+  styleSlidesMobileP?: "1" | "2" | "3" | "4" | "5" | "6";
+  /** Style/Slides (Mobile L.) */
+  styleSlidesMobileL?: "1" | "2" | "3" | "4" | "5" | "6";
+  /** Style/Slides (Tablet) */
+  styleSlidesTablet?: "1" | "2" | "3" | "4" | "5" | "6";
+  /** Style/Slides (Desktop) */
+  styleSlidesDesktop?: "1" | "2" | "3" | "4" | "5" | "6";
+  /** Style/Gap */
+  styleGap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+  /** Elements/Buttons */
+  elementsButtons?: boolean;
+  /** Elements/Pagination */
+  elementsPagination?: boolean;
+  /** Elements/Controls */
+  elementsControls?: boolean;
+  /** Swiper JS Script */
+  swiperJsScript?: boolean;
+  /** Visibility */
+  visibility?: boolean;
+  /** Variant */
+  variant?: "base" | "content-above";
+}
+const collectionData = {};
+const {
+  buttonGroupVisibility: propButtonGroupVisibility = true,
+  bodyPlainTextFontSize: propBodyPlainTextFontSize = "regular",
+  bodyRichTextFontSize: propBodyRichTextFontSize = "regular",
+  bodyRichTextTag: propBodyRichTextTag = "p",
+  bodyContentType: propBodyContentType = true,
+  bodyVisibility: propBodyVisibility = true,
+  headingHeadingMaxWidth: propHeadingHeadingMaxWidth = "none",
+  headingStyle: propHeadingStyle = "h2",
+  headingTag: propHeadingTag = "h2",
+  headingVisibility: propHeadingVisibility = true,
+  taglineVisibility: propTaglineVisibility = true,
+  contentTextWrap: propContentTextWrap = "normal",
+  contentMaxWidth: propContentMaxWidth = "none",
+  configMousewheel: propConfigMousewheel = true,
+  configFollowFinger: propConfigFollowFinger = true,
+  configFreeMode: propConfigFreeMode = false,
+  configSlideToClickedSlide: propConfigSlideToClickedSlide = false,
+  configRewind: propConfigRewind = true,
+  configLoop: propConfigLoop = false,
+  configAutoplayDelayMs: propConfigAutoplayDelayMs = 7000,
+  configAutoplay: propConfigAutoplay = false,
+  configEffect: propConfigEffect = true,
+  configSpeedMs: propConfigSpeedMs = 600,
+  styleSlidesMobileP: propStyleSlidesMobileP = "1",
+  styleSlidesMobileL: propStyleSlidesMobileL = "2",
+  styleSlidesTablet: propStyleSlidesTablet = "2",
+  styleSlidesDesktop: propStyleSlidesDesktop = "3",
+  styleGap: propStyleGap = "small",
+  elementsButtons: propElementsButtons = true,
+  elementsPagination: propElementsPagination = true,
+  elementsControls: propElementsControls = true,
+  swiperJsScript: propSwiperJsScript = true,
+  visibility: propVisibility = true,
+  variant: propVariant = "base"
+} = Astro.props;
+if (!["large", "medium", "regular", "small", "tiny"].includes(propBodyPlainTextFontSize)) throw new Error("Slider.bodyPlainTextFontSize must be one of: large, medium, regular, small, tiny");
+const propBodyPlainText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.";
+if (!["large", "medium", "regular", "small", "tiny"].includes(propBodyRichTextFontSize)) throw new Error("Slider.bodyRichTextFontSize must be one of: large, medium, regular, small, tiny");
+const propBodyRichText = "Lorem ipsum diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis.";
+if (!["none", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall"].includes(propHeadingHeadingMaxWidth)) throw new Error("Slider.headingHeadingMaxWidth must be one of: none, xxlarge, xlarge, large, medium, small, xsmall, xxsmall");
+const propHeadingText = "This is a dynamic heading with tag and style options";
+if (!["h1", "h2", "h3", "h4", "h5", "h6", "h0"].includes(propHeadingStyle)) throw new Error("Slider.headingStyle must be one of: h1, h2, h3, h4, h5, h6, h0");
+const propTaglineText = "Tagline";
+if (!["normal", "pretty", "balance"].includes(propContentTextWrap)) throw new Error("Slider.contentTextWrap must be one of: normal, pretty, balance");
+if (!["none", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall"].includes(propContentMaxWidth)) throw new Error("Slider.contentMaxWidth must be one of: none, xxlarge, xlarge, large, medium, small, xsmall, xxsmall");
+if (!["1", "2", "3", "4", "5", "6"].includes(propStyleSlidesMobileP)) throw new Error("Slider.styleSlidesMobileP must be one of: 1, 2, 3, 4, 5, 6");
+if (!["1", "2", "3", "4", "5", "6"].includes(propStyleSlidesMobileL)) throw new Error("Slider.styleSlidesMobileL must be one of: 1, 2, 3, 4, 5, 6");
+if (!["1", "2", "3", "4", "5", "6"].includes(propStyleSlidesTablet)) throw new Error("Slider.styleSlidesTablet must be one of: 1, 2, 3, 4, 5, 6");
+if (!["1", "2", "3", "4", "5", "6"].includes(propStyleSlidesDesktop)) throw new Error("Slider.styleSlidesDesktop must be one of: 1, 2, 3, 4, 5, 6");
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propStyleGap)) throw new Error("Slider.styleGap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+if (!["base", "content-above"].includes(propVariant)) throw new Error("Slider.variant must be one of: base, content-above");
+
+
+---
+{propVisibility && (<div data-swiper-el="component" data-follow-finger={(propConfigFollowFinger === true ? "true" : "false")} data-free-mode={(propConfigFreeMode === true ? "true" : "false")} data-mousewheel={(propConfigMousewheel === true ? "true" : "false")} data-slide-to-clicked={(propConfigSlideToClickedSlide === true ? "true" : "false")} data-speed={formatNumber(propConfigSpeedMs, -1)} data-autoplay={(propConfigAutoplay === true ? "true" : "false")} data-autoplay-delay={formatNumber(propConfigAutoplayDelayMs, -1)} data-loop={(propConfigLoop === true ? "true" : "false")} data-rewind={(propConfigRewind === true ? "true" : "false")} data-swiper-effect={(propConfigEffect === true ? "slide" : "fade")} data-slide-width={(propStyleSlidesDesktop === "1" ? "1" : (propStyleSlidesDesktop === "2" ? "2" : (propStyleSlidesDesktop === "3" ? "3" : (propStyleSlidesDesktop === "4" ? "4" : (propStyleSlidesDesktop === "5" ? "5" : (propStyleSlidesDesktop === "6" ? "6" : ""))))))} data-slide-width-tablet={(propStyleSlidesTablet === "1" ? "1" : (propStyleSlidesTablet === "2" ? "2" : (propStyleSlidesTablet === "3" ? "3" : (propStyleSlidesTablet === "4" ? "4" : (propStyleSlidesTablet === "5" ? "5" : (propStyleSlidesTablet === "6" ? "6" : ""))))))} data-slide-width-landscape={(propStyleSlidesMobileL === "1" ? "1" : (propStyleSlidesMobileL === "2" ? "2" : (propStyleSlidesMobileL === "3" ? "3" : (propStyleSlidesMobileL === "4" ? "4" : (propStyleSlidesMobileL === "5" ? "5" : (propStyleSlidesMobileL === "6" ? "6" : ""))))))} data-slide-width-portrait={(propStyleSlidesMobileP === "1" ? "1" : (propStyleSlidesMobileP === "2" ? "2" : (propStyleSlidesMobileP === "3" ? "3" : (propStyleSlidesMobileP === "4" ? "4" : (propStyleSlidesMobileP === "5" ? "5" : (propStyleSlidesMobileP === "6" ? "6" : ""))))))} data-wf-id="e6d90725-a966-2f60-86eb-0786b7a35516" data-w-id="e6d90725-a966-2f60-86eb-0786b7a35516" data-wf--slider--variant={{"base": "base", "content-above": "content-above"}[propVariant]} class:list={[{"content-above": "w-variant-1533e2ed-122f-6ff6-56aa-2abdbbfe0d01"}[propVariant], "swiper_slider"]} data-wf-variant={["297f843c-9791-b6da-e4cc-5ee9e8fb9427=" + ({"base": "base", "content-above": "1533e2ed-122f-6ff6-56aa-2abdbbfe0d01"}[propVariant])].join(" ")}>
+<div data-swiper-el="swiper" data-wf-id="e6d90725-a966-2f60-86eb-0786b7a35517" data-w-id="e6d90725-a966-2f60-86eb-0786b7a35517" class="swiper_element">
+<div data-swiper-el="list" data-wf-id="fe250609-c899-7151-72bb-bf12ebadb636" data-w-id="fe250609-c899-7151-72bb-bf12ebadb636" class="swiper_list" name="">
+<slot />
+</div>
+<NestGap gap={propStyleGap} />
+</div>
+{propElementsControls && (<div data-wf-id="e6d90725-a966-2f60-86eb-0786b7a35527" data-w-id="e6d90725-a966-2f60-86eb-0786b7a35527" class="swiper-controls">
+{propVariant === "content-above" && (<div data-wf-id="d9a17213-b3cd-5bb0-2b9e-fa4ef91f0f35" data-w-id="d9a17213-b3cd-5bb0-2b9e-fa4ef91f0f35">
+<ElementContentGroup bodyPlainTextFontSize={propBodyPlainTextFontSize} contentTextWrap={propContentTextWrap} buttonGroupVisibility={propButtonGroupVisibility} bodyRichTextFontSize={propBodyRichTextFontSize} bodyContentType={propBodyContentType} bodyVisibility={propBodyVisibility} headingHeadingMaxWidth={propHeadingHeadingMaxWidth} headingStyle={propHeadingStyle} headingTag={propHeadingTag} headingVisibility={propHeadingVisibility} taglineVisibility={propTaglineVisibility} contentMaxWidth={propContentMaxWidth}>
+<div data-wf-id="9816f73a-69e8-7dfa-b217-4773e811cfca" data-w-id="9816f73a-69e8-7dfa-b217-4773e811cfca" name="">
+<slot name="content" />
+</div>
+<slot name="bodyplaintext" slot="bodyplaintext">{propBodyPlainText}</slot>
+<slot name="bodyrichtext" slot="bodyrichtext">{propBodyRichText}</slot>
+<slot name="headingtext" slot="headingtext">{propHeadingText}</slot>
+<slot name="taglinetext" slot="taglinetext">{propTaglineText}</slot>
+</ElementContentGroup>
+</div>)}
+{propElementsPagination && (<div data-swiper-el="pagination" data-wf-id="e6d90725-a966-2f60-86eb-0786b7a35528" data-w-id="e6d90725-a966-2f60-86eb-0786b7a35528" class="slider_bullet_list">
+<div data-wf-id="e6d90725-a966-2f60-86eb-0786b7a35529" data-w-id="e6d90725-a966-2f60-86eb-0786b7a35529" class="slider_bullet_item is-active"></div>
+<div data-wf-id="e6d90725-a966-2f60-86eb-0786b7a3552a" data-w-id="e6d90725-a966-2f60-86eb-0786b7a3552a" class="slider_bullet_item"></div>
+<div data-wf-id="e6d90725-a966-2f60-86eb-0786b7a3552b" data-w-id="e6d90725-a966-2f60-86eb-0786b7a3552b" class="slider_bullet_item"></div>
+</div>)}
+{propElementsButtons && (<div data-wf-id="e6d90725-a966-2f60-86eb-0786b7a3552c" data-w-id="e6d90725-a966-2f60-86eb-0786b7a3552c" class="swiper-buttons">
+<button data-swiper-el="prev-button" data-wf-id="e6d90725-a966-2f60-86eb-0786b7a3552d" data-w-id="e6d90725-a966-2f60-86eb-0786b7a3552d" class="swiper-button">
+<div data-wf-id="e6d90725-a966-2f60-86eb-0786b7a3552e" data-w-id="e6d90725-a966-2f60-86eb-0786b7a3552e" class="w-embed swiper-arrow">
+<svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.4319 5.41211L0.174805 5.41211" stroke="currentColor" />
+<path d="M5.09333 10.4688L0.5 5.87563L0.5 4.94726L5.09333 0.353933" stroke="currentColor" />
+</svg>
+
+</div>
+</button>
+<button data-swiper-el="next-button" data-wf-id="e6d90725-a966-2f60-86eb-0786b7a3552f" data-w-id="e6d90725-a966-2f60-86eb-0786b7a3552f" class="swiper-button next">
+<div data-wf-id="e6d90725-a966-2f60-86eb-0786b7a35530" data-w-id="e6d90725-a966-2f60-86eb-0786b7a35530" class="w-embed swiper-arrow">
+<svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.78336e-07 5.41016L12.2571 5.41016" stroke="currentColor" />
+<path d="M7.33855 0.353516L11.9319 4.94663L11.9319 5.875L7.33855 10.4683" stroke="currentColor" />
+</svg>
+
+</div>
+</button>
+</div>)}
+</div>)}
+<div data-wf-id="3ac176fc-37a1-b318-c5da-6bd52599d66e" data-w-id="3ac176fc-37a1-b318-c5da-6bd52599d66e" class="w-embed swiper-css">
+<style is:inline>
+  .swiper_slider {
+    --sw-slide-gap: 0rem;
+    --sw-w: 100%;
+  }
+
+  .swiper_slider[data-slide-width='1'] { --sw-w: 100%; }
+  .swiper_slider[data-slide-width='2'] { --sw-w: calc(100% / 2); }
+  .swiper_slider[data-slide-width='3'] { --sw-w: calc(100% / 3); }
+  .swiper_slider[data-slide-width='4'] { --sw-w: calc(100% / 4); }
+  .swiper_slider[data-slide-width='5'] { --sw-w: calc(100% / 5); }
+  .swiper_slider[data-slide-width='6'] { --sw-w: calc(100% / 6); }
+
+  @media (max-width: 991px) {
+    .swiper_slider[data-slide-width-tablet='1'] { --sw-w: 100%; }
+    .swiper_slider[data-slide-width-tablet='2'] { --sw-w: calc(100% / 2); }
+    .swiper_slider[data-slide-width-tablet='3'] { --sw-w: calc(100% / 3); }
+    .swiper_slider[data-slide-width-tablet='4'] { --sw-w: calc(100% / 4); }
+    .swiper_slider[data-slide-width-tablet='5'] { --sw-w: calc(100% / 5); }
+    .swiper_slider[data-slide-width-tablet='6'] { --sw-w: calc(100% / 6); }
+  }
+
+  @media (max-width: 767px) {
+    .swiper_slider[data-slide-width-landscape='1'] { --sw-w: 100%; }
+    .swiper_slider[data-slide-width-landscape='2'] { --sw-w: calc(100% / 2); }
+    .swiper_slider[data-slide-width-landscape='3'] { --sw-w: calc(100% / 3); }
+    .swiper_slider[data-slide-width-landscape='4'] { --sw-w: calc(100% / 4); }
+    .swiper_slider[data-slide-width-landscape='5'] { --sw-w: calc(100% / 5); }
+    .swiper_slider[data-slide-width-landscape='6'] { --sw-w: calc(100% / 6); }
+  }
+
+  @media (max-width: 479px) {
+    .swiper_slider[data-slide-width-portrait='1'] { --sw-w: 100%; }
+    .swiper_slider[data-slide-width-portrait='2'] { --sw-w: calc(100% / 2); }
+    .swiper_slider[data-slide-width-portrait='3'] { --sw-w: calc(100% / 3); }
+    .swiper_slider[data-slide-width-portrait='4'] { --sw-w: calc(100% / 4); }
+    .swiper_slider[data-slide-width-portrait='5'] { --sw-w: calc(100% / 5); }
+    .swiper_slider[data-slide-width-portrait='6'] { --sw-w: calc(100% / 6); }
+  }
+
+  .swiper_slider:has([data-swiper-el='swiper'] > [data-wf--nest-gap--gap='none' i]) { --sw-slide-gap: 0rem; }
+  .swiper_slider:has([data-swiper-el='swiper'] > [data-wf--nest-gap--gap='xxhuge' i]) { --sw-slide-gap: var(--_spacing-sizing---gap-size--xxhuge); }
+  .swiper_slider:has([data-swiper-el='swiper'] > [data-wf--nest-gap--gap='xhuge' i]) { --sw-slide-gap: var(--_spacing-sizing---gap-size--xhuge); }
+  .swiper_slider:has([data-swiper-el='swiper'] > [data-wf--nest-gap--gap='huge' i]) { --sw-slide-gap: var(--_spacing-sizing---gap-size--huge); }
+  .swiper_slider:has([data-swiper-el='swiper'] > [data-wf--nest-gap--gap='xxlarge' i]) { --sw-slide-gap: var(--_spacing-sizing---gap-size--xxlarge); }
+  .swiper_slider:has([data-swiper-el='swiper'] > [data-wf--nest-gap--gap='xlarge' i]) { --sw-slide-gap: var(--_spacing-sizing---gap-size--xlarge); }
+  .swiper_slider:has([data-swiper-el='swiper'] > [data-wf--nest-gap--gap='large' i]) { --sw-slide-gap: var(--_spacing-sizing---gap-size--large); }
+  .swiper_slider:has([data-swiper-el='swiper'] > [data-wf--nest-gap--gap='medium' i]) { --sw-slide-gap: var(--_spacing-sizing---gap-size--medium); }
+  .swiper_slider:has([data-swiper-el='swiper'] > [data-wf--nest-gap--gap='small' i]) { --sw-slide-gap: var(--_spacing-sizing---gap-size--small); }
+  .swiper_slider:has([data-swiper-el='swiper'] > [data-wf--nest-gap--gap='xsmall' i]) { --sw-slide-gap: var(--_spacing-sizing---gap-size--xsmall); }
+  .swiper_slider:has([data-swiper-el='swiper'] > [data-wf--nest-gap--gap='xxsmall' i]) { --sw-slide-gap: var(--_spacing-sizing---gap-size--xxsmall); }
+  .swiper_slider:has([data-swiper-el='swiper'] > [data-wf--nest-gap--gap='tiny' i]) { --sw-slide-gap: var(--_spacing-sizing---gap-size--tiny); }
+
+  .swiper_slider[data-swiper-el='component'][data-swiper-effect='fade'] {
+    --sw-w: 100%;
+    --sw-slide-gap: 0rem;
+  }
+
+  .swiper_slider [data-swiper-el='swiper'],
+  .swiper_slider [data-swiper-box] {
+    position: relative;
+    overflow: hidden;
+    width: calc(100% + var(--sw-slide-gap));
+    max-width: none;
+    margin-left: calc(var(--sw-slide-gap) / -2);
+    margin-right: 0;
+  }
+
+  .swiper_slider [data-swiper-el='swiper']:has([data-swiper-box]) {
+    overflow: visible;
+    width: auto;
+    margin-left: 0;
+  }
+
+  .swiper_slider [data-swiper-el='swiper'] > [data-wf--nest-gap--gap]:has([data-swiper-el='list']),
+  .swiper_slider [data-swiper-el='list']:has(> .w-dyn-list),
+  .swiper_slider [data-swiper-pass] {
+    display: contents;
+  }
+
+  .swiper_slider [data-swiper-el='list']:not(:has(> .w-dyn-list)),
+  .swiper_slider [data-swiper-el='list'] > .w-dyn-list > .w-dyn-items,
+  .swiper_slider .swiper-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .swiper_slider [data-swiper-el='list']:not(:has(> .w-dyn-list)) > *:not(.w-dyn-empty),
+  .swiper_slider [data-swiper-el='list'] > .w-dyn-list > .w-dyn-items > *,
+  .swiper_slider .swiper-slide {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    width: var(--sw-w);
+    height: auto;
+    padding-left: calc(var(--sw-slide-gap) / 2);
+    padding-right: calc(var(--sw-slide-gap) / 2);
+  }
+</style>
+</div>
+{propSwiperJsScript && (<div data-wf-id="e6d90725-a966-2f60-86eb-0786b7a35531" data-w-id="e6d90725-a966-2f60-86eb-0786b7a35531" class="w-embed swiper-dependency">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" is:inline></script>
+</div>)}
+<div data-wf-id="e6d90725-a966-2f60-86eb-0786b7a35532" data-w-id="e6d90725-a966-2f60-86eb-0786b7a35532" class="w-embed swiper-code">
+<script is:inline>
+  (() => {
+    const scriptEl = document.currentScript;
+
+    const ready = (fn) => {
+      if (document.readyState !== 'loading') fn();
+      else document.addEventListener('DOMContentLoaded', fn);
+    };
+
+    ready(() => {
+      const component = scriptEl.closest("[data-swiper-el='component']");
+      if (!component || component.dataset.scriptInitialized) return;
+      component.dataset.scriptInitialized = 'true';
+
+      const swiperEl = component.querySelector("[data-swiper-el='swiper']");
+      if (!swiperEl) return;
+
+      const paginationEl = component.querySelector("[data-swiper-el='pagination']");
+      const nextButton = component.querySelector("[data-swiper-el='next-button']");
+      const prevButton = component.querySelector("[data-swiper-el='prev-button']");
+      const controlsEl = component.querySelector('.swiper-controls');
+
+      const NOT_SLOT = '[data-wf--nest-gap--gap], [data-wf--nest-slide-width--slides], script, style, .w-embed';
+      const IGNORE = 'script, style, .w-embed, .w-dyn-empty, .w-dyn-hide, .w-pagination-wrapper';
+
+      const deactivate = (state) => {
+        if (controlsEl) controlsEl.style.display = 'none';
+        component.setAttribute('data-swiper-state', state);
+      };
+
+      const resolve = () => {
+        const slot =
+          swiperEl.querySelector("[data-swiper-el='list']") ||
+          swiperEl.querySelector('.swiper_list') ||
+          Array.from(swiperEl.children).find((el) => !el.matches(NOT_SLOT));
+        if (!slot) return null;
+
+        let track = slot;
+        const dynItems = slot.matches('.w-dyn-items')
+          ? slot
+          : slot.querySelector('.w-dyn-items');
+
+        if (dynItems && dynItems.children.length) track = dynItems;
+
+        return {
+          track,
+          container: track.parentElement,
+          slides: Array.from(track.children).filter((el) => !el.matches(IGNORE)),
+        };
+      };
+
+      const tag = (found) => {
+        found.container.classList.add('swiper');
+        found.container.setAttribute('data-swiper-box', '');
+
+        for (let el = found.container.parentElement; el && el !== swiperEl; el = el.parentElement) {
+          el.classList.remove('swiper-wrapper', 'swiper-slide');
+          el.setAttribute('data-swiper-pass', '');
+          if (el.getAttribute('role') === 'list') el.removeAttribute('role');
+        }
+
+        found.track.classList.add('swiper-wrapper');
+        if (!found.track.getAttribute('role')) found.track.setAttribute('role', 'list');
+
+        found.slides.forEach((slide) => {
+          slide.classList.add('swiper-slide');
+          if (!slide.getAttribute('role')) slide.setAttribute('role', 'listitem');
+        });
+      };
+
+      const start = (found) => {
+        if (typeof Swiper === 'undefined') return;
+
+        const slides = found.slides;
+        const bool = (name) => component.getAttribute(name) === 'true';
+        const num = (name, fallback) => Number(component.getAttribute(name)) || fallback;
+
+        const effect = component.getAttribute('data-swiper-effect') || 'slide';
+        const autoplayEnabled = bool('data-autoplay');
+        const loop = bool('data-loop') && slides.length > 2;
+
+        const swiperConfig = {
+          wrapperClass: 'swiper-wrapper',
+          slideClass: 'swiper-slide',
+          slidesPerView: 'auto',
+          spaceBetween: 0,
+          followFinger: bool('data-follow-finger'),
+          loop,
+          rewind: bool('data-rewind') && !loop,
+          freeMode: bool('data-free-mode'),
+          slideToClickedSlide: bool('data-slide-to-clicked'),
+          centeredSlides: false,
+          autoHeight: false,
+          watchOverflow: true,
+          speed: num('data-speed', 600),
+          effect,
+          mousewheel: {
+            enabled: bool('data-mousewheel'),
+            forceToAxis: true,
+          },
+          a11y: {
+            enabled: true,
+            slideRole: 'listitem',
+          },
+          keyboard: {
+            enabled: true,
+            onlyInViewport: true,
+          },
+          autoplay: autoplayEnabled
+            ? {
+                delay: num('data-autoplay-delay', 3000),
+                disableOnInteraction: true,
+                pauseOnMouseEnter: true,
+              }
+            : false,
+          slideActiveClass: 'is-active',
+        };
+
+        if (effect === 'fade') {
+          swiperConfig.slidesPerView = 1;
+          swiperConfig.fadeEffect = { crossFade: true };
+        }
+
+        if (paginationEl) {
+          swiperConfig.pagination = {
+            el: paginationEl,
+            bulletActiveClass: 'is-active',
+            bulletClass: 'slider_bullet_item',
+            bulletElement: 'button',
+            clickable: true,
+          };
+        }
+
+        if (nextButton && prevButton) {
+          swiperConfig.navigation = {
+            nextEl: nextButton,
+            prevEl: prevButton,
+          };
+        }
+
+        const swiper = new Swiper(found.container, swiperConfig);
+        if (controlsEl) controlsEl.style.display = '';
+        component.setAttribute('data-swiper-state', 'ready');
+
+        if (!autoplayEnabled) return;
+
+        swiper.autoplay.stop();
+        const visible = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              swiper.autoplay.start();
+              obs.disconnect();
+            });
+          },
+          { threshold: 0.2 },
+        );
+        visible.observe(component);
+      };
+
+      let resolved = null;
+      let inRange = false;
+      let started = false;
+
+      const tryStart = () => {
+        if (started || !resolved || !inRange) return;
+        started = true;
+        tag(resolved);
+        start(resolved);
+      };
+
+      const check = () => {
+        const found = resolve();
+        if (!found || !found.container || found.slides.length < 2) return false;
+        resolved = found;
+        return true;
+      };
+
+      if (!check()) {
+        let giveUp;
+        const watcher = new MutationObserver(() => {
+          if (!check()) return;
+          watcher.disconnect();
+          clearTimeout(giveUp);
+          tryStart();
+        });
+        watcher.observe(swiperEl, { childList: true, subtree: true });
+
+        giveUp = setTimeout(() => {
+          if (started) return;
+          watcher.disconnect();
+          const found = resolve();
+          deactivate(found && found.slides.length ? 'single' : 'empty');
+        }, 4000);
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        inRange = true;
+        tryStart();
+        return;
+      }
+
+      const near = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            obs.disconnect();
+            inRange = true;
+            tryStart();
+          });
+        },
+        { rootMargin: '50% 0px 50% 0px', threshold: 0 },
+      );
+      near.observe(component);
+    });
+  })();
+</script>
+</div>
+<NestSlideWidth slides={propStyleSlidesDesktop} />
+<NestSlideWidth slides={propStyleSlidesTablet} />
+<NestSlideWidth slides={propStyleSlidesMobileL} />
+<NestSlideWidth slides={propStyleSlidesMobileP} />
+</div>)}

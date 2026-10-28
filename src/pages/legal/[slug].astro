@@ -1,0 +1,45 @@
+---
+import { resolveAssetUrls } from '@/lib/asset-urls';
+import Layout from '@/layouts/Layout.astro';
+import GlobalAnnouncementBar from '@/components/1-globals/GlobalAnnouncementBar.astro';
+import GlobalNavbar from '@/components/1-globals/GlobalNavbar.astro';
+import GlobalEmbeds from '@/components/1-globals/GlobalEmbeds.astro';
+import Section from '@/components/2-sections/Section.astro';
+import ElementDynamicHeading from '@/components/4-elements/ElementDynamicHeading.astro';
+import ElementRichTextLongForm from '@/components/4-elements/ElementRichTextLongForm.astro';
+import GlobalFooter from '@/components/1-globals/GlobalFooter.astro';
+
+import { getCollection } from 'astro:content';
+export async function getStaticPaths() {
+  const entries = await getCollection("legal");
+  const slugs = new Set();
+  return entries.filter(e => !e.data.isDraft && !e.data.isArchived).map(entry => {
+    const slug = entry.id;
+    if (!slug || /[\/\\]|^\.{1,2}$/.test(slug) || slugs.has(slug)) throw new Error('Invalid or duplicate CMS slug: ' + slug);
+    slugs.add(slug);
+    return { params: { slug }, props: { entry } };
+  });
+}
+const data = {};
+const collectionData = resolveAssetUrls({ ...Astro.props.entry.data, slug: Astro.props.entry.id, fullSlug: "/legal/" + Astro.props.entry.id, ...Object.fromEntries(Object.entries(Astro.props.entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: Astro.props.entry.data[key], alt }])) });
+
+
+---
+<Layout webflowPageId="6acce86ead9c94a931c17a07" pageTitle={(collectionData.name ?? "")} pageDescription="" data-wf-id="6acce86ead9c94a931c17a12" data-w-id="6acce86ead9c94a931c17a12">
+<div data-wf-id="2a3f1d42-bd8b-19fd-aa02-2cdc5d6d2d20" data-w-id="2a3f1d42-bd8b-19fd-aa02-2cdc5d6d2d20" class="page-wrapper">
+<GlobalAnnouncementBar />
+<GlobalNavbar />
+<GlobalEmbeds />
+<div data-wf-id="55d45970-2ed4-7bed-f1ee-60e2f93802a9" data-w-id="55d45970-2ed4-7bed-f1ee-60e2f93802a9" class="main-wrapper">
+<Section sectionContainer="small">
+<ElementDynamicHeading style="h1" tag="h1">
+{collectionData.name ?? ""}
+</ElementDynamicHeading>
+<ElementRichTextLongForm>
+<Fragment set:html={({__html: collectionData.body || ''})?.__html || ''} />
+</ElementRichTextLongForm>
+</Section>
+</div>
+<GlobalFooter />
+</div>
+</Layout>

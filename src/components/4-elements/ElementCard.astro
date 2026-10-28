@@ -1,0 +1,80 @@
+---
+import { text } from '@/lib/values';
+import { safeTag } from '@/lib/attributes';
+import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
+
+interface Props {
+  /** Content/Gap */
+  contentGap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+  /** Content/Text Wrap */
+  contentTextWrap?: "normal" | "pretty" | "balance";
+  /** Button/Visibility */
+  buttonVisibility?: boolean;
+  /** Body/Paragraph Font Size */
+  bodyParagraphFontSize?: "large" | "medium" | "regular" | "small" | "tiny";
+  bodyRichTextTag?: string;
+  /** Body/Visibility */
+  bodyVisibility?: boolean;
+  /** Heading/Style */
+  headingStyle?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "h0";
+  /** Heading/Tag */
+  headingTag?: string;
+  /** Heading/Visibility */
+  headingVisibility?: boolean;
+  /** Tagline/Visibility */
+  taglineVisibility?: boolean;
+  /** Content/Alignment */
+  contentAlignment?: "left" | "center" | "right" | "stretch";
+  /** Visual/Visibility */
+  visualVisibility?: boolean;
+  /** Sharp Corners */
+  sharpCorners?: boolean;
+  /** Variant */
+  variant?: "theme-foreground" | "theme-background" | "theme-background-border" | "no-fill" | "theme-foreground-small-padding" | "dark" | "white";
+}
+const collectionData = {};
+const {
+  contentGap: propContentGap = "xsmall",
+  contentTextWrap: propContentTextWrap = "normal",
+  buttonVisibility: propButtonVisibility = true,
+  bodyParagraphFontSize: propBodyParagraphFontSize = "regular",
+  bodyRichTextTag: propBodyRichTextTag = "p",
+  bodyVisibility: propBodyVisibility = true,
+  headingStyle: propHeadingStyle = "h5",
+  headingTag: propHeadingTag = "h3",
+  headingVisibility: propHeadingVisibility = true,
+  taglineVisibility: propTaglineVisibility = false,
+  contentAlignment: propContentAlignment = "left",
+  visualVisibility: propVisualVisibility = true,
+  sharpCorners: propSharpCorners = false,
+  variant: propVariant = "theme-foreground"
+} = Astro.props;
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propContentGap)) throw new Error("ElementCard.contentGap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+if (!["normal", "pretty", "balance"].includes(propContentTextWrap)) throw new Error("ElementCard.contentTextWrap must be one of: normal, pretty, balance");
+if (!["large", "medium", "regular", "small", "tiny"].includes(propBodyParagraphFontSize)) throw new Error("ElementCard.bodyParagraphFontSize must be one of: large, medium, regular, small, tiny");
+const propBodyRichText = "Lorem ipsum diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis.";
+const propHeadingText = "This is a dynamic heading with tag and style options";
+if (!["h1", "h2", "h3", "h4", "h5", "h6", "h0"].includes(propHeadingStyle)) throw new Error("ElementCard.headingStyle must be one of: h1, h2, h3, h4, h5, h6, h0");
+const propTaglineText = "Tagline";
+if (!["left", "center", "right", "stretch"].includes(propContentAlignment)) throw new Error("ElementCard.contentAlignment must be one of: left, center, right, stretch");
+if (!["theme-foreground", "theme-background", "theme-background-border", "no-fill", "theme-foreground-small-padding", "dark", "white"].includes(propVariant)) throw new Error("ElementCard.variant must be one of: theme-foreground, theme-background, theme-background-border, no-fill, theme-foreground-small-padding, dark, white");
+
+const Tag = safeTag(propBodyRichTextTag, "p");
+---
+<div sharp-corners={text(propSharpCorners)} data-wf-id="1741b2df-372f-6d06-7008-c63bc9ed359e" data-w-id="1741b2df-372f-6d06-7008-c63bc9ed359e" data-wf--element-card--variant={{"theme-foreground": "theme-foreground", "theme-background": "theme-background", "theme-background-border": "theme-background-border", "no-fill": "no-fill", "theme-foreground-small-padding": "theme-foreground-small-padding", "dark": "dark", "white": "white"}[propVariant]} class:list={[{"theme-background": "w-variant-7732b962-77ef-cf09-1d4f-0d31c096cc39", "theme-background-border": "w-variant-7f944f33-f655-2ebb-76a0-629f58dc9fc4", "no-fill": "w-variant-a626f89a-8be6-290e-b08d-76d85e9dcf89", "theme-foreground-small-padding": "w-variant-f54db95b-c8c3-aec9-cab2-2dec4fcddf21", "dark": "w-variant-9450cd8b-b1f2-4404-e06e-fe28aae2b786", "white": "w-variant-d9dba9d1-55b0-3372-a499-8c66c9965222"}[propVariant], "content-card_component"]} data-wf-variant={["64ffd8bd-0561-42a9-f1b6-d70a1c7a9562=" + ({"theme-foreground": "base", "theme-background": "7732b962-77ef-cf09-1d4f-0d31c096cc39", "theme-background-border": "7f944f33-f655-2ebb-76a0-629f58dc9fc4", "no-fill": "a626f89a-8be6-290e-b08d-76d85e9dcf89", "theme-foreground-small-padding": "f54db95b-c8c3-aec9-cab2-2dec4fcddf21", "dark": "9450cd8b-b1f2-4404-e06e-fe28aae2b786", "white": "d9dba9d1-55b0-3372-a499-8c66c9965222"}[propVariant])].join(" ")}>
+<div sharp-corners={text(propSharpCorners)} data-wf-id="63a53d7b-7fd3-f356-bf81-65467637e4a5" data-w-id="63a53d7b-7fd3-f356-bf81-65467637e4a5" class="content-card">
+{propVisualVisibility && (<div data-wf-id="1569c07d-2336-5321-4935-a1b46b782628" data-w-id="1569c07d-2336-5321-4935-a1b46b782628" class="content-card_visual-slot" name="Visual Slot">
+<slot />
+</div>)}
+<ElementContentGroup contentGap={propContentGap} contentTextWrap={propContentTextWrap} buttonGroupVisibility={propButtonVisibility} bodyRichTextFontSize={propBodyParagraphFontSize} bodyVisibility={propBodyVisibility} headingStyle={propHeadingStyle} headingTag={propHeadingTag} headingVisibility={propHeadingVisibility} taglineVisibility={propTaglineVisibility} contentAlignment={propContentAlignment}>
+{propButtonVisibility && (<div data-wf-id="5dcd3e2d-6b78-302b-75c8-0edf6b0dab2a" data-w-id="5dcd3e2d-6b78-302b-75c8-0edf6b0dab2a" class="button-group is-small" name="CTA Slot">
+<slot name="cta" />
+</div>)}
+<Fragment slot="bodyrichtext-blocks">{Astro.slots.has("bodyrichtext-blocks") ? (<slot name="bodyrichtext-blocks" />) : (<Tag data-wf-id="76cac959-5b30-bec6-9387-f8803fac9e46" data-w-id="76cac959-5b30-bec6-9387-f8803fac9e46">
+<slot name="bodyrichtext">{propBodyRichText}</slot>
+</Tag>)}</Fragment>
+<slot name="headingtext" slot="headingtext">{propHeadingText}</slot>
+<slot name="taglinetext" slot="taglinetext">{propTaglineText}</slot>
+</ElementContentGroup>
+</div>
+</div>

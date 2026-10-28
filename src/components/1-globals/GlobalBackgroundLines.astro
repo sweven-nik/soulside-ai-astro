@@ -1,0 +1,30 @@
+---
+
+
+interface Props {
+  /** Variant */
+  variant?: "base" | "lighter" | "light" | "dark";
+}
+const collectionData = {};
+const {
+  variant: propVariant = "base"
+} = Astro.props;
+if (!["base", "lighter", "light", "dark"].includes(propVariant)) throw new Error("GlobalBackgroundLines.variant must be one of: base, lighter, light, dark");
+
+
+---
+<div data-wf-id="45442859-f416-fa40-57a5-9b01d4e9fb98" data-w-id="45442859-f416-fa40-57a5-9b01d4e9fb98" data-wf--global-background-lines--variant={{"base": "base", "lighter": "lighter", "light": "light", "dark": "dark"}[propVariant]} class:list={[{"lighter": "w-variant-a6f195c5-5fd3-d306-909e-f69d61c73044", "light": "w-variant-accf50c9-3ff8-f8db-20e9-660e1e21b4b7", "dark": "w-variant-deab45f7-983c-ec28-0055-212ac8c9ecd4"}[propVariant], "bg-lines"]} data-wf-variant={["34e63834-39d2-a99c-4bcc-3965aa575ea9=" + ({"base": "base", "lighter": "a6f195c5-5fd3-d306-909e-f69d61c73044", "light": "accf50c9-3ff8-f8db-20e9-660e1e21b4b7", "dark": "deab45f7-983c-ec28-0055-212ac8c9ecd4"}[propVariant])].join(" ")}>
+<div data-wf-id="45442859-f416-fa40-57a5-9b01d4e9fb99" data-w-id="45442859-f416-fa40-57a5-9b01d4e9fb99" class="padding-global bg-lines">
+<div data-wf-id="45442859-f416-fa40-57a5-9b01d4e9fb9a" data-w-id="45442859-f416-fa40-57a5-9b01d4e9fb9a" class="container-xlarge bg-lines">
+<div data-wf-id="45442859-f416-fa40-57a5-9b01d4e9fb9b" data-w-id="45442859-f416-fa40-57a5-9b01d4e9fb9b" class="bg-lines_wrap">
+<div data-wf-id="45442859-f416-fa40-57a5-9b01d4e9fb9c" data-w-id="45442859-f416-fa40-57a5-9b01d4e9fb9c" class="bg-line"></div>
+<div data-wf-id="45442859-f416-fa40-57a5-9b01d4e9fb9d" data-w-id="45442859-f416-fa40-57a5-9b01d4e9fb9d" class="bg-line"></div>
+<div data-wf-id="45442859-f416-fa40-57a5-9b01d4e9fb9e" data-w-id="45442859-f416-fa40-57a5-9b01d4e9fb9e" class="bg-line"></div>
+<div data-wf-id="45442859-f416-fa40-57a5-9b01d4e9fb9f" data-w-id="45442859-f416-fa40-57a5-9b01d4e9fb9f" class="bg-line hide-mobile-portrait"></div>
+<div data-wf-id="45442859-f416-fa40-57a5-9b01d4e9fba0" data-w-id="45442859-f416-fa40-57a5-9b01d4e9fba0" class="bg-line hide-mobile-portrait"></div>
+<div data-wf-id="45442859-f416-fa40-57a5-9b01d4e9fba1" data-w-id="45442859-f416-fa40-57a5-9b01d4e9fba1" class="bg-line hide-tablet"></div>
+<div data-wf-id="45442859-f416-fa40-57a5-9b01d4e9fba2" data-w-id="45442859-f416-fa40-57a5-9b01d4e9fba2" class="bg-line hide-tablet"></div>
+</div>
+</div>
+</div>
+</div>

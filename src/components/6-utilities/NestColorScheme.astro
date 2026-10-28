@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Color Scheme */
+  colorScheme?: "lightest" | "lighter" | "light" | "dark";
+}
+const collectionData = {};
+const {
+  colorScheme: propColorScheme = "lightest"
+} = Astro.props;
+if (!["lightest", "lighter", "light", "dark"].includes(propColorScheme)) throw new Error("NestColorScheme.colorScheme must be one of: lightest, lighter, light, dark");
+
+
+---
+<div data-wf-id="de099cb8-e705-5414-8079-2dc95b674a51" data-w-id="de099cb8-e705-5414-8079-2dc95b674a51" data-wf--nest-color-scheme--color-scheme={{"lightest": "lightest", "lighter": "lighter", "light": "light", "dark": "dark"}[propColorScheme]} class:list={[{"lighter": "w-variant-dead52b7-6ddb-ca58-d6d5-4e3b0d1beeb3", "light": "w-variant-18552ad9-f18b-c4f6-b463-2b6b69a2e7b3", "dark": "w-variant-1243e9fa-db50-fdac-771b-0373fc18ec35"}[propColorScheme], "color-scheme-nest"]} data-wf-variant={["ea5b62f5-76f2-57ee-28b0-12163c390868=" + ({"lightest": "base", "lighter": "dead52b7-6ddb-ca58-d6d5-4e3b0d1beeb3", "light": "18552ad9-f18b-c4f6-b463-2b6b69a2e7b3", "dark": "1243e9fa-db50-fdac-771b-0373fc18ec35"}[propColorScheme])].join(" ")}></div>

@@ -1,0 +1,14 @@
+import { resolveAssetUrls } from '@/lib/asset-urls';
+import { getCollection } from 'astro:content';
+const referenceFields = Object.fromEntries((await Promise.all([
+  getCollection("announcement-banners").then(entries => entries.map(entry => [entry.data._id ?? entry.id, resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/announcement-banners/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })])),
+  getCollection("ehr-logos").then(entries => entries.map(entry => [entry.data._id ?? entry.id, resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/ehr-logos/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })])),
+  getCollection("trusted-by-logos").then(entries => entries.map(entry => [entry.data._id ?? entry.id, resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/trusted-by-logos/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })])),
+  getCollection("testimonials").then(entries => entries.map(entry => [entry.data._id ?? entry.id, resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/testimonials/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })])),
+  getCollection("legal").then(entries => entries.map(entry => [entry.data._id ?? entry.id, resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/legal/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })])),
+  getCollection("resource-categories").then(entries => entries.map(entry => [entry.data._id ?? entry.id, resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/resource-categories/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })])),
+  getCollection("team").then(entries => entries.map(entry => [entry.data._id ?? entry.id, resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/team/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })])),
+  getCollection("resource").then(entries => entries.map(entry => [entry.data._id ?? entry.id, resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/resource/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })]))
+])).flat());
+
+export function fieldValue(value,key) { return (typeof value === 'string' && referenceFields[value] ? referenceFields[value] : value)?.[key]; }

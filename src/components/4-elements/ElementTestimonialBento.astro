@@ -1,0 +1,73 @@
+---
+import __lumosAsset52 from '@/assets/ss-placeholder_ltlfy.jpg?url';
+import { text, hasValue } from '@/lib/values';
+import { imageUrl } from '@/lib/urls';
+import UtilitySpacer from '@/components/6-utilities/UtilitySpacer.astro';
+import IconButtonFlipArrow from '@/components/7-icons/IconButtonFlipArrow.astro';
+
+interface Props {
+  /** Testimonial/Button Link */
+  testimonialButtonLink?: string;
+  testimonialButtonLinkTarget?: string;
+  /** Spacer/Size */
+  spacerSize?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none" | "medium-flex-grow";
+  /** Spacer/Visibility */
+  spacerVisibility?: boolean;
+  /** Image/Image */
+  imageImage?: string | { url?: string; alt?: string; id?: string };
+}
+const collectionData = {};
+const {
+  testimonialButtonLink: propTestimonialButtonLink = "#",
+  testimonialButtonLinkTarget: propTestimonialButtonLinkTarget = "",
+  spacerSize: propSpacerSize = "xxlarge",
+  spacerVisibility: propSpacerVisibility = true,
+  imageImage: propImageImage = {"id": "6ac53e5668a5893e34695b5d"}
+} = Astro.props;
+const propTestimonialButtonLabel = "Read Case Study";
+const propTestimonialAttribution = "CEO & Clinical Director, SagePoint Behavioral Health";
+const propTestimonialName = "Keith Lichtie";
+const propTestimonialBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.";
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none", "medium-flex-grow"].includes(propSpacerSize)) throw new Error("ElementTestimonialBento.spacerSize must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none, medium-flex-grow");
+const propStatDescription = "Less Documentation Time";
+const propStatStat = "80%";
+
+
+---
+<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefbe" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefbe" class="bento-testimonial">
+<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefbf" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefbf" class="bento-testi-left">
+<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc0" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc0" class="testi-stat-card">
+<div small-stat-size={text(false)} data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc1" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc1" class="stat-card_stat">
+<slot name="statstat">{propStatStat}</slot>
+</div>
+<p data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc3" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc3" class="text-size-medium">
+<slot name="statdescription">{propStatDescription}</slot>
+</p>
+</div>
+<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc5" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc5" class="bento-testi-image">
+<img alt={((propImageImage)?.alt || '') || ''} src={imageUrl(propImageImage) || (__lumosAsset52)} loading="lazy" data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc6" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc6" class="cover-image" />
+</div>
+</div>
+<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc7" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc7" class="bento-testi-right">
+<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc8" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc8" class="bento-testi-content">
+<p data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc9" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc9" class="heading-style-h4">
+<slot name="testimonialbody">{propTestimonialBody}</slot>
+</p>
+<UtilitySpacer size={propSpacerSize} visibility={propSpacerVisibility} />
+<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefcc" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefcc" class="bento-testi-attr">
+<p data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefcd" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefcd" class="heading-style-h5">
+<slot name="testimonialname">{propTestimonialName}</slot>
+</p>
+<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefcf" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefcf">
+<slot name="testimonialattribution">{propTestimonialAttribution}</slot>
+</div>
+</div>
+</div>
+{hasValue(({mode: 'external', url: propTestimonialButtonLink, target: propTestimonialButtonLinkTarget || undefined})) && (<a data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefd1" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefd1" class="bento-testi-button" href={propTestimonialButtonLink} target={propTestimonialButtonLinkTarget || (undefined)}>
+<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefd2" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefd2">
+<slot name="testimonialbuttonlabel">{propTestimonialButtonLabel}</slot>
+</div>
+<IconButtonFlipArrow />
+</a>)}
+</div>
+</div>

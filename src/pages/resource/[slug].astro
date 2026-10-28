@@ -1,0 +1,80 @@
+---
+import { resolveAssetUrls } from '@/lib/asset-urls';
+import Layout from '@/layouts/Layout.astro';
+import { evaluate } from '@/lib/bindings';
+import { text } from '@/lib/values';
+import { linkUrl, linkTarget } from '@/lib/urls';
+import { formatDate } from '@/lib/format';
+import GlobalEmbeds from '@/components/1-globals/GlobalEmbeds.astro';
+import GlobalAnnouncementBar from '@/components/1-globals/GlobalAnnouncementBar.astro';
+import GlobalNavbar from '@/components/1-globals/GlobalNavbar.astro';
+import Section from '@/components/2-sections/Section.astro';
+import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
+import ElementImage from '@/components/4-elements/ElementImage.astro';
+import ElementRichTextLongForm from '@/components/4-elements/ElementRichTextLongForm.astro';
+import ElementDynamicHeading from '@/components/4-elements/ElementDynamicHeading.astro';
+import ElementBlogCard from '@/components/4-elements/ElementBlogCard.astro';
+import GlobalFooter from '@/components/1-globals/GlobalFooter.astro';
+const bindings: any[] = [
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoFullSlugToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "fullSlug"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoFullSlugToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "fullSlug"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoFullSlugToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "fullSlug"}}}},
+  {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoFullSlugToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "fullSlug"}}}}
+];
+
+import { getCollection } from 'astro:content';
+export async function getStaticPaths() {
+  const entries = await getCollection("resource");
+  const slugs = new Set();
+  return entries.filter(e => !e.data.isDraft && !e.data.isArchived).map(entry => {
+    const slug = entry.id;
+    if (!slug || /[\/\\]|^\.{1,2}$/.test(slug) || slugs.has(slug)) throw new Error('Invalid or duplicate CMS slug: ' + slug);
+    slugs.add(slug);
+    return { params: { slug }, props: { entry } };
+  });
+}
+const data = {};
+const collectionData = resolveAssetUrls({ ...Astro.props.entry.data, slug: Astro.props.entry.id, fullSlug: "/resource/" + Astro.props.entry.id, ...Object.fromEntries(Object.entries(Astro.props.entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: Astro.props.entry.data[key], alt }])) });
+const collections = {
+  "resource": (await getCollection("resource")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/resource/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
+};
+const items1 = [...collections["resource"]].filter(entry => { const value0 = entry.fields?.["_id"]; let expected0 = "DYN_CONTEXT"; if (typeof value0 === 'boolean' && ['true', 'false'].includes(expected0)) expected0 = expected0 === 'true'; if (typeof value0 === 'number' && typeof expected0 === 'string' && expected0.trim() !== '' && Number.isFinite(Number(expected0))) expected0 = Number(expected0); return (value0 !== expected0); }).sort((a, b) => { const x = a.fields["publish-date"], y = b.fields["publish-date"]; return (x === y ? 0 : x == null ? -1 : y == null ? 1 : typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y))) * -1; });
+---
+<Layout webflowPageId="6abe9af376a33690663b8d3d" pageTitle={(collectionData.name ?? "") + " | Soulside AI"} pageDescription={(collectionData["post-summary"] ?? "")} data-wf-id="6a98fc634cb744f81e93ec47" data-w-id="6a98fc634cb744f81e93ec47">
+<div data-wf-id="df52569a-3b7c-d9be-4cf4-0c80b46c06e0" data-w-id="df52569a-3b7c-d9be-4cf4-0c80b46c06e0" class="page-wrapper">
+<GlobalEmbeds />
+<GlobalAnnouncementBar />
+<GlobalNavbar />
+<div data-wf-id="2b0b05d2-b1c5-c31f-c9b6-8384f27cb1c5" data-w-id="2b0b05d2-b1c5-c31f-c9b6-8384f27cb1c5" class="main-wrapper">
+<Section sectionContainer="small">
+<ElementContentGroup buttonGroupVisibility={false} bodyVisibility={false} headingStyle="h2" headingTag="h1">
+<Fragment slot="headingtext">{collectionData.name ?? ""}</Fragment>
+<Fragment slot="taglinetext">{text(formatDate(collectionData["publish-date"], "MMMM D, YYYY"))}</Fragment>
+</ElementContentGroup>
+<ElementImage imageBorderRadius="medium" imageAspectRatio="widescreen-16x9" imageFile={collectionData["main-image"]} />
+<ElementRichTextLongForm bodyFontSize="medium">
+<Fragment set:html={({__html: collectionData["post-body"] || ''})?.__html || ''} />
+</ElementRichTextLongForm>
+</Section>
+<Section sectionContainer="medium" sectionTopPadding="none">
+<ElementDynamicHeading style="h4">
+Related Posts
+</ElementDynamicHeading>
+<div data-wf-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e102" data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e102" class="w-dyn-list resources-wrapper">
+<div data-wf-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e103" data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e103" class="w-dyn-items resources-list 2-column">
+{items1.map((item0) => (<div data-wf-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e104" data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e104" class="w-dyn-item resources-item"><ElementBlogCard mainImage={item0.fields["main-image"]} linkTarget={linkTarget(evaluate(bindings[3], { data, Dynamo: item0.fields }))} link={linkUrl(evaluate(bindings[2], { data, Dynamo: item0.fields }))}>
+<Fragment slot="resourcetypename">{item0.fields["resource-type-2.name"] ?? ""}</Fragment>
+<Fragment slot="name">{item0.fields.name ?? ""}</Fragment>
+</ElementBlogCard></div>))}
+</div>
+{!items1.length && (<div data-wf-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e106" data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e106" class="w-dyn-empty">
+<div data-wf-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e107" data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e107">
+No items found.
+</div>
+</div>)}
+</div>
+</Section>
+</div>
+<GlobalFooter />
+</div>
+</Layout>

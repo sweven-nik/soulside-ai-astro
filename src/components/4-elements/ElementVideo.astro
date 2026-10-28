@@ -1,0 +1,63 @@
+---
+import { safeAttributes, customAttributes } from '@/lib/attributes';
+import NestBorderRadius from '@/components/6-utilities/NestBorderRadius.astro';
+
+interface Props {
+  /** BG Video/Muted */
+  bgVideoMuted?: string;
+  /** BG Video/Loop */
+  bgVideoLoop?: string;
+  /** BG Video/Autoplay */
+  bgVideoAutoplay?: string;
+  /** BG Video/Source URL */
+  bgVideoSourceUrl?: string;
+  /** Overlay/Opacity */
+  overlayOpacity?: string;
+  /** Overlay/Overlay Visibility */
+  overlayOverlayVisibility?: boolean;
+  /** BG Video/Visibility */
+  bgVideoVisibility?: boolean;
+  /** Playback Video/Link */
+  playbackVideoLink?: unknown;
+  /** Playback Video/Visibility */
+  playbackVideoVisibility?: boolean;
+  /** Video/Parallax */
+  videoParallax?: boolean;
+  /** Video/Border Radius */
+  videoBorderRadius?: "rounded" | "large" | "medium" | "small" | "tiny" | "none";
+  /** Video/Aspect Ratio */
+  videoAspectRatio?: "auto" | "square-1x1" | "landscape-3x2" | "widescreen-16x9";
+  /** Video/Visibility */
+  videoVisibility?: boolean;
+}
+const collectionData = {};
+const defaults = {"f6df5120-3259-62a0-b213-817be76ade13": [], "1e60b933-5402-856e-a43e-765c1e80088d": "base", "3acdfa42-1da5-c882-7830-138de97f7225": "aaa1fb25-b0d1-11b5-6e1b-a8d49630ed23", "53a3b156-0311-2c9f-3ae6-b6242b96d9de": true, "db607595-6a25-a829-5b48-a5f6ea1a4138": [true], "9654b2e3-9618-ca5a-fde5-92b262a6b324": {"embed": {"type": "video", "url": "", "title": ""}}, "ba6e69a9-c32a-f1aa-07a1-792239c3fead": [false], "62e8c41b-70fb-88e6-549f-550525f1e147": [false], "ac1d7e15-5263-5d39-c470-a445699ead89": "opacity: 40%;", "22fe2c34-03c5-63e3-04fd-b4e7b1c2b740": "", "dc683484-4113-0e82-8b16-879236424838": "autoplay", "6ea72e4e-a291-8120-705c-b49db75d0b3e": "loop", "7d575f6e-dc28-4f19-7431-79507ed07799": "muted"};
+const {
+  bgVideoMuted: propBgVideoMuted = "muted",
+  bgVideoLoop: propBgVideoLoop = "loop",
+  bgVideoAutoplay: propBgVideoAutoplay = "autoplay",
+  bgVideoSourceUrl: propBgVideoSourceUrl = "",
+  overlayOpacity: propOverlayOpacity = "opacity: 40%;",
+  overlayOverlayVisibility: propOverlayOverlayVisibility = false,
+  bgVideoVisibility: propBgVideoVisibility = false,
+  playbackVideoLink: propPlaybackVideoLink = defaults["9654b2e3-9618-ca5a-fde5-92b262a6b324"],
+  playbackVideoVisibility: propPlaybackVideoVisibility = true,
+  videoParallax: propVideoParallax = true,
+  videoBorderRadius: propVideoBorderRadius = "none",
+  videoAspectRatio: propVideoAspectRatio = "auto",
+  videoVisibility: propVideoVisibility = true
+} = Astro.props;
+if (!["rounded", "large", "medium", "small", "tiny", "none"].includes(propVideoBorderRadius)) throw new Error("ElementVideo.videoBorderRadius must be one of: rounded, large, medium, small, tiny, none");
+if (!["auto", "square-1x1", "landscape-3x2", "widescreen-16x9"].includes(propVideoAspectRatio)) throw new Error("ElementVideo.videoAspectRatio must be one of: auto, square-1x1, landscape-3x2, widescreen-16x9");
+
+
+---
+{propVideoVisibility && (<div class:list={[{"square-1x1": "w-variant-1e60b933-5402-856e-a43e-765c1e80088e", "landscape-3x2": "w-variant-1e60b933-5402-856e-a43e-765c1e80088f", "widescreen-16x9": "w-variant-1e60b933-5402-856e-a43e-765c1e800890"}[propVideoAspectRatio], "visual_wrapper", ""]} data-wf-id="1e60b933-5402-856e-a43e-765c1e800883" data-w-id="1e60b933-5402-856e-a43e-765c1e800883" data-wf--element-video--video-aspect-ratio={{"auto": "auto", "square-1x1": "square-1x1", "landscape-3x2": "landscape-3x2", "widescreen-16x9": "widescreen-16x9"}[propVideoAspectRatio]} data-wf-variant={["1e60b933-5402-856e-a43e-765c1e80088d=" + ({"auto": "base", "square-1x1": "1e60b933-5402-856e-a43e-765c1e80088e", "landscape-3x2": "1e60b933-5402-856e-a43e-765c1e80088f", "widescreen-16x9": "1e60b933-5402-856e-a43e-765c1e800890"}[propVideoAspectRatio])].join(" ")}>
+{propBgVideoVisibility && (<video {...safeAttributes(customAttributes([...([({"name": "src", "value": propBgVideoSourceUrl}), ({"name": propBgVideoAutoplay, "value": " "}), ({"name": propBgVideoLoop, "value": " "}), ({"name": propBgVideoMuted, "value": " "}), {"name": "playsinline", "value": " "}, ({"name": "class", "value": (propVideoParallax === true ? "parallax" : "")})] || [])]), ["data-wf-id", "data-w-id", "class"])} data-wf-id="1e60b933-5402-856e-a43e-765c1e800885" data-w-id="1e60b933-5402-856e-a43e-765c1e800885" class:list={["visual_video", customAttributes([...([({"name": "src", "value": propBgVideoSourceUrl}), ({"name": propBgVideoAutoplay, "value": " "}), ({"name": propBgVideoLoop, "value": " "}), ({"name": propBgVideoMuted, "value": " "}), {"name": "playsinline", "value": " "}, ({"name": "class", "value": (propVideoParallax === true ? "parallax" : "")})] || [])]).class]}></video>)}
+{propPlaybackVideoVisibility && (<div data-wf-id="1e60b933-5402-856e-a43e-765c1e800886" data-w-id="1e60b933-5402-856e-a43e-765c1e800886" class="visual_video"></div>)}
+{propOverlayOverlayVisibility && (<div style={propOverlayOpacity} data-wf-id="1e60b933-5402-856e-a43e-765c1e800887" data-w-id="1e60b933-5402-856e-a43e-765c1e800887" class="visual_overlay"></div>)}
+{false && (<div data-wf-id="1e60b933-5402-856e-a43e-765c1e800888" data-w-id="1e60b933-5402-856e-a43e-765c1e800888" class="classes">
+<div data-wf-id="1e60b933-5402-856e-a43e-765c1e80088a" data-w-id="1e60b933-5402-856e-a43e-765c1e80088a" class="visual_video parallax"></div>
+</div>)}
+<NestBorderRadius borderRadius={propVideoBorderRadius} />
+</div>)}

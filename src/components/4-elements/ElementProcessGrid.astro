@@ -1,0 +1,65 @@
+---
+
+
+interface Props {
+  /** Variant */
+  variant?: "3-column" | "2-column" | "4-column";
+}
+const collectionData = {};
+const {
+  variant: propVariant = "3-column"
+} = Astro.props;
+if (!["3-column", "2-column", "4-column"].includes(propVariant)) throw new Error("ElementProcessGrid.variant must be one of: 3-column, 2-column, 4-column");
+
+
+---
+<div data-wf-id="5f122a2d-5d6c-6a21-4640-cdb9b6e5e4e2" data-w-id="5f122a2d-5d6c-6a21-4640-cdb9b6e5e4e2" data-wf--element-process-grid--variant={{"3-column": "3-column", "2-column": "2-column", "4-column": "4-column"}[propVariant]} class:list={[{"2-column": "w-variant-7d62c569-c91f-f189-6872-9224653b2aad", "4-column": "w-variant-196996a1-18d4-f0bb-8bf3-b7cdb5eeb658"}[propVariant], "element-process_grid"]} data-wf-variant={["ca52394d-de82-ac8f-5b21-0da93f2c956e=" + ({"3-column": "base", "2-column": "7d62c569-c91f-f189-6872-9224653b2aad", "4-column": "196996a1-18d4-f0bb-8bf3-b7cdb5eeb658"}[propVariant])].join(" ")}>
+<div data-wf-id="1987aba8-979d-e237-f075-625faf90c5ae" data-w-id="1987aba8-979d-e237-f075-625faf90c5ae" class="process-slot" name="">
+<slot name="content-3" />
+</div>
+<div data-wf-id="ed88975c-bf6e-9d47-a463-08ea51a3fbd6" data-w-id="ed88975c-bf6e-9d47-a463-08ea51a3fbd6" class="process-line">
+<div data-wf-id="a3863103-6569-6911-c0e2-1885263357ee" data-w-id="a3863103-6569-6911-c0e2-1885263357ee" class="w-embed process-line_svg">
+<svg width="60" height="1" viewBox="0 0 60 1" fill="none" aria-hidden="true">
+  <style is:inline>
+    @keyframes dash-move { to { stroke-dashoffset: -12; } }
+    line { animation: dash-move 0.6s linear infinite; }
+    @media (prefers-reduced-motion: reduce) { line { animation: none; } }
+  </style>
+  <line x1="0" y1="0.5" x2="60" y2="0.5" stroke="currentColor" stroke-width="1" stroke-dasharray="6 6" shape-rendering="crispEdges" />
+</svg>
+</div>
+</div>
+<div data-wf-id="a3cd23af-fd09-c429-9653-75346a11484d" data-w-id="a3cd23af-fd09-c429-9653-75346a11484d" class="process-slot" name="">
+<slot name="content-2" />
+</div>
+{["3-column", "4-column"].includes(propVariant) && (<div data-wf-id="3fd825a4-721c-74bf-6958-59492ea1b8ec" data-w-id="3fd825a4-721c-74bf-6958-59492ea1b8ec" class="process-line">
+<div data-wf-id="3fd825a4-721c-74bf-6958-59492ea1b8ed" data-w-id="3fd825a4-721c-74bf-6958-59492ea1b8ed" class="w-embed process-line_svg">
+<svg width="60" height="1" viewBox="0 0 60 1" fill="none" aria-hidden="true">
+  <style is:inline>
+    @keyframes dash-move { to { stroke-dashoffset: -12; } }
+    line { animation: dash-move 0.6s linear infinite; }
+    @media (prefers-reduced-motion: reduce) { line { animation: none; } }
+  </style>
+  <line x1="0" y1="0.5" x2="60" y2="0.5" stroke="currentColor" stroke-width="1" stroke-dasharray="6 6" shape-rendering="crispEdges" />
+</svg>
+</div>
+</div>)}
+{["3-column", "4-column"].includes(propVariant) && (<div data-wf-id="3ba1861d-1682-24e4-4481-c9d9e320a848" data-w-id="3ba1861d-1682-24e4-4481-c9d9e320a848" class="process-slot" name="">
+<slot />
+</div>)}
+{propVariant === "4-column" && (<div data-wf-id="f3ea35ad-7c66-650b-1cea-b978df66319e" data-w-id="f3ea35ad-7c66-650b-1cea-b978df66319e" class="process-line">
+<div data-wf-id="f3ea35ad-7c66-650b-1cea-b978df66319f" data-w-id="f3ea35ad-7c66-650b-1cea-b978df66319f" class="w-embed process-line_svg">
+<svg width="60" height="1" viewBox="0 0 60 1" fill="none" aria-hidden="true">
+  <style is:inline>
+    @keyframes dash-move { to { stroke-dashoffset: -12; } }
+    line { animation: dash-move 0.6s linear infinite; }
+    @media (prefers-reduced-motion: reduce) { line { animation: none; } }
+  </style>
+  <line x1="0" y1="0.5" x2="60" y2="0.5" stroke="currentColor" stroke-width="1" stroke-dasharray="6 6" shape-rendering="crispEdges" />
+</svg>
+</div>
+</div>)}
+{propVariant === "4-column" && (<div data-wf-id="1867e082-f669-cc29-1847-f211628066e9" data-w-id="1867e082-f669-cc29-1847-f211628066e9" class="process-slot" name="">
+<slot name="content" />
+</div>)}
+</div>

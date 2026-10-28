@@ -1,0 +1,40 @@
+---
+import NestVerticalAlignment from '@/components/6-utilities/NestVerticalAlignment.astro';
+import NestGapColumn from '@/components/6-utilities/NestGapColumn.astro';
+import NestGapRow from '@/components/6-utilities/NestGapRow.astro';
+
+interface Props {
+  /** Vertical Alignment */
+  verticalAlignment?: "top" | "center" | "bottom";
+  /** Row Gap */
+  rowGap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+  /** Column Gap */
+  columnGap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+  /** Layout */
+  layout?: "columns" | "columns-reversed" | "columns-large" | "columns-large-reversed" | "columns-breakout" | "columns-breakout-reversed" | "stack" | "stack-reversed" | "card-columns" | "card-columns-reversed" | "single-column";
+}
+const collectionData = {};
+const {
+  verticalAlignment: propVerticalAlignment = "center",
+  rowGap: propRowGap = "xlarge",
+  columnGap: propColumnGap = "xlarge",
+  layout: propLayout = "columns"
+} = Astro.props;
+if (!["top", "center", "bottom"].includes(propVerticalAlignment)) throw new Error("Layout2.verticalAlignment must be one of: top, center, bottom");
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propRowGap)) throw new Error("Layout2.rowGap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propColumnGap)) throw new Error("Layout2.columnGap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+if (!["columns", "columns-reversed", "columns-large", "columns-large-reversed", "columns-breakout", "columns-breakout-reversed", "stack", "stack-reversed", "card-columns", "card-columns-reversed", "single-column"].includes(propLayout)) throw new Error("Layout2.layout must be one of: columns, columns-reversed, columns-large, columns-large-reversed, columns-breakout, columns-breakout-reversed, stack, stack-reversed, card-columns, card-columns-reversed, single-column");
+
+
+---
+<div data-wf-id="164d2676-a0ef-36a1-e20e-031873a98a20" data-w-id="164d2676-a0ef-36a1-e20e-031873a98a20" data-wf--layout--layout={{"columns": "columns", "columns-reversed": "columns-reversed", "columns-large": "columns-large", "columns-large-reversed": "columns-large-reversed", "columns-breakout": "columns-breakout", "columns-breakout-reversed": "columns-breakout-reversed", "stack": "stack", "stack-reversed": "stack-reversed", "card-columns": "card-columns", "card-columns-reversed": "card-columns-reversed", "single-column": "single-column"}[propLayout]} class:list={[{"columns-reversed": "w-variant-3538fc57-2691-1076-70f5-435115a902fc", "columns-large": "w-variant-fea2fbd8-5762-3b09-4a90-2486bea55f8e", "columns-large-reversed": "w-variant-4729ec30-9765-a424-9c90-964dab16bbb4", "columns-breakout": "w-variant-52a16100-0280-e2f9-09b7-77c3bdca8552", "columns-breakout-reversed": "w-variant-e558de37-dc9e-f2de-36a1-3645a7611edd", "stack": "w-variant-b1481827-3dac-3b6a-5fa6-423844c41ef7", "stack-reversed": "w-variant-b28f5eaa-bfc9-7601-1d1d-d5212a86c40a", "card-columns": "w-variant-b3e8cc2f-612b-6d07-033f-1653a3f8a268", "card-columns-reversed": "w-variant-185e6e30-0ae8-7b7e-2983-5521d01a1d76", "single-column": "w-variant-5a35e4d6-6361-7bbe-5074-f046a16ea071"}[propLayout], "layout_global"]} data-wf-variant={["71e0166b-a0b5-929b-6719-a5b2fe8b87f6=" + ({"columns": "base", "columns-reversed": "3538fc57-2691-1076-70f5-435115a902fc", "columns-large": "fea2fbd8-5762-3b09-4a90-2486bea55f8e", "columns-large-reversed": "4729ec30-9765-a424-9c90-964dab16bbb4", "columns-breakout": "52a16100-0280-e2f9-09b7-77c3bdca8552", "columns-breakout-reversed": "e558de37-dc9e-f2de-36a1-3645a7611edd", "stack": "b1481827-3dac-3b6a-5fa6-423844c41ef7", "stack-reversed": "b28f5eaa-bfc9-7601-1d1d-d5212a86c40a", "card-columns": "b3e8cc2f-612b-6d07-033f-1653a3f8a268", "card-columns-reversed": "185e6e30-0ae8-7b7e-2983-5521d01a1d76", "single-column": "5a35e4d6-6361-7bbe-5074-f046a16ea071"}[propLayout])].join(" ")}>
+<div sw-slot="" data-wf-id="3ad4a863-5de8-be06-ff8b-e53b0e44bf7a" data-w-id="3ad4a863-5de8-be06-ff8b-e53b0e44bf7a" class="layout_column-first" name="Content First">
+<slot name="content-first" />
+</div>
+{propLayout !== "single-column" && (<div sw-slot="" data-wf-id="a4c34c37-d141-dae5-9148-2cadc64f6928" data-w-id="a4c34c37-d141-dae5-9148-2cadc64f6928" class="layout_column-last" name="Content Last">
+<slot />
+</div>)}
+<NestVerticalAlignment verticalAlignment={propVerticalAlignment} />
+<NestGapColumn gap={propColumnGap} />
+<NestGapRow gap={propRowGap} />
+</div>

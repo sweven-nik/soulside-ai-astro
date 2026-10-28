@@ -1,0 +1,47 @@
+---
+import { text } from '@/lib/values';
+import { formatNumber } from '@/lib/format';
+import UtilitySpacer from '@/components/6-utilities/UtilitySpacer.astro';
+
+interface Props {
+  /** Grid Slot/Columns | Mobile (P) */
+  gridSlotColumnsMobileP?: number;
+  /** Grid Slot/Columns | Mobile (L) */
+  gridSlotColumnsMobileL?: number;
+  /** Grid Slot/Columns | Tablet */
+  gridSlotColumnsTablet?: number;
+  /** Grid Slot/Columns | Desktop */
+  gridSlotColumnsDesktop?: number;
+  /** Grid Slot/Behavior | Tablet Down */
+  gridSlotBehaviorTabletDown?: boolean;
+  /** Grid Slot/Gap | Tablet Down */
+  gridSlotGapTabletDown?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none" | "medium-flex-grow";
+  /** Grid Slot/Gap | Desktop */
+  gridSlotGapDesktop?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none" | "medium-flex-grow";
+}
+const collectionData = {};
+const {
+  gridSlotColumnsMobileP: propGridSlotColumnsMobileP = 1,
+  gridSlotColumnsMobileL: propGridSlotColumnsMobileL = 2,
+  gridSlotColumnsTablet: propGridSlotColumnsTablet = 3,
+  gridSlotColumnsDesktop: propGridSlotColumnsDesktop = 3,
+  gridSlotBehaviorTabletDown: propGridSlotBehaviorTabletDown = false,
+  gridSlotGapTabletDown: propGridSlotGapTabletDown = "small",
+  gridSlotGapDesktop: propGridSlotGapDesktop = "small"
+} = Astro.props;
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none", "medium-flex-grow"].includes(propGridSlotGapTabletDown)) throw new Error("LayoutGridSlot.gridSlotGapTabletDown must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none, medium-flex-grow");
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none", "medium-flex-grow"].includes(propGridSlotGapDesktop)) throw new Error("LayoutGridSlot.gridSlotGapDesktop must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none, medium-flex-grow");
+
+
+---
+<div sw-grid-slot-component="" data-wf-id="8e15b727-4bb9-25f1-e142-31b5961159a0" data-w-id="8e15b727-4bb9-25f1-e142-31b5961159a0" class="grid-slot_component">
+<div sw-slot="" data-desktop-column-count={formatNumber(propGridSlotColumnsDesktop, -1)} data-tablet-column-count={formatNumber(propGridSlotColumnsTablet, -1)} data-mobile-landscape-column-count={formatNumber(propGridSlotColumnsMobileL, -1)} data-mobile-column-count={formatNumber(propGridSlotColumnsMobileP, -1)} data-tablet-behavior={text(propGridSlotBehaviorTabletDown)} sw-grid-slot="" data-wf-id="8e15b727-4bb9-25f1-e142-31b5961159a8" data-w-id="8e15b727-4bb9-25f1-e142-31b5961159a8" class="grid-slot" name="">
+<slot />
+</div>
+<div sw-grid-gap="desktop" data-wf-id="8e15b727-4bb9-25f1-e142-31b5961159a9" data-w-id="8e15b727-4bb9-25f1-e142-31b5961159a9" class="grid-slot-gap">
+<UtilitySpacer size={propGridSlotGapDesktop} />
+</div>
+<div sw-grid-gap="tablet-down" data-wf-id="8e15b727-4bb9-25f1-e142-31b5961159ab" data-w-id="8e15b727-4bb9-25f1-e142-31b5961159ab" class="grid-slot-gap">
+<UtilitySpacer size={propGridSlotGapTabletDown} />
+</div>
+</div>

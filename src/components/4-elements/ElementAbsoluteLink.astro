@@ -1,0 +1,27 @@
+---
+
+
+interface Props {
+  /** Type */
+  type?: string;
+  /** Target */
+  target?: string;
+  /** Link Text */
+  linkText?: string;
+  /** Link */
+  link?: string;
+  linkTarget?: string;
+}
+const collectionData = {};
+const {
+  type: propType = "link",
+  target: propTarget = "_self",
+  linkText: propLinkText = "Link text",
+  link: propLink = "#",
+  linkTarget: propLinkTarget = ""
+} = Astro.props;
+
+
+
+---
+<a target={propLinkTarget || (propTarget)} aria-label={propLinkText} role={propType} data-wf-id="1f4514ae-24c5-1def-efab-62d557542925" data-w-id="1f4514ae-24c5-1def-efab-62d557542925" class="absolute-link" href={propLink}></a>

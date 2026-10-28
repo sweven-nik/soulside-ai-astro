@@ -1,0 +1,36 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import GlobalEmbeds from '@/components/1-globals/GlobalEmbeds.astro';
+import GlobalAnnouncementBar from '@/components/1-globals/GlobalAnnouncementBar.astro';
+import GlobalNavbar from '@/components/1-globals/GlobalNavbar.astro';
+import Section from '@/components/2-sections/Section.astro';
+import Layout2 from '@/components/3-layouts/Layout2.astro';
+import GlobalContactForm from '@/components/1-globals/GlobalContactForm.astro';
+import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
+import GlobalFooter from '@/components/1-globals/GlobalFooter.astro';
+
+const data = {};
+const collectionData = {};
+
+
+---
+<Layout webflowPageId="6acce8190298fbe1641f5377" pageTitle="Contact Soulside AI | Behavioral Health AI Platform" pageDescription="Get in touch with Soulside AI to learn how purpose-built AI automates group notes, chart audits, and clinical documentation for your behavioral health program." data-wf-id="60d3f7b8b0e86c28630fc6d6" data-w-id="60d3f7b8b0e86c28630fc6d6">
+<div data-wf-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" data-w-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" class="page-wrapper">
+<GlobalEmbeds />
+<GlobalAnnouncementBar />
+<GlobalNavbar enableDemoPopup={false} />
+<main data-wf-id="dcf94f42-feae-15fa-9712-17acf0a0a835" data-w-id="dcf94f42-feae-15fa-9712-17acf0a0a835" class="main-wrapper">
+<Section sectionTopPadding="medium">
+<Layout2 verticalAlignment="top" layout="columns-large">
+<GlobalContactForm />
+<ElementContentGroup slot="content-first" buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyRichTextTag="p" headingStyle="h1" headingTag="h1" taglineVisibility={true} contentMaxWidth="medium" contentAlignment="left">
+<Fragment slot="bodyrichtext">Have a question about Soulside, a partnership idea, or need support? Send us a note and our team will follow up.</Fragment>
+<Fragment slot="headingtext">Get in touch</Fragment>
+<Fragment slot="taglinetext">Contact Us</Fragment>
+</ElementContentGroup>
+</Layout2>
+</Section>
+</main>
+<GlobalFooter />
+</div>
+</Layout>

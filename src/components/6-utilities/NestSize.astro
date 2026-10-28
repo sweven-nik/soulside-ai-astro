@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Size */
+  size?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny";
+}
+const collectionData = {};
+const {
+  size: propSize = "small"
+} = Astro.props;
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny"].includes(propSize)) throw new Error("NestSize.size must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny");
+
+
+---
+<div data-wf-id="147f9451-8669-9e01-d172-275421c77044" data-w-id="147f9451-8669-9e01-d172-275421c77044" data-wf--nest-size--size={{"xxhuge": "xxhuge", "xhuge": "xhuge", "huge": "huge", "xxlarge": "xxlarge", "xlarge": "xlarge", "large": "large", "medium": "medium", "small": "small", "xsmall": "xsmall", "xxsmall": "xxsmall", "tiny": "tiny"}[propSize]} class:list={[{"xxhuge": "w-variant-dccb3faf-26d0-435d-35f6-8c32bb1d2dec", "xhuge": "w-variant-dccb3faf-26d0-435d-35f6-8c32bb1d2ded", "huge": "w-variant-dccb3faf-26d0-435d-35f6-8c32bb1d2dee", "xxlarge": "w-variant-dccb3faf-26d0-435d-35f6-8c32bb1d2def", "xlarge": "w-variant-dccb3faf-26d0-435d-35f6-8c32bb1d2df0", "large": "w-variant-dccb3faf-26d0-435d-35f6-8c32bb1d2df1", "medium": "w-variant-dccb3faf-26d0-435d-35f6-8c32bb1d2df2", "xsmall": "w-variant-dccb3faf-26d0-435d-35f6-8c32bb1d2df3", "xxsmall": "w-variant-dccb3faf-26d0-435d-35f6-8c32bb1d2df4", "tiny": "w-variant-dccb3faf-26d0-435d-35f6-8c32bb1d2df5"}[propSize], "size-nest"]} data-wf-variant={["dccb3faf-26d0-435d-35f6-8c32bb1d2deb=" + ({"xxhuge": "dccb3faf-26d0-435d-35f6-8c32bb1d2dec", "xhuge": "dccb3faf-26d0-435d-35f6-8c32bb1d2ded", "huge": "dccb3faf-26d0-435d-35f6-8c32bb1d2dee", "xxlarge": "dccb3faf-26d0-435d-35f6-8c32bb1d2def", "xlarge": "dccb3faf-26d0-435d-35f6-8c32bb1d2df0", "large": "dccb3faf-26d0-435d-35f6-8c32bb1d2df1", "medium": "dccb3faf-26d0-435d-35f6-8c32bb1d2df2", "small": "base", "xsmall": "dccb3faf-26d0-435d-35f6-8c32bb1d2df3", "xxsmall": "dccb3faf-26d0-435d-35f6-8c32bb1d2df4", "tiny": "dccb3faf-26d0-435d-35f6-8c32bb1d2df5"}[propSize])].join(" ")}></div>

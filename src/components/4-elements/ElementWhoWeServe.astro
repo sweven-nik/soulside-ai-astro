@@ -1,0 +1,188 @@
+---
+import ElementServeGrid from '@/components/4-elements/ElementServeGrid.astro';
+
+interface Props {
+
+}
+const collectionData = {};
+const {
+
+} = Astro.props;
+
+
+
+---
+<div data-wf-id="44b321c6-9770-d742-8e1c-c8fd61d4602e" data-w-id="44b321c6-9770-d742-8e1c-c8fd61d4602e" class="serve-component">
+<div data-wf-id="44b321c6-9770-d742-8e1c-c8fd61d4602f" data-w-id="44b321c6-9770-d742-8e1c-c8fd61d4602f" class="w-embed serve-component_css">
+<style is:inline>
+
+  @media screen and (min-width: 992px) {
+  .serve-item .serve-item_text {
+    opacity: 0;
+    position: absolute;
+    transition:
+      opacity 000ms ease 0ms,
+      position 0s linear 000ms;
+        transition-behavior: allow-discrete;
+
+  }
+
+  .serve-item.active .serve-item_text {
+    opacity: 1;
+    position: relative;
+    transition:
+      position 0s linear 700ms,
+      opacity 300ms ease 700ms;
+        transition-behavior: allow-discrete;
+
+  }
+
+
+    .serve-grid:nth-of-type(2) {
+      display: none;
+    }
+    }
+
+
+  @media screen and (max-width: 991px) {
+
+.serve-item_progress {
+  display: none;
+}
+    
+    .serve-grid {
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
+    .serve-track .serve-grid {
+      animation: serveMarquee 60s infinite linear;
+    }
+
+    @keyframes serveMarquee {
+      0% {transform: translatex(0%)}
+      100% {transform: translatex(-100%)}
+    }
+  }
+</style>
+</div>
+<div data-wf-id="44b321c6-9770-d742-8e1c-c8fd61d46030" data-w-id="44b321c6-9770-d742-8e1c-c8fd61d46030" class="w-embed serve-component_js">
+<script is:inline>
+(() => {
+  const DURATION = 5000;              // ms each item stays active
+  const FADE = 700;                   // ms for the outgoing bar to fade out
+  const DESKTOP = '(min-width: 992px)'; // Webflow desktop breakpoint
+
+  const mq = window.matchMedia(DESKTOP);
+  const controllers = [];
+
+  const createController = (grid) => {
+    const items = Array.from(grid.querySelectorAll('.serve-item'));
+    if (!items.length) return null;
+
+    const bars = items.map(item => item.querySelector('.serve-item_progress'));
+    const initialIndex = Math.max(0, items.findIndex(i => i.classList.contains('active')));
+    let current = initialIndex;
+    let timer = null;
+    let running = false;
+
+    const fadeOutBar = (bar) => {
+      if (!bar) return;
+      clearTimeout(bar._resetTimer);
+      bar.style.width = getComputedStyle(bar).width;
+      bar.style.transition = `opacity ${FADE}ms ease`;
+      bar.style.opacity = '0';
+      bar._resetTimer = setTimeout(() => {
+        bar.style.transition = 'none';
+        bar.style.width = '0%';
+      }, FADE);
+    };
+
+    const startBar = (bar) => {
+      if (!bar) return;
+      clearTimeout(bar._resetTimer);
+      bar.style.transition = 'none';
+      bar.style.width = '0%';
+      bar.style.opacity = '1';
+      void bar.offsetWidth;
+      bar.style.transition = `width ${DURATION}ms linear`;
+      bar.style.width = '100%';
+    };
+
+    const setActive = (index, isInit = false) => {
+      if (!running) return;
+      if (!isInit && index !== current) fadeOutBar(bars[current]);
+      items.forEach((item, i) => item.classList.toggle('active', i === index));
+      current = index;
+      startBar(bars[index]);
+
+      clearTimeout(timer);
+      timer = setTimeout(() => setActive((current + 1) % items.length), DURATION);
+    };
+
+    const onClick = (e) => {
+      const i = items.indexOf(e.currentTarget);
+      if (running && i !== current) setActive(i);
+    };
+    items.forEach(item => item.addEventListener('click', onClick));
+
+    return {
+      start() {
+        if (running) return;
+        running = true;
+        bars.forEach(bar => {
+          if (!bar) return;
+          bar.style.transition = 'none';
+          bar.style.width = '0%';
+          bar.style.opacity = '0';
+        });
+        current = initialIndex;
+        setActive(current, true);
+      },
+      stop() {
+        if (!running) return;
+        running = false;
+        clearTimeout(timer);
+        bars.forEach(bar => {
+          if (!bar) return;
+          clearTimeout(bar._resetTimer);
+          bar.style.removeProperty('transition');
+          bar.style.removeProperty('width');
+          bar.style.removeProperty('opacity');
+        });
+        // Restore the original Webflow active state
+        items.forEach((item, i) => item.classList.toggle('active', i === initialIndex));
+        current = initialIndex;
+      }
+    };
+  };
+
+  const update = () => {
+    controllers.forEach(c => (mq.matches ? c.start() : c.stop()));
+  };
+
+  const init = () => {
+    document.querySelectorAll('.serve-grid').forEach((grid) => {
+      if (grid.dataset.serveAutoplay === 'false') return;
+      if (grid.dataset.serveInit) return;
+      grid.dataset.serveInit = 'true';
+      const controller = createController(grid);
+      if (controller) controllers.push(controller);
+    });
+
+    update();
+    mq.addEventListener('change', update);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</div>
+<div data-wf-id="44b321c6-9770-d742-8e1c-c8fd61d46031" data-w-id="44b321c6-9770-d742-8e1c-c8fd61d46031" class="serve-track">
+<ElementServeGrid />
+<ElementServeGrid />
+</div>
+</div>

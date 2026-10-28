@@ -1,0 +1,69 @@
+---
+import Section from '@/components/2-sections/Section.astro';
+import Layout2 from '@/components/3-layouts/Layout2.astro';
+
+interface Props {
+  /** Content/Vertical Alignment */
+  contentVerticalAlignment?: "top" | "center" | "bottom";
+  /** Content/Row Gap */
+  contentRowGap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+  /** Content/Column Gap */
+  contentColumnGap?: "xxhuge" | "xhuge" | "huge" | "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall" | "tiny" | "none";
+  /** Section/Fade In Animation */
+  sectionFadeInAnimation?: boolean;
+  /** Section/Color Scheme */
+  sectionColorScheme?: "lightest" | "lighter" | "light" | "dark";
+  /** Content/Layout */
+  contentLayout?: "columns" | "columns-reversed" | "columns-large" | "columns-large-reversed" | "columns-breakout" | "columns-breakout-reversed" | "stack" | "stack-reversed" | "card-columns" | "card-columns-reversed" | "single-column";
+  /** Section/Container */
+  sectionContainer?: "large" | "medium" | "small" | "none" | "xlarge";
+  /** Section/Side Padding */
+  sectionSidePadding?: "global" | "small" | "none";
+  /** Section/Bottom Padding */
+  sectionBottomPadding?: "xlarge" | "large" | "medium" | "small" | "tiny" | "none";
+  /** Section/Top Padding */
+  sectionTopPadding?: "xlarge" | "large" | "medium" | "small" | "tiny" | "none";
+  /** Section/Visibility */
+  sectionVisibility?: boolean;
+  /** Section/ID */
+  sectionId?: string;
+}
+const collectionData = {};
+const {
+  contentVerticalAlignment: propContentVerticalAlignment = "center",
+  contentRowGap: propContentRowGap = "xlarge",
+  contentColumnGap: propContentColumnGap = "xlarge",
+  sectionFadeInAnimation: propSectionFadeInAnimation = true,
+  sectionColorScheme: propSectionColorScheme = "lightest",
+  contentLayout: propContentLayout = "columns",
+  sectionContainer: propSectionContainer = "large",
+  sectionSidePadding: propSectionSidePadding = "global",
+  sectionBottomPadding: propSectionBottomPadding = "large",
+  sectionTopPadding: propSectionTopPadding = "large",
+  sectionVisibility: propSectionVisibility = true,
+  sectionId: propSectionId = ""
+} = Astro.props;
+if (!["top", "center", "bottom"].includes(propContentVerticalAlignment)) throw new Error("SectionFlexSlots.contentVerticalAlignment must be one of: top, center, bottom");
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propContentRowGap)) throw new Error("SectionFlexSlots.contentRowGap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+if (!["xxhuge", "xhuge", "huge", "xxlarge", "xlarge", "large", "medium", "small", "xsmall", "xxsmall", "tiny", "none"].includes(propContentColumnGap)) throw new Error("SectionFlexSlots.contentColumnGap must be one of: xxhuge, xhuge, huge, xxlarge, xlarge, large, medium, small, xsmall, xxsmall, tiny, none");
+if (!["lightest", "lighter", "light", "dark"].includes(propSectionColorScheme)) throw new Error("SectionFlexSlots.sectionColorScheme must be one of: lightest, lighter, light, dark");
+if (!["columns", "columns-reversed", "columns-large", "columns-large-reversed", "columns-breakout", "columns-breakout-reversed", "stack", "stack-reversed", "card-columns", "card-columns-reversed", "single-column"].includes(propContentLayout)) throw new Error("SectionFlexSlots.contentLayout must be one of: columns, columns-reversed, columns-large, columns-large-reversed, columns-breakout, columns-breakout-reversed, stack, stack-reversed, card-columns, card-columns-reversed, single-column");
+if (!["large", "medium", "small", "none", "xlarge"].includes(propSectionContainer)) throw new Error("SectionFlexSlots.sectionContainer must be one of: large, medium, small, none, xlarge");
+if (!["global", "small", "none"].includes(propSectionSidePadding)) throw new Error("SectionFlexSlots.sectionSidePadding must be one of: global, small, none");
+if (!["xlarge", "large", "medium", "small", "tiny", "none"].includes(propSectionBottomPadding)) throw new Error("SectionFlexSlots.sectionBottomPadding must be one of: xlarge, large, medium, small, tiny, none");
+if (!["xlarge", "large", "medium", "small", "tiny", "none"].includes(propSectionTopPadding)) throw new Error("SectionFlexSlots.sectionTopPadding must be one of: xlarge, large, medium, small, tiny, none");
+
+
+---
+<div data-wf-id="ed54cdb1-7713-1c30-70ab-841a17ccddf5" data-w-id="ed54cdb1-7713-1c30-70ab-841a17ccddf5" class="section_feature">
+<Section sectionFadeInAnimation={propSectionFadeInAnimation} sectionColorScheme={propSectionColorScheme} sectionContainer={propSectionContainer} sectionSidePadding={propSectionSidePadding} sectionBottomPadding={propSectionBottomPadding} sectionTopPadding={propSectionTopPadding} sectionVisibility={propSectionVisibility} sectionId={propSectionId}>
+<Layout2 verticalAlignment={propContentVerticalAlignment} rowGap={propContentRowGap} columnGap={propContentColumnGap} layout={propContentLayout}>
+<div sw-slot="" data-wf-id="f0021805-13a0-6544-9f8c-a05c78eee901" data-w-id="f0021805-13a0-6544-9f8c-a05c78eee901" class="layout_column-last" name="">
+<slot />
+</div>
+<div slot="content-first" sw-slot="" data-wf-id="faad6420-932f-9c6f-16e3-4b2fa7e0efdb" data-w-id="faad6420-932f-9c6f-16e3-4b2fa7e0efdb" class="layout_column-first" name="">
+<slot name="content-first" />
+</div>
+</Layout2>
+</Section>
+</div>

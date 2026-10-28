@@ -1,0 +1,30 @@
+---
+import { text } from '@/lib/values';
+import { formatNumber } from '@/lib/format';
+
+
+interface Props {
+  /** Tabs/Show All in Designer? */
+  tabsShowAllInDesigner?: boolean;
+  /** Tabs/Auto Tab Duration (s) */
+  tabsAutoTabDurationS?: number;
+}
+const collectionData = {};
+const {
+  tabsShowAllInDesigner: propTabsShowAllInDesigner = true,
+  tabsAutoTabDurationS: propTabsAutoTabDurationS = 7
+} = Astro.props;
+
+
+
+---
+<div sw-auto-tab="section" show-all-in-designer={text(propTabsShowAllInDesigner)} data-wf-id="f9261730-5aee-bd94-9cf7-5b72a7877ff0" data-w-id="f9261730-5aee-bd94-9cf7-5b72a7877ff0" class="auto-tabs_component">
+<div sw-auto-tab="component" sw-auto-tab-time={formatNumber(propTabsAutoTabDurationS, 0)} data-wf-id="f9261730-5aee-bd94-9cf7-5b72a7877ff4" data-w-id="f9261730-5aee-bd94-9cf7-5b72a7877ff4" class="auto-tabs_layout">
+<div sw-slot="" sw-auto-tab="menu" data-wf-id="c3cdf938-7f26-71d9-0652-10f4f261984e" data-w-id="c3cdf938-7f26-71d9-0652-10f4f261984e" class="auto-tabs_menu" name="">
+<slot name="tab-links" />
+</div>
+<div sw-slot="" sw-auto-tab="panes" data-wf-id="babcf201-f2ed-e38a-e890-f0784df3b2c5" data-w-id="babcf201-f2ed-e38a-e890-f0784df3b2c5" class="auto-tabs_content" name="">
+<slot />
+</div>
+</div>
+</div>

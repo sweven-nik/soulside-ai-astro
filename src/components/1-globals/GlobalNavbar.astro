@@ -1,0 +1,222 @@
+---
+import { evaluate } from '@/lib/bindings';
+import { embedHtml } from '@/lib/values';
+import GlobalDemoButton from '@/components/1-globals/GlobalDemoButton.astro';
+import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
+import UtilitySpacer from '@/components/6-utilities/UtilitySpacer.astro';
+import GlobalContactForm from '@/components/1-globals/GlobalContactForm.astro';
+const bindings: any[] = [
+  {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["Text", "Concat"]}, "arg": {"type": "List", "val": [{"type": "Text", "val": "\u003cscript>\n  document.addEventListener('DOMContentLoaded', function () {\n    const enabled = String(\""}, {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["Boolean", "To Code Text"]}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "data"}, "prop": "2670c34e-4885-dfad-35d3-4b113d6ca067"}}}}, {"type": "Text", "val": "\").trim().toLowerCase() === \"true\";\n    if (!enabled) return;\n\n    const popup = document.querySelector('.popup');\n    if (!popup) return;\n\n    const delaySeconds = parseFloat(\""}, {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["Builtin", "numberToText"]}, "arg": {"type": "Number", "val": -1}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "data"}, "prop": "6d1307e9-d897-2009-f9b2-3316ca96d6ef"}}}}, {"type": "Text", "val": "\");\n    const delayMs = isNaN(delaySeconds) ? 3000 : delaySeconds * 1000;\n\n    const popupClose = popup.querySelector('.popup-close');\n    const popupBG = popup.querySelector('.popup-background');\n\n    function openPopup() {\n      popup.classList.add('is-active');\n    }\n\n    function closePopup() {\n      popup.classList.remove('is-active');\n    }\n\n    setTimeout(openPopup, delayMs);\n\n    if (popupClose) popupClose.addEventListener('click', closePopup);\n    if (popupBG) popupBG.addEventListener('click', closePopup);\n\n    document.addEventListener('keydown', function (e) {\n      if (e.key === 'Escape' && popup.classList.contains('is-active')) {\n        closePopup();\n      }\n    });\n  });\n\u003c/script>"}]}}}
+];
+
+interface Props {
+  /** Popup Delay */
+  popupDelay?: number;
+  /** Enable Demo Popup? */
+  enableDemoPopup?: boolean;
+}
+const collectionData = {};
+const defaults = {"2670c34e-4885-dfad-35d3-4b113d6ca067": true, "6d1307e9-d897-2009-f9b2-3316ca96d6ef": 120};
+const {
+  popupDelay: propPopupDelay = 120,
+  enableDemoPopup: propEnableDemoPopup = true
+} = Astro.props;
+
+const data = {
+  ...defaults,
+  "6d1307e9-d897-2009-f9b2-3316ca96d6ef": propPopupDelay,
+  "2670c34e-4885-dfad-35d3-4b113d6ca067": propEnableDemoPopup
+};
+for (const [key, name] of Object.entries({})) if (Astro.slots.has(name)) data[key] = [{__slot: name}];
+
+
+---
+<div data-collapse="medium" data-animation="default" data-duration="400" fs-scrolldisable-element="smart-nav" data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e40b" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e40b" class="w-nav navbar_component">
+<div data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e40c" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e40c" class="navbar_container">
+<div data-wf-id="d77132ac-e320-7a80-1179-9caf031354b2" data-w-id="d77132ac-e320-7a80-1179-9caf031354b2" class="navbar_logo-wrap">
+<a href="/" data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e40d" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e40d" class="w-nav-brand navbar_logo-link">
+<div data-wf-id="60db7518-08a6-6dda-187b-e181e7d7e7d4" data-w-id="60db7518-08a6-6dda-187b-e181e7d7e7d4" class="w-embed navbar_logo-svg">
+<svg width="131" height="21" viewBox="0 0 131 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.69823 20.6771C4.67582 20.6771 3.08216 20.2565 1.91725 19.4152C0.752338 18.5738 0.113255 17.4008 0 15.8962H2.69385C2.80711 16.786 3.19541 17.4413 3.85876 17.8619C4.52211 18.2826 5.50096 18.4929 6.79531 18.4929C9.06041 18.4929 10.193 17.781 10.193 16.3573C10.193 15.7748 10.015 15.3299 9.65904 15.0225C9.31928 14.6989 8.73682 14.4643 7.91168 14.3187L4.73245 13.7362C2.0305 13.2347 0.679531 11.9484 0.679531 9.87746C0.679531 8.53458 1.18918 7.47484 2.20847 6.69823C3.22777 5.92162 4.61919 5.53332 6.38273 5.53332C8.21099 5.53332 9.65904 5.92971 10.7269 6.7225C11.8109 7.51528 12.4257 8.63166 12.5713 10.0716H9.926C9.76421 9.26265 9.38399 8.66401 8.78536 8.27571C8.20291 7.88741 7.37776 7.69326 6.30993 7.69326C5.32299 7.69326 4.55447 7.86314 4.00438 8.2029C3.47046 8.54267 3.2035 9.03614 3.2035 9.68331C3.2035 10.1849 3.37338 10.5813 3.71315 10.8725C4.06909 11.1475 4.63537 11.3579 5.41198 11.5035L8.59121 12.1102C10.015 12.3691 11.0586 12.8302 11.7219 13.4935C12.3853 14.1569 12.7169 15.0467 12.7169 16.1631C12.7169 17.5869 12.1992 18.6952 11.1637 19.488C10.1282 20.2808 8.63975 20.6771 6.69823 20.6771Z" fill="#102D2C" />
+<path d="M20.7416 20.6771C19.2369 20.6771 17.9183 20.3697 16.7858 19.7549C15.6694 19.1239 14.8038 18.2422 14.189 17.1096C13.5742 15.9771 13.2668 14.6423 13.2668 13.1052C13.2668 11.5682 13.5742 10.2334 14.189 9.10085C14.8038 7.9683 15.6694 7.09462 16.7858 6.47981C17.9183 5.84882 19.2369 5.53332 20.7416 5.53332C22.2948 5.53332 23.6215 5.84073 24.7217 6.45554C25.8381 7.07035 26.6956 7.94404 27.2942 9.07659C27.909 10.2091 28.2164 11.552 28.2164 13.1052C28.2164 14.6423 27.909 15.9851 27.2942 17.1339C26.6956 18.2664 25.8381 19.1401 24.7217 19.7549C23.6053 20.3697 22.2786 20.6771 20.7416 20.6771ZM20.7416 18.2988C22.2463 18.2988 23.4112 17.8458 24.2363 16.9397C25.0777 16.0175 25.4983 14.7393 25.4983 13.1052C25.4983 11.4549 25.0777 10.1768 24.2363 9.27074C23.4112 8.3647 22.2463 7.91168 20.7416 7.91168C19.2531 7.91168 18.0882 8.37279 17.2469 9.29501C16.4056 10.201 15.9849 11.4711 15.9849 13.1052C15.9849 14.7393 16.4056 16.0175 17.2469 16.9397C18.0882 17.8458 19.2531 18.2988 20.7416 18.2988Z" fill="#102D2C" />
+<path d="M35.7922 20.6529C33.9154 20.6529 32.443 20.1351 31.3752 19.0997C30.3074 18.048 29.7735 16.6404 29.7735 14.8769V5.82455H32.4916V14.2944C32.4916 15.6049 32.8313 16.6 33.5109 17.2795C34.1904 17.9428 35.1773 18.2745 36.4717 18.2745C37.8469 18.2745 38.9067 17.9267 39.6509 17.231C40.4113 16.5191 40.7916 15.5321 40.7916 14.2701V5.82455H43.5097V17.5707H44.9173V20.3859H42.005V18.1532H40.9857C40.468 18.9621 39.7723 19.585 38.8986 20.0219C38.0249 20.4425 36.9894 20.6529 35.7922 20.6529Z" fill="#102D2C" />
+<path d="M46.8186 20.3859V0H49.5367V20.3859H46.8186Z" fill="#102D2C" />
+<path d="M57.8109 20.6771C55.7885 20.6771 54.1948 20.2565 53.0299 19.4152C51.865 18.5738 51.2259 17.4008 51.1127 15.8962H53.8065C53.9198 16.786 54.3081 17.4413 54.9715 17.8619C55.6348 18.2826 56.6136 18.4929 57.908 18.4929C60.1731 18.4929 61.3056 17.781 61.3056 16.3573C61.3056 15.7748 61.1277 15.3299 60.7717 15.0225C60.432 14.6989 59.8495 14.4643 59.0244 14.3187L55.8451 13.7362C53.1432 13.2347 51.7922 11.9484 51.7922 9.87746C51.7922 8.53458 52.3019 7.47484 53.3212 6.69823C54.3405 5.92162 55.7319 5.53332 57.4954 5.53332C59.3237 5.53332 60.7717 5.92971 61.8396 6.7225C62.9236 7.51528 63.5384 8.63166 63.684 10.0716H61.0387C60.8769 9.26265 60.4967 8.66401 59.898 8.27571C59.3156 7.88741 58.4904 7.69326 57.4226 7.69326C56.4357 7.69326 55.6672 7.86314 55.1171 8.2029C54.5831 8.54267 54.3162 9.03614 54.3162 9.68331C54.3162 10.1849 54.4861 10.5813 54.8258 10.8725C55.1818 11.1475 55.7481 11.3579 56.5247 11.5035L59.7039 12.1102C61.1277 12.3691 62.1712 12.8302 62.8346 13.4935C63.4979 14.1569 63.8296 15.0467 63.8296 16.1631C63.8296 17.5869 63.3119 18.6952 62.2764 19.488C61.2409 20.2808 59.7524 20.6771 57.8109 20.6771Z" fill="#102D2C" />
+<path d="M65.3502 20.3859V5.82455H68.0683V20.3859H65.3502ZM66.7093 3.83449C66.2563 3.83449 65.868 3.6727 65.5444 3.34911C65.2208 3.02553 65.059 2.63723 65.059 2.18421C65.059 1.73118 65.2208 1.34288 65.5444 1.01929C65.868 0.695709 66.2563 0.533916 66.7093 0.533916C67.1623 0.533916 67.5506 0.695709 67.8742 1.01929C68.1978 1.34288 68.3596 1.73118 68.3596 2.18421C68.3596 2.63723 68.1978 3.02553 67.8742 3.34911C67.5506 3.6727 67.1623 3.83449 66.7093 3.83449Z" fill="#102D2C" />
+<path d="M76.7551 20.6771C75.299 20.6771 74.0532 20.3697 73.0177 19.7549C71.9984 19.1401 71.2137 18.2664 70.6636 17.1339C70.1297 16.0013 69.8627 14.6584 69.8627 13.1052C69.8627 11.552 70.1297 10.2091 70.6636 9.07659C71.1975 7.94404 71.9579 7.07035 72.9449 6.45554C73.948 5.84073 75.1372 5.53332 76.5124 5.53332C77.6773 5.53332 78.6804 5.75983 79.5218 6.21285C80.3793 6.66587 81.0264 7.32113 81.4633 8.17864H81.5604V0H84.2785V17.5707H85.6861V20.3859H82.7738V18.1532H81.7545C81.2691 18.9783 80.6058 19.6093 79.7645 20.0462C78.9231 20.4668 77.92 20.6771 76.7551 20.6771ZM77.1677 18.3473C78.4944 18.3473 79.5541 17.9671 80.3469 17.2067C81.1559 16.4463 81.5604 15.4351 81.5604 14.1731V12.0374C81.5604 10.7754 81.1559 9.76421 80.3469 9.00378C79.5541 8.24335 78.4944 7.86314 77.1677 7.86314C75.7115 7.86314 74.579 8.32425 73.77 9.24647C72.9772 10.1687 72.5808 11.4549 72.5808 13.1052C72.5808 14.7555 72.9772 16.0418 73.77 16.964C74.579 17.8862 75.7115 18.3473 77.1677 18.3473Z" fill="#102D2C" />
+<path d="M94.002 20.6771C92.4811 20.6771 91.1625 20.3697 90.0462 19.7549C88.9298 19.1239 88.0642 18.2341 87.4494 17.0853C86.8507 15.9366 86.5514 14.5937 86.5514 13.0567C86.5514 11.5197 86.8507 10.193 87.4494 9.07659C88.0642 7.94404 88.9217 7.07035 90.0219 6.45554C91.1221 5.84073 92.4083 5.53332 93.8806 5.53332C95.2882 5.53332 96.5017 5.81646 97.521 6.38273C98.5565 6.94901 99.3573 7.74988 99.9236 8.78536C100.49 9.82083 100.773 11.0505 100.773 12.4742V13.5663H89.1725C89.2534 15.0872 89.7145 16.2764 90.5558 17.1339C91.4133 17.9752 92.5539 18.3959 93.9777 18.3959C94.9647 18.3959 95.7979 18.1936 96.4774 17.7891C97.157 17.3685 97.6261 16.7537 97.885 15.9447H100.652C100.296 17.4494 99.5272 18.6143 98.3461 19.4394C97.1812 20.2646 95.7332 20.6771 94.002 20.6771ZM89.2695 11.5763H98.152C98.0225 10.379 97.5776 9.44871 96.8172 8.78536C96.0729 8.12201 95.086 7.79033 93.8564 7.79033C92.6429 7.79033 91.6317 8.12201 90.8228 8.78536C90.0138 9.44871 89.4961 10.379 89.2695 11.5763Z" fill="#102D2C" />
+<path d="M106.335 20.3859L114.756 0.728068H117.838L126.235 20.3859H123.444L120.92 14.5128H111.577L109.077 20.3859H106.335ZM112.475 12.1345H120.071L116.358 3.34911H116.237L112.475 12.1345Z" fill="#102D2C" />
+<path d="M127.425 20.3859V0.728068H130.192V20.3859H127.425Z" fill="#102D2C" />
+</svg>
+
+</div>
+</a>
+</div>
+<nav role="navigation" data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e40f" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e40f" class="w-nav-menu navbar_menu is-page-height-tablet">
+<div data-wf-id="95bc81e3-1aaf-7399-7128-52d00aa16d44" data-w-id="95bc81e3-1aaf-7399-7128-52d00aa16d44" class="nav-empty_pixel"></div>
+<div data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e410" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e410" class="navbar_menu-links">
+<a href="/who-we-are" data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e415" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e415" class="w-nav-link navbar_link">
+Who We Are
+</a>
+<div data-delay="200" data-hover={true} data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e417" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e417" class="w-dropdown navbar_menu-dropdown">
+<div data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e418" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e418" class="w-dropdown-toggle navbar_dropdown-toggle">
+<div data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e419" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e419">
+How it Works
+</div>
+<div data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e41b" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e41b" class="w-embed dropdown-chevron">
+<svg width=" 100%" height=" 100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor" />
+</svg>
+</div>
+</div>
+<nav data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e41c" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e41c" class="w-dropdown-list navbar_dropdown-list">
+<div data-wf-id="75d6f9bf-c5e0-5d79-9e0b-3f06ef7858d1" data-w-id="75d6f9bf-c5e0-5d79-9e0b-3f06ef7858d1" class="navbar_dropdown-wrapper">
+<div data-wf-id="1b4620af-e706-1cea-c1b0-3537d046d563" data-w-id="1b4620af-e706-1cea-c1b0-3537d046d563" class="mega-menu_grid one-column">
+<a data-wf-id="2ba7b225-32fd-e5f3-2f65-06420cb54928" data-w-id="2ba7b225-32fd-e5f3-2f65-06420cb54928" class="mega-menu_link is-small" href="/implementation-and-adoption">
+<div data-wf-id="2a693107-bca3-b459-c434-a1542ed4e4cc" data-w-id="2a693107-bca3-b459-c434-a1542ed4e4cc" class="mega-menu_link_content">
+<div data-wf-id="6a40f213-8aa8-fda2-f751-3d47e621c6d9" data-w-id="6a40f213-8aa8-fda2-f751-3d47e621c6d9" class="heading-style-plain-text H6 is-navlink">
+Setup
+</div>
+</div>
+</a>
+<a data-wf-id="7f3966fd-36c5-a0cb-7fa2-7f3300c05963" data-w-id="7f3966fd-36c5-a0cb-7fa2-7f3300c05963" class="mega-menu_link is-small" href="/templates">
+<div data-wf-id="7f3966fd-36c5-a0cb-7fa2-7f3300c05965" data-w-id="7f3966fd-36c5-a0cb-7fa2-7f3300c05965" class="mega-menu_link_content">
+<div data-wf-id="7f3966fd-36c5-a0cb-7fa2-7f3300c05966" data-w-id="7f3966fd-36c5-a0cb-7fa2-7f3300c05966" class="heading-style-plain-text H6 is-navlink">
+Templates
+</div>
+</div>
+</a>
+</div>
+</div>
+</nav>
+</div>
+<div data-delay="200" data-hover={true} data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d271" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d271" class="w-dropdown navbar_menu-dropdown">
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d272" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d272" class="w-dropdown-toggle navbar_dropdown-toggle">
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d273" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d273">
+Solutions
+</div>
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d275" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d275" class="w-embed dropdown-chevron">
+<svg width=" 100%" height=" 100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor" />
+</svg>
+</div>
+</div>
+<nav data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d276" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d276" class="w-dropdown-list navbar_dropdown-list">
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d277" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d277" class="navbar_dropdown-wrapper">
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d278" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d278" class="mega-menu_grid">
+<a data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d279" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d279" class="mega-menu_link" href="/chart-audit">
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d27a" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d27a" class="w-embed mega-menu_icon">
+<svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.6155 20C4.15517 20 3.77083 19.8458 3.4625 19.5375C3.15417 19.2292 3 18.8448 3 18.3845V5.6155C3 5.15517 3.15417 4.77083 3.4625 4.4625C3.77083 4.15417 4.15517 4 4.6155 4H19.3845C19.8448 4 20.2292 4.15417 20.5375 4.4625C20.8458 4.77083 21 5.15517 21 5.6155V18.3845C21 18.8448 20.8458 19.2292 20.5375 19.5375C20.2292 19.8458 19.8448 20 19.3845 20H4.6155ZM4.6155 19H19.3845C19.5385 19 19.6796 18.9359 19.8078 18.8077C19.9359 18.6796 20 18.5385 20 18.3845V5.6155C20 5.4615 19.9359 5.32042 19.8078 5.19225C19.6796 5.06408 19.5385 5 19.3845 5H4.6155C4.4615 5 4.32042 5.06408 4.19225 5.19225C4.06408 5.32042 4 5.4615 4 5.6155V18.3845C4 18.5385 4.06408 18.6796 4.19225 18.8077C4.32042 18.9359 4.4615 19 4.6155 19ZM5.5 16.5H9.5V15.5H5.5V16.5ZM14.55 14.2885L18.7885 10.05L18.075 9.3365L14.55 12.8865L13.125 11.4615L12.4365 12.175L14.55 14.2885ZM5.5 12.5H9.5V11.5H5.5V12.5ZM5.5 8.5H9.5V7.5H5.5V8.5Z" fill="currentColor" />
+</svg>
+
+</div>
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d27b" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d27b" class="mega-menu_link_content">
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d27c" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d27c" class="heading-style-plain-text H6 is-navlink">
+Chart Audit
+</div>
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d27e" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d27e" class="mega-menu_link_context">
+Every chart audited. Before it costs you.
+</div>
+</div>
+</a>
+<a data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d280" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d280" class="mega-menu_link" href="/clinical-documentation">
+<div data-wf-id="efd7762e-368f-b9e4-9166-6fe4cffc4eae" data-w-id="efd7762e-368f-b9e4-9166-6fe4cffc4eae" class="w-embed mega-menu_icon">
+<svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.5 16.5H13.5V15.5H7.5V16.5ZM7.5 12.5H16.5V11.5H7.5V12.5ZM7.5 8.5H16.5V7.5H7.5V8.5ZM5.6155 20C5.15517 20 4.77083 19.8458 4.4625 19.5375C4.15417 19.2292 4 18.8448 4 18.3845V5.6155C4 5.15517 4.15417 4.77083 4.4625 4.4625C4.77083 4.15417 5.15517 4 5.6155 4H18.3845C18.8448 4 19.2292 4.15417 19.5375 4.4625C19.8458 4.77083 20 5.15517 20 5.6155V18.3845C20 18.8448 19.8458 19.2292 19.5375 19.5375C19.2292 19.8458 18.8448 20 18.3845 20H5.6155ZM5.6155 19H18.3845C18.5385 19 18.6796 18.9359 18.8077 18.8077C18.9359 18.6796 19 18.5385 19 18.3845V5.6155C19 5.4615 18.9359 5.32042 18.8077 5.19225C18.6796 5.06408 18.5385 5 18.3845 5H5.6155C5.4615 5 5.32042 5.06408 5.19225 5.19225C5.06408 5.32042 5 5.4615 5 5.6155V18.3845C5 18.5385 5.06408 18.6796 5.19225 18.8077C5.32042 18.9359 5.4615 19 5.6155 19Z" fill="currentColor" />
+</svg>
+
+</div>
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d282" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d282" class="mega-menu_link_content">
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d283" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d283" class="heading-style-plain-text H6 is-navlink">
+Clinical Documentation
+</div>
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d285" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d285" class="mega-menu_link_context">
+Every note. Automated. From intake to discharge.
+</div>
+</div>
+</a>
+<a data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d287" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d287" class="mega-menu_link" href="/groups-ai">
+<div data-wf-id="7a30e58e-9b97-d9a5-fe35-d6dcc7b44d14" data-w-id="7a30e58e-9b97-d9a5-fe35-d6dcc7b44d14" class="w-embed mega-menu_icon">
+<svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_12255_55112)">
+<path d="M4.23075 21.7693C3.74358 21.2821 3.5 20.6923 3.5 20C3.5 19.3077 3.74358 18.7179 4.23075 18.2307C4.71792 17.7436 5.30767 17.5 6 17.5C6.19483 17.5 6.39867 17.5282 6.6115 17.5845C6.82433 17.641 7.02242 17.7173 7.20575 17.8135L9.74625 14.6538C9.38208 14.2654 9.134 13.836 9.002 13.3655C8.86983 12.8948 8.84733 12.4178 8.9345 11.9345L5.198 10.702C4.97883 11.093 4.675 11.4071 4.2865 11.6442C3.898 11.8814 3.46917 12 3 12C2.30767 12 1.71792 11.7564 1.23075 11.2692C0.743583 10.7821 0.5 10.1923 0.5 9.5C0.5 8.80767 0.743583 8.21792 1.23075 7.73075C1.71792 7.24358 2.30767 7 3 7C3.69233 7 4.28208 7.24358 4.76925 7.73075C5.25642 8.21792 5.5 8.80767 5.5 9.5C5.5 9.58467 5.49683 9.65008 5.4905 9.69625C5.484 9.74242 5.48075 9.7885 5.48075 9.8345L9.198 11.1307C9.416 10.7102 9.72725 10.3429 10.1318 10.0288C10.5363 9.71475 11.0116 9.51225 11.5577 9.42125V5.45775C10.9206 5.33842 10.4183 5.04192 10.051 4.56825C9.68367 4.09458 9.5 3.57183 9.5 3C9.5 2.30767 9.74358 1.71792 10.2308 1.23075C10.7179 0.743583 11.3077 0.5 12 0.5C12.6923 0.5 13.2821 0.743583 13.7693 1.23075C14.2564 1.71792 14.5 2.30767 14.5 3C14.5 3.57183 14.3154 4.09458 13.9462 4.56825C13.5769 5.04192 13.0756 5.33842 12.4423 5.45775V9.42125C12.9884 9.51225 13.4606 9.71475 13.8587 10.0288C14.2567 10.3429 14.5712 10.7102 14.802 11.1307L18.5193 9.8345C18.5064 9.77567 18.5 9.72633 18.5 9.6865V9.5C18.5 8.80767 18.7436 8.21792 19.2307 7.73075C19.7179 7.24358 20.3077 7 21 7C21.6923 7 22.2821 7.24358 22.7693 7.73075C23.2564 8.21792 23.5 8.80767 23.5 9.5C23.5 10.1923 23.2564 10.7821 22.7693 11.2692C22.2821 11.7564 21.6923 12 21 12C20.5308 12 20.101 11.8814 19.7105 11.6442C19.3202 11.4071 19.0173 11.093 18.802 10.702L15.0655 11.9345C15.1527 12.4178 15.1302 12.8938 14.998 13.3625C14.866 13.8312 14.6179 14.2552 14.2538 14.6345L16.7943 17.7885C16.9776 17.7052 17.1757 17.6363 17.3885 17.5818C17.6013 17.5273 17.8052 17.5 18 17.5C18.6923 17.5 19.2821 17.7436 19.7693 18.2307C20.2564 18.7179 20.5 19.3077 20.5 20C20.5 20.6923 20.2564 21.2821 19.7693 21.7693C19.2821 22.2564 18.6923 22.5 18 22.5C17.3077 22.5 16.7179 22.2564 16.2308 21.7693C15.7436 21.2821 15.5 20.6923 15.5 20C15.5 19.7052 15.5477 19.4196 15.6432 19.1432C15.7387 18.8669 15.8974 18.6102 16.1193 18.373L13.5788 15.175C13.1263 15.4687 12.6023 15.6155 12.0068 15.6155C11.4113 15.6155 10.8808 15.4687 10.4155 15.175L7.88075 18.373C8.08975 18.6102 8.24517 18.8669 8.347 19.1432C8.449 19.4196 8.5 19.7052 8.5 20C8.5 20.6923 8.25642 21.2821 7.76925 21.7693C7.28208 22.2564 6.69233 22.5 6 22.5C5.30767 22.5 4.71792 22.2564 4.23075 21.7693ZM3 11C3.4115 11 3.76442 10.8529 4.05875 10.5587C4.35292 10.2644 4.5 9.9115 4.5 9.5C4.5 9.0885 4.35292 8.73558 4.05875 8.44125C3.76442 8.14708 3.4115 8 3 8C2.5885 8 2.23558 8.14708 1.94125 8.44125C1.64708 8.73558 1.5 9.0885 1.5 9.5C1.5 9.9115 1.64708 10.2644 1.94125 10.5587C2.23558 10.8529 2.5885 11 3 11ZM7.05875 21.0588C7.35292 20.7644 7.5 20.4115 7.5 20C7.5 19.5885 7.35292 19.2356 7.05875 18.9413C6.76442 18.6471 6.4115 18.5 6 18.5C5.5885 18.5 5.23558 18.6471 4.94125 18.9413C4.64708 19.2356 4.5 19.5885 4.5 20C4.5 20.4115 4.64708 20.7644 4.94125 21.0588C5.23558 21.3529 5.5885 21.5 6 21.5C6.4115 21.5 6.76442 21.3529 7.05875 21.0588ZM13.0587 4.05875C13.3529 3.76442 13.5 3.4115 13.5 3C13.5 2.5885 13.3529 2.23558 13.0587 1.94125C12.7644 1.64708 12.4115 1.5 12 1.5C11.5885 1.5 11.2356 1.64708 10.9412 1.94125C10.6471 2.23558 10.5 2.5885 10.5 3C10.5 3.4115 10.6471 3.76442 10.9412 4.05875C11.2356 4.35292 11.5885 4.5 12 4.5C12.4115 4.5 12.7644 4.35292 13.0587 4.05875ZM12 14.6155C12.5847 14.6155 13.0834 14.4091 13.4962 13.9962C13.9091 13.5834 14.1155 13.0847 14.1155 12.5C14.1155 11.9153 13.9091 11.4166 13.4962 11.0038C13.0834 10.5909 12.5847 10.3845 12 10.3845C11.4153 10.3845 10.9166 10.5909 10.5037 11.0038C10.0909 11.4166 9.8845 11.9153 9.8845 12.5C9.8845 13.0847 10.0909 13.5834 10.5037 13.9962C10.9166 14.4091 11.4153 14.6155 12 14.6155ZM19.0588 21.0588C19.3529 20.7644 19.5 20.4115 19.5 20C19.5 19.5885 19.3529 19.2356 19.0588 18.9413C18.7644 18.6471 18.4115 18.5 18 18.5C17.5885 18.5 17.2356 18.6471 16.9413 18.9413C16.6471 19.2356 16.5 19.5885 16.5 20C16.5 20.4115 16.6471 20.7644 16.9413 21.0588C17.2356 21.3529 17.5885 21.5 18 21.5C18.4115 21.5 18.7644 21.3529 19.0588 21.0588ZM22.0588 10.5587C22.3529 10.2644 22.5 9.9115 22.5 9.5C22.5 9.0885 22.3529 8.73558 22.0588 8.44125C21.7644 8.14708 21.4115 8 21 8C20.5885 8 20.2356 8.14708 19.9413 8.44125C19.6471 8.73558 19.5 9.0885 19.5 9.5C19.5 9.9115 19.6471 10.2644 19.9413 10.5587C20.2356 10.8529 20.5885 11 21 11C21.4115 11 21.7644 10.8529 22.0588 10.5587Z" fill="currentColor" />
+</g>
+<defs>
+<clipPath id="clip0_12255_55112">
+<rect width="24" height="24" fill="white" />
+</clipPath>
+</defs>
+</svg>
+
+</div>
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d289" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d289" class="mega-menu_link_content">
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d28a" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d28a" class="heading-style-plain-text H6 is-navlink">
+Group AI
+</div>
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d28c" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d28c" class="mega-menu_link_context">
+The hardest problem in behavioral health, solved.
+</div>
+</div>
+</a>
+<a data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d28e" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d28e" class="mega-menu_link" href="/rcm">
+<div data-wf-id="2c7ca1a2-428a-0995-6ab9-3942a539013c" data-w-id="2c7ca1a2-428a-0995-6ab9-3942a539013c" class="w-embed mega-menu_icon">
+<svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.50056 16.9997V8.99973H7.50056V16.9997H6.50056ZM11.5006 16.9997V8.99973H12.5006V16.9997H11.5006ZM3.53906 19.9997V18.9997H20.4621V19.9997H3.53906ZM16.5006 16.9997V8.99973H17.5006V16.9997H16.5006ZM3.53906 6.99973V6.15349L12.0006 2.11523L20.4621 6.15349V6.99973H3.53906ZM6.18131 5.99973H17.8198L12.0006 3.24973L6.18131 5.99973Z" fill="currentColor" />
+</svg>
+
+</div>
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d290" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d290" class="mega-menu_link_content">
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d291" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d291" class="heading-style-plain-text H6 is-navlink">
+RCM
+</div>
+<div data-wf-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d293" data-w-id="08f025f2-c9cd-d59d-d1c2-2872b4b1d293" class="mega-menu_link_context">
+The record becomes the case for getting paid.
+</div>
+</div>
+</a>
+</div>
+</div>
+</nav>
+</div>
+</div>
+<div data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e423" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e423" class="navbar_menu-buttons">
+<a href="/contact" data-wf-id="563d3f00-8374-e384-d01d-78bc3949edd8" data-w-id="563d3f00-8374-e384-d01d-78bc3949edd8" class="w-nav-link navbar_link">
+Contact Us
+</a>
+<GlobalDemoButton size="small" />
+</div>
+</nav>
+<div data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e425" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e425" class="w-nav-button navbar_menu-button">
+<div data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e426" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e426" class="menu-icon">
+<div data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e427" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e427" class="menu-icon_line-top"></div>
+<div data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e428" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e428" class="menu-icon_line-middle">
+<div data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e429" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e429" class="menu-icon_line-middle-inner"></div>
+</div>
+<div data-wf-id="b1d8d524-74f9-0f5d-f73b-183cbb51e42a" data-w-id="b1d8d524-74f9-0f5d-f73b-183cbb51e42a" class="menu-icon_line-bottom"></div>
+</div>
+</div>
+</div>
+<div data-wf-id="5ccc3357-3c93-fed5-073e-7567cecbe407" data-w-id="5ccc3357-3c93-fed5-073e-7567cecbe407" class="popup">
+<div data-wf-id="edffeb35-9917-5880-a5ba-e9965db74fe2" data-w-id="edffeb35-9917-5880-a5ba-e9965db74fe2" class="popup-background"></div>
+<div data-wf-id="1de18b9d-b8a8-7a75-6632-cb39ecf067ee" data-w-id="1de18b9d-b8a8-7a75-6632-cb39ecf067ee" class="popup-modal">
+<ElementContentGroup buttonGroupVisibility={false} bodyRichTextTag="p" bodyVisibility={false} taglineVisibility={false}>
+<Fragment slot="bodyrichtext">A few quick questions, then hit submit to see our team’s availability.</Fragment>
+<Fragment slot="headingtext">Book a Demo</Fragment>
+</ElementContentGroup>
+<UtilitySpacer />
+<div data-wf-id="34cc1fbf-dc8a-401a-d381-aff97d1126df" data-w-id="34cc1fbf-dc8a-401a-d381-aff97d1126df" class="w-embed popup-close">
+<svg width="100%" height="100%" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="38.8628" cy="38.8628" r="38.8628" fill="#1D4B4A" />
+<path d="M28.2275 28.2285L49.498 49.499" stroke-width="2" stroke="white" />
+<path d="M49.498 28.2266L28.2275 49.4971" stroke-width="2" stroke="white" />
+</svg>
+
+</div>
+<GlobalContactForm />
+</div>
+</div>
+<div data-wf-id="2c727335-bf55-5a9e-d939-20634952f0e5" data-w-id="2c727335-bf55-5a9e-d939-20634952f0e5" class="w-embed popup-js">
+<Fragment set:html={embedHtml(({"search": {"exclude": true}, "embed": {"type": "html", "meta": {"html": "", "div": false, "script": false, "compilable": false, "iframe": false}}, "insideRTE": false, "styleBlockIds": ["3eadd814-f37a-d59f-8efa-51c1a0573214"], "value": "", "content": evaluate(bindings[0], { data, Dynamo: collectionData }), "devlink": {"runtimeProps": {}, "slot": ""}, "displayName": "", "attr": {"id": ""}, "xattr": [], "visibility": {"conditions": [], "keepInHtml": false}}))} />
+</div>
+</div>

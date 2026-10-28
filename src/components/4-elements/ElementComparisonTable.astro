@@ -1,0 +1,39 @@
+---
+import ElementDynamicHeading from '@/components/4-elements/ElementDynamicHeading.astro';
+
+interface Props {
+
+}
+const collectionData = {};
+const {
+
+} = Astro.props;
+const propLabel2 = "With Soulside Chart Audit";
+const propLabel1 = "Without Soulside";
+
+
+---
+<div data-wf-id="4bbb38bc-6b21-d3e8-49aa-163f6c8f6287" data-w-id="4bbb38bc-6b21-d3e8-49aa-163f6c8f6287" class="element-comparison">
+<div data-wf-id="b2e8c571-a762-3aa4-1945-a2cf4f1d79c7" data-w-id="b2e8c571-a762-3aa4-1945-a2cf4f1d79c7" class="comparison-grid">
+<div data-wf-id="4b8b9cbe-500b-ab98-5e97-83940755b9f2" data-w-id="4b8b9cbe-500b-ab98-5e97-83940755b9f2" class="comparison-column">
+<div data-wf-id="ab03bb15-4896-c6d1-7991-0cc8f9ca6a58" data-w-id="ab03bb15-4896-c6d1-7991-0cc8f9ca6a58" class="comparison-item">
+<ElementDynamicHeading style="h4" tag="h4">
+<slot name="label1">{propLabel1}</slot>
+</ElementDynamicHeading>
+</div>
+<div data-wf-id="e83583af-4577-a071-1368-2e16ef27f2cf" data-w-id="e83583af-4577-a071-1368-2e16ef27f2cf" class="comparison-list" name="">
+<slot name="content" />
+</div>
+</div>
+<div data-wf-id="5be73339-047c-0622-dfdf-52e3573e6483" data-w-id="5be73339-047c-0622-dfdf-52e3573e6483" class="comparison-column with">
+<div data-wf-id="fae30e88-dbd5-80af-346c-b6579e0b4dcd" data-w-id="fae30e88-dbd5-80af-346c-b6579e0b4dcd" class="comparison-item">
+<ElementDynamicHeading style="h4" tag="h4">
+<slot name="label2">{propLabel2}</slot>
+</ElementDynamicHeading>
+</div>
+<div data-wf-id="fc074d1d-3ba2-8472-a641-48de2c038bfa" data-w-id="fc074d1d-3ba2-8472-a641-48de2c038bfa" class="comparison-list" name="">
+<slot />
+</div>
+</div>
+</div>
+</div>

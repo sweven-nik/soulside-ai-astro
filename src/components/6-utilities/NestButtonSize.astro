@@ -1,0 +1,16 @@
+---
+
+
+interface Props {
+  /** Size */
+  size?: "normal" | "small";
+}
+const collectionData = {};
+const {
+  size: propSize = "normal"
+} = Astro.props;
+if (!["normal", "small"].includes(propSize)) throw new Error("NestButtonSize.size must be one of: normal, small");
+
+
+---
+<div data-wf-id="d7e834f3-e0c0-3b58-af0d-fe443b1fe655" data-w-id="d7e834f3-e0c0-3b58-af0d-fe443b1fe655" data-wf--nest-button-size--size={{"normal": "normal", "small": "small"}[propSize]} class:list={[{"small": "w-variant-098aa12b-e838-7de2-16cd-2ba07dd3eb99"}[propSize], "button-size_nest"]} data-wf-variant={["8390760e-ea96-e0a9-b745-22443266022a=" + ({"normal": "base", "small": "098aa12b-e838-7de2-16cd-2ba07dd3eb99"}[propSize])].join(" ")}></div>

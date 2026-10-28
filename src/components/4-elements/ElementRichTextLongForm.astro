@@ -1,0 +1,32 @@
+---
+import { text } from '@/lib/values';
+
+
+interface Props {
+  /** Body Font Size */
+  bodyFontSize?: "large" | "medium" | "regular" | "small" | "tiny";
+}
+const collectionData = {};
+const defaults = {"fae0a444-84d7-b42f-0519-b6dae2b313f7": [{"children": {"search": {"exclude": false}, "xattr": [], "displayName": "", "devlink": {"runtimeProps": {}, "slot": ""}, "attr": {"id": ""}, "visibility": {"conditions": [], "keepInHtml": false}, "tag": "h1", "styleBlockIds": [], "children": [{"children": "This is a medium length heading."}]}}, {"children": {"devlink": {"runtimeProps": {}, "slot": ""}, "displayName": "", "attr": {"id": ""}, "xattr": [], "search": {"exclude": false}, "visibility": {"conditions": [], "keepInHtml": false}, "styleBlockIds": [], "children": [{"children": "Lorem ipsum diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis."}]}}], "09d97f29-1387-cee3-b4d4-720d73807436": "base"};
+const {
+  bodyFontSize: propBodyFontSize = "regular"
+} = Astro.props;
+if (!["large", "medium", "regular", "small", "tiny"].includes(propBodyFontSize)) throw new Error("ElementRichTextLongForm.bodyFontSize must be one of: large, medium, regular, small, tiny");
+const propRichText = undefined;
+const data = {
+  ...defaults,
+  "09d97f29-1387-cee3-b4d4-720d73807436": {"large": "09d97f29-1387-cee3-b4d4-720d73807437", "medium": "09d97f29-1387-cee3-b4d4-720d73807438", "regular": "base", "small": "09d97f29-1387-cee3-b4d4-720d73807439", "tiny": "09d97f29-1387-cee3-b4d4-720d7380743a"}[propBodyFontSize],
+  "fae0a444-84d7-b42f-0519-b6dae2b313f7": propRichText === undefined ? defaults["fae0a444-84d7-b42f-0519-b6dae2b313f7"] : propRichText
+};
+for (const [key, name] of Object.entries({})) if (Astro.slots.has(name)) data[key] = [{__slot: name}];
+
+
+---
+<div data-wf-id="09d97f29-1387-cee3-b4d4-720d73807434" data-w-id="09d97f29-1387-cee3-b4d4-720d73807434" data-wf--element-rich-text-long-form--body-font-size={{"large": "large", "medium": "medium", "regular": "regular", "small": "small", "tiny": "tiny"}[propBodyFontSize]} class:list={["w-richtext", {"large": "w-variant-09d97f29-1387-cee3-b4d4-720d73807437", "medium": "w-variant-09d97f29-1387-cee3-b4d4-720d73807438", "small": "w-variant-09d97f29-1387-cee3-b4d4-720d73807439", "tiny": "w-variant-09d97f29-1387-cee3-b4d4-720d7380743a"}[propBodyFontSize], "text-rich-text-long-form"]} data-wf-variant={["09d97f29-1387-cee3-b4d4-720d73807436=" + ({"large": "09d97f29-1387-cee3-b4d4-720d73807437", "medium": "09d97f29-1387-cee3-b4d4-720d73807438", "regular": "base", "small": "09d97f29-1387-cee3-b4d4-720d73807439", "tiny": "09d97f29-1387-cee3-b4d4-720d7380743a"}[propBodyFontSize])].join(" ")}>
+<slot>{typeof data["fae0a444-84d7-b42f-0519-b6dae2b313f7"] === 'string' ? text(data["fae0a444-84d7-b42f-0519-b6dae2b313f7"]) : (<><h1 data-wf-id="76cac959-5b30-bec6-9387-f8803fac9e44" data-w-id="76cac959-5b30-bec6-9387-f8803fac9e44">
+This is a medium length heading.
+</h1>
+<p data-wf-id="76cac959-5b30-bec6-9387-f8803fac9e46" data-w-id="76cac959-5b30-bec6-9387-f8803fac9e46">
+Lorem ipsum diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis.
+</p></>)}</slot>
+</div>

@@ -1,0 +1,26 @@
+---
+import { safeTag } from '@/lib/attributes';
+
+
+interface Props {
+  /** Style */
+  style?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "h0";
+  /** Tag */
+  tag?: string;
+  /** Visibility */
+  visibility?: boolean;
+}
+const collectionData = {};
+const {
+  style: propStyle = "h2",
+  tag: propTag = "h2",
+  visibility: propVisibility = true
+} = Astro.props;
+const propText = "This is a dynamic heading with tag and style options";
+if (!["h1", "h2", "h3", "h4", "h5", "h6", "h0"].includes(propStyle)) throw new Error("ElementDynamicHeading.style must be one of: h1, h2, h3, h4, h5, h6, h0");
+
+const Tag = safeTag(propTag, "h1");
+---
+{propVisibility && (<Tag data-wf-id="5f594023-8afe-9c4e-aa59-6db291e42e23" data-w-id="5f594023-8afe-9c4e-aa59-6db291e42e23" data-wf--element-dynamic-heading--style={{"h1": "h1", "h2": "h2", "h3": "h3", "h4": "h4", "h5": "h5", "h6": "h6", "h0": "h0"}[propStyle]} class:list={[{"h1": "w-variant-5f594023-8afe-9c4e-aa59-6db291e42e26", "h3": "w-variant-5f594023-8afe-9c4e-aa59-6db291e42e27", "h4": "w-variant-5f594023-8afe-9c4e-aa59-6db291e42e28", "h5": "w-variant-5f594023-8afe-9c4e-aa59-6db291e42e29", "h6": "w-variant-5f594023-8afe-9c4e-aa59-6db291e42e2a", "h0": "w-variant-05ad9414-f4d7-5d3a-fab4-f07255cbf584"}[propStyle], "heading-style-dynamic"]} data-wf-variant={["5f594023-8afe-9c4e-aa59-6db291e42e25=" + ({"h1": "5f594023-8afe-9c4e-aa59-6db291e42e26", "h2": "base", "h3": "5f594023-8afe-9c4e-aa59-6db291e42e27", "h4": "5f594023-8afe-9c4e-aa59-6db291e42e28", "h5": "5f594023-8afe-9c4e-aa59-6db291e42e29", "h6": "5f594023-8afe-9c4e-aa59-6db291e42e2a", "h0": "05ad9414-f4d7-5d3a-fab4-f07255cbf584"}[propStyle])].join(" ")}>
+<slot>{propText}</slot>
+</Tag>)}

@@ -1,0 +1,29 @@
+---
+import ElementAutoAccordion from '@/components/8-interactive/ElementAutoAccordion.astro';
+
+interface Props {
+  descriptionTag?: string;
+  /** Icon Visibility */
+  iconVisibility?: boolean;
+}
+const collectionData = {};
+const {
+  descriptionTag: propDescriptionTag = "p",
+  iconVisibility: propIconVisibility = true
+} = Astro.props;
+const propDescription = "Lorem ipsum diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis.";
+const propHeading = "Question text goes here";
+
+
+---
+<div sw-accordion="toggle" data-wf-id="435bd18b-c670-a2d6-2a39-2675477bceb2" data-w-id="435bd18b-c670-a2d6-2a39-2675477bceb2" class="accordion-card">
+{propIconVisibility && (<div data-wf-id="435bd18b-c670-a2d6-2a39-2675477bceb3" data-w-id="435bd18b-c670-a2d6-2a39-2675477bceb3" class="w-embed icon-embed height-1.5rem">
+<slot name="svgicon"><svg width="100%" height="100%" viewBox="0 0 34 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 40V0H18.2265L19.3219 5.2871H33.5484V25.3368H20.6187L19.5284 20.0594H2.18387V40H0ZM22.511 23.1529H31.3645V7.47032H17.429L16.3342 2.18387H2.18387V17.8761H21.4161L22.511 23.1529Z" fill="#1D4B4A"></path>
+</svg></slot>
+</div>)}
+<ElementAutoAccordion elementRichTextBodyFontSize="regular" visibility={true}>
+<slot name="description" slot="elementrichtextrichtext">{propDescription}</slot>
+<slot name="heading" slot="text">{propHeading}</slot>
+</ElementAutoAccordion>
+</div>
