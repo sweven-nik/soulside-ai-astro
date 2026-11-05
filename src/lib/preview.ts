@@ -6,7 +6,7 @@
  * checked against Sanity with the read token. On success a cookie is set whose value is derived
  * from the token, so it can't be forged without it.
  */
-import { createClient, type StegaConfig } from '@sanity/client';
+import { createClient } from '@sanity/client';
 import { env } from 'cloudflare:workers';
 import { apiVersion, dataset, projectId } from '@/sanity/env';
 
@@ -38,19 +38,6 @@ export async function isPreviewRequest(cookie: string | undefined) {
   return cookie === (await previewCookieValue());
 }
 
-/**
- * Stega (the invisible markers that make text clickable) only on text editors see: slot text and
- * Portable Text spans, and button labels. Never on prop values like "lightest", which the
- * components compare against, or on HTML, SVG, classes and URLs.
- */
-const stegaFilter: StegaConfig['filter'] = ({ sourcePath, filterDefault, ...rest }) => {
-  const last = sourcePath.at(-1);
-  const inCode = sourcePath.some((seg) => typeof seg === 'string' && (seg === 'code' || seg === 'attributes' || seg === 'className' || /svg/.test(seg)));
-  if (inCode) return false;
-  const isText = last === 'text' || (typeof last === 'string' && last.startsWith('slot_'));
-  return isText && filterDefault({ sourcePath, ...rest });
-};
-
 export function previewClient() {
   const local = devWithoutToken();
   return createClient({
@@ -60,7 +47,9 @@ export function previewClient() {
     useCdn: false,
     ...(local ? {} : { token: readToken() }),
     perspective: local ? 'published' : 'drafts',
-    stega: { enabled: true, studioUrl: '/admin', filter: stegaFilter },
+    // No stega: invisible markers inside the text break Webflow's SplitText and count-up
+    // animations. Text is made clickable with data-sanity attributes instead (Blocks.astro).
+    stega: false,
   });
 }
 

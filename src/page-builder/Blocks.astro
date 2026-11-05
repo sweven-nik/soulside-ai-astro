@@ -22,6 +22,29 @@ const childPreview = (block: any, field: string) => {
   const path = blockPath(block);
   return preview && path ? { ...preview, path: `${path}.${field}` } : undefined;
 };
+const fieldAttribute = (block: any, field: string) => {
+  const path = blockPath(block);
+  return preview && path ? blockAttribute(preview, `${path}.${field}`) : undefined;
+};
+const attr = (value: string) => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+/** Add an attribute to every top-level element of an HTML fragment (rich text blocks). */
+function markTopLevel(html: string, value: string) {
+  let depth = 0;
+  return html.replace(/<(\/?)([a-zA-Z][\w-]*)([^>]*?)(\/?)>/g, (tag, close, name, rest, selfClose) => {
+    const isVoid = selfClose || /^(br|img|hr|input|meta|link|source|wbr)$/i.test(name);
+    if (close) { depth--; return tag; }
+    const out = depth === 0 ? `<${name} data-sanity="${attr(value)}"${rest}${selfClose}>` : tag;
+    if (!isVoid) depth++;
+    return out;
+  });
+}
+/** In the preview, make a text slot clickable without changing its text (no stega). */
+function markText(html: string, kind: string, value: string | undefined) {
+  if (!value || !html.trim()) return html;
+  if (kind === 'rich') return markTopLevel(html, value);
+  if (kind === 'string' || kind === 'inline') return `<span data-sanity="${attr(value)}">${html}</span>`;
+  return html;
+}
 const attributeFor = (block: any) => {
   const path = blockPath(block);
   return preview && path ? blockAttribute(preview, path) : undefined;
@@ -55,6 +78,7 @@ const items = blocks.map((block) => {
   const slots = def.slots
     .map((slot) => ({ ...slot, value: block[slotField(slot.name)] }))
     .filter((slot) => !isEmpty(slot.value))
+    .map((slot) => ({ ...slot, field: fieldAttribute(block, slotField(slot.name)) }))
     .map((slot) => ({
       name: slot.name === 'default' ? undefined : slot.name,
       blocks: slot.kind === 'blocks' ? slot.value : undefined,
@@ -62,13 +86,17 @@ const items = blocks.map((block) => {
       html:
         slot.kind === 'blocks'
           ? undefined
-          : slot.kind === 'rich'
-            ? portableTextToHtml(slot.value)
-            : slot.kind === 'inline'
-              ? portableTextToInlineHtml(slot.value)
-              : slot.kind === 'svg'
-                ? String(slot.value)
-                : escape(String(slot.value)),
+          : markText(
+              slot.kind === 'rich'
+                ? portableTextToHtml(slot.value)
+                : slot.kind === 'inline'
+                  ? portableTextToInlineHtml(slot.value)
+                  : slot.kind === 'svg'
+                    ? String(slot.value)
+                    : escape(String(slot.value)),
+              slot.kind,
+              slot.field,
+            ),
     }));
   return { kind: 'component' as const, Component: def.Component, props, slots, attribute };
 });

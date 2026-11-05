@@ -25,5 +25,5 @@ Astro.response.headers.set('Cache-Control', 'private, no-store');
 Astro.response.headers.set('X-Robots-Tag', 'noindex');
 ---
 <PageView page={resolved} preview={{ id: page._id, type: page._type }}>
-  <VisualEditing slot="footer" enabled={true} zIndex={10000} experimental_refreshStrategy={{ type: 'reload', followUpDelayMs: 1200 }} />
+  <VisualEditing slot="footer" enabled={true} zIndex={10000} />
 </PageView>

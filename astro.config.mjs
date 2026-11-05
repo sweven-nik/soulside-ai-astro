@@ -16,6 +16,11 @@ export default defineConfig({
   session: false, // no Astro sessions, so no KV namespace to provision
   trailingSlash: 'never',
   build: { format: 'file' },
+  vite: {
+    // Dev only: pre-bundle the Visual Editing overlay's CommonJS dependencies (lodash via @sanity/mutate)
+    // so the overlay hydrates in the browser.
+    optimizeDeps: { include: ['@sanity/visual-editing/react', '@sanity/mutate'] },
+  },
   integrations: [
     sanity({
       projectId: '7k5xgu7v',
@@ -23,7 +28,6 @@ export default defineConfig({
       apiVersion: '2026-11-01',
       useCdn: false, // static build: always read fresh content
       studioBasePath: '/admin',
-      stega: { studioUrl: '/admin' },
       injectTypes: true,
     }),
     react(),

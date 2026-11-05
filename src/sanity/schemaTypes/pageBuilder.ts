@@ -4,6 +4,16 @@
  * its props become settings fields with the component's own options and defaults, and
  * its slots become content fields.
  */
+import {BlockElementIcon} from '@sanity/icons/BlockElement'
+import {CodeIcon} from '@sanity/icons/Code'
+import {ComponentIcon} from '@sanity/icons/Component'
+import {DashboardIcon} from '@sanity/icons/Dashboard'
+import {LinkIcon} from '@sanity/icons/Link'
+import {SparklesIcon} from '@sanity/icons/Sparkles'
+import {StackIcon} from '@sanity/icons/Stack'
+import {ThLargeIcon} from '@sanity/icons/ThLarge'
+import {UsersIcon} from '@sanity/icons/Users'
+import {WrenchIcon} from '@sanity/icons/Wrench'
 import {defineArrayMember, defineField, defineType} from 'sanity'
 import manifestJson from '../../page-builder/manifest.json'
 import {componentTitle, humanize, slotField, type ManifestComponent, type ManifestProp, type ManifestSlot} from '../../page-builder/fields'
@@ -94,10 +104,57 @@ function slotFieldDef(slot: ManifestSlot) {
 
 // --- types --------------------------------------------------------------------
 
-const firstText = (value: unknown): string | undefined => {
-  if (typeof value === 'string') return value
-  if (Array.isArray(value)) return value.flatMap((b: any) => b?.children?.map((c: any) => c.text) ?? []).join('') || undefined
+const CATEGORY_ICON: Record<string, any> = {
+  Sections: StackIcon,
+  Layouts: ThLargeIcon,
+  Elements: BlockElementIcon,
+  Buttons: LinkIcon,
+  Interactive: SparklesIcon,
+  Collections: UsersIcon,
+  Globals: DashboardIcon,
+  Utilities: WrenchIcon,
+  Icons: ComponentIcon,
+}
+
+/** Plain text of a string or Portable Text value. */
+const textOf = (value: unknown): string | undefined => {
+  if (typeof value === 'string') return value.trim() || undefined
+  if (Array.isArray(value) && value[0]?._type === 'block') return value.flatMap((b: any) => b?.children?.map((c: any) => c.text) ?? []).join('').trim() || undefined
   return undefined
+}
+
+// Fields that read as a block's title, best first. IDs and classes only as a last resort.
+const TITLE_FIELDS = ['slot_headingtext', 'slot_heading', 'slot_name', 'slot_stat', 'slot_label1', 'text', 'linkText', 'slot_taglinetext', 'slot_default', 'slot_text', 'slot_testimonialbody', 'slot_bodyrichtext', 'label']
+const FALLBACK_FIELDS = ['sectionId', 'className']
+const typeTitle = (type: string) => (components.some((c) => c.name === type) ? componentTitle(type) : undefined)
+const nestedBlocks = (value: any): any[] =>
+  Object.values(value).flatMap((child) => (Array.isArray(child) && child[0]?._type && child[0]._type !== 'block' ? child : []))
+
+/** First readable text in a block, searching nested blocks (a Section shows its first heading). */
+function findText(value: any, depth = 0): string | undefined {
+  if (!value || typeof value !== 'object' || depth > 6) return undefined
+  for (const field of TITLE_FIELDS) {
+    const text = textOf(value[field])
+    if (text) return text
+  }
+  for (const item of nestedBlocks(value)) {
+    const text = findText(item, depth + 1)
+    if (text) return text
+  }
+  return undefined
+}
+
+/** Title for a block: its first text, else an anchor id/class, else the first nested component's name. */
+function findTitle(value: any): string | undefined {
+  if (!value || typeof value !== 'object') return undefined
+  const text = findText(value)
+  if (text) return text
+  for (const field of FALLBACK_FIELDS) {
+    const id = textOf(value[field])
+    if (id) return field === 'sectionId' ? `#${id}` : `.${id.split(' ')[0]}`
+  }
+  const first = nestedBlocks(value)[0]
+  return first ? (typeTitle(first._type) ?? findTitle(first)) : undefined
 }
 
 function blockType(component: ManifestComponent) {
@@ -107,15 +164,17 @@ function blockType(component: ManifestComponent) {
     title: group!,
     options: {collapsible: true, collapsed: true},
   }))
-  const previewFields = component.slots.filter((s) => s.kind === 'string' || s.kind === 'inline').map((s) => slotField(s.name))
-  const textProps = component.props.filter((p) => p.kind === 'string' && /^(text|linkText|sectionId)$/.test(p.name)).map((p) => p.name)
-  const select = Object.fromEntries([...previewFields, ...textProps].slice(0, 6).map((f) => [f, f]))
   const title = componentTitle(component.name)
-
+  // Select every slot plus title-like props; Sanity returns nested blocks inline, so prepare()
+  // can find the first heading inside a Section or Layout.
+  const select = Object.fromEntries(
+    [...component.slots.map((s) => slotField(s.name)), ...component.props.filter((p) => /^(text|linkText|sectionId|variant|style|layout|sectionColorScheme)$/.test(p.name)).map((p) => p.name)].map((f) => [f, f]),
+  )
   return defineType({
     name: component.name,
     title,
     type: 'object',
+    icon: CATEGORY_ICON[component.category] ?? BlockElementIcon,
     groups: [
       ...(component.slots.length ? [{name: 'content', title: 'Content', default: true}] : []),
       ...(component.props.length ? [{name: 'settings', title: 'Settings', default: !component.slots.length}] : []),
@@ -124,10 +183,15 @@ function blockType(component: ManifestComponent) {
     fields: fields.length ? fields : [defineField({name: 'note', type: 'string', readOnly: true, hidden: true})],
     preview: {
       select,
-      prepare: (values: Record<string, unknown>) => ({
-        title: Object.values(values).map(firstText).find(Boolean) ?? title,
-        subtitle: title,
-      }),
+      prepare: (values: Record<string, any>) => {
+        const found = findTitle(values)
+        const detail = [values.sectionColorScheme, values.layout, values.variant, values.style].filter((v) => typeof v === 'string' && v).join(' · ')
+        return {
+          title: found ? (found.length > 70 ? `${found.slice(0, 70)}…` : found) : title,
+          subtitle: [title, detail].filter(Boolean).join(' — '),
+          media: CATEGORY_ICON[component.category] ?? BlockElementIcon,
+        }
+      },
     },
   })
 }
@@ -169,6 +233,7 @@ export const htmlEmbed = defineType({
   name: 'htmlEmbed',
   title: 'Custom HTML',
   type: 'object',
+  icon: CodeIcon,
   fields: [
     defineField({name: 'label', type: 'string', description: 'Only shown in the Studio'}),
     defineField({name: 'code', type: 'text', rows: 8, validation: (rule) => rule.required()}),
@@ -180,6 +245,7 @@ export const htmlWrapper = defineType({
   name: 'htmlWrapper',
   title: 'Wrapper',
   type: 'object',
+  icon: ThLargeIcon,
   description: 'A plain HTML element with classes, wrapping other blocks.',
   fields: [
     defineField({name: 'label', type: 'string', description: 'Only shown in the Studio'}),
@@ -194,8 +260,12 @@ export const htmlWrapper = defineType({
     blocksArray('children', 'Content'),
   ],
   preview: {
-    select: {label: 'label', tag: 'tag', className: 'className'},
-    prepare: ({label, tag, className}) => ({title: label || (className ? `.${className.split(' ')[0]}` : 'Wrapper'), subtitle: `<${tag || 'div'}${className ? ` class="${className}"` : ''}>`}),
+    select: {label: 'label', tag: 'tag', className: 'className', children: 'children'},
+    prepare: ({label, tag, className, children}) => ({
+      title: label || findTitle({children, className}) || 'Wrapper',
+      subtitle: `Wrapper — <${tag || 'div'}${className ? ` class="${className}"` : ''}>`,
+      media: ThLargeIcon,
+    }),
   },
 })
 
