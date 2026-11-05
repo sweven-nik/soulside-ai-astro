@@ -9,7 +9,8 @@ import __lumosAsset106 from '@/assets/SplitText.min.js?url';
 import '@/styles/webflow.css';
 
 const { pageTitle = '', pageDescription = '', ogImage = '/og-image.jpg', webflowPageId, ...rest } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const canonicalPath = Astro.url.pathname.replace(/(index)?\.html$/, '').replace(/(.)\/$/, '$1') || '/';
+const canonical = new URL(canonicalPath, Astro.site).href;
 const ogImageUrl = new URL(ogImage, Astro.site).href;
 ---
 <!doctype html>
