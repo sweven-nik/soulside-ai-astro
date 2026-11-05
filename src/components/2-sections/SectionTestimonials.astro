@@ -1,6 +1,6 @@
 ---
 import { resolveAssetUrls } from '@/lib/asset-urls';
-import { getCollectionInSourceOrder } from '@/lib/collections';
+import { getSortedCollection } from '@/lib/collections';
 import { evaluate } from '@/lib/bindings';
 import { linkUrl, linkTarget } from '@/lib/urls';
 import Section from '@/components/2-sections/Section.astro';
@@ -28,7 +28,7 @@ const data = {
 };
 for (const [key, name] of Object.entries({})) if (Astro.slots.has(name)) data[key] = [{__slot: name}];
 const collections = {
-  "testimonials": (await getCollectionInSourceOrder("testimonials")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/testimonials/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
+  "testimonials": (await getSortedCollection("testimonials")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/testimonials/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
 };
 const items1 = [...collections["testimonials"]];
 ---

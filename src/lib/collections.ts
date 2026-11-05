@@ -1,12 +1,18 @@
 import { getCollection, type CollectionKey } from 'astro:content';
 
-// Astro 7's file() loader no longer returns entries in source-file order, which the
-// Webflow export relied on. Keep the order the items appear in src/data/<name>.json.
-const sources = import.meta.glob<Array<{ id?: string; slug?: string }>>('/src/data/*.json', { eager: true, import: 'default' });
-
-export async function getCollectionInSourceOrder<C extends CollectionKey>(name: C) {
-  const source = sources[`/src/data/${name}.json`] ?? [];
-  const position = new Map(source.map((entry, index) => [entry.id ?? entry.slug, index]));
+/**
+ * getCollection() doesn't guarantee order, and the exported components render entries
+ * in whatever order they receive them. Sort by the editor-controlled `order` field
+ * (logos, team, testimonials, categories) or newest first by publish date (resources).
+ */
+export async function getSortedCollection<C extends CollectionKey>(name: C) {
   const entries = await getCollection(name);
-  return entries.sort((a, b) => (position.get(a.id) ?? Infinity) - (position.get(b.id) ?? Infinity));
+  const data = (entry: (typeof entries)[number]) => entry.data as Record<string, any>;
+  return entries.sort((a, b) => {
+    const [oa, ob] = [data(a).order, data(b).order];
+    if (oa != null || ob != null) return (oa ?? Infinity) - (ob ?? Infinity);
+    const [da, db] = [data(a)['publish-date'] ?? '', data(b)['publish-date'] ?? ''];
+    if (da !== db) return da < db ? 1 : -1;
+    return a.id.localeCompare(b.id);
+  });
 }

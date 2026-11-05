@@ -1,7 +1,7 @@
 import {BookIcon} from "@sanity/icons/Book"
 import {TagIcon} from "@sanity/icons/Tag"
 import {defineField, defineType} from 'sanity'
-import {imageWithAlt, slugField, webflowIdField} from '../objects/fields'
+import {imageWithAlt, orderField, slugField, webflowIdField} from '../objects/fields'
 
 export const resourceCategory = defineType({
   name: 'resourceCategory',
@@ -11,8 +11,10 @@ export const resourceCategory = defineType({
   fields: [
     defineField({name: 'name', type: 'string', validation: (rule) => rule.required()}),
     slugField(),
+    orderField,
     webflowIdField,
   ],
+  orderings: [{title: "Display order", name: "orderAsc", by: [{field: "order", direction: "asc"}]}],
 })
 
 export const resource = defineType({

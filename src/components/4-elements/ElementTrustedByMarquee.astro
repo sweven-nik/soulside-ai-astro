@@ -1,7 +1,7 @@
 ---
 import __lumosAsset27 from '@/assets/placeholder-2.svg?url';
 import { resolveAssetUrls } from '@/lib/asset-urls';
-import { getCollectionInSourceOrder } from '@/lib/collections';
+import { getSortedCollection } from '@/lib/collections';
 import { imageUrl } from '@/lib/urls';
 
 
@@ -14,7 +14,7 @@ const {
 } = Astro.props;
 
 const collections = {
-  "trusted-by-logos": (await getCollectionInSourceOrder("trusted-by-logos")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/trusted-by-logos/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
+  "trusted-by-logos": (await getSortedCollection("trusted-by-logos")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/trusted-by-logos/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
 };
 const items1 = [...collections["trusted-by-logos"]];
 ---

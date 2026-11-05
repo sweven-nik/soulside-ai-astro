@@ -17,6 +17,15 @@ export const richText = defineType({
         {title: 'Quote', value: 'blockquote'},
       ],
       marks: {
+        decorators: [
+          {title: "Bold", value: "strong"},
+          {title: "Italic", value: "em"},
+          {title: "Underline", value: "underline"},
+          {title: "Strike", value: "strike-through"},
+          {title: "Code", value: "code"},
+          {title: "Subscript", value: "sub"},
+          {title: "Superscript", value: "sup"},
+        ],
         annotations: [
           {
             name: 'link',
