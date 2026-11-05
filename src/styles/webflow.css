@@ -980,7 +980,7 @@ figcaption { margin-top: 0.25rem; text-align: center; }
 .navbar_menu { position: static; display: flex; align-items: center; }
 .navbar_menu.is-page-height-tablet { width: 100%; justify-content: center; align-items: center; flex-grow: 0; flex-shrink: 0; flex-basis: auto; }
 .navbar_menu-links { z-index: 2; }
-.navbar_link { margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0.5rem; padding-right: 1rem; padding-bottom: 0.5rem; padding-left: 1rem; flex-grow: 0; flex-shrink: 0; flex-basis: auto; font-weight: 400; }
+.navbar_link { text-decoration: none !important; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0.5rem; padding-right: 1rem; padding-bottom: 0.5rem; padding-left: 1rem; flex-grow: 0; flex-shrink: 0; flex-basis: auto; font-weight: 400; }
 .navbar_link.w--current { color: var(--neutral--neutral-darkest); }
 .navbar_menu-dropdown { display: inline-flex; flex-direction: column; flex-wrap: nowrap; }
 .navbar_dropdown-toggle { display: flex; padding-top: 0.5rem; padding-right: 1rem; padding-bottom: 0.5rem; padding-left: 1rem; align-items: center; grid-column-gap: 0.5rem; font-weight: 400; }
