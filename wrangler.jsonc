@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "soulside-ai",
+  "name": "soulside-ai-astro",
   "compatibility_date": "2026-11-01",
   // Static site: serve the Astro build output. No Worker script yet.
   "assets": {
