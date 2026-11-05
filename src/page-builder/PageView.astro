@@ -1,0 +1,40 @@
+---
+/**
+ * The page shell for page builder pages, shared by the static pages and the Visual Editing preview.
+ * The wrapper markup and data-w-id values match the Webflow-exported pages so the Webflow runtime
+ * (navbar, interactions) behaves the same.
+ */
+import Layout from '@/layouts/Layout.astro';
+import GlobalEmbeds from '@/components/1-globals/GlobalEmbeds.astro';
+import GlobalAnnouncementBar from '@/components/1-globals/GlobalAnnouncementBar.astro';
+import GlobalNavbar from '@/components/1-globals/GlobalNavbar.astro';
+import GlobalFooter from '@/components/1-globals/GlobalFooter.astro';
+import Blocks from './Blocks.astro';
+import type { PreviewContext } from './preview-attributes';
+
+interface Props {
+  page: any;
+  /** Set in the Visual Editing preview: marks blocks for click-to-edit and drag and drop. */
+  preview?: PreviewContext;
+}
+const { page, preview } = Astro.props;
+---
+<Layout
+  webflowPageId={page.webflowPageId}
+  pageTitle={page.seoTitle || page.title}
+  pageDescription={page.seoDescription ?? ''}
+  ogImage={page.ogImage?.url || undefined}
+  data-w-id="60d3f7b8b0e86c28630fc6d6"
+>
+<div data-w-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" class="page-wrapper">
+<GlobalEmbeds />
+{page.showAnnouncementBar !== false && <GlobalAnnouncementBar />}
+{page.navbarDemoPopup === false ? <GlobalNavbar enableDemoPopup={false} /> : <GlobalNavbar />}
+{page.backgroundLines && <div data-w-id="f463e68a-53d4-10ed-080e-6ce980401ea4" class="container-xlarge bg-lines"></div>}
+<main data-w-id="dcf94f42-feae-15fa-9712-17acf0a0a835" class="main-wrapper">
+<Blocks blocks={page.sections} preview={preview && { ...preview, path: 'sections' }} />
+</main>
+<GlobalFooter />
+</div>
+<slot name="footer" slot="footer" />
+</Layout>

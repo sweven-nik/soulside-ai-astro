@@ -1,0 +1,29 @@
+---
+/**
+ * Visual Editing preview: renders a page builder page from drafts, with click-to-edit text and
+ * draggable blocks, for the Presentation tool in the Studio. Rendered on demand; editors only.
+ */
+import { VisualEditing } from '@sanity/astro/visual-editing';
+import PageView from '@/page-builder/PageView.astro';
+import { PAGES_QUERY, resolveImages } from '@/page-builder/load';
+import { PREVIEW_COOKIE, isPreviewRequest, previewClient, slugFromPreviewPath } from '@/lib/preview';
+
+export const prerender = false;
+
+const slug = slugFromPreviewPath(Astro.params.slug);
+if (!(await isPreviewRequest(Astro.cookies.get(PREVIEW_COOKIE)?.value))) {
+  // Not opened from the Studio: send visitors to the published page.
+  return Astro.redirect(slug === 'index' ? '/' : `/${slug}`, 307);
+}
+
+const client = previewClient();
+const page = await client.fetch(`${PAGES_QUERY}[slug.current == $slug][0]`, { slug });
+if (!page) return new Response(`No page with slug "${slug}"`, { status: 404 });
+const resolved = await resolveImages(page, client);
+
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+Astro.response.headers.set('X-Robots-Tag', 'noindex');
+---
+<PageView page={resolved} preview={{ id: page._id, type: page._type }}>
+  <VisualEditing slot="footer" enabled={true} zIndex={10000} experimental_refreshStrategy={{ type: 'reload', followUpDelayMs: 1200 }} />
+</PageView>

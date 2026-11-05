@@ -1,0 +1,16 @@
+---
+/**
+ * Adds an attribute to the first element its content renders, without adding a wrapper element
+ * (a wrapper would change grid and flex layouts). Used only in the Visual Editing preview.
+ */
+interface Props {
+  name: string;
+  value: string;
+}
+const { name, value } = Astro.props;
+const html = await Astro.slots.render('default');
+const escaped = value.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+// The first opening tag that isn't <style>, <script>, <link>, <template> or a comment.
+const out = html.replace(/<(?!\/|!|style\b|script\b|link\b|template\b|meta\b)([a-zA-Z][\w:-]*)/, (tag) => `${tag} ${name}="${escaped}"`);
+---
+<Fragment set:html={out} />

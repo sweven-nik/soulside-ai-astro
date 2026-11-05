@@ -2,10 +2,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "soulside-ai-astro",
   "compatibility_date": "2026-11-01",
-  // Static site: serve the Astro build output. No Worker script yet.
+  "compatibility_flags": ["nodejs_compat"],
+  // Prerendered pages are served as static assets; only /preview/* and /api/* run in the Worker.
+  // The Astro Cloudflare adapter sets "main" and the assets directory at build time.
   "assets": {
-    "directory": "./dist",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
   }
+  // Secret (not in this file): SANITY_API_READ_TOKEN — `npx wrangler secret put SANITY_API_READ_TOKEN`
 }

@@ -5,20 +5,42 @@
  */
 import { portableTextToHtml, portableTextToInlineHtml } from '@/lib/portable-text';
 import { slotField } from './fields';
+import { blockAttribute, type PreviewContext } from './preview-attributes';
 import { registry } from './registry';
+import WithAttribute from './WithAttribute.astro';
 
 interface Props {
   blocks?: any[];
+  /** Visual Editing preview only: where these blocks live in the document. */
+  preview?: PreviewContext;
 }
-const { blocks = [] } = Astro.props;
+const { blocks = [], preview } = Astro.props;
+
+// Path of a block inside the document, and the preview context for one of its child arrays.
+const blockPath = (block: any) => (preview?.path && block?._key ? `${preview.path}[_key=="${block._key}"]` : undefined);
+const childPreview = (block: any, field: string) => {
+  const path = blockPath(block);
+  return preview && path ? { ...preview, path: `${path}.${field}` } : undefined;
+};
+const attributeFor = (block: any) => {
+  const path = blockPath(block);
+  return preview && path ? blockAttribute(preview, path) : undefined;
+};
 
 const isEmpty = (value: unknown) => value == null || value === '' || (Array.isArray(value) && value.length === 0);
 
 const items = blocks.map((block) => {
-  if (block?._type === 'htmlEmbed') return { kind: 'html' as const, html: block.code ?? '' };
+  const attribute = attributeFor(block);
+  if (block?._type === 'htmlEmbed') return { kind: 'html' as const, html: block.code ?? '', attribute };
   if (block?._type === 'htmlWrapper') {
     const attrs = Object.fromEntries((block.attributes ?? []).filter((a: any) => a?.name).map((a: any) => [a.name, a.value ?? '']));
-    return { kind: 'wrapper' as const, Tag: block.tag || 'div', attrs: { ...attrs, class: block.className || undefined }, children: block.children ?? [] };
+    return {
+      kind: 'wrapper' as const,
+      Tag: block.tag || 'div',
+      attrs: { ...attrs, class: block.className || undefined, ...(attribute ? { 'data-sanity': attribute } : {}) },
+      children: block.children ?? [],
+      childPreview: childPreview(block, 'children'),
+    };
   }
   const def = registry[block?._type];
   if (!def?.Component) {
@@ -36,6 +58,7 @@ const items = blocks.map((block) => {
     .map((slot) => ({
       name: slot.name === 'default' ? undefined : slot.name,
       blocks: slot.kind === 'blocks' ? slot.value : undefined,
+      preview: slot.kind === 'blocks' ? childPreview(block, slotField(slot.name)) : undefined,
       html:
         slot.kind === 'blocks'
           ? undefined
@@ -47,7 +70,7 @@ const items = blocks.map((block) => {
                 ? String(slot.value)
                 : escape(String(slot.value)),
     }));
-  return { kind: 'component' as const, Component: def.Component, props, slots };
+  return { kind: 'component' as const, Component: def.Component, props, slots, attribute };
 });
 
 function escape(text: string) {
@@ -56,9 +79,23 @@ function escape(text: string) {
 ---
 {items.map((item) =>
   !item ? null : item.kind === 'html' ? (
-    <Fragment set:html={item.html} />
+    item.attribute ? <WithAttribute name="data-sanity" value={item.attribute}><Fragment set:html={item.html} /></WithAttribute> : <Fragment set:html={item.html} />
   ) : item.kind === 'wrapper' ? (
-    <item.Tag {...item.attrs}><Astro.self blocks={item.children} /></item.Tag>
+    <item.Tag {...item.attrs}><Astro.self blocks={item.children} preview={item.childPreview} /></item.Tag>
+  ) : item.attribute ? (
+    <WithAttribute name="data-sanity" value={item.attribute}>
+      <item.Component {...item.props}>
+        {item.slots.map((slot) =>
+          slot.blocks ? (
+            slot.name ? <Fragment slot={slot.name}><Astro.self blocks={slot.blocks} preview={slot.preview} /></Fragment> : <Astro.self blocks={slot.blocks} preview={slot.preview} />
+          ) : slot.name ? (
+            <Fragment slot={slot.name} set:html={slot.html} />
+          ) : (
+            <Fragment set:html={slot.html} />
+          ),
+        )}
+      </item.Component>
+    </WithAttribute>
   ) : (
     <item.Component {...item.props}>
       {item.slots.map((slot) =>
