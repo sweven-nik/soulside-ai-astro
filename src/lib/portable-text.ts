@@ -22,3 +22,9 @@ const components: Partial<PortableTextHtmlComponents> = {
 export function portableTextToHtml(blocks: unknown): string {
   return Array.isArray(blocks) && blocks.length ? toHTML(blocks as any, {components}) : ''
 }
+
+/** Render inline text (a single paragraph) without the wrapping <p>, for text slots. */
+export function portableTextToInlineHtml(blocks: unknown): string {
+  if (!Array.isArray(blocks) || !blocks.length) return ''
+  return toHTML(blocks as any, {components: {...components, block: {normal: ({children}) => children ?? ''}}})
+}

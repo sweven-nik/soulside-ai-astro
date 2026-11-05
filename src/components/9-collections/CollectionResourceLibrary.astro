@@ -1,22 +1,16 @@
 ---
+/** Resource categories (filters) and resources from Sanity, as exported from Webflow. */
 import { resolveAssetUrls } from '@/lib/asset-urls';
 import { getSortedCollection } from '@/lib/collections';
-import Layout from '@/layouts/Layout.astro';
 import { evaluate } from '@/lib/bindings';
 import { text } from '@/lib/values';
 import { linkUrl, linkTarget } from '@/lib/urls';
-import GlobalEmbeds from '@/components/1-globals/GlobalEmbeds.astro';
-import GlobalAnnouncementBar from '@/components/1-globals/GlobalAnnouncementBar.astro';
-import GlobalNavbar from '@/components/1-globals/GlobalNavbar.astro';
-import Section from '@/components/2-sections/Section.astro';
-import ElementContentGroup from '@/components/4-elements/ElementContentGroup.astro';
 import UtilitySectionPadding from '@/components/6-utilities/UtilitySectionPadding.astro';
 import NestContainer from '@/components/6-utilities/NestContainer.astro';
 import ElementBlogCard from '@/components/4-elements/ElementBlogCard.astro';
 import NestPaddingGlobal from '@/components/6-utilities/NestPaddingGlobal.astro';
 import NestColorScheme from '@/components/6-utilities/NestColorScheme.astro';
 import GlobalBackgroundLines from '@/components/1-globals/GlobalBackgroundLines.astro';
-import GlobalFooter from '@/components/1-globals/GlobalFooter.astro';
 const bindings: any[] = [
   {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoFullSlugToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "fullSlug"}}}},
   {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoFullSlugToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "fullSlug"}}}},
@@ -33,19 +27,6 @@ const collections = {
 const items1 = [...collections["resource-categories"]];
 const items3 = [...collections["resource"]];
 ---
-<Layout webflowPageId="6ac68d331c342211e8d462c6" pageTitle="Behavioral Health AI Resources & Insights | Soulside AI" pageDescription="Articles, guides, and webinars on behavioral health AI, clinical documentation, compliance, and revenue cycle best practices from the Soulside AI team." data-w-id="60d3f7b8b0e86c28630fc6d6">
-<div data-w-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" class="page-wrapper">
-<GlobalEmbeds />
-<GlobalAnnouncementBar />
-<GlobalNavbar />
-<div data-w-id="34184fc4-bd7c-2241-6cfe-4752e033923d" class="main-wrapper">
-<Section>
-<ElementContentGroup contentTextWrap="balance" buttonGroupVisibility={false} bodyRichTextFontSize="medium" bodyRichTextTag="p" headingStyle="h1" headingTag="h1" taglineVisibility={false} contentMaxWidth="large" contentAlignment="left">
-<Fragment slot="bodyrichtext">Stay on top of the latest behavioral health AI news, trends, and best practices with our library of educational articles, guides, webinars, and more.</Fragment>
-<Fragment slot="headingtext">Resource Center</Fragment>
-<Fragment slot="taglinetext">Templates</Fragment>
-</ElementContentGroup>
-</Section>
 <section class="section_component" data-w-id="8afb6215-61d4-37af-68cb-79f8a50ba404">
 <div data-fade-in={text(true)} class="padding-global" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fb4">
 <div class="container-large" data-w-id="9450370c-0cf9-c3e5-5045-a507fa891fb5">
@@ -111,7 +92,3 @@ No items found.
 <NestColorScheme colorScheme="lightest" />
 <GlobalBackgroundLines />
 </section>
-</div>
-<GlobalFooter />
-</div>
-</Layout>

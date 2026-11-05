@@ -1,0 +1,3739 @@
+{
+  "generated": "scripts/page-builder/generate-manifest.mjs — do not edit by hand",
+  "components": [
+    {
+      "name": "GlobalBackgroundLines",
+      "path": "/src/components/1-globals/GlobalBackgroundLines.astro",
+      "category": "Globals",
+      "props": [
+        {
+          "name": "variant",
+          "label": "Variant",
+          "kind": "enum",
+          "options": [
+            "base",
+            "lighter",
+            "light",
+            "dark"
+          ],
+          "default": "base"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "GlobalContactForm",
+      "path": "/src/components/1-globals/GlobalContactForm.astro",
+      "category": "Globals",
+      "props": [],
+      "slots": []
+    },
+    {
+      "name": "GlobalDemoButton",
+      "path": "/src/components/1-globals/GlobalDemoButton.astro",
+      "category": "Globals",
+      "props": [
+        {
+          "name": "size",
+          "label": "Size",
+          "kind": "enum",
+          "options": [
+            "normal",
+            "small"
+          ],
+          "default": "normal"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "Section",
+      "path": "/src/components/2-sections/Section.astro",
+      "category": "Sections",
+      "props": [
+        {
+          "name": "sectionFadeInAnimation",
+          "label": "Section/Fade In Animation",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "sectionColorScheme",
+          "label": "Section/Color Scheme",
+          "kind": "enum",
+          "options": [
+            "lightest",
+            "lighter",
+            "light",
+            "dark"
+          ],
+          "default": "lightest"
+        },
+        {
+          "name": "sectionContainer",
+          "label": "Section/Container",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "small",
+            "none",
+            "xlarge"
+          ],
+          "default": "large"
+        },
+        {
+          "name": "sectionSidePadding",
+          "label": "Section/Side Padding",
+          "kind": "enum",
+          "options": [
+            "global",
+            "small",
+            "none"
+          ],
+          "default": "global"
+        },
+        {
+          "name": "sectionBottomPadding",
+          "label": "Section/Bottom Padding",
+          "kind": "enum",
+          "options": [
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "tiny",
+            "none"
+          ],
+          "default": "large"
+        },
+        {
+          "name": "sectionTopPadding",
+          "label": "Section/Top Padding",
+          "kind": "enum",
+          "options": [
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "tiny",
+            "none"
+          ],
+          "default": "large"
+        },
+        {
+          "name": "sectionVisibility",
+          "label": "Section/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "sectionId",
+          "label": "Section/ID",
+          "kind": "string",
+          "default": ""
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "blocks"
+        },
+        {
+          "name": "background",
+          "kind": "blocks"
+        }
+      ]
+    },
+    {
+      "name": "SectionFlexFeature",
+      "path": "/src/components/2-sections/SectionFlexFeature.astro",
+      "category": "Sections",
+      "props": [
+        {
+          "name": "sectionFadeInAnimation",
+          "label": "Section/Fade In Animation",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "sectionColorScheme",
+          "label": "Section/Color Scheme",
+          "kind": "enum",
+          "options": [
+            "lightest",
+            "lighter",
+            "light",
+            "dark"
+          ],
+          "default": "lightest"
+        },
+        {
+          "name": "overlayOpacity",
+          "label": "Overlay/Opacity",
+          "kind": "string",
+          "default": "opacity: 40%;"
+        },
+        {
+          "name": "overlayVisibility",
+          "label": "Overlay/Visibility",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "imageLoading",
+          "label": "Image/Loading",
+          "kind": "string",
+          "default": "lazy"
+        },
+        {
+          "name": "imageParallax",
+          "label": "Image/Parallax",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "imageBorderRadius",
+          "label": "Image/Border Radius",
+          "kind": "enum",
+          "options": [
+            "rounded",
+            "large",
+            "medium",
+            "small",
+            "tiny",
+            "none"
+          ],
+          "default": "none"
+        },
+        {
+          "name": "imageAspectRatio",
+          "label": "Image/Aspect Ratio",
+          "kind": "enum",
+          "options": [
+            "auto",
+            "auto-3x2-mobile",
+            "fill",
+            "square-1x1",
+            "landscape-3x2",
+            "widescreen-16x9",
+            "xwide-2x1"
+          ],
+          "default": "auto"
+        },
+        {
+          "name": "imageAltText",
+          "label": "Image/Alt Text",
+          "kind": "string",
+          "default": "__wf_reserved_inherit"
+        },
+        {
+          "name": "imageFile",
+          "label": "Image/File",
+          "kind": "image"
+        },
+        {
+          "name": "imageVisibility",
+          "label": "Image/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "buttonGroupVisibility",
+          "label": "Button Group/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "bodyPlainTextFontSize",
+          "label": "Body/Plain Text Font Size",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "regular",
+            "small",
+            "tiny"
+          ],
+          "default": "regular"
+        },
+        {
+          "name": "bodyRichTextFontSize",
+          "label": "Body/Rich Text Font Size",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "regular",
+            "small",
+            "tiny"
+          ],
+          "default": "regular"
+        },
+        {
+          "name": "bodyRichTextTag",
+          "label": null,
+          "kind": "string",
+          "default": "p"
+        },
+        {
+          "name": "bodyContentType",
+          "label": "Body/Content Type",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "bodyVisibility",
+          "label": "Body/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "headingStyle",
+          "label": "Heading/Style",
+          "kind": "enum",
+          "options": [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h0"
+          ],
+          "default": "h2"
+        },
+        {
+          "name": "headingTag",
+          "label": "Heading/Tag",
+          "kind": "string",
+          "default": "h2"
+        },
+        {
+          "name": "headingVisibility",
+          "label": "Heading/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "taglineVisibility",
+          "label": "Tagline/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "contentTextWrap",
+          "label": "Content/Text Wrap",
+          "kind": "enum",
+          "options": [
+            "normal",
+            "pretty",
+            "balance"
+          ],
+          "default": "normal"
+        },
+        {
+          "name": "contentMaxWidth",
+          "label": "Content/Max Width",
+          "kind": "enum",
+          "options": [
+            "none",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall"
+          ],
+          "default": "none"
+        },
+        {
+          "name": "contentTextAlignment",
+          "label": "Content/Text Alignment",
+          "kind": "enum",
+          "options": [
+            "left",
+            "center",
+            "right",
+            "stretch"
+          ],
+          "default": "left"
+        },
+        {
+          "name": "contentVerticalAlignment",
+          "label": "Content/Vertical Alignment",
+          "kind": "enum",
+          "options": [
+            "top",
+            "center",
+            "bottom"
+          ],
+          "default": "center"
+        },
+        {
+          "name": "contentRowGap",
+          "label": "Content/Row Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "xlarge"
+        },
+        {
+          "name": "contentColumnGap",
+          "label": "Content/Column Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "xlarge"
+        },
+        {
+          "name": "contentLayout",
+          "label": "Content/Layout",
+          "kind": "enum",
+          "options": [
+            "columns",
+            "columns-reversed",
+            "columns-large",
+            "columns-large-reversed",
+            "columns-breakout",
+            "columns-breakout-reversed",
+            "stack",
+            "stack-reversed",
+            "card-columns",
+            "card-columns-reversed",
+            "single-column"
+          ],
+          "default": "columns"
+        },
+        {
+          "name": "sectionContainer",
+          "label": "Section/Container",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "small",
+            "none",
+            "xlarge"
+          ],
+          "default": "large"
+        },
+        {
+          "name": "sectionSidePadding",
+          "label": "Section/Side Padding",
+          "kind": "enum",
+          "options": [
+            "global",
+            "small",
+            "none"
+          ],
+          "default": "global"
+        },
+        {
+          "name": "sectionBottomPadding",
+          "label": "Section/Bottom Padding",
+          "kind": "enum",
+          "options": [
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "tiny",
+            "none"
+          ],
+          "default": "large"
+        },
+        {
+          "name": "sectionTopPadding",
+          "label": "Section/Top Padding",
+          "kind": "enum",
+          "options": [
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "tiny",
+            "none"
+          ],
+          "default": "large"
+        },
+        {
+          "name": "sectionVisibility",
+          "label": "Section/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "sectionId",
+          "label": "Section/ID",
+          "kind": "string",
+          "default": ""
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "blocks"
+        },
+        {
+          "name": "bodyplaintext",
+          "kind": "inline"
+        },
+        {
+          "name": "bodyrichtext",
+          "kind": "inline"
+        },
+        {
+          "name": "headingtext",
+          "kind": "string"
+        },
+        {
+          "name": "taglinetext",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "SectionFlexSlots",
+      "path": "/src/components/2-sections/SectionFlexSlots.astro",
+      "category": "Sections",
+      "props": [
+        {
+          "name": "contentVerticalAlignment",
+          "label": "Content/Vertical Alignment",
+          "kind": "enum",
+          "options": [
+            "top",
+            "center",
+            "bottom"
+          ],
+          "default": "center"
+        },
+        {
+          "name": "contentRowGap",
+          "label": "Content/Row Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "xlarge"
+        },
+        {
+          "name": "contentColumnGap",
+          "label": "Content/Column Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "xlarge"
+        },
+        {
+          "name": "sectionFadeInAnimation",
+          "label": "Section/Fade In Animation",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "sectionColorScheme",
+          "label": "Section/Color Scheme",
+          "kind": "enum",
+          "options": [
+            "lightest",
+            "lighter",
+            "light",
+            "dark"
+          ],
+          "default": "lightest"
+        },
+        {
+          "name": "contentLayout",
+          "label": "Content/Layout",
+          "kind": "enum",
+          "options": [
+            "columns",
+            "columns-reversed",
+            "columns-large",
+            "columns-large-reversed",
+            "columns-breakout",
+            "columns-breakout-reversed",
+            "stack",
+            "stack-reversed",
+            "card-columns",
+            "card-columns-reversed",
+            "single-column"
+          ],
+          "default": "columns"
+        },
+        {
+          "name": "sectionContainer",
+          "label": "Section/Container",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "small",
+            "none",
+            "xlarge"
+          ],
+          "default": "large"
+        },
+        {
+          "name": "sectionSidePadding",
+          "label": "Section/Side Padding",
+          "kind": "enum",
+          "options": [
+            "global",
+            "small",
+            "none"
+          ],
+          "default": "global"
+        },
+        {
+          "name": "sectionBottomPadding",
+          "label": "Section/Bottom Padding",
+          "kind": "enum",
+          "options": [
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "tiny",
+            "none"
+          ],
+          "default": "large"
+        },
+        {
+          "name": "sectionTopPadding",
+          "label": "Section/Top Padding",
+          "kind": "enum",
+          "options": [
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "tiny",
+            "none"
+          ],
+          "default": "large"
+        },
+        {
+          "name": "sectionVisibility",
+          "label": "Section/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "sectionId",
+          "label": "Section/ID",
+          "kind": "string",
+          "default": ""
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "blocks"
+        },
+        {
+          "name": "content-first",
+          "kind": "blocks"
+        }
+      ]
+    },
+    {
+      "name": "SectionTestimonials",
+      "path": "/src/components/2-sections/SectionTestimonials.astro",
+      "category": "Sections",
+      "props": [],
+      "slots": []
+    },
+    {
+      "name": "Layout2",
+      "path": "/src/components/3-layouts/Layout2.astro",
+      "category": "Layouts",
+      "props": [
+        {
+          "name": "verticalAlignment",
+          "label": "Vertical Alignment",
+          "kind": "enum",
+          "options": [
+            "top",
+            "center",
+            "bottom"
+          ],
+          "default": "center"
+        },
+        {
+          "name": "rowGap",
+          "label": "Row Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "xlarge"
+        },
+        {
+          "name": "columnGap",
+          "label": "Column Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "xlarge"
+        },
+        {
+          "name": "layout",
+          "label": "Layout",
+          "kind": "enum",
+          "options": [
+            "columns",
+            "columns-reversed",
+            "columns-large",
+            "columns-large-reversed",
+            "columns-breakout",
+            "columns-breakout-reversed",
+            "stack",
+            "stack-reversed",
+            "card-columns",
+            "card-columns-reversed",
+            "single-column"
+          ],
+          "default": "columns"
+        }
+      ],
+      "slots": [
+        {
+          "name": "content-first",
+          "kind": "blocks"
+        },
+        {
+          "name": "default",
+          "kind": "blocks"
+        }
+      ]
+    },
+    {
+      "name": "LayoutGridSlot",
+      "path": "/src/components/3-layouts/LayoutGridSlot.astro",
+      "category": "Layouts",
+      "props": [
+        {
+          "name": "gridSlotColumnsMobileP",
+          "label": "Grid Slot/Columns | Mobile (P)",
+          "kind": "number",
+          "default": 1
+        },
+        {
+          "name": "gridSlotColumnsMobileL",
+          "label": "Grid Slot/Columns | Mobile (L)",
+          "kind": "number",
+          "default": 2
+        },
+        {
+          "name": "gridSlotColumnsTablet",
+          "label": "Grid Slot/Columns | Tablet",
+          "kind": "number",
+          "default": 3
+        },
+        {
+          "name": "gridSlotColumnsDesktop",
+          "label": "Grid Slot/Columns | Desktop",
+          "kind": "number",
+          "default": 3
+        },
+        {
+          "name": "gridSlotBehaviorTabletDown",
+          "label": "Grid Slot/Behavior | Tablet Down",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "gridSlotGapTabletDown",
+          "label": "Grid Slot/Gap | Tablet Down",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none",
+            "medium-flex-grow"
+          ],
+          "default": "small"
+        },
+        {
+          "name": "gridSlotGapDesktop",
+          "label": "Grid Slot/Gap | Desktop",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none",
+            "medium-flex-grow"
+          ],
+          "default": "small"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "blocks"
+        }
+      ]
+    },
+    {
+      "name": "LayoutStaggeredGrid",
+      "path": "/src/components/3-layouts/LayoutStaggeredGrid.astro",
+      "category": "Layouts",
+      "props": [
+        {
+          "name": "gridSlotGapTabletDown",
+          "label": "Grid Slot/Gap | Tablet Down",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none",
+            "medium-flex-grow"
+          ],
+          "default": "small"
+        },
+        {
+          "name": "gridSlotGapDesktop",
+          "label": "Grid Slot/Gap | Desktop",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none",
+            "medium-flex-grow"
+          ],
+          "default": "small"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "blocks"
+        }
+      ]
+    },
+    {
+      "name": "ElementAbsoluteLink",
+      "path": "/src/components/4-elements/ElementAbsoluteLink.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "type",
+          "label": "Type",
+          "kind": "string",
+          "default": "link"
+        },
+        {
+          "name": "target",
+          "label": "Target",
+          "kind": "string",
+          "default": "_self"
+        },
+        {
+          "name": "linkText",
+          "label": "Link Text",
+          "kind": "string",
+          "default": "Link text"
+        },
+        {
+          "name": "link",
+          "label": "Link",
+          "kind": "string",
+          "default": "#"
+        },
+        {
+          "name": "linkTarget",
+          "label": null,
+          "kind": "string",
+          "default": ""
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "ElementAccordionCard",
+      "path": "/src/components/4-elements/ElementAccordionCard.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "descriptionTag",
+          "label": null,
+          "kind": "string",
+          "default": "p"
+        },
+        {
+          "name": "iconVisibility",
+          "label": "Icon Visibility",
+          "kind": "boolean",
+          "default": true
+        }
+      ],
+      "slots": [
+        {
+          "name": "svgicon",
+          "kind": "svg"
+        },
+        {
+          "name": "description",
+          "kind": "inline"
+        },
+        {
+          "name": "heading",
+          "kind": "string"
+        }
+      ]
+    },
+    {
+      "name": "ElementAccordionCardGrid",
+      "path": "/src/components/4-elements/ElementAccordionCardGrid.astro",
+      "category": "Elements",
+      "props": [],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "blocks"
+        }
+      ]
+    },
+    {
+      "name": "ElementBlogCard",
+      "path": "/src/components/4-elements/ElementBlogCard.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "mainImage",
+          "label": "Main Image",
+          "kind": "image"
+        },
+        {
+          "name": "link",
+          "label": "Link",
+          "kind": "string",
+          "default": "#"
+        },
+        {
+          "name": "linkTarget",
+          "label": null,
+          "kind": "string",
+          "default": ""
+        }
+      ],
+      "slots": [
+        {
+          "name": "resourcetypename",
+          "kind": "string"
+        },
+        {
+          "name": "name",
+          "kind": "string"
+        }
+      ]
+    },
+    {
+      "name": "ElementCard",
+      "path": "/src/components/4-elements/ElementCard.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "contentGap",
+          "label": "Content/Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "xsmall"
+        },
+        {
+          "name": "contentTextWrap",
+          "label": "Content/Text Wrap",
+          "kind": "enum",
+          "options": [
+            "normal",
+            "pretty",
+            "balance"
+          ],
+          "default": "normal"
+        },
+        {
+          "name": "buttonVisibility",
+          "label": "Button/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "bodyParagraphFontSize",
+          "label": "Body/Paragraph Font Size",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "regular",
+            "small",
+            "tiny"
+          ],
+          "default": "regular"
+        },
+        {
+          "name": "bodyRichTextTag",
+          "label": null,
+          "kind": "string",
+          "default": "p"
+        },
+        {
+          "name": "bodyVisibility",
+          "label": "Body/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "headingStyle",
+          "label": "Heading/Style",
+          "kind": "enum",
+          "options": [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h0"
+          ],
+          "default": "h5"
+        },
+        {
+          "name": "headingTag",
+          "label": "Heading/Tag",
+          "kind": "string",
+          "default": "h3"
+        },
+        {
+          "name": "headingVisibility",
+          "label": "Heading/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "taglineVisibility",
+          "label": "Tagline/Visibility",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "contentAlignment",
+          "label": "Content/Alignment",
+          "kind": "enum",
+          "options": [
+            "left",
+            "center",
+            "right",
+            "stretch"
+          ],
+          "default": "left"
+        },
+        {
+          "name": "visualVisibility",
+          "label": "Visual/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "sharpCorners",
+          "label": "Sharp Corners",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "variant",
+          "label": "Variant",
+          "kind": "enum",
+          "options": [
+            "theme-foreground",
+            "theme-background",
+            "theme-background-border",
+            "no-fill",
+            "theme-foreground-small-padding",
+            "dark",
+            "white"
+          ],
+          "default": "theme-foreground"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "blocks"
+        },
+        {
+          "name": "cta",
+          "kind": "blocks"
+        },
+        {
+          "name": "bodyrichtext-blocks",
+          "kind": "rich"
+        },
+        {
+          "name": "bodyrichtext",
+          "kind": "inline"
+        },
+        {
+          "name": "headingtext",
+          "kind": "string"
+        },
+        {
+          "name": "taglinetext",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "ElementComparisonItem",
+      "path": "/src/components/4-elements/ElementComparisonItem.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "good",
+          "label": "Good",
+          "kind": "string",
+          "default": "This is some text inside of a div block."
+        },
+        {
+          "name": "variant",
+          "label": "Variant",
+          "kind": "enum",
+          "options": [
+            "x",
+            "check",
+            "check---text-size-medium"
+          ],
+          "default": "x"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "ElementComparisonTable",
+      "path": "/src/components/4-elements/ElementComparisonTable.astro",
+      "category": "Elements",
+      "props": [],
+      "slots": [
+        {
+          "name": "label1",
+          "kind": "string"
+        },
+        {
+          "name": "content",
+          "kind": "blocks"
+        },
+        {
+          "name": "label2",
+          "kind": "string"
+        },
+        {
+          "name": "default",
+          "kind": "blocks"
+        }
+      ]
+    },
+    {
+      "name": "ElementContentCard",
+      "path": "/src/components/4-elements/ElementContentCard.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "buttonGroupVisibility",
+          "label": "Button Group/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "bodyPlainTextFontSize",
+          "label": "Body/Plain Text Font Size",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "regular",
+            "small",
+            "tiny"
+          ],
+          "default": "regular"
+        },
+        {
+          "name": "bodyRichTextFontSize",
+          "label": "Body/Rich Text Font Size",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "regular",
+            "small",
+            "tiny"
+          ],
+          "default": "medium"
+        },
+        {
+          "name": "bodyContentType",
+          "label": "Body/Content Type",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "bodyVisibility",
+          "label": "Body/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "headingTag",
+          "label": "Heading/Tag",
+          "kind": "string",
+          "default": "h3"
+        },
+        {
+          "name": "headingHeadingMaxWidth",
+          "label": "Heading/Heading Max Width",
+          "kind": "enum",
+          "options": [
+            "none",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall"
+          ],
+          "default": "none"
+        },
+        {
+          "name": "headingStyle",
+          "label": "Heading/Style",
+          "kind": "enum",
+          "options": [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h0"
+          ],
+          "default": "h3"
+        },
+        {
+          "name": "headingVisibility",
+          "label": "Heading/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "taglineVisibility",
+          "label": "Tagline/Visibility",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "contentGap",
+          "label": "Content/Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "small"
+        },
+        {
+          "name": "contentTextWrap",
+          "label": "Content/Text Wrap",
+          "kind": "enum",
+          "options": [
+            "normal",
+            "pretty",
+            "balance"
+          ],
+          "default": "pretty"
+        },
+        {
+          "name": "contentMaxWidth",
+          "label": "Content/Max Width",
+          "kind": "enum",
+          "options": [
+            "none",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall"
+          ],
+          "default": "none"
+        },
+        {
+          "name": "contentAlignment",
+          "label": "Content/Alignment",
+          "kind": "enum",
+          "options": [
+            "left",
+            "center",
+            "right",
+            "stretch"
+          ],
+          "default": "left"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "blocks"
+        },
+        {
+          "name": "bodyplaintext",
+          "kind": "inline"
+        },
+        {
+          "name": "bodyrichtext",
+          "kind": "rich"
+        },
+        {
+          "name": "headingtext",
+          "kind": "string"
+        },
+        {
+          "name": "taglinetext",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "ElementContentGroup",
+      "path": "/src/components/4-elements/ElementContentGroup.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "contentGap",
+          "label": "Content/Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "small"
+        },
+        {
+          "name": "bodyPlainTextFontSize",
+          "label": "Body/Plain Text Font Size",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "regular",
+            "small",
+            "tiny"
+          ],
+          "default": "regular"
+        },
+        {
+          "name": "contentTextWrap",
+          "label": "Content/Text Wrap",
+          "kind": "enum",
+          "options": [
+            "normal",
+            "pretty",
+            "balance"
+          ],
+          "default": "normal"
+        },
+        {
+          "name": "buttonGroupVisibility",
+          "label": "Button Group/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "bodyRichTextFontSize",
+          "label": "Body/Rich Text Font Size",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "regular",
+            "small",
+            "tiny"
+          ],
+          "default": "regular"
+        },
+        {
+          "name": "bodyRichTextTag",
+          "label": null,
+          "kind": "string",
+          "default": "p"
+        },
+        {
+          "name": "bodyContentType",
+          "label": "Body/Content Type",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "bodyVisibility",
+          "label": "Body/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "headingHeadingMaxWidth",
+          "label": "Heading/Heading Max Width",
+          "kind": "enum",
+          "options": [
+            "none",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall"
+          ],
+          "default": "none"
+        },
+        {
+          "name": "headingStyle",
+          "label": "Heading/Style",
+          "kind": "enum",
+          "options": [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h0"
+          ],
+          "default": "h2"
+        },
+        {
+          "name": "headingTag",
+          "label": "Heading/Tag",
+          "kind": "string",
+          "default": "h2"
+        },
+        {
+          "name": "headingVisibility",
+          "label": "Heading/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "taglineVisibility",
+          "label": "Tagline/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "contentMaxWidth",
+          "label": "Content/Max Width",
+          "kind": "enum",
+          "options": [
+            "none",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall"
+          ],
+          "default": "none"
+        },
+        {
+          "name": "contentAlignment",
+          "label": "Content/Alignment",
+          "kind": "enum",
+          "options": [
+            "left",
+            "center",
+            "right",
+            "stretch"
+          ],
+          "default": "left"
+        }
+      ],
+      "slots": [
+        {
+          "name": "taglinetext",
+          "kind": "inline"
+        },
+        {
+          "name": "headingtext",
+          "kind": "string"
+        },
+        {
+          "name": "bodyrichtext-blocks",
+          "kind": "rich"
+        },
+        {
+          "name": "bodyrichtext",
+          "kind": "inline"
+        },
+        {
+          "name": "bodyplaintext",
+          "kind": "inline"
+        },
+        {
+          "name": "default",
+          "kind": "blocks"
+        }
+      ]
+    },
+    {
+      "name": "ElementDynamicHeading",
+      "path": "/src/components/4-elements/ElementDynamicHeading.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "style",
+          "label": "Style",
+          "kind": "enum",
+          "options": [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h0"
+          ],
+          "default": "h2"
+        },
+        {
+          "name": "tag",
+          "label": "Tag",
+          "kind": "string",
+          "default": "h2"
+        },
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "kind": "boolean",
+          "default": true
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "ElementEhrLogosMarquee",
+      "path": "/src/components/4-elements/ElementEhrLogosMarquee.astro",
+      "category": "Elements",
+      "props": [],
+      "slots": []
+    },
+    {
+      "name": "ElementFullWidthFeature",
+      "path": "/src/components/4-elements/ElementFullWidthFeature.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "contentSpacerSize",
+          "label": "Content Spacer/Size",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none",
+            "medium-flex-grow"
+          ],
+          "default": "huge"
+        },
+        {
+          "name": "contentSpacerVisibility",
+          "label": "Content Spacer/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "headingStyle",
+          "label": "Heading/Style",
+          "kind": "enum",
+          "options": [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h0"
+          ],
+          "default": "h2"
+        },
+        {
+          "name": "headingTag",
+          "label": "Heading/Tag",
+          "kind": "string",
+          "default": "h2"
+        },
+        {
+          "name": "taglineVisibility",
+          "label": "Tagline/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "image",
+          "label": "Image",
+          "kind": "image"
+        },
+        {
+          "name": "variant",
+          "label": "Variant",
+          "kind": "enum",
+          "options": [
+            "base",
+            "no-image",
+            "reversed"
+          ],
+          "default": "base"
+        }
+      ],
+      "slots": [
+        {
+          "name": "taglinetext",
+          "kind": "inline"
+        },
+        {
+          "name": "headingtext",
+          "kind": "string"
+        },
+        {
+          "name": "default",
+          "kind": "blocks"
+        }
+      ]
+    },
+    {
+      "name": "ElementHorizontalIconCard",
+      "path": "/src/components/4-elements/ElementHorizontalIconCard.astro",
+      "category": "Elements",
+      "props": [],
+      "slots": [
+        {
+          "name": "iconsvg",
+          "kind": "svg"
+        },
+        {
+          "name": "text",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "ElementImage",
+      "path": "/src/components/4-elements/ElementImage.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "imageFetchPriority",
+          "label": "Image/Fetch Priority",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "imageLoading",
+          "label": "Image/Loading",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "imageParallax",
+          "label": "Image/Parallax",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "overlayOpacity",
+          "label": "Overlay/Opacity",
+          "kind": "string",
+          "default": "opacity: 40%;"
+        },
+        {
+          "name": "overlayVisibility",
+          "label": "Overlay/Visibility",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "imageBorderRadius",
+          "label": "Image/Border Radius",
+          "kind": "enum",
+          "options": [
+            "rounded",
+            "large",
+            "medium",
+            "small",
+            "tiny",
+            "none"
+          ],
+          "default": "none"
+        },
+        {
+          "name": "imageAspectRatio",
+          "label": "Image/Aspect Ratio",
+          "kind": "enum",
+          "options": [
+            "auto",
+            "auto-3x2-mobile",
+            "fill",
+            "square-1x1",
+            "landscape-3x2",
+            "widescreen-16x9",
+            "xwide-2x1"
+          ],
+          "default": "auto"
+        },
+        {
+          "name": "imageAltText",
+          "label": "Image/Alt Text",
+          "kind": "string",
+          "default": "__wf_reserved_inherit"
+        },
+        {
+          "name": "imageFile",
+          "label": "Image/File",
+          "kind": "image"
+        },
+        {
+          "name": "imageVisibility",
+          "label": "Image/Visibility",
+          "kind": "boolean",
+          "default": true
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "ElementInlineTestimonial",
+      "path": "/src/components/4-elements/ElementInlineTestimonial.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "spacerVisibility",
+          "label": "Spacer/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "variant",
+          "label": "Variant",
+          "kind": "enum",
+          "options": [
+            "with-stat",
+            "no-stat"
+          ],
+          "default": "with-stat"
+        }
+      ],
+      "slots": [
+        {
+          "name": "statstat",
+          "kind": "string"
+        },
+        {
+          "name": "statdescription",
+          "kind": "inline"
+        },
+        {
+          "name": "testimonialtestimonial",
+          "kind": "inline"
+        },
+        {
+          "name": "testimonialname",
+          "kind": "string"
+        },
+        {
+          "name": "testimonialattribution",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "ElementMarqueeLogo",
+      "path": "/src/components/4-elements/ElementMarqueeLogo.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "altText",
+          "label": "Alt Text",
+          "kind": "string",
+          "default": "__wf_reserved_inherit"
+        },
+        {
+          "name": "image",
+          "label": "Image",
+          "kind": "image"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "ElementParagraph",
+      "path": "/src/components/4-elements/ElementParagraph.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "fontSize",
+          "label": "Font Size",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "regular",
+            "small",
+            "tiny"
+          ],
+          "default": "regular"
+        },
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "kind": "boolean",
+          "default": true
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "ElementPlainTextHeading",
+      "path": "/src/components/4-elements/ElementPlainTextHeading.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "headingStyle",
+          "label": "Heading Style",
+          "kind": "enum",
+          "options": [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6"
+          ],
+          "default": "h2"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "ElementProcessGrid",
+      "path": "/src/components/4-elements/ElementProcessGrid.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "variant",
+          "label": "Variant",
+          "kind": "enum",
+          "options": [
+            "3-column",
+            "2-column",
+            "4-column"
+          ],
+          "default": "3-column"
+        }
+      ],
+      "slots": [
+        {
+          "name": "content-3",
+          "kind": "blocks"
+        },
+        {
+          "name": "content-2",
+          "kind": "blocks"
+        },
+        {
+          "name": "default",
+          "kind": "blocks"
+        },
+        {
+          "name": "content",
+          "kind": "blocks"
+        }
+      ]
+    },
+    {
+      "name": "ElementRichText",
+      "path": "/src/components/4-elements/ElementRichText.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "bodyFontSize",
+          "label": "Body Font Size",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "regular",
+            "small",
+            "tiny"
+          ],
+          "default": "regular"
+        },
+        {
+          "name": "richTextTag",
+          "label": null,
+          "kind": "string",
+          "default": "p"
+        },
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "kind": "boolean",
+          "default": true
+        }
+      ],
+      "slots": [
+        {
+          "name": "richtext-blocks",
+          "kind": "rich"
+        },
+        {
+          "name": "default",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "ElementRichTextLongForm",
+      "path": "/src/components/4-elements/ElementRichTextLongForm.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "bodyFontSize",
+          "label": "Body Font Size",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "regular",
+            "small",
+            "tiny"
+          ],
+          "default": "regular"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "rich"
+        }
+      ]
+    },
+    {
+      "name": "ElementRoiCalculator",
+      "path": "/src/components/4-elements/ElementRoiCalculator.astro",
+      "category": "Elements",
+      "props": [],
+      "slots": []
+    },
+    {
+      "name": "ElementServeGrid",
+      "path": "/src/components/4-elements/ElementServeGrid.astro",
+      "category": "Elements",
+      "props": [],
+      "slots": []
+    },
+    {
+      "name": "ElementStatCard",
+      "path": "/src/components/4-elements/ElementStatCard.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "countUpAnimation",
+          "label": "Count up animation?",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "useIcon",
+          "label": "Use icon?",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "smallStatSize",
+          "label": "Small Stat Size",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "variant",
+          "label": "Variant",
+          "kind": "enum",
+          "options": [
+            "foreground",
+            "white",
+            "dark",
+            "darker"
+          ],
+          "default": "foreground"
+        }
+      ],
+      "slots": [
+        {
+          "name": "stat",
+          "kind": "string"
+        },
+        {
+          "name": "default",
+          "kind": "blocks"
+        },
+        {
+          "name": "description",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "ElementTagline",
+      "path": "/src/components/4-elements/ElementTagline.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "variant",
+          "label": "Variant",
+          "kind": "enum",
+          "options": [
+            "base",
+            "small",
+            "white"
+          ],
+          "default": "base"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "ElementTestimonialBento",
+      "path": "/src/components/4-elements/ElementTestimonialBento.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "testimonialButtonLink",
+          "label": "Testimonial/Button Link",
+          "kind": "string",
+          "default": "#"
+        },
+        {
+          "name": "testimonialButtonLinkTarget",
+          "label": null,
+          "kind": "string",
+          "default": ""
+        },
+        {
+          "name": "spacerSize",
+          "label": "Spacer/Size",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none",
+            "medium-flex-grow"
+          ],
+          "default": "xxlarge"
+        },
+        {
+          "name": "spacerVisibility",
+          "label": "Spacer/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "imageImage",
+          "label": "Image/Image",
+          "kind": "image"
+        }
+      ],
+      "slots": [
+        {
+          "name": "statstat",
+          "kind": "string"
+        },
+        {
+          "name": "statdescription",
+          "kind": "inline"
+        },
+        {
+          "name": "testimonialbody",
+          "kind": "inline"
+        },
+        {
+          "name": "testimonialname",
+          "kind": "string"
+        },
+        {
+          "name": "testimonialattribution",
+          "kind": "inline"
+        },
+        {
+          "name": "testimonialbuttonlabel",
+          "kind": "string"
+        }
+      ]
+    },
+    {
+      "name": "ElementTrustedByMarquee",
+      "path": "/src/components/4-elements/ElementTrustedByMarquee.astro",
+      "category": "Elements",
+      "props": [],
+      "slots": []
+    },
+    {
+      "name": "ElementVideo",
+      "path": "/src/components/4-elements/ElementVideo.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "bgVideoMuted",
+          "label": "BG Video/Muted",
+          "kind": "string",
+          "default": "muted"
+        },
+        {
+          "name": "bgVideoLoop",
+          "label": "BG Video/Loop",
+          "kind": "string",
+          "default": "loop"
+        },
+        {
+          "name": "bgVideoAutoplay",
+          "label": "BG Video/Autoplay",
+          "kind": "string",
+          "default": "autoplay"
+        },
+        {
+          "name": "bgVideoSourceUrl",
+          "label": "BG Video/Source URL",
+          "kind": "string",
+          "default": ""
+        },
+        {
+          "name": "overlayOpacity",
+          "label": "Overlay/Opacity",
+          "kind": "string",
+          "default": "opacity: 40%;"
+        },
+        {
+          "name": "overlayOverlayVisibility",
+          "label": "Overlay/Overlay Visibility",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "bgVideoVisibility",
+          "label": "BG Video/Visibility",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "playbackVideoLink",
+          "label": "Playback Video/Link",
+          "kind": "unsupported",
+          "type": "unknown"
+        },
+        {
+          "name": "playbackVideoVisibility",
+          "label": "Playback Video/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "videoParallax",
+          "label": "Video/Parallax",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "videoBorderRadius",
+          "label": "Video/Border Radius",
+          "kind": "enum",
+          "options": [
+            "rounded",
+            "large",
+            "medium",
+            "small",
+            "tiny",
+            "none"
+          ],
+          "default": "none"
+        },
+        {
+          "name": "videoAspectRatio",
+          "label": "Video/Aspect Ratio",
+          "kind": "enum",
+          "options": [
+            "auto",
+            "square-1x1",
+            "landscape-3x2",
+            "widescreen-16x9"
+          ],
+          "default": "auto"
+        },
+        {
+          "name": "videoVisibility",
+          "label": "Video/Visibility",
+          "kind": "boolean",
+          "default": true
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "ElementVisual",
+      "path": "/src/components/4-elements/ElementVisual.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "videoAspectRatio",
+          "label": "Video/Aspect Ratio",
+          "kind": "enum",
+          "options": [
+            "auto",
+            "square-1x1",
+            "landscape-3x2",
+            "widescreen-16x9"
+          ],
+          "default": "auto"
+        },
+        {
+          "name": "visualParallax",
+          "label": "Visual/Parallax",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "visualBorderRadius",
+          "label": "Visual/Border Radius",
+          "kind": "enum",
+          "options": [
+            "rounded",
+            "large",
+            "medium",
+            "small",
+            "tiny",
+            "none"
+          ],
+          "default": "none"
+        },
+        {
+          "name": "bgVideoMuted",
+          "label": "BG Video/Muted",
+          "kind": "string",
+          "default": "muted"
+        },
+        {
+          "name": "bgVideoLoop",
+          "label": "BG Video/Loop",
+          "kind": "string",
+          "default": "loop"
+        },
+        {
+          "name": "bgVideoAutoplay",
+          "label": "BG Video/Autoplay",
+          "kind": "string",
+          "default": "autoplay"
+        },
+        {
+          "name": "bgVideoSourceUrl",
+          "label": "BG Video/Source URL",
+          "kind": "string",
+          "default": ""
+        },
+        {
+          "name": "overlayOpacity",
+          "label": "Overlay/Opacity",
+          "kind": "string",
+          "default": "opacity: 40%;"
+        },
+        {
+          "name": "overlayOverlayVisibility",
+          "label": "Overlay/Overlay Visibility",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "bgVideoVisibility",
+          "label": "BG Video/Visibility",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "playbackVideoLink",
+          "label": "Playback Video/Link",
+          "kind": "unsupported",
+          "type": "unknown"
+        },
+        {
+          "name": "playbackVideoVisibility",
+          "label": "Playback Video/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "videoVisibility",
+          "label": "Video/Visibility",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "imageLoading",
+          "label": "Image/Loading",
+          "kind": "string",
+          "default": "lazy"
+        },
+        {
+          "name": "imageAspectRatio",
+          "label": "Image/Aspect Ratio",
+          "kind": "enum",
+          "options": [
+            "auto",
+            "auto-3x2-mobile",
+            "fill",
+            "square-1x1",
+            "landscape-3x2",
+            "widescreen-16x9",
+            "xwide-2x1"
+          ],
+          "default": "auto"
+        },
+        {
+          "name": "imageAltText",
+          "label": "Image/Alt Text",
+          "kind": "string",
+          "default": "__wf_reserved_inherit"
+        },
+        {
+          "name": "imageFile",
+          "label": "Image/File",
+          "kind": "image"
+        },
+        {
+          "name": "imageVisibility",
+          "label": "Image/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "visualVisibility",
+          "label": "Visual/Visibility",
+          "kind": "boolean",
+          "default": true
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "ElementWhoWeServe",
+      "path": "/src/components/4-elements/ElementWhoWeServe.astro",
+      "category": "Elements",
+      "props": [],
+      "slots": []
+    },
+    {
+      "name": "ButtonGlobal",
+      "path": "/src/components/5-buttons/ButtonGlobal.astro",
+      "category": "Buttons",
+      "props": [
+        {
+          "name": "settingsRole",
+          "label": "Settings/Role",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "settingsTarget",
+          "label": "Settings/Target",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "trailingIconVisibility",
+          "label": "Trailing Icon/Visibility",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "leadingIconVisibility",
+          "label": "Leading Icon/Visibility",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "link",
+          "label": "Link",
+          "kind": "string",
+          "default": "#"
+        },
+        {
+          "name": "linkTarget",
+          "label": null,
+          "kind": "string",
+          "default": ""
+        },
+        {
+          "name": "text",
+          "label": "Text",
+          "kind": "string",
+          "default": "Button"
+        },
+        {
+          "name": "size",
+          "label": "Size",
+          "kind": "enum",
+          "options": [
+            "normal",
+            "small"
+          ],
+          "default": "normal"
+        },
+        {
+          "name": "style",
+          "label": "Style",
+          "kind": "enum",
+          "options": [
+            "primary",
+            "secondary",
+            "link"
+          ]
+        },
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "kind": "boolean",
+          "default": true
+        }
+      ],
+      "slots": [
+        {
+          "name": "icon",
+          "kind": "blocks"
+        },
+        {
+          "name": "default",
+          "kind": "blocks"
+        }
+      ]
+    },
+    {
+      "name": "NestAlignment",
+      "path": "/src/components/6-utilities/NestAlignment.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "alignment",
+          "label": "Alignment",
+          "kind": "enum",
+          "options": [
+            "left",
+            "center",
+            "right",
+            "stretch"
+          ],
+          "default": "left"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestBorderRadius",
+      "path": "/src/components/6-utilities/NestBorderRadius.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "borderRadius",
+          "label": "Border Radius",
+          "kind": "enum",
+          "options": [
+            "rounded",
+            "large",
+            "medium",
+            "small",
+            "tiny",
+            "none"
+          ],
+          "default": "small"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestButtonSize",
+      "path": "/src/components/6-utilities/NestButtonSize.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "size",
+          "label": "Size",
+          "kind": "enum",
+          "options": [
+            "normal",
+            "small"
+          ],
+          "default": "normal"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestColor",
+      "path": "/src/components/6-utilities/NestColor.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "color",
+          "label": "Color",
+          "kind": "enum",
+          "options": [
+            "inherit",
+            "accent"
+          ],
+          "default": "inherit"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestColorScheme",
+      "path": "/src/components/6-utilities/NestColorScheme.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "colorScheme",
+          "label": "Color Scheme",
+          "kind": "enum",
+          "options": [
+            "lightest",
+            "lighter",
+            "light",
+            "dark"
+          ],
+          "default": "lightest"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestContainer",
+      "path": "/src/components/6-utilities/NestContainer.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "container",
+          "label": "Container",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "small",
+            "none",
+            "xlarge"
+          ],
+          "default": "large"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestGap",
+      "path": "/src/components/6-utilities/NestGap.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "gap",
+          "label": "Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "small"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestGapColumn",
+      "path": "/src/components/6-utilities/NestGapColumn.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "gap",
+          "label": "Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "small"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestGapRow",
+      "path": "/src/components/6-utilities/NestGapRow.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "gap",
+          "label": "Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "small"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestMaxWidth",
+      "path": "/src/components/6-utilities/NestMaxWidth.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "maxWidth",
+          "label": "Max Width",
+          "kind": "enum",
+          "options": [
+            "none",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall"
+          ],
+          "default": "none"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestPaddingGlobal",
+      "path": "/src/components/6-utilities/NestPaddingGlobal.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "sidePadding",
+          "label": "Side Padding",
+          "kind": "enum",
+          "options": [
+            "global",
+            "small",
+            "none"
+          ],
+          "default": "global"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestSize",
+      "path": "/src/components/6-utilities/NestSize.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "size",
+          "label": "Size",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny"
+          ],
+          "default": "small"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestSlideWidth",
+      "path": "/src/components/6-utilities/NestSlideWidth.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "slides",
+          "label": "Slides",
+          "kind": "enum",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "default": "3"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestTextWrap",
+      "path": "/src/components/6-utilities/NestTextWrap.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "textWrap",
+          "label": "Text Wrap",
+          "kind": "enum",
+          "options": [
+            "normal",
+            "pretty",
+            "balance"
+          ],
+          "default": "normal"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "NestVerticalAlignment",
+      "path": "/src/components/6-utilities/NestVerticalAlignment.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "verticalAlignment",
+          "label": "Vertical Alignment",
+          "kind": "enum",
+          "options": [
+            "top",
+            "center",
+            "bottom"
+          ],
+          "default": "center"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "UtilitySectionPadding",
+      "path": "/src/components/6-utilities/UtilitySectionPadding.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "paddingSize",
+          "label": "Padding Size",
+          "kind": "enum",
+          "options": [
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "tiny",
+            "none"
+          ],
+          "default": "large"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "UtilitySpacer",
+      "path": "/src/components/6-utilities/UtilitySpacer.astro",
+      "category": "Utilities",
+      "props": [
+        {
+          "name": "size",
+          "label": "Size",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none",
+            "medium-flex-grow"
+          ],
+          "default": "medium"
+        },
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "kind": "boolean",
+          "default": true
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "IconButtonFlipArrow",
+      "path": "/src/components/7-icons/IconButtonFlipArrow.astro",
+      "category": "Icons",
+      "props": [],
+      "slots": []
+    },
+    {
+      "name": "IconGlobal",
+      "path": "/src/components/7-icons/IconGlobal.astro",
+      "category": "Icons",
+      "props": [
+        {
+          "name": "color",
+          "label": "Color",
+          "kind": "enum",
+          "options": [
+            "inherit",
+            "accent"
+          ],
+          "default": "inherit"
+        },
+        {
+          "name": "size",
+          "label": "Size",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny"
+          ],
+          "default": "medium"
+        },
+        {
+          "name": "icon",
+          "label": "Icon",
+          "kind": "enum",
+          "options": [
+            "template",
+            "example"
+          ],
+          "default": "template"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "ElementAutoAccordion",
+      "path": "/src/components/8-interactive/ElementAutoAccordion.astro",
+      "category": "Interactive",
+      "props": [
+        {
+          "name": "elementRichTextBodyFontSize",
+          "label": "Element / Rich Text/Body Font Size",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "regular",
+            "small",
+            "tiny"
+          ],
+          "default": "regular"
+        },
+        {
+          "name": "elementRichTextRichTextTag",
+          "label": null,
+          "kind": "string",
+          "default": "p"
+        },
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "kind": "boolean",
+          "default": true
+        }
+      ],
+      "slots": [
+        {
+          "name": "text",
+          "kind": "inline"
+        },
+        {
+          "name": "elementrichtextrichtext",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "ElementAutoTabLink",
+      "path": "/src/components/8-interactive/ElementAutoTabLink.astro",
+      "category": "Interactive",
+      "props": [
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "variant",
+          "label": "Variant",
+          "kind": "enum",
+          "options": [
+            "dark-mode",
+            "light-mode"
+          ],
+          "default": "dark-mode"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "ElementAutoTabPane",
+      "path": "/src/components/8-interactive/ElementAutoTabPane.astro",
+      "category": "Interactive",
+      "props": [
+        {
+          "name": "buttonGroupVisibility",
+          "label": "Button Group/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "buttonGroupText",
+          "label": "Button Group/Text",
+          "kind": "string",
+          "default": "Book a Demo"
+        },
+        {
+          "name": "buttonGroupLink",
+          "label": "Button Group/Link",
+          "kind": "string",
+          "default": "#"
+        },
+        {
+          "name": "buttonGroupLinkTarget",
+          "label": null,
+          "kind": "string",
+          "default": ""
+        },
+        {
+          "name": "headingHeadingMaxWidth",
+          "label": "Heading/Heading Max Width",
+          "kind": "enum",
+          "options": [
+            "none",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall"
+          ],
+          "default": "none"
+        },
+        {
+          "name": "taglineVisibility",
+          "label": "Tagline/Visibility",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "image",
+          "label": "Image",
+          "kind": "image"
+        },
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "variant",
+          "label": "Variant",
+          "kind": "enum",
+          "options": [
+            "dark-mode",
+            "light-mode"
+          ],
+          "default": "dark-mode"
+        }
+      ],
+      "slots": [
+        {
+          "name": "bodyrichtext",
+          "kind": "rich"
+        },
+        {
+          "name": "headingtext",
+          "kind": "string"
+        },
+        {
+          "name": "taglinetext",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "LayoutAutoSlotTabs",
+      "path": "/src/components/8-interactive/LayoutAutoSlotTabs.astro",
+      "category": "Interactive",
+      "props": [
+        {
+          "name": "tabsShowAllInDesigner",
+          "label": "Tabs/Show All in Designer?",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "tabsAutoTabDurationS",
+          "label": "Tabs/Auto Tab Duration (s)",
+          "kind": "number",
+          "default": 7
+        }
+      ],
+      "slots": [
+        {
+          "name": "tab-links",
+          "kind": "blocks"
+        },
+        {
+          "name": "default",
+          "kind": "blocks"
+        }
+      ]
+    },
+    {
+      "name": "Marquee",
+      "path": "/src/components/8-interactive/Marquee.astro",
+      "category": "Interactive",
+      "props": [
+        {
+          "name": "copies",
+          "label": "Copies (#)",
+          "kind": "number",
+          "default": 2
+        },
+        {
+          "name": "durationS",
+          "label": "Duration (s)",
+          "kind": "number",
+          "default": 40
+        },
+        {
+          "name": "itemWidthMobilePRem",
+          "label": "Item width Mobile P. (rem)",
+          "kind": "number",
+          "default": 5
+        },
+        {
+          "name": "itemWidthMobileLRem",
+          "label": "Item width Mobile L. (rem)",
+          "kind": "number",
+          "default": 5
+        },
+        {
+          "name": "itemWidthTabletRem",
+          "label": "Item width Tablet (rem)",
+          "kind": "number",
+          "default": 6
+        },
+        {
+          "name": "itemWidthDesktopRem",
+          "label": "Item width Desktop (rem)",
+          "kind": "number",
+          "default": 7
+        },
+        {
+          "name": "gap",
+          "label": "Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "small"
+        },
+        {
+          "name": "direction",
+          "label": "Direction",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "idRequired",
+          "label": "ID (required)",
+          "kind": "string",
+          "default": ""
+        },
+        {
+          "name": "variant",
+          "label": "Variant",
+          "kind": "enum",
+          "options": [
+            "edge-fade",
+            "infinite",
+            "edge-clipped",
+            "card"
+          ],
+          "default": "edge-fade"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "blocks"
+        }
+      ]
+    },
+    {
+      "name": "Slider",
+      "path": "/src/components/8-interactive/Slider.astro",
+      "category": "Interactive",
+      "props": [
+        {
+          "name": "buttonGroupVisibility",
+          "label": "Button Group/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "bodyPlainTextFontSize",
+          "label": "Body/Plain Text Font Size",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "regular",
+            "small",
+            "tiny"
+          ],
+          "default": "regular"
+        },
+        {
+          "name": "bodyRichTextFontSize",
+          "label": "Body/Rich Text Font Size",
+          "kind": "enum",
+          "options": [
+            "large",
+            "medium",
+            "regular",
+            "small",
+            "tiny"
+          ],
+          "default": "regular"
+        },
+        {
+          "name": "bodyRichTextTag",
+          "label": null,
+          "kind": "string",
+          "default": "p"
+        },
+        {
+          "name": "bodyContentType",
+          "label": "Body/Content Type",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "bodyVisibility",
+          "label": "Body/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "headingHeadingMaxWidth",
+          "label": "Heading/Heading Max Width",
+          "kind": "enum",
+          "options": [
+            "none",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall"
+          ],
+          "default": "none"
+        },
+        {
+          "name": "headingStyle",
+          "label": "Heading/Style",
+          "kind": "enum",
+          "options": [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h0"
+          ],
+          "default": "h2"
+        },
+        {
+          "name": "headingTag",
+          "label": "Heading/Tag",
+          "kind": "string",
+          "default": "h2"
+        },
+        {
+          "name": "headingVisibility",
+          "label": "Heading/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "taglineVisibility",
+          "label": "Tagline/Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "contentTextWrap",
+          "label": "Content/Text Wrap",
+          "kind": "enum",
+          "options": [
+            "normal",
+            "pretty",
+            "balance"
+          ],
+          "default": "normal"
+        },
+        {
+          "name": "contentMaxWidth",
+          "label": "Content/Max Width",
+          "kind": "enum",
+          "options": [
+            "none",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall"
+          ],
+          "default": "none"
+        },
+        {
+          "name": "configMousewheel",
+          "label": "Config/Mousewheel",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "configFollowFinger",
+          "label": "Config/Follow Finger",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "configFreeMode",
+          "label": "Config/Free Mode",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "configSlideToClickedSlide",
+          "label": "Config/Slide to Clicked Slide",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "configRewind",
+          "label": "Config/Rewind",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "configLoop",
+          "label": "Config/Loop",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "configAutoplayDelayMs",
+          "label": "Config/Autoplay Delay (ms)",
+          "kind": "number",
+          "default": 7000
+        },
+        {
+          "name": "configAutoplay",
+          "label": "Config/Autoplay",
+          "kind": "boolean",
+          "default": false
+        },
+        {
+          "name": "configEffect",
+          "label": "Config/Effect",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "configSpeedMs",
+          "label": "Config/Speed (ms)",
+          "kind": "number",
+          "default": 600
+        },
+        {
+          "name": "styleSlidesMobileP",
+          "label": "Style/Slides (Mobile P.)",
+          "kind": "enum",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "default": "1"
+        },
+        {
+          "name": "styleSlidesMobileL",
+          "label": "Style/Slides (Mobile L.)",
+          "kind": "enum",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "default": "2"
+        },
+        {
+          "name": "styleSlidesTablet",
+          "label": "Style/Slides (Tablet)",
+          "kind": "enum",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "default": "2"
+        },
+        {
+          "name": "styleSlidesDesktop",
+          "label": "Style/Slides (Desktop)",
+          "kind": "enum",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "default": "3"
+        },
+        {
+          "name": "styleGap",
+          "label": "Style/Gap",
+          "kind": "enum",
+          "options": [
+            "xxhuge",
+            "xhuge",
+            "huge",
+            "xxlarge",
+            "xlarge",
+            "large",
+            "medium",
+            "small",
+            "xsmall",
+            "xxsmall",
+            "tiny",
+            "none"
+          ],
+          "default": "small"
+        },
+        {
+          "name": "elementsButtons",
+          "label": "Elements/Buttons",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "elementsPagination",
+          "label": "Elements/Pagination",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "elementsControls",
+          "label": "Elements/Controls",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "swiperJsScript",
+          "label": "Swiper JS Script",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "kind": "boolean",
+          "default": true
+        },
+        {
+          "name": "variant",
+          "label": "Variant",
+          "kind": "enum",
+          "options": [
+            "base",
+            "content-above"
+          ],
+          "default": "base"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "kind": "blocks"
+        },
+        {
+          "name": "content",
+          "kind": "blocks"
+        },
+        {
+          "name": "bodyplaintext",
+          "kind": "inline"
+        },
+        {
+          "name": "bodyrichtext",
+          "kind": "inline"
+        },
+        {
+          "name": "headingtext",
+          "kind": "string"
+        },
+        {
+          "name": "taglinetext",
+          "kind": "inline"
+        }
+      ]
+    },
+    {
+      "name": "CollectionResourceLibrary",
+      "path": "/src/components/9-collections/CollectionResourceLibrary.astro",
+      "category": "Collections",
+      "props": [],
+      "slots": []
+    },
+    {
+      "name": "CollectionTeamList",
+      "path": "/src/components/9-collections/CollectionTeamList.astro",
+      "category": "Collections",
+      "props": [
+        {
+          "name": "group",
+          "label": "Group",
+          "kind": "enum",
+          "options": [
+            "leadership",
+            "advisors"
+          ],
+          "default": "leadership"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "ElementZPatternItem",
+      "path": "/src/components/ElementZPatternItem.astro",
+      "category": "Elements",
+      "props": [
+        {
+          "name": "variant",
+          "label": "Variant",
+          "kind": "enum",
+          "options": [
+            "base",
+            "reversed"
+          ],
+          "default": "base"
+        }
+      ],
+      "slots": [
+        {
+          "name": "content",
+          "kind": "blocks"
+        },
+        {
+          "name": "default",
+          "kind": "blocks"
+        }
+      ]
+    }
+  ]
+}

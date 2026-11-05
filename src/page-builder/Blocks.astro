@@ -1,0 +1,75 @@
+---
+/**
+ * Renders page builder blocks from Sanity with the real components. Props are passed through
+ * as-is (unset props fall back to the component's own defaults) and slots are filled by kind.
+ */
+import { portableTextToHtml, portableTextToInlineHtml } from '@/lib/portable-text';
+import { slotField } from './fields';
+import { registry } from './registry';
+
+interface Props {
+  blocks?: any[];
+}
+const { blocks = [] } = Astro.props;
+
+const isEmpty = (value: unknown) => value == null || value === '' || (Array.isArray(value) && value.length === 0);
+
+const items = blocks.map((block) => {
+  if (block?._type === 'htmlEmbed') return { kind: 'html' as const, html: block.code ?? '' };
+  if (block?._type === 'htmlWrapper') {
+    const attrs = Object.fromEntries((block.attributes ?? []).filter((a: any) => a?.name).map((a: any) => [a.name, a.value ?? '']));
+    return { kind: 'wrapper' as const, Tag: block.tag || 'div', attrs: { ...attrs, class: block.className || undefined }, children: block.children ?? [] };
+  }
+  const def = registry[block?._type];
+  if (!def?.Component) {
+    console.warn(`[page-builder] No component for block type "${block?._type}"`);
+    return null;
+  }
+  const props: Record<string, unknown> = {};
+  for (const prop of def.props) {
+    const value = block[prop.name];
+    if (value != null) props[prop.name] = value;
+  }
+  const slots = def.slots
+    .map((slot) => ({ ...slot, value: block[slotField(slot.name)] }))
+    .filter((slot) => !isEmpty(slot.value))
+    .map((slot) => ({
+      name: slot.name === 'default' ? undefined : slot.name,
+      blocks: slot.kind === 'blocks' ? slot.value : undefined,
+      html:
+        slot.kind === 'blocks'
+          ? undefined
+          : slot.kind === 'rich'
+            ? portableTextToHtml(slot.value)
+            : slot.kind === 'inline'
+              ? portableTextToInlineHtml(slot.value)
+              : slot.kind === 'svg'
+                ? String(slot.value)
+                : escape(String(slot.value)),
+    }));
+  return { kind: 'component' as const, Component: def.Component, props, slots };
+});
+
+function escape(text: string) {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+---
+{items.map((item) =>
+  !item ? null : item.kind === 'html' ? (
+    <Fragment set:html={item.html} />
+  ) : item.kind === 'wrapper' ? (
+    <item.Tag {...item.attrs}><Astro.self blocks={item.children} /></item.Tag>
+  ) : (
+    <item.Component {...item.props}>
+      {item.slots.map((slot) =>
+        slot.blocks ? (
+          slot.name ? <Fragment slot={slot.name}><Astro.self blocks={slot.blocks} /></Fragment> : <Astro.self blocks={slot.blocks} />
+        ) : slot.name ? (
+          <Fragment slot={slot.name} set:html={slot.html} />
+        ) : (
+          <Fragment set:html={slot.html} />
+        ),
+      )}
+    </item.Component>
+  ),
+)}
