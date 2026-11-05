@@ -7,7 +7,10 @@
   // The Astro Cloudflare adapter sets "main" and the assets directory at build time.
   "assets": {
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    // Browser navigations that match no asset get the 404 page without reaching the Worker,
+    // so the on-demand routes have to run first.
+    "run_worker_first": ["/api/*", "/preview", "/preview/*"]
   }
   // Secret (not in this file): SANITY_API_READ_TOKEN — `npx wrangler secret put SANITY_API_READ_TOKEN`
 }
