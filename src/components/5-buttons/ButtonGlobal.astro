@@ -47,15 +47,15 @@ if (!["normal", "small"].includes(propSize)) throw new Error("ButtonGlobal.size 
 
 
 ---
-{propVisibility && (<div data-wf-id="46c59d33-084b-6a9a-23ea-cf8914a01107" data-w-id="46c59d33-084b-6a9a-23ea-cf8914a01107" data-wf--button-global--style={{"primary": "primary", "secondary": "secondary", "link": "link"}[propStyle]} class:list={[{"secondary": "w-variant-1527680c-a266-90fa-0402-e1a2fb300859", "link": "w-variant-3c43431d-07e1-8b83-aef5-c1c96c2d48fa"}[propStyle], "button"]} data-wf-variant={["0aeb97fd-2ecf-95a5-c224-ec8cba06b42d=" + ({"primary": "base", "secondary": "1527680c-a266-90fa-0402-e1a2fb300859", "link": "3c43431d-07e1-8b83-aef5-c1c96c2d48fa"}[propStyle])].join(" ")}>
-<a target={propLinkTarget || ((propSettingsTarget === true ? "_self" : "_blank"))} role={(propSettingsRole === true ? "link" : "button")} aria-label={text(propText)} data-wf-id="d7571242-2f75-14fa-8c30-c424de8e9074" data-w-id="d7571242-2f75-14fa-8c30-c424de8e9074" class="absolute-link" href={propLink}></a>
-{propLeadingIconVisibility && (<div data-wf-id="9f141b4c-e23b-23b2-5441-2ef77f6b48b9" data-w-id="9f141b4c-e23b-23b2-5441-2ef77f6b48b9" class="button_icon is-leading" name="Icon">
+{propVisibility && (<div data-w-id="46c59d33-084b-6a9a-23ea-cf8914a01107" data-wf--button-global--style={{"primary": "primary", "secondary": "secondary", "link": "link"}[propStyle]} class:list={[{"secondary": "w-variant-1527680c-a266-90fa-0402-e1a2fb300859", "link": "w-variant-3c43431d-07e1-8b83-aef5-c1c96c2d48fa"}[propStyle], "button"]} data-wf-variant={["0aeb97fd-2ecf-95a5-c224-ec8cba06b42d=" + ({"primary": "base", "secondary": "1527680c-a266-90fa-0402-e1a2fb300859", "link": "3c43431d-07e1-8b83-aef5-c1c96c2d48fa"}[propStyle])].join(" ")}>
+<a target={propLinkTarget || ((propSettingsTarget === true ? "_self" : "_blank"))} role={(propSettingsRole === true ? "link" : "button")} aria-label={text(propText)} data-w-id="d7571242-2f75-14fa-8c30-c424de8e9074" class="absolute-link" href={propLink}></a>
+{propLeadingIconVisibility && (<div data-w-id="9f141b4c-e23b-23b2-5441-2ef77f6b48b9" class="button_icon is-leading" name="Icon">
 <slot name="icon" />
 </div>)}
-<div data-wf-id="46c59d33-084b-6a9a-23ea-cf8914a01108" data-w-id="46c59d33-084b-6a9a-23ea-cf8914a01108" class="button_text">
+<div data-w-id="46c59d33-084b-6a9a-23ea-cf8914a01108" class="button_text">
 {propText}
 </div>
-{propTrailingIconVisibility && (<div data-wf-id="3039f960-7691-a5a5-524d-7249ae780d5f" data-w-id="3039f960-7691-a5a5-524d-7249ae780d5f" class="button_icon is-trailing" name="Icon">
+{propTrailingIconVisibility && (<div data-w-id="3039f960-7691-a5a5-524d-7249ae780d5f" class="button_icon is-trailing" name="Icon">
 <slot />
 </div>)}
 <NestButtonSize size={propSize} />

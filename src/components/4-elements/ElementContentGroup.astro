@@ -73,19 +73,19 @@ if (!["left", "center", "right", "stretch"].includes(propContentAlignment)) thro
 
 const Tag = safeTag(propBodyRichTextTag, "p");
 ---
-<div data-wf-id="519f2dbe-73c5-2886-4550-84995262fca2" data-w-id="519f2dbe-73c5-2886-4550-84995262fca2" class="content-group">
-<div data-wf-id="5375175e-67bc-50d7-94ae-5be9927980d0" data-w-id="5375175e-67bc-50d7-94ae-5be9927980d0" class="content-group_wrapper">
+<div data-w-id="519f2dbe-73c5-2886-4550-84995262fca2" class="content-group">
+<div data-w-id="5375175e-67bc-50d7-94ae-5be9927980d0" class="content-group_wrapper">
 <ElementTagline visibility={propTaglineVisibility}>
 <slot name="taglinetext">{propTaglineText}</slot>
 </ElementTagline>
-<div data-wf-id="bc7ce8f5-5edf-c64b-357b-7c3a5ac4832c" data-w-id="bc7ce8f5-5edf-c64b-357b-7c3a5ac4832c">
+<div data-w-id="bc7ce8f5-5edf-c64b-357b-7c3a5ac4832c">
 <ElementDynamicHeading style={propHeadingStyle} tag={propHeadingTag} visibility={propHeadingVisibility}>
 <slot name="headingtext">{propHeadingText}</slot>
 </ElementDynamicHeading>
 <NestMaxWidth maxWidth={propHeadingHeadingMaxWidth} />
 </div>
 <ElementRichText bodyFontSize={propBodyRichTextFontSize} visibility={((propBodyVisibility === true) && (propBodyContentType === true))}>
-<Fragment slot="richtext-blocks">{Astro.slots.has("bodyrichtext-blocks") ? (<slot name="bodyrichtext-blocks" />) : (<Tag data-wf-id="76cac959-5b30-bec6-9387-f8803fac9e46" data-w-id="76cac959-5b30-bec6-9387-f8803fac9e46">
+<Fragment slot="richtext-blocks">{Astro.slots.has("bodyrichtext-blocks") ? (<slot name="bodyrichtext-blocks" />) : (<Tag data-w-id="76cac959-5b30-bec6-9387-f8803fac9e46">
 <slot name="bodyrichtext">{propBodyRichText}</slot>
 </Tag>)}</Fragment>
 </ElementRichText>
@@ -96,7 +96,7 @@ const Tag = safeTag(propBodyRichTextTag, "p");
 <NestGap gap={propContentGap} />
 <NestMaxWidth maxWidth={propContentMaxWidth} />
 </div>
-{propButtonGroupVisibility && (<div data-wf-id="789f3080-3e58-7765-3b6f-f456c2242c72" data-w-id="789f3080-3e58-7765-3b6f-f456c2242c72" class="button-group" name="">
+{propButtonGroupVisibility && (<div data-w-id="789f3080-3e58-7765-3b6f-f456c2242c72" class="button-group" name="">
 <slot />
 </div>)}
 <NestAlignment alignment={propContentAlignment} />

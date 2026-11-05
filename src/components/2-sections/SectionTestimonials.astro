@@ -32,12 +32,12 @@ const collections = {
 };
 const items1 = [...collections["testimonials"]];
 ---
-<div data-wf-id="63a07a60-a134-8c3a-4c0a-e75f2d4a1157" data-w-id="63a07a60-a134-8c3a-4c0a-e75f2d4a1157" class="global_testimonials">
+<div data-w-id="63a07a60-a134-8c3a-4c0a-e75f2d4a1157" class="global_testimonials">
 <Section sectionColorScheme="light">
 <Slider buttonGroupVisibility={false} bodyVisibility={false} headingStyle="h2" configRewind={true} configLoop={true} styleSlidesMobileL="1" styleSlidesTablet="1" styleSlidesDesktop="1" elementsButtons={true} elementsPagination={false} elementsControls={true} variant="content-above">
-<div data-wf-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115a" data-w-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115a" class="w-dyn-list">
-<div data-wf-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115b" data-w-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115b" class="w-dyn-items">
-{items1.map((item0) => (<div data-wf-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115c" data-w-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115c" class="w-dyn-item"><ElementTestimonialBento testimonialButtonLinkTarget={linkTarget(evaluate(bindings[3], { data, Dynamo: item0.fields }))} testimonialButtonLink={linkUrl(evaluate(bindings[2], { data, Dynamo: item0.fields }))} spacerVisibility={true} imageImage={item0.fields.image}>
+<div data-w-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115a" class="w-dyn-list">
+<div data-w-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115b" class="w-dyn-items">
+{items1.map((item0) => (<div data-w-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115c" class="w-dyn-item"><ElementTestimonialBento testimonialButtonLinkTarget={linkTarget(evaluate(bindings[3], { data, Dynamo: item0.fields }))} testimonialButtonLink={linkUrl(evaluate(bindings[2], { data, Dynamo: item0.fields }))} spacerVisibility={true} imageImage={item0.fields.image}>
 <Fragment slot="testimonialattribution">{item0.fields["testimonial-title-attribution"] ?? ""}</Fragment>
 <Fragment slot="testimonialname">{item0.fields["testimonial-name"] ?? ""}</Fragment>
 <Fragment slot="testimonialbody">{item0.fields["testimonial-text"] ?? ""}</Fragment>
@@ -45,8 +45,8 @@ const items1 = [...collections["testimonials"]];
 <Fragment slot="statstat">{item0.fields["stat-number"] ?? ""}</Fragment>
 </ElementTestimonialBento></div>))}
 </div>
-{!items1.length && (<div data-wf-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115e" data-w-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115e" class="w-dyn-empty">
-<div data-wf-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115f" data-w-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115f">
+{!items1.length && (<div data-w-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115e" class="w-dyn-empty">
+<div data-w-id="63a07a60-a134-8c3a-4c0a-e75f2d4a115f">
 No items found.
 </div>
 </div>)}

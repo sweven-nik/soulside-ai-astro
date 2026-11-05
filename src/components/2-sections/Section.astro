@@ -60,19 +60,19 @@ for (const [key, name] of Object.entries({"ef270a65-2ef2-ae6d-a45b-ac13521e9e67"
 
 
 ---
-{propSectionVisibility && (<section id={(propSectionId) || undefined} class:list={["section_component", (propSectionColorScheme === "lightest" ? "color-scheme-light" : (propSectionColorScheme === "lighter" ? "color-scheme-light-alt" : (propSectionColorScheme === "light" ? "color-scheme-dark" : (propSectionColorScheme === "dark" ? "color-scheme-dark-alt" : ""))))]} data-wf-id="03461eb6-3a70-738e-78ab-54d2e0256e5e" data-w-id="03461eb6-3a70-738e-78ab-54d2e0256e5e">
-<div data-fade-in={text(propSectionFadeInAnimation)} class:list={["padding-global-dynamic", (propSectionSidePadding === "global" ? "padding-global" : (propSectionSidePadding === "small" ? "padding-global is-small" : (propSectionSidePadding === "none" ? "padding-global is-none" : "")))]} data-wf-id="03461eb6-3a70-738e-78ab-54d2e0256e5f" data-w-id="03461eb6-3a70-738e-78ab-54d2e0256e5f">
-<div class:list={["container-dynamic", (propSectionContainer === "large" ? "container-large" : (propSectionContainer === "medium" ? "container-medium" : (propSectionContainer === "small" ? "container-small" : (propSectionContainer === "xlarge" ? "container-xlarge" : ""))))]} data-wf-id="03461eb6-3a70-738e-78ab-54d2e0256e60" data-w-id="03461eb6-3a70-738e-78ab-54d2e0256e60">
+{propSectionVisibility && (<section id={(propSectionId) || undefined} class:list={["section_component", (propSectionColorScheme === "lightest" ? "color-scheme-light" : (propSectionColorScheme === "lighter" ? "color-scheme-light-alt" : (propSectionColorScheme === "light" ? "color-scheme-dark" : (propSectionColorScheme === "dark" ? "color-scheme-dark-alt" : ""))))]} data-w-id="03461eb6-3a70-738e-78ab-54d2e0256e5e">
+<div data-fade-in={text(propSectionFadeInAnimation)} class:list={["padding-global-dynamic", (propSectionSidePadding === "global" ? "padding-global" : (propSectionSidePadding === "small" ? "padding-global is-small" : (propSectionSidePadding === "none" ? "padding-global is-none" : "")))]} data-w-id="03461eb6-3a70-738e-78ab-54d2e0256e5f">
+<div class:list={["container-dynamic", (propSectionContainer === "large" ? "container-large" : (propSectionContainer === "medium" ? "container-medium" : (propSectionContainer === "small" ? "container-small" : (propSectionContainer === "xlarge" ? "container-xlarge" : ""))))]} data-w-id="03461eb6-3a70-738e-78ab-54d2e0256e60">
 <UtilitySectionPadding paddingSize={propSectionTopPadding} />
 <NestContainer container={propSectionContainer} />
-<div data-wf-id="2ff9b7a4-bfcf-5123-d53c-41874df4ed7c" data-w-id="2ff9b7a4-bfcf-5123-d53c-41874df4ed7c" class="component_slot" name="">
+<div data-w-id="2ff9b7a4-bfcf-5123-d53c-41874df4ed7c" class="component_slot" name="">
 <slot />
 </div>
 <UtilitySectionPadding paddingSize={propSectionBottomPadding} />
 </div>
 <NestPaddingGlobal sidePadding={propSectionSidePadding} />
 </div>
-{Boolean(evaluate(bindings[0], { data, Dynamo: collectionData })) && (<div sw-slot="" data-wf-id="219703d4-55f9-4289-0f64-a8f3f2640ecb" data-w-id="219703d4-55f9-4289-0f64-a8f3f2640ecb" class="section_background" name="">
+{Boolean(evaluate(bindings[0], { data, Dynamo: collectionData })) && (<div sw-slot="" data-w-id="219703d4-55f9-4289-0f64-a8f3f2640ecb" class="section_background" name="">
 <slot name="background" />
 </div>)}
 <NestColorScheme colorScheme={propSectionColorScheme} />

@@ -40,12 +40,12 @@ const collections = {
 };
 const items1 = [...collections["resource"]].filter(entry => { const value0 = entry.fields?.["_id"]; let expected0 = "DYN_CONTEXT"; if (typeof value0 === 'boolean' && ['true', 'false'].includes(expected0)) expected0 = expected0 === 'true'; if (typeof value0 === 'number' && typeof expected0 === 'string' && expected0.trim() !== '' && Number.isFinite(Number(expected0))) expected0 = Number(expected0); return (value0 !== expected0); }).sort((a, b) => { const x = a.fields["publish-date"], y = b.fields["publish-date"]; return (x === y ? 0 : x == null ? -1 : y == null ? 1 : typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y))) * -1; });
 ---
-<Layout webflowPageId="6abe9af376a33690663b8d3d" pageTitle={(collectionData.name ?? "") + " | Soulside AI"} pageDescription={(collectionData["post-summary"] ?? "")} data-wf-id="6a98fc634cb744f81e93ec47" data-w-id="6a98fc634cb744f81e93ec47">
-<div data-wf-id="df52569a-3b7c-d9be-4cf4-0c80b46c06e0" data-w-id="df52569a-3b7c-d9be-4cf4-0c80b46c06e0" class="page-wrapper">
+<Layout webflowPageId="6abe9af376a33690663b8d3d" pageTitle={(collectionData.name ?? "") + " | Soulside AI"} pageDescription={(collectionData["post-summary"] ?? "")} data-w-id="6a98fc634cb744f81e93ec47">
+<div data-w-id="df52569a-3b7c-d9be-4cf4-0c80b46c06e0" class="page-wrapper">
 <GlobalEmbeds />
 <GlobalAnnouncementBar />
 <GlobalNavbar />
-<div data-wf-id="2b0b05d2-b1c5-c31f-c9b6-8384f27cb1c5" data-w-id="2b0b05d2-b1c5-c31f-c9b6-8384f27cb1c5" class="main-wrapper">
+<div data-w-id="2b0b05d2-b1c5-c31f-c9b6-8384f27cb1c5" class="main-wrapper">
 <Section sectionContainer="small">
 <ElementContentGroup buttonGroupVisibility={false} bodyVisibility={false} headingStyle="h2" headingTag="h1">
 <Fragment slot="headingtext">{collectionData.name ?? ""}</Fragment>
@@ -60,15 +60,15 @@ const items1 = [...collections["resource"]].filter(entry => { const value0 = ent
 <ElementDynamicHeading style="h4">
 Related Posts
 </ElementDynamicHeading>
-<div data-wf-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e102" data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e102" class="w-dyn-list resources-wrapper">
-<div data-wf-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e103" data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e103" class="w-dyn-items resources-list 2-column">
-{items1.map((item0) => (<div data-wf-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e104" data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e104" class="w-dyn-item resources-item"><ElementBlogCard mainImage={item0.fields["main-image"]} linkTarget={linkTarget(evaluate(bindings[3], { data, Dynamo: item0.fields }))} link={linkUrl(evaluate(bindings[2], { data, Dynamo: item0.fields }))}>
+<div data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e102" class="w-dyn-list resources-wrapper">
+<div data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e103" class="w-dyn-items resources-list 2-column">
+{items1.map((item0) => (<div data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e104" class="w-dyn-item resources-item"><ElementBlogCard mainImage={item0.fields["main-image"]} linkTarget={linkTarget(evaluate(bindings[3], { data, Dynamo: item0.fields }))} link={linkUrl(evaluate(bindings[2], { data, Dynamo: item0.fields }))}>
 <Fragment slot="resourcetypename">{item0.fields["resource-type-2.name"] ?? ""}</Fragment>
 <Fragment slot="name">{item0.fields.name ?? ""}</Fragment>
 </ElementBlogCard></div>))}
 </div>
-{!items1.length && (<div data-wf-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e106" data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e106" class="w-dyn-empty">
-<div data-wf-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e107" data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e107">
+{!items1.length && (<div data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e106" class="w-dyn-empty">
+<div data-w-id="0b6b24bc-85cb-572d-3580-3b8c8cf9e107">
 No items found.
 </div>
 </div>)}

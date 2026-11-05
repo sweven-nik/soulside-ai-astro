@@ -34,37 +34,37 @@ const propStatStat = "80%";
 
 
 ---
-<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefbe" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefbe" class="bento-testimonial">
-<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefbf" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefbf" class="bento-testi-left">
-<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc0" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc0" class="testi-stat-card">
-<div small-stat-size={text(false)} data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc1" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc1" class="stat-card_stat">
+<div data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefbe" class="bento-testimonial">
+<div data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefbf" class="bento-testi-left">
+<div data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc0" class="testi-stat-card">
+<div small-stat-size={text(false)} data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc1" class="stat-card_stat">
 <slot name="statstat">{propStatStat}</slot>
 </div>
-<p data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc3" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc3" class="text-size-medium">
+<p data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc3" class="text-size-medium">
 <slot name="statdescription">{propStatDescription}</slot>
 </p>
 </div>
-<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc5" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc5" class="bento-testi-image">
-<img alt={((propImageImage)?.alt || '') || ''} src={imageUrl(propImageImage) || (__lumosAsset52)} loading="lazy" data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc6" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc6" class="cover-image" />
+<div data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc5" class="bento-testi-image">
+<img alt={((propImageImage)?.alt || '') || ''} src={imageUrl(propImageImage) || (__lumosAsset52)} loading="lazy" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc6" class="cover-image" />
 </div>
 </div>
-<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc7" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc7" class="bento-testi-right">
-<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc8" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc8" class="bento-testi-content">
-<p data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefc9" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc9" class="heading-style-h4">
+<div data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc7" class="bento-testi-right">
+<div data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc8" class="bento-testi-content">
+<p data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefc9" class="heading-style-h4">
 <slot name="testimonialbody">{propTestimonialBody}</slot>
 </p>
 <UtilitySpacer size={propSpacerSize} visibility={propSpacerVisibility} />
-<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefcc" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefcc" class="bento-testi-attr">
-<p data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefcd" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefcd" class="heading-style-h5">
+<div data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefcc" class="bento-testi-attr">
+<p data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefcd" class="heading-style-h5">
 <slot name="testimonialname">{propTestimonialName}</slot>
 </p>
-<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefcf" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefcf">
+<div data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefcf">
 <slot name="testimonialattribution">{propTestimonialAttribution}</slot>
 </div>
 </div>
 </div>
-{hasValue(({mode: 'external', url: propTestimonialButtonLink, target: propTestimonialButtonLinkTarget || undefined})) && (<a data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefd1" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefd1" class="bento-testi-button" href={propTestimonialButtonLink} target={propTestimonialButtonLinkTarget || (undefined)}>
-<div data-wf-id="0e9ad686-efc3-abf6-d767-3c67919eefd2" data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefd2">
+{hasValue(({mode: 'external', url: propTestimonialButtonLink, target: propTestimonialButtonLinkTarget || undefined})) && (<a data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefd1" class="bento-testi-button" href={propTestimonialButtonLink} target={propTestimonialButtonLinkTarget || (undefined)}>
+<div data-w-id="0e9ad686-efc3-abf6-d767-3c67919eefd2">
 <slot name="testimonialbuttonlabel">{propTestimonialButtonLabel}</slot>
 </div>
 <IconButtonFlipArrow />
