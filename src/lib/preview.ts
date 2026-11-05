@@ -19,7 +19,7 @@ export const configuredToken = () => (env as Record<string, string | undefined>)
  * `astro dev` without a token (no .dev.vars) previews *published* content with the overlays,
  * so the preview can be worked on locally. Never in a production build.
  */
-const devWithoutToken = () => import.meta.env.DEV && !configuredToken();
+export const devWithoutToken = () => import.meta.env.DEV && !configuredToken();
 
 export function readToken(): string {
   const token = configuredToken();
