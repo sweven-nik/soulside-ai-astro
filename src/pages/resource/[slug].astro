@@ -22,9 +22,9 @@ const bindings: any[] = [
   {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Call", "val": {"fun": {"type": "Variable", "val": ["DynamoGateway", "dynamoFullSlugToBasicLinkV2"]}, "arg": {"type": "Union", "val": {"tag": "This tab", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Union", "val": {"tag": "None", "value": {"type": "Record", "val": {}}}}}}, "arg": {"type": "Select", "val": {"from": {"type": "Variable", "val": "Dynamo"}, "prop": "fullSlug"}}}}
 ];
 
-import { getCollection } from 'astro:content';
+import { getCollectionInSourceOrder } from '@/lib/collections';
 export async function getStaticPaths() {
-  const entries = await getCollection("resource");
+  const entries = await getCollectionInSourceOrder("resource");
   const slugs = new Set();
   return entries.filter(e => !e.data.isDraft && !e.data.isArchived).map(entry => {
     const slug = entry.id;
@@ -36,7 +36,7 @@ export async function getStaticPaths() {
 const data = {};
 const collectionData = resolveAssetUrls({ ...Astro.props.entry.data, slug: Astro.props.entry.id, fullSlug: "/resource/" + Astro.props.entry.id, ...Object.fromEntries(Object.entries(Astro.props.entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: Astro.props.entry.data[key], alt }])) });
 const collections = {
-  "resource": (await getCollection("resource")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/resource/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
+  "resource": (await getCollectionInSourceOrder("resource")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/resource/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
 };
 const items1 = [...collections["resource"]].filter(entry => { const value0 = entry.fields?.["_id"]; let expected0 = "DYN_CONTEXT"; if (typeof value0 === 'boolean' && ['true', 'false'].includes(expected0)) expected0 = expected0 === 'true'; if (typeof value0 === 'number' && typeof expected0 === 'string' && expected0.trim() !== '' && Number.isFinite(Number(expected0))) expected0 = Number(expected0); return (value0 !== expected0); }).sort((a, b) => { const x = a.fields["publish-date"], y = b.fields["publish-date"]; return (x === y ? 0 : x == null ? -1 : y == null ? 1 : typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y))) * -1; });
 ---

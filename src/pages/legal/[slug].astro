@@ -9,9 +9,9 @@ import ElementDynamicHeading from '@/components/4-elements/ElementDynamicHeading
 import ElementRichTextLongForm from '@/components/4-elements/ElementRichTextLongForm.astro';
 import GlobalFooter from '@/components/1-globals/GlobalFooter.astro';
 
-import { getCollection } from 'astro:content';
+import { getCollectionInSourceOrder } from '@/lib/collections';
 export async function getStaticPaths() {
-  const entries = await getCollection("legal");
+  const entries = await getCollectionInSourceOrder("legal");
   const slugs = new Set();
   return entries.filter(e => !e.data.isDraft && !e.data.isArchived).map(entry => {
     const slug = entry.id;

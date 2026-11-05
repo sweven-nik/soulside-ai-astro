@@ -1,6 +1,6 @@
 ---
 import { resolveAssetUrls } from '@/lib/asset-urls';
-import { getCollection } from 'astro:content';
+import { getCollectionInSourceOrder } from '@/lib/collections';
 import Layout from '@/layouts/Layout.astro';
 import { evaluate } from '@/lib/bindings';
 import { linkUrl, linkTarget } from '@/lib/urls';
@@ -32,12 +32,12 @@ const bindings: any[] = [
 const data = {};
 const collectionData = {};
 const collections = {
-  "team": (await getCollection("team")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/team/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
+  "team": (await getCollectionInSourceOrder("team")).filter(entry => !entry.data.isDraft && !entry.data.isArchived).map(entry => ({id: entry.data._id ?? entry.id, fields: resolveAssetUrls({ ...entry.data, slug: entry.id, fullSlug: "/team/" + entry.id, ...Object.fromEntries(Object.entries(entry.data._imageAlts ?? {}).map(([key, alt]) => [key, { url: entry.data[key], alt }])) })}))
 };
 const items1 = [...collections["team"]].filter(entry => { const value0 = entry.fields?.["is-advisor"]; let expected0 = "true"; if (typeof value0 === 'boolean' && ['true', 'false'].includes(expected0)) expected0 = expected0 === 'true'; if (typeof value0 === 'number' && typeof expected0 === 'string' && expected0.trim() !== '' && Number.isFinite(Number(expected0))) expected0 = Number(expected0); return (value0 !== expected0); }).sort((a, b) => { const x = a.fields["sort-order"], y = b.fields["sort-order"]; return (x === y ? 0 : x == null ? -1 : y == null ? 1 : typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y))) * 1; });
 const items3 = [...collections["team"]].filter(entry => { const value0 = entry.fields?.["is-advisor"]; let expected0 = "true"; if (typeof value0 === 'boolean' && ['true', 'false'].includes(expected0)) expected0 = expected0 === 'true'; if (typeof value0 === 'number' && typeof expected0 === 'string' && expected0.trim() !== '' && Number.isFinite(Number(expected0))) expected0 = Number(expected0); return (value0 === expected0); }).sort((a, b) => { const x = a.fields["sort-order"], y = b.fields["sort-order"]; return (x === y ? 0 : x == null ? -1 : y == null ? 1 : typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y))) * 1; });
 ---
-<Layout webflowPageId="6ac68aa6b0e631582d38c953" pageTitle="About Soulside AI | Our Team &amp; Mission" pageDescription="Meet the technologists, psychiatrists, and therapists building Soulside AI: clinically grounded AI that helps behavioral health teams deliver better care." data-w-id="60d3f7b8b0e86c28630fc6d6">
+<Layout webflowPageId="6ac68aa6b0e631582d38c953" pageTitle="About Soulside AI | Our Team & Mission" pageDescription="Meet the technologists, psychiatrists, and therapists building Soulside AI: clinically grounded AI that helps behavioral health teams deliver better care." data-w-id="60d3f7b8b0e86c28630fc6d6">
 <div data-w-id="d24e5ea8-78da-f5b7-6dab-ac39945b55b0" class="page-wrapper">
 <GlobalEmbeds />
 <GlobalAnnouncementBar />
